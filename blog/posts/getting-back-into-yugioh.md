@@ -1,5 +1,5 @@
 ---
-title: "Getting Back Into Yu-Gi-Oh! in 2026: A Guide for Returning Players"
+title: Getting Back Into Yu-Gi-Oh! in 2026: A Guide for Returning Players
 date: 2026-11-23
 description: Coming back to Yu-Gi-Oh! after years away? Here is what changed, whether your old cards still work, the free ways back in, and why retro formats might be the game you remember.
 draft: true

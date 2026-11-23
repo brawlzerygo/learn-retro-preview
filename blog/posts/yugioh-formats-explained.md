@@ -1,5 +1,5 @@
 ---
-title: "Yu-Gi-Oh! Formats Explained, in Order (2002 to 2014)"
+title: Yu-Gi-Oh! Formats Explained, in Order (2002 to 2014)
 date: 2026-11-23
 description: Every classic Yu-Gi-Oh! format from Yugi-Kaiba in 2002 to HAT in 2014, in order, with what defined each one and which retro formats people still play today.
 draft: true

@@ -1,5 +1,5 @@
 ---
-title: "Goat Format Banlist Explained: Every Forbidden and Limited Card"
+title: Goat Format Banlist Explained: Every Forbidden and Limited Card
 date: 2026-11-23
 description: Goat format uses the April 2005 Forbidden and Limited list, and it never changes. Here is the full list and why the biggest cards on it are there.
 draft: true

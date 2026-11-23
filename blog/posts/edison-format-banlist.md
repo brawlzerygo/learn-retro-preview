@@ -1,5 +1,5 @@
 ---
-title: "Edison Format Banlist Explained: The March 2010 List"
+title: Edison Format Banlist Explained: The March 2010 List
 date: 2026-11-23
 description: Edison format uses the March 2010 Forbidden and Limited list. Here are the biggest cards on it, why they are there, and how it differs from Goat's list.
 draft: true

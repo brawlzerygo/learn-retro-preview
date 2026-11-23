@@ -1,5 +1,5 @@
 ---
-title: "How to Play Yu-Gi-Oh! on DuelingBook (Goat and Edison)"
+title: How to Play Yu-Gi-Oh! on DuelingBook (Goat and Edison)
 date: 2026-11-23
 description: DuelingBook is where most retro Yu-Gi-Oh! players duel online. Here is how to get started, build or import a deck, find Goat games, and where to play Edison.
 draft: true

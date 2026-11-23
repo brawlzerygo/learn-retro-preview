@@ -1,5 +1,5 @@
 ---
-title: "Goat vs Edison: Which Retro Yu-Gi-Oh! Format Should You Play?"
+title: Goat vs Edison: Which Retro Yu-Gi-Oh! Format Should You Play?
 date: 2026-11-23
 description: Goat freezes Yu-Gi-Oh! in 2005, Edison in 2010. Here is how the two retro formats differ in pace, cards and feel, and how to pick the one that fits you.
 draft: true
