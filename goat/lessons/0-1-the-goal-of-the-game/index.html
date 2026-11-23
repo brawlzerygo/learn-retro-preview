@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/goat/">
+<title>Step 0.1: The Goal of the Game | Learn Retro</title>
+<meta name="description" content="What Yu-Gi-Oh! is, how a game is won, and what each player brings.">
+<link rel="canonical" href="https://learnretro.com/goat/lessons/0-1-the-goal-of-the-game/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-23 (Zack: launch Goat with the move to learnretro.com/goat/). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('goat:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+<link rel="stylesheet" href="themes/goat.css?v=f2">
+<script src="/consent.js" defer></script>
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="goat"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Goat<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0, Goat 101 and 201</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2005 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 1,691 Goat-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>April 2005 list</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>Top and most played decks</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field and try plays</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/goat/course/" data-k="course">Course</a> / Step 0: The Basics / Part 1 of 7</div>
+      <h1>The Goal of the Game</h1><p class="sub">What Yu-Gi-Oh! is, how a game is won, and what each player brings. <span class="pill">6 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><div class="skipbar"><span>Played Yu-Gi-Oh! before? You can skip the basics.</span><a class="btn small" href="/goat/lessons/1-welcome-to-2005/" data-k="lesson-1">Go to Goat 101 →</a></div>
+
+<h2 id="sec-0">Two players, two decks</h2>
+<p>Yu-Gi-Oh! is a card game for two people. Each of you brings your own deck, built ahead of time from cards you chose. A single game is called a <b>Duel</b>.</p>
+<p>You and your opponent take turns. On your turn you put cards on the table, attack with your monsters and try to break through whatever your opponent set up. On their turn, they do the same to you.</p>
+<h2 id="sec-1">Life Points</h2>
+<p>Each player starts the Duel with <b>8000 Life Points</b>, or LP for short. Think of LP as your health bar. Attacks and some card effects take LP away. Some cards give it back.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>A Duel is a race. You are trying to push your opponent's number down to zero before they do it to you, while also protecting your own.</p></div>
+<h2 id="sec-2">How you win</h2>
+<p>There are three ways a Duel ends.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Way to win</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">LP reach 0</td><td>Your opponent's Life Points drop to zero. This is how nearly every Duel ends.</td></tr>
+<tr><td class="nw">Empty Deck</td><td>Your opponent needs to draw a card and has none left.</td></tr>
+<tr><td class="nw">A card says so</td><td>A few cards win on their own. <button type="button" class="cref" data-rid="33396948">Exodia the Forbidden One</button> wins if you hold it and its four limbs in your hand.</td></tr>
+</tbody></table></div>
+<h2 id="sec-3">Your three decks</h2>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Deck</th><th class="nw">Size</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">Main Deck</td><td class="nw">40 or more</td><td>The cards you shuffle and draw from. Most players use exactly 40.</td></tr>
+<tr><td class="nw">Fusion Deck</td><td class="nw">Any number</td><td>Special Fusion monsters that sit to the side. You never draw them. Lesson 0.4 shows how they come out.</td></tr>
+<tr><td class="nw">Side Deck</td><td class="nw">0 or 15</td><td>Extra options kept aside, traded into your deck after a game ends.</td></tr>
+</tbody></table></div>
+<p>Why 40 and not more? A smaller deck means you see your best cards more often. If you have one <button type="button" class="cref" data-rid="55144522">Pot of Greed</button> in 40 cards, you find it sooner than in 60.</p>
+<p>Three is the most copies of one card a deck may hold. A list called the banlist lowers that for some cards. Goat 101 covers that list.</p>
+<h2 id="sec-4">Starting the Duel</h2>
+<ol class="steps">
+<li><div>Both players shuffle their Main Deck and set it face-down.</div></li>
+<li><div>Decide who goes first. A coin flip or a dice roll is the usual way.</div></li>
+<li><div>Each player draws <b>5 cards</b>. That is your starting hand.</div></li>
+</ol>
+<div class="call rule"><b class="tag">Newer than Goat?</b><p>Today's game calls the Fusion Deck the Extra Deck and puts more kinds of monsters in it. In Goat, it only ever holds Fusion monsters.</p></div>
+<div class="recap"><h2 id="sec-5">Recap</h2><ul><li>A Duel is two players, each with their own deck, taking turns.</li><li>Both start with 8000 LP and a hand of 5.</li><li>Win by taking your opponent to 0 LP, by them running out of cards to draw, or by a card like Exodia.</li><li>Main Deck of 40 or more, a Fusion Deck to the side, and a Side Deck of 0 or 15.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="70781052" aria-label="Summoned Skull" style="background-image:url('img/70781052.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="33396948" aria-label="Exodia the Forbidden One" style="background-image:url('img/33396948.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="55144522" aria-label="Pot of Greed" style="background-image:url('img/55144522.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and art.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>What happens in a game of Yu-Gi-Oh!</li><li>The three ways a game can end</li><li>The three piles of cards you bring</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Two players, two decks</button><button type="button">Life Points</button><button type="button">How you win</button><button type="button">Your three decks</button><button type="button">Starting the Duel</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/goat/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">How many Life Points do you start a Duel with?</span><span class="a">8000.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many cards are in your starting hand?</span><span class="a">5.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What is the most common way to win a Duel?</span><span class="a">Bringing your opponent to 0 Life Points.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You need to draw and your Deck is empty. What happens?</span><span class="a">You lose the Duel.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What goes in the Fusion Deck?</span><span class="a">Fusion monsters only. You never draw from it.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many copies of one card can you play?</span><span class="a">Up to 3, unless the banlist allows fewer.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <span></span>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/goat/lessons/0-2-reading-a-card/" data-k="lesson-0.2">Step 0.2 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE. <a href="/privacy/">Privacy</a></p></footer>
+<div id="modal"></div>
+
+<!-- Card data from YGOPRODeck (the Goat pool and banlist, checked against goatformat.com), built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/lessons-step0.js"></script>
+<script src="data/lessons-101.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/rules.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

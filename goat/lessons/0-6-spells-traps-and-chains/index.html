@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/goat/">
+<title>Step 0.6: Spells, Traps and Chains | Learn Retro</title>
+<meta name="description" content="Setting cards, springing Traps, and what happens when cards answer each other.">
+<link rel="canonical" href="https://learnretro.com/goat/lessons/0-6-spells-traps-and-chains/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-23 (Zack: launch Goat with the move to learnretro.com/goat/). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('goat:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+<link rel="stylesheet" href="themes/goat.css?v=f2">
+<script src="/consent.js" defer></script>
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="goat"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Goat<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0, Goat 101 and 201</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2005 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 1,691 Goat-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>April 2005 list</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>Top and most played decks</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field and try plays</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/goat/course/" data-k="course">Course</a> / Step 0: The Basics / Part 6 of 7</div>
+      <h1>Spells, Traps and Chains</h1><p class="sub">Setting cards, springing Traps, and what happens when cards answer each other. <span class="pill">9 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><div class="skipbar"><span>Played Yu-Gi-Oh! before? You can skip the basics.</span><a class="btn small" href="/goat/lessons/1-welcome-to-2005/" data-k="lesson-1">Go to Goat 101 →</a></div>
+
+<h2 id="sec-0">Playing a Spell</h2>
+<p>In your Main Phase you can play a Spell straight from your hand: place it face-up in a Spell &amp; Trap Zone and do what it says. A Normal Spell then goes to the Graveyard. Or place it face-down and save it.</p>
+<h2 id="sec-1">Setting a Trap</h2>
+<p>A Trap can't be played from your hand. First you Set it face-down in your Main Phase. Starting with the <b>next</b> turn, you can flip it up whenever its condition happens, even in the middle of your opponent's turn.</p>
+<div class="call key"><b class="tag">Example</b><p>You Set <button type="button" class="cref" data-rid="56120475">Sakuretsu Armor</button>. On your opponent's turn their monster attacks. You flip Sakuretsu Armor up, and it destroys the attacker before the attack lands.</p></div>
+<h2 id="sec-2">Chains: cards answering cards</h2>
+<p>When a card is used, the other player gets a chance to answer it with a card of their own. Then the first player can answer that, and so on. This stack of answers is a <b>Chain</b>. Each card in it is a Chain Link.</p>
+<p>Once neither player adds anything, the Chain resolves <b>from the last link back to the first</b>.</p>
+<div class="call key"><b class="tag">Example</b><p>Your opponent attacks and you flip <button type="button" class="cref" data-rid="44095762">Mirror Force</button> (Chain Link 1). They answer with <button type="button" class="cref" data-rid="5318639">Mystical Space Typhoon</button> on your Mirror Force (Chain Link 2). The Chain resolves backwards: Mystical Space Typhoon destroys Mirror Force first. Mirror Force was already used, though, so it still resolves and destroys their Attack Position monsters. Destroying a card that is already in a Chain does not stop it. Only cards that say "negate" do that.</p></div>
+<h2 id="sec-3">Spell Speed</h2>
+<p>Cards and effects are rated 1, 2 or 3 for speed. A reply has to be at least as fast as the card it answers.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Speed</th><th>Cards</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">1</td><td>Most Spells, most monster effects</td><td>Can start a Chain but never answer one.</td></tr>
+<tr><td class="nw">2</td><td>Quick-Play Spells, Traps</td><td>Can answer Speed 1 or 2.</td></tr>
+<tr><td class="nw">3</td><td>Counter Traps</td><td>Can answer anything. Nothing but another Counter Trap can reply to one.</td></tr>
+</tbody></table></div>
+<p>So <button type="button" class="cref" data-rid="14087893">Book of Moon</button>, a Quick-Play Spell, can answer your opponent's Trap Card, but a Normal Spell like <button type="button" class="cref" data-rid="55144522">Pot of Greed</button> can never be played in reply to anything.</p>
+<div class="call mistake"><b class="tag">Common mistakes</b><ul><li>Springing a Trap the same turn you Set it. You must wait a turn.</li><li>Thinking destroying a used Trap stops it. Only negation stops it.</li><li>Answering a Trap with a Normal Spell. Too slow.</li></ul></div>
+<div class="recap"><h2 id="sec-4">Recap</h2><ul><li>Spells can be played from the hand on your turn. Traps must be Set first and wait a turn.</li><li>Cards used in answer to each other form a Chain, which resolves last to first.</li><li>You can only answer with a card of equal or higher Spell Speed.</li><li>Destroying a card in a Chain does not stop it. Negating does.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="44095762" aria-label="Mirror Force" style="background-image:url('img/44095762.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="5318639" aria-label="Mystical Space Typhoon" style="background-image:url('img/5318639.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="56120475" aria-label="Sakuretsu Armor" style="background-image:url('img/56120475.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="14087893" aria-label="Book of Moon" style="background-image:url('img/14087893.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="4206964" aria-label="Trap Hole" style="background-image:url('img/4206964.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and art.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>How to play and Set Spells and Traps</li><li>When a Trap can be used</li><li>What a Chain is, and why it resolves backwards</li><li>Spell Speed, in plain words</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Playing a Spell</button><button type="button">Setting a Trap</button><button type="button">Chains: cards answering cards</button><button type="button">Spell Speed</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/goat/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">You Set a Trap during your turn. When is the earliest you can flip it?</span><span class="a">Your opponent’s next turn.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">In what order does a Chain resolve?</span><span class="a">Backwards: the last card added goes first.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your Mirror Force is in a Chain and gets destroyed by MST. Does Mirror Force still work?</span><span class="a">Yes. Only negation stops a card that was already used.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What Spell Speed are Quick-Play Spells and normal Traps?</span><span class="a">Speed 2.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Which cards are Spell Speed 3?</span><span class="a">Counter Traps.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Can a Normal Spell be played in answer to a Trap?</span><span class="a">No. It is Spell Speed 1.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/goat/lessons/0-5-battle/" data-k="lesson-0.5">← Step 0.5</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/goat/lessons/0-7-a-practice-turn/" data-k="lesson-0.7">Step 0.7 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE. <a href="/privacy/">Privacy</a></p></footer>
+<div id="modal"></div>
+
+<!-- Card data from YGOPRODeck (the Goat pool and banlist, checked against goatformat.com), built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/lessons-step0.js"></script>
+<script src="data/lessons-101.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/rules.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>
