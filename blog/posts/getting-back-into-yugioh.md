@@ -2,7 +2,7 @@
 title: Getting Back Into Yu-Gi-Oh! in 2026: A Guide for Returning Players
 date: 2026-11-23
 description: Coming back to Yu-Gi-Oh! after years away? Here is what changed, whether your old cards still work, the ways back in, and how retro formats bring back the game you remember.
-draft: true
+cards: goat/Blue-Eyes White Dragon | goat/Dark Magician | edison/Stardust Dragon
 ---
 If you played Yu-Gi-Oh! in the 2000s and are thinking about coming back, a lot has changed. But the version you remember can still be played, and there are several ways back in.
 

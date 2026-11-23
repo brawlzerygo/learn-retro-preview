@@ -2,7 +2,7 @@
 title: Yu-Gi-Oh! Formats Explained, in Order (2002 to 2014)
 date: 2026-11-23
 description: Every classic Yu-Gi-Oh! format from Yugi-Kaiba in 2002 to HAT in 2014, in order, with what defined each one and which retro formats people still play today.
-draft: true
+cards: goat/Jinzo | goat/Scapegoat | edison/Black Rose Dragon
 ---
 In Yu-Gi-Oh!, a **format** is the game at one moment: the cards that were out, the banlist in effect and the rules of the time. A new set or banlist usually starts a new one. Players name each format after a card, a deck or the tournament that defined it, and **retro formats** bring old ones back to play today.
 

@@ -1,8 +1,8 @@
 ---
-title: Edison Format Tier List: Every Deck, Best to Casual
+title: Edison Format Tier List: Every Yu-Gi-Oh! Deck Ranked
 date: 2026-11-23
 description: The Edison format decks ranked in five tiers, from Blackwings and Frogs at the top to casual theme decks, with what the top decks do and a full list for every one.
-draft: true
+cards: edison/Blackwing - Gale the Whirlwind | edison/Caius the Shadow Monarch | edison/Treeborn Frog
 ---
 edisonformat.net, the Edison community's site, sorts the format's decks into five tiers: **Best**, **Competitive**, **Rogue**, **Contender** and **Casual**. Every one of the 55 decks below has a full list on our [Edison deck page](/edison/decks/), with its Main, Extra and Side Deck.
 

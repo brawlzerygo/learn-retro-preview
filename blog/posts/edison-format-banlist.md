@@ -1,8 +1,8 @@
 ---
-title: Edison Format Banlist Explained: The March 2010 List
+title: Edison Format Banlist Explained: Yu-Gi-Oh!'s March 2010 List
 date: 2026-11-23
 description: Edison format uses the March 2010 Forbidden and Limited list. Here are the biggest cards on it, what they do, and how it differs from Goat's list.
-draft: true
+cards: edison/Black Rose Dragon | edison/Dark Armed Dragon | edison/Judgment Dragon
 ---
 Edison format uses the TCG banlist from **March 1, 2010**, the list that was in effect at the 75th Shonen Jump Championship in Edison, New Jersey. Like every retro format, it never changes. It has 43 Forbidden cards, 70 Limited and 19 Semi-Limited.
 

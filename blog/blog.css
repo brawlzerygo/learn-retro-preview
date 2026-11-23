@@ -50,3 +50,9 @@ header nav .soc{display:inline-flex;align-items:center;justify-content:center;mi
 .post th{background:rgba(255,255,255,.04);font-weight:700}
 .post tr:last-child td{border-bottom:0}
 .post td:first-child{color:var(--muted,#b9ab9c);white-space:nowrap}
+/* Card art under a post's title (Zack, 2026-11-23): up to 3 of the post's key cards, fanned like the hub. */
+.pfan{position:relative;height:250px;margin:-8px 0 30px;display:flex;justify-content:center;align-items:flex-end;pointer-events:none}
+.pfan img{width:150px;height:auto;aspect-ratio:421/614;border-radius:7px;margin:0 -22px;box-shadow:0 14px 30px -10px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform-origin:50% 100%}
+.pfan.n2 img:nth-child(1){transform:rotate(-7deg)}.pfan.n2 img:nth-child(2){transform:rotate(7deg)}
+.pfan.n3 img:nth-child(1){transform:rotate(-11deg) translateY(6px)}.pfan.n3 img:nth-child(2){transform:translateY(-14px);z-index:1}.pfan.n3 img:nth-child(3){transform:rotate(11deg) translateY(6px)}
+@media (max-width:560px){.pfan{height:190px}.pfan img{width:112px;margin:0 -16px}}

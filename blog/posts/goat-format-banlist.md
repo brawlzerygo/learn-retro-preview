@@ -1,8 +1,8 @@
 ---
-title: Goat Format Banlist Explained: Every Forbidden and Limited Card
+title: Goat Format Banlist Explained: Yu-Gi-Oh!'s April 2005 List
 date: 2026-11-23
 description: Goat format uses the April 2005 Forbidden and Limited list, and it never changes. Here is the full list and why the biggest cards on it are there.
-draft: true
+cards: goat/Raigeki | goat/Chaos Emperor Dragon - Envoy of the End | goat/Yata-Garasu
 ---
 Goat format uses the TCG banlist from **April 2005**, exactly as it was. Unlike the modern list, it never changes: a deck that is legal today stays legal forever. Here is the whole list, and what some of the biggest cards on it do.
 

@@ -2,7 +2,7 @@
 title: What Is Goat Format? Yu-Gi-Oh! as It Was in Summer 2005
 date: 2026-11-23
 description: Goat format freezes Yu-Gi-Oh! in the summer of 2005, before Synchro Monsters existed. Here is where the name comes from, what makes it different and how to start.
-draft: true
+cards: goat/Scapegoat | goat/Metamorphosis | goat/Thousand-Eyes Restrict
 ---
 Modern Yu-Gi-Oh! changes all the time. Every few months there is a new set, a new banlist and a new best deck. A **retro format** stops the clock at one moment and keeps it there. **Goat format** stops it in the summer of 2005: the cards, the banlist and the rules of that time, and nothing newer.
 

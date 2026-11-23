@@ -1,8 +1,8 @@
 ---
-title: Best Beginner Decks for Goat and Edison Format
+title: Best Beginner Decks for Yu-Gi-Oh! Goat and Edison Format
 date: 2026-11-23
 description: New to retro Yu-Gi-Oh!? These are the Goat and Edison decks that published guides recommend for a first deck, what they do, and where to find the full lists.
-draft: true
+cards: goat/Scapegoat | edison/Red Gadget | edison/Red-Eyes Darkness Metal Dragon
 ---
 Picking a first deck in a format you don't know yet is hard. The decks below are the ones published guides recommend for new players. Each one links to a full 40-card list on this site.
 

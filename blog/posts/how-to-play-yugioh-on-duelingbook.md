@@ -2,7 +2,7 @@
 title: How to Play Yu-Gi-Oh! on DuelingBook (Goat and Edison)
 date: 2026-11-23
 description: DuelingBook is where most retro Yu-Gi-Oh! players duel online. Here is how to get started, build or import a deck, find Goat games, and where to play Edison.
-draft: true
+cards: goat/Thunder Dragon | goat/Scapegoat | edison/Stardust Dragon
 ---
 **DuelingBook** is a website for playing Yu-Gi-Oh! online against other people. It describes itself as the replacement for Dueling Network, and goatformat.com calls it the only viable and popular simulator for Goat format.
 

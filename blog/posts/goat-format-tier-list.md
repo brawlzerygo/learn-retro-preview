@@ -1,8 +1,8 @@
 ---
-title: Goat Format Tier List: The Best Decks in Goat
+title: Goat Format Tier List: The Best Yu-Gi-Oh! Decks of 2005
 date: 2026-11-23
 description: The Goat format decks ranked from tier A to E, what the top decks do, and where to find full lists, based on goatformat.com's tier list.
-draft: true
+cards: goat/Thunder Dragon | goat/Chaos Sorcerer | goat/Scapegoat
 ---
 Goat format has had the same card pool since 2005, but which decks are on top has still changed over the years. goatformat.com published a tier list in June 2020 that ranks the format's decks from A to E. Here it is, with what the top decks do and links to full lists.
 

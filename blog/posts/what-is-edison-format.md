@@ -2,6 +2,7 @@
 title: What Is Edison Format? Yu-Gi-Oh! as It Was in April 2010
 date: 2026-11-22
 description: Edison format freezes Yu-Gi-Oh! at April 2010, at the start of the Synchro era. Here is where it comes from, why players love it and how to start.
+cards: edison/Black Rose Dragon | edison/Stardust Dragon | edison/Quickdraw Synchron
 ---
 Yu-Gi-Oh! never stands still. New sets come out every few months, the banlist changes with them, and the game you learn this year plays differently next year. A **retro format** picks one moment and freezes it: a fixed card pool, a fixed banlist and the rules from that time. **Edison format** is one of the most popular of them, according to Format Library, a site that archives old formats. It is Yu-Gi-Oh! as it was in April 2010.
 
