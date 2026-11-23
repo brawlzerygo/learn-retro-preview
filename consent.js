@@ -5,7 +5,7 @@
    - The choice is kept in this browser (localStorage "lr:consent" = "yes" | "no"); /privacy/ can reopen the banner.
    - Edison and Goat change pages without reloading; GA4's enhanced measurement counts those page changes itself. */
 (function () {
-  var GA_ID = 'G-PENDING'; // the learnretro.com web stream's measurement ID
+  var GA_ID = 'G-E5F52MTX9D'; // the learnretro.com web stream's measurement ID
   var KEY = 'lr:consent';
   var LIVE = location.hostname === 'learnretro.com' || location.hostname === 'www.learnretro.com';
 
