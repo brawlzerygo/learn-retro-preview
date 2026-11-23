@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 10: Rules, Timing and Old Card Text | Learn Retro</title>
+<meta name="description" content="Priority, the Chain order, the Damage Step, 2010 card text, and the cards that answer a Synchro.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/10-rules-timing-and-old-card-text/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 201 / Lesson 10 (1 of 8)</div>
+      <h1>Rules, Timing and Old Card Text</h1><p class="sub">Priority, the Chain order, the Damage Step, 2010 card text, and the cards that answer a Synchro. <span class="pill">12 min · 12 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">Why this lesson</h2>
+<p>Edison 101 taught you enough to play a full game. This lesson adds the finer rules. Edison uses the rules from 2010, and a few of them are different from today's game. Online card text often shows the modern rules, which can confuse you. Take them one at a time.</p>
+<h2 id="sec-1">1. Priority</h2>
+<p>When you summon a monster, you get the first chance to act. If the summon did not start a Chain, you can activate an <b>Ignition Effect</b> before your opponent responds.</p>
+<div class="timeline">
+<div class="tl"><b>You</b><span>Special Summon <button type="button" class="cref" data-rid="9596126">Chaos Sorcerer</button>. Nothing triggers.</span></div>
+<div class="tl"><b>You</b><span>Use priority. Activate Chaos Sorcerer's effect and banish their monster.</span></div>
+<div class="tl"><b>Opponent</b><span>Now they can respond, for example with <button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button>. Your effect is already on the Chain.</span></div>
+</div>
+<p>This also works with Synchros. Synchro Summon <button type="button" class="cref" data-rid="50321796">Brionac, Dragon of the Ice Barrier</button>, then use its effect right away with priority, before your opponent can Bottomless it.</p>
+<div class="call rule"><b class="tag">When you lose priority</b><p>If the summon starts a Chain, you lose priority. Example: you use <button type="button" class="cref" data-rid="26202165">Sangan</button> as material for Brionac. Sangan's effect triggers and starts a Chain. Now you cannot use Brionac's Ignition Effect first.</p></div>
+<h2 id="sec-2">2. Two things trigger at once</h2>
+<p>Sometimes two effects trigger at the same time. They go on the Chain in this order:</p>
+<ol><li>Turn player's mandatory effects</li><li>Opponent's mandatory effects</li><li>Turn player's optional effects</li><li>Opponent's optional effects</li></ol>
+<p>Example: you Tribute <button type="button" class="cref" data-rid="26202165">Sangan</button> to summon <button type="button" class="cref" data-rid="9748752">Caius the Shadow Monarch</button>. Sangan's effect is mandatory, so it is Chain Link 1. Caius is Chain Link 2.</p>
+<h2 id="sec-3">3. Missing the timing</h2>
+<p>An optional effect that says "<b>When</b> ... you can" misses its timing if something else happened last. Effects that say "<b>If</b>" never miss the timing. Read the wording on each card.</p>
+<h2 id="sec-4">4. The Damage Step is a narrow window</h2>
+<p>The Damage Step starts when an attack is about to hit. Very few cards can be used here.</p>
+<ul><li>Cards that change ATK or DEF, before damage is calculated</li><li>Counter Traps</li><li>Some monster effects made for this moment, like <button type="button" class="cref" data-rid="37742478">Honest</button> and <button type="button" class="cref" data-rid="85215458">Blackwing - Kalut the Moon Shadow</button></li></ul>
+<p>Most Spells and Traps cannot be used. Spell Speed 2 cards that negate cannot be used here at all.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>The Damage Step is the moment two boxers swing. You can still change how hard they hit. You cannot walk into the ring with a new plan.</p></div>
+<h2 id="sec-5">5. Two smaller rules</h2>
+<ul><li><b>One Field Spell for the whole field.</b> Only one Field Spell is in play at a time, shared by both players. When a new one resolves, the old one is destroyed. Today, each player has their own Field Zone.</li>
+<li><b>Life Points.</b> You cannot pay a cost that takes your LP to 0. If you have 800 LP, you cannot pay 800 LP for a cost.</li></ul>
+<p>The first-turn draw, the other rule people mix up, is in <a href="/edison/lessons/2-how-a-match-works/" data-k="lesson-2">Lesson 2</a>. Every rule is on the <a href="/edison/rules/" data-k="rules">Rules</a> page.</p>
+<h2 id="sec-6">6. Old card text</h2>
+<p>Over the years, Konami rewrote some cards to make them weaker or clearer. This is called <b>errata</b>. When the rewrite changes how the card works, it is <b>functional errata</b>. Edison uses the text from 2010, but most websites and online tools show today's text. So a card you look up can say something different from how it works in Edison.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>It is like playing a classic board game with the original rulebook. A newer edition changed some rules. Your table still uses the old book.</p></div>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="50321796">Brionac, Dragon of the Ice Barrier</button></td><td>No once-per-turn limit: use it as often as you have cards to discard (the discard is a cost). It can return cards on either side.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="7391448">Goyo Guardian</button></td><td>Any Tuner can be used as material. Today it needs an EARTH Tuner.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="12538374">Treeborn Frog</button></td><td>No once-per-turn limit. It keeps coming back from the Graveyard as Tribute fodder.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="29071332">Armory Arm</button></td><td>Deals damage equal to the destroyed monster's ATK. With <button type="button" class="cref" data-rid="23693634">Colossal Fighter</button>, it makes a one-turn-kill combo.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="21502796">Ryko, Lightsworn Hunter</button></td><td>Destroying a card is optional. It always mills 3.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="20932152">Quickdraw Synchron</button></td><td>Sending a monster from your hand happens when the effect resolves. It is not a cost.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="26202165">Sangan</button></td><td>You can use the effects of the monster you add that turn.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="14878871">Rescue Cat</button></td><td>The monsters it summons keep their effects.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="88264978">Red-Eyes Darkness Metal Dragon</button></td><td>No once-per-turn limit on its summon effect.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="47355498">Necrovalley</button></td><td>Only stops effects that target cards in the Graveyard.</td></tr>
+</tbody></table></div>
+<div class="call rule"><b class="tag">When you are not sure</b><p>Check the <a href="/edison/errata/" data-k="errata">Errata</a> page on this site, or the <a href="https://www.edisonformat.com/functional-errata.html">Edison Format functional errata page</a>. They list the cards that work differently in Edison.</p></div>
+<h2 id="sec-7">7. Answering a Synchro: the two moments</h2>
+<p>In <a href="/edison/lessons/7-the-staples/" data-k="lesson-7">Lesson 7</a> you learned that a failed Synchro costs the monster and its materials. Here is how the answers work on a Chain. Your opponent can stop a Synchro at two different moments.</p>
+<h3>Moment 1: while it is happening</h3>
+<p>Some cards <b>negate</b> the summon itself. The monster never really lands.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Cost</th><th class="nw">Banlist</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="41420027">Solemn Judgment</button></td><td class="nw">Half your LP</td><td class="nw">Limited (1)</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="98069388">Horn of Heaven</button></td><td class="nw">Tribute 1 monster</td><td class="nw">Unlimited</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="93016201">Royal Oppression</button></td><td class="nw">800 LP each time</td><td class="nw">Semi-Limited (2)</td></tr>
+</tbody></table></div>
+<p>When a Synchro Summon is negated:</p>
+<ul><li>The materials are already in your Graveyard. They do not come back.</li><li>The Synchro is destroyed and goes to the Graveyard.</li><li>It was not properly summoned, so it cannot be revived later.</li><li>Effects like Black Rose Dragon's board wipe never happen.</li></ul>
+<div class="call rule"><b class="tag">Royal Oppression is special</b><p>Royal Oppression stays on the field. As long as it is there, <b>either player</b> can pay 800 LP to stop any Special Summon. One copy can shut down a whole Synchro deck for many turns.</p></div>
+<h3>Moment 2: right after it lands</h3>
+<p>Other cards let the summon happen, then destroy or banish the monster: <button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button>, <button type="button" class="cref" data-rid="53582587">Torrential Tribute</button>, and later, when it attacks, <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button> or <button type="button" class="cref" data-rid="44095762">Mirror Force</button>. The monster did land, so any effect it started when it was summoned can still resolve.</p>
+<h3>An example: Black Rose meets Bottomless</h3>
+<div class="timeline">
+<div class="tl"><b>You</b><span>Synchro Summon <button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button>. It lands. Its "destroy all cards" effect starts a Chain (Chain Link 1).</span></div>
+<div class="tl"><b>Opponent</b><span>Chains <button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button> (Chain Link 2).</span></div>
+<div class="tl"><b>Link 2</b><span>Bottomless resolves first. Black Rose is destroyed and banished.</span></div>
+<div class="tl"><b>Link 1</b><span>Black Rose's effect still resolves. Every card on the field is destroyed.</span></div>
+</div>
+<p>The dragon is gone, but its blast still happens. The effect was already activated, so removing the monster does not stop it. That is why Bottomless is a weak answer to Black Rose.</p>
+<p>The real answer is <button type="button" class="cref" data-rid="58120309">Starlight Road</button>. It negates any effect that would destroy 2 or more of your cards. Then it can summon <button type="button" class="cref" data-rid="44508094">Stardust Dragon</button> from your Extra Deck.</p>
+<div class="call mistake"><b class="tag">Common mistakes</b><ul><li>Letting your opponent respond before you use priority.</li><li>Trying to activate Mirror Force in the Damage Step.</li><li>Using Brionac only once per turn, or thinking Goyo Guardian needs an EARTH Tuner, because the modern text says so.</li><li>Thinking Bottomless stops Black Rose's effect. It does not.</li><li>Forgetting that you can also pay for Royal Oppression. It works for both players.</li></ul></div>
+<div class="recap"><h2 id="sec-8">Recap</h2><ul><li>Priority: after a summon that starts no Chain, you can use an Ignition Effect first.</li><li>Triggers at the same time go on the Chain in a set order: mandatory before optional, turn player first.</li><li>"When ... you can" can miss the timing. "If" cannot.</li><li>The Damage Step allows only ATK/DEF changes, Counter Traps, and a few monster effects.</li><li>One Field Spell for the whole field. No cost can take you to 0 LP.</li><li>Edison uses 2010 card text: Brionac, Goyo and Treeborn Frog are stronger than today.</li><li>Negation (Solemn Judgment, Horn of Heaven, Royal Oppression) stops the summon itself. Bottomless and Torrential hit it after it lands, so its summon effect can still resolve.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="9596126" aria-label="Chaos Sorcerer" style="background-image:url('img/9596126.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="26202165" aria-label="Sangan" style="background-image:url('img/26202165.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="9748752" aria-label="Caius the Shadow Monarch" style="background-image:url('img/9748752.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="37742478" aria-label="Honest" style="background-image:url('img/37742478.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="85215458" aria-label="Blackwing - Kalut the Moon Shadow" style="background-image:url('img/85215458.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="50321796" aria-label="Brionac, Dragon of the Ice Barrier" style="background-image:url('img/50321796.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="7391448" aria-label="Goyo Guardian" style="background-image:url('img/7391448.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="12538374" aria-label="Treeborn Frog" style="background-image:url('img/12538374.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="21502796" aria-label="Ryko, Lightsworn Hunter" style="background-image:url('img/21502796.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="20932152" aria-label="Quickdraw Synchron" style="background-image:url('img/20932152.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="41420027" aria-label="Solemn Judgment" style="background-image:url('img/41420027.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="98069388" aria-label="Horn of Heaven" style="background-image:url('img/98069388.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="93016201" aria-label="Royal Oppression" style="background-image:url('img/93016201.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="29401950" aria-label="Bottomless Trap Hole" style="background-image:url('img/29401950.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="73580471" aria-label="Black Rose Dragon" style="background-image:url('img/73580471.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="58120309" aria-label="Starlight Road" style="background-image:url('img/58120309.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>The 2010 timing rules: priority, the order of triggers on a Chain, missing the timing, and the Damage Step</li><li>Two smaller rules: one Field Spell, and paying a cost down to 0 LP</li><li>Which important cards use older, stronger text in Edison</li><li>The two moments a Synchro can be answered, and which answers really work</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Why this lesson</button><button type="button">1. Priority</button><button type="button">2. Two things trigger at once</button><button type="button">3. Missing the timing</button><button type="button">4. The Damage Step is a narrow window</button><button type="button">5. Two smaller rules</button><button type="button">6. Old card text</button><button type="button">7. Answering a Synchro: the two moments</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">You Special Summon Chaos Sorcerer and nothing triggers. Who acts first?</span><span class="a">You do. You can use its Ignition Effect with priority before your opponent responds.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You use Sangan as Synchro Material for Brionac. Can you use Brionac with priority?</span><span class="a">No. The trigger from Sangan starts a Chain, so you lose priority.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many Field Spells can be active at once?</span><span class="a">One, shared by both players. A new one destroys the old one.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name two kinds of cards you can use in the Damage Step.</span><span class="a">Any two of: cards that change ATK/DEF (before damage), Counter Traps, special monster effects like Honest or Kalut.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">"When ... you can" vs "If ... you can." Which can miss the timing?</span><span class="a">"When ... you can."</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many times per turn can you use Brionac in Edison?</span><span class="a">As many times as you can pay the cost. There is no once-per-turn limit.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Does Goyo Guardian need an EARTH Tuner in Edison?</span><span class="a">No. Any Tuner works.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Ryko flips. Must you destroy a card?</span><span class="a">No. Destroying is optional. The mill of 3 always happens.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Can a Synchro negated by Horn of Heaven be revived with Call of the Haunted?</span><span class="a">No. It was never properly Synchro Summoned.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent chains Bottomless Trap Hole to the effect of Black Rose Dragon. Does the field still get destroyed?</span><span class="a">Yes. The effect was already activated, so it resolves even after Black Rose is banished.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Who can pay 800 LP to use Royal Oppression?</span><span class="a">Either player.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name one card that fully answers the board wipe of Black Rose Dragon.</span><span class="a">Starlight Road. It negates the destruction and can summon Stardust Dragon.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/9-your-first-game/" data-k="lesson-9">← Lesson 9</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/11-the-big-synchros-part-1/" data-k="lesson-11">Lesson 11 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

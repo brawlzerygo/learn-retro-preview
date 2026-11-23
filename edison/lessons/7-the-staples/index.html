@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 7: The Staples | Learn Retro</title>
+<meta name="description" content="The cards you will see in almost every game, and the mistake they punish.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/7-the-staples/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 101 / Lesson 7 (7 of 9)</div>
+      <h1>The Staples</h1><p class="sub">The cards you will see in almost every game, and the mistake they punish. <span class="pill">10 min · 8 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">What a staple is</h2>
+<p>A <b>staple</b> is a card that shows up in deck after deck, whatever the deck's plan. Staples are strong on their own, so almost everyone plays them.</p>
+<p>The numbers below come from the 55 deck lists on this site. A card counts if a deck runs it anywhere: Main, Extra or Side Deck. You don't need to learn every card in the format to start. Learn these, and you will know most of what your opponent can do.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>Staples are the salt and pepper of Edison. Every cook uses them, whatever the dish.</p></div>
+<h2 id="sec-1">1. Spell and Trap removal</h2>
+<p>These destroy your opponent's Spells and Traps, often before they can be used.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">In decks</th><th class="nw">Banlist</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-card="mst">Mystical Space Typhoon</button></td><td class="nw">98%</td><td class="nw">1</td><td>A Quick-Play Spell. Target 1 Spell or Trap on the field and destroy it.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="storm">Heavy Storm</button></td><td class="nw">85%</td><td class="nw">1</td><td>Destroys every Spell and Trap on the field, yours too.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="60082869">Dust Tornado</button></td><td class="nw">73%</td><td class="nw">3</td><td>A Trap. Target 1 of your opponent's Spells or Traps and destroy it, then you can Set a Spell or Trap from your hand.</td></tr>
+</tbody></table></div>
+<h2 id="sec-2">2. Traps that stop attacks</h2>
+<p>These wait face-down until your opponent attacks.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">In decks</th><th class="nw">Banlist</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-card="mirror">Mirror Force</button></td><td class="nw">78%</td><td class="nw">1</td><td>When an opponent's monster declares an attack, destroy all their Attack Position monsters.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="prison">Dimensional Prison</button></td><td class="nw">56%</td><td class="nw">3</td><td>When an opponent's monster declares an attack, banish that monster.</td></tr>
+</tbody></table></div>
+<h2 id="sec-3">3. Traps that stop summons</h2>
+<p>These hit a monster as it arrives. They hurt most against a Synchro Summon. If one of them stops your Synchro, you lose the Synchro <b>and</b> the monsters you used to make it. That is two or more cards gone for one Trap.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">In decks</th><th class="nw">Banlist</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-card="judgment">Solemn Judgment</button></td><td class="nw">73%</td><td class="nw">1</td><td>Pay half your LP to stop a summon, or a Spell or Trap, and destroy it.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="bottomless">Bottomless Trap Hole</button></td><td class="nw">65%</td><td class="nw">2</td><td>When your opponent summons a monster with 1500 or more ATK, destroy it and banish it.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="torrential">Torrential Tribute</button></td><td class="nw">65%</td><td class="nw">1</td><td>When a monster is summoned, destroy every monster on the field.</td></tr>
+</tbody></table></div>
+<h2 id="sec-4">4. Answers to a big monster</h2>
+<p>When your opponent has a monster you can't beat in battle, these deal with it.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">In decks</th><th class="nw">Banlist</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-card="brain">Brain Control</button></td><td class="nw">67%</td><td class="nw">1</td><td>Pay 800 LP, then take a face-up monster your opponent controls until the End Phase. Use it to attack, or as Synchro Material.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="moon">Book of Moon</button></td><td class="nw">44%</td><td class="nw">3</td><td>A Quick-Play Spell. Target a face-up monster and turn it face-down. A face-down monster can't attack or be used as Synchro Material.</td></tr>
+</tbody></table></div>
+<h2 id="sec-5">5. Staple monsters</h2>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">In decks</th><th class="nw">Banlist</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-card="cyberdragon">Cyber Dragon</button></td><td class="nw">76%</td><td class="nw">2</td><td>If only your opponent controls a monster, you can Special Summon it from your hand. 2100 ATK without using your Normal Summon.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="ddcrow">D.D. Crow</button></td><td class="nw">64%</td><td class="nw">3</td><td>Discard it from your hand, on either player's turn, to banish 1 card from your opponent's Graveyard.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="gorz">Gorz the Emissary of Darkness</button></td><td class="nw">47%</td><td class="nw">1</td><td>If you take damage from your opponent's card while you control no cards, Special Summon it from your hand. Battle damage also gives you a token as strong as the damage you took.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-card="sangan">Sangan</button></td><td class="nw">33%</td><td class="nw">1</td><td>When it goes from the field to the Graveyard, add a monster with 1500 or less ATK from your Deck to your hand.</td></tr>
+</tbody></table></div>
+<p>The Banlist column shows how many copies you can run. Lesson 8 explains the banlist.</p>
+<h2 id="sec-6">The most common mistake</h2>
+<p>New players make the same mistake again and again: they <b>Synchro Summon into a wall of Set cards</b>. Your opponent has three cards face-down. You make your best Synchro anyway. A Bottomless Trap Hole or Solemn Judgment stops it, and you lose three cards for their one.</p>
+<div class="call key"><b class="tag">Set cards are a warning</b><p>Every face-down Spell or Trap could be one of the staples above. Before you commit your best monsters, deal with them or test them.</p></div>
+<h2 id="sec-7">How to play around it</h2>
+<ol class="steps">
+<li><div><b>Count their Set cards.</b> More Set cards means more risk.</div></li>
+<li><div><b>Clear first.</b> Use <button type="button" class="cref" data-card="storm">Heavy Storm</button>, <button type="button" class="cref" data-card="mst">Mystical Space Typhoon</button> or <button type="button" class="cref" data-rid="60082869">Dust Tornado</button> before you summon your best monster.</div></li>
+<li><div><b>Bait with a smaller summon.</b> Summon something you can afford to lose first. If they use a Trap on it, your next summon is safer.</div></li>
+<li><div><b>Know the limits.</b> A deck can run only 1 Solemn Judgment, 1 Torrential Tribute and 2 Bottomless Trap Hole. If one has already been used, the risk goes down.</div></li>
+</ol>
+<div class="call mistake"><b class="tag">Common beginner mistakes</b><ul><li>Making your best Synchro into 3 Set cards when you have Heavy Storm in hand.</li><li>Attacking with every monster into a Set card when one of them could run into Mirror Force.</li><li>Forgetting that Heavy Storm destroys your own Set cards too.</li></ul></div>
+<p>Edison 201 goes deeper on every one of these cards: <a href="/edison/lessons/14-staple-monsters/" data-k="lesson-14">Lesson 14</a> covers the staple monsters, <a href="/edison/lessons/15-staple-spells/" data-k="lesson-15">Lesson 15</a> the Spells and <a href="/edison/lessons/16-staple-traps/" data-k="lesson-16">Lesson 16</a> the Traps.</p>
+<div class="recap"><h2 id="sec-8">Recap</h2><ul><li>A staple is a card in deck after deck.</li><li>Spell and Trap removal: Mystical Space Typhoon, Heavy Storm, Dust Tornado.</li><li>Traps that stop attacks: Mirror Force, Dimensional Prison.</li><li>Traps that stop summons: Solemn Judgment, Bottomless Trap Hole, Torrential Tribute.</li><li>Answers to a big monster: Brain Control, Book of Moon.</li><li>Staple monsters: Cyber Dragon, D.D. Crow, Gorz, Sangan.</li><li>Before a big Synchro: count Set cards, clear them, bait them, and know the limits.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic " data-card="mst" aria-label="Mystical Space Typhoon" style="background-image:url('img/5318639.webp?v=2')"></button><button type="button" class="ctile pic " data-card="storm" aria-label="Heavy Storm" style="background-image:url('img/19613556.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="60082869" aria-label="Dust Tornado" style="background-image:url('img/60082869.webp?v=2')"></button><button type="button" class="ctile pic " data-card="mirror" aria-label="Mirror Force" style="background-image:url('img/44095762.webp?v=2')"></button><button type="button" class="ctile pic " data-card="prison" aria-label="Dimensional Prison" style="background-image:url('img/70342110.webp?v=2')"></button><button type="button" class="ctile pic " data-card="judgment" aria-label="Solemn Judgment" style="background-image:url('img/41420027.webp?v=2')"></button><button type="button" class="ctile pic " data-card="bottomless" aria-label="Bottomless Trap Hole" style="background-image:url('img/29401950.webp?v=2')"></button><button type="button" class="ctile pic " data-card="torrential" aria-label="Torrential Tribute" style="background-image:url('img/53582587.webp?v=2')"></button><button type="button" class="ctile pic " data-card="moon" aria-label="Book of Moon" style="background-image:url('img/14087893.webp?v=2')"></button><button type="button" class="ctile pic " data-card="brain" aria-label="Brain Control" style="background-image:url('img/87910978.webp?v=2')"></button><button type="button" class="ctile pic " data-card="cyberdragon" aria-label="Cyber Dragon" style="background-image:url('img/70095154.webp?v=2')"></button><button type="button" class="ctile pic " data-card="sangan" aria-label="Sangan" style="background-image:url('img/26202165.webp?v=2')"></button><button type="button" class="ctile pic " data-card="ddcrow" aria-label="D.D. Crow" style="background-image:url('img/24508238.webp?v=2')"></button><button type="button" class="ctile pic " data-card="gorz" aria-label="Gorz the Emissary of Darkness" style="background-image:url('img/44330098.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>What a staple is</li><li>The staples you will see in almost every game, in five groups</li><li>The most common beginner mistake, and how to play around it</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">What a staple is</button><button type="button">1. Spell and Trap removal</button><button type="button">2. Traps that stop attacks</button><button type="button">3. Traps that stop summons</button><button type="button">4. Answers to a big monster</button><button type="button">5. Staple monsters</button><button type="button">The most common mistake</button><button type="button">How to play around it</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">What makes a card a staple?</span><span class="a">It shows up in deck after deck, whatever the deck. On this site, a staple is in 25% or more of the 55 decks.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Which card is in 98% of the decks on this site?</span><span class="a">Mystical Space Typhoon.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your Synchro is hit by Bottomless Trap Hole. What did you lose?</span><span class="a">The Synchro and the monsters you used to make it.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent has 3 Set cards and you hold Heavy Storm. What should you do before a big Synchro?</span><span class="a">Play Heavy Storm first to clear their Set cards.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many Solemn Judgments, Torrential Tributes and Bottomless Trap Holes can one deck run?</span><span class="a">1 Solemn Judgment, 1 Torrential Tribute and 2 Bottomless Trap Hole.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent controls a monster and you control none. Which staple monster can you Special Summon from your hand?</span><span class="a">Cyber Dragon.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name two Traps that stop attacks.</span><span class="a">Mirror Force and Dimensional Prison.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent has a face-up 3000 ATK monster. Name two staples that answer it.</span><span class="a">Brain Control (take it) and Book of Moon (turn it face-down).</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/6-tokens/" data-k="lesson-6">← Lesson 6</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/8-the-banlist/" data-k="lesson-8">Lesson 8 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

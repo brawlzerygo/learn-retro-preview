@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 25: Gladiator Beasts | Learn Retro</title>
+<meta name="description" content="Attack, then swap your monster for a fresh one from the Deck.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/25-gladiator-beasts/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 25 (8 of 13)</div>
+      <h1>Gladiator Beasts</h1><p class="sub">Attack, then swap your monster for a fresh one from the Deck. <span class="pill">5 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><section class="glance" data-deck="gb"><h2 id="sec-0">At a glance: Gladiator Beasts</h2>
+    <p class="gsub"><b>Control</b> · Lists: <a href="/edison/decks/gladiator-beast/" data-k="deck-Gladiator%20Beast">Gladiator Beast</a> · <a href="/edison/lessons/25-gladiator-beasts/" data-k="lesson-25">Lesson 25</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p>A Gladiator Beast attacks, then shuffles itself into the Deck at the end of the Battle Phase and a different one comes out with a bonus effect.</p></div>
+      <div><h4>What it wants</h4><p>Win a battle, tag out for a fresh Gladiator Beast with a bonus, and build to <button type="button" class="cref" data-rid="48156348">Gladiator Beast Gyzarus</button> or <button type="button" class="cref" data-rid="27346636">Gladiator Beast Heraklinos</button>.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>Each tag out is a free monster with a free effect.</li><li><button type="button" class="cref" data-rid="96216229">Gladiator Beast War Chariot</button> negates a monster effect while they control a Gladiator Beast.</li><li>Shrink, Book of Moon and Dimensional Prison protect its battles.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>It needs to battle: <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button> banishes the attacker before damage, so it never tags out.</li><li>The whole engine is Special Summons: <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> and <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> stop it.</li><li><button type="button" class="cref" data-rid="14087893">Book of Moon</button> makes a monster forget it was summoned by a Gladiator Beast.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li><button type="button" class="cref" data-rid="92373006">Test Tiger</button> swapping a Gladiator Beast without a battle.</li><li><button type="button" class="cref" data-rid="41470137">Gladiator Beast Bestiari</button> destroying a Spell or Trap, <button type="button" class="cref" data-rid="5975022">Gladiator Beast Murmillo</button> a monster.</li><li>Heraklinos negating any Spell or Trap for a discard.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Make it attack into your Traps instead of attacking into it.</li><li>Hit a Normal Summoned Gladiator Beast before it battles: it has no bonus.</li><li>Use Spells and Traps against War Chariot, since it only negates monster effects.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Attacking into a Gladiator Beast with a monster it can beat: every win is a tag out.</li><li>Using a monster effect while War Chariot is Set.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> none</div><div><b>Even with:</b> <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a></div><div><b>Tough against:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/gb/" data-k="opponents-gb">the matchup chart</a>.</div></div>
+  </section>
+
+<h2 id="sec-1">The idea: tag out after battle</h2>
+<p>Almost every Gladiator Beast has the same second effect. At the end of the Battle Phase, if it battled, you can shuffle it into your Deck. Then you Special Summon a different Gladiator Beast from your Deck.</p>
+<p>That new monster is "Special Summoned by the effect of a Gladiator Beast monster." This matters. Each Gladiator Beast has a first effect that only works when it arrives this way.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>A tag team in wrestling. One fighter steps in, takes the hit, then tags a partner who jumps in fresh. The partner gets a bonus move on the way in.</p></div>
+<p>The Gladiator Beast list is a <b>Rogue</b> deck in our data: playable and dangerous, but the odds are against it. <a href="/edison/decks/gladiator-beast/" data-k="deck-Gladiator%20Beast">Open the Gladiator Beast list</a> to follow along.</p>
+<h2 id="sec-2">The core cards</h2>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="78868776">Gladiator Beast Laquari</button></td><td class="nw">2</td><td>Level 4 with 1800 ATK. Its original ATK becomes 2100 when a Gladiator Beast effect summons it.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="57731460">Gladiator Beast Equeste</button></td><td class="nw">2</td><td>Tagged in: returns a Gladiator Beast card from your GY to your hand.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="2619149">Gladiator Beast Samnite</button></td><td class="nw">2</td><td>Tagged in, then it destroys a monster by battle: add a Gladiator Beast card from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="612115">Gladiator Beast Retiari</button></td><td class="nw">2</td><td>Tagged in: banish 1 card from your opponent's GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="41470137">Gladiator Beast Bestiari</button></td><td class="nw">1</td><td>Limited. Tagged in: destroy 1 Spell or Trap on the field.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="5975022">Gladiator Beast Murmillo</button></td><td class="nw">1</td><td>Tagged in: destroy 1 face-up monster.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="25924653">Gladiator Beast Darius</button></td><td class="nw">1</td><td>Tagged in: revive a Gladiator Beast from your GY, with its effects negated.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="92373006">Test Tiger</button></td><td class="nw">3</td><td>Summons itself if you control a Gladiator Beast. Tribute it to swap one without battling.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="96216229">Gladiator Beast War Chariot</button></td><td class="nw">2</td><td>Counter Trap. While you control a Gladiator Beast, negate and destroy a monster effect.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="89312388">Elemental HERO Prisma</button></td><td class="nw">2</td><td>Sends a Fusion Material from the Deck to the GY and takes its name until the End Phase.</td></tr>
+</tbody></table></div>
+<p>The rest of the Main Deck protects the battles: 3 <button type="button" class="cref" data-rid="55713623">Shrink</button>, 3 <button type="button" class="cref" data-rid="14087893">Book of Moon</button> and 3 <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button>. Shrink halves a monster's original ATK, so your Gladiator Beast can win the fight and survive to tag out.</p>
+<div class="call rule"><b class="tag">Edison rulings for the tag out</b><ul><li>"Battled" means the monster was in damage calculation. If its attack is negated, it can't tag out.</li><li>You need a Gladiator Beast left in your Deck to use it.</li><li><button type="button" class="cref" data-rid="93016201">Royal Oppression</button> can negate it. The monster has already been shuffled into the Deck, so nothing comes out.</li><li><button type="button" class="cref" data-rid="82732705">Skill Drain</button> does not stop it.</li></ul></div>
+<h2 id="sec-3">Swapping without battle, and Contact Fusion</h2>
+<p><button type="button" class="cref" data-rid="92373006">Test Tiger</button> is the deck's shortcut. If you control a face-up Gladiator Beast, you can Special Summon Tiger from your hand. Then Tribute Tiger to shuffle a Gladiator Beast back into the Deck and summon another. The new one counts as summoned by a Gladiator Beast effect, so its bonus works. You can even do this in your Main Phase, before you attack.</p>
+<p><button type="button" class="cref" data-rid="14878871">Rescue Cat</button> (1, Limited) sends itself to the GY to summon two Level 3 or lower Beasts from the Deck. In this list that means Samnite and Test Tiger. They are destroyed in the End Phase. But a Samnite that battles can tag out at the end of the Battle Phase first.</p>
+<p>The Extra Deck holds two <b>Contact Fusions</b>. You don't use Polymerization. You shuffle the listed monsters you control into the Deck.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Fusion</th><th class="nw">Materials</th><th>Description</th></tr></thead><tbody>
+<tr><td><button type="button" class="cref" data-rid="48156348">Gladiator Beast Gyzarus</button></td><td class="nw">Bestiari + 1</td><td>Level 6. When summoned, destroy up to 2 cards. Its tag out brings 2 Gladiator Beasts.</td></tr>
+<tr><td><button type="button" class="cref" data-rid="27346636">Gladiator Beast Heraklinos</button></td><td class="nw">Laquari + 2</td><td>Level 8, 3000 ATK. Discard 1 card to negate and destroy any Spell or Trap activation.</td></tr>
+</tbody></table></div>
+<p>Prisma helps here. Reveal Gyzarus, send Bestiari from your Deck to the GY, and Prisma's name becomes "Gladiator Beast Bestiari" until the End Phase. Now Prisma plus any Gladiator Beast can become Gyzarus.</p>
+<p>There are no Tuners in the Main Deck. The 3 <button type="button" class="cref" data-rid="44508094">Stardust Dragon</button> in the Extra Deck are for <button type="button" class="cref" data-rid="58120309">Starlight Road</button> (2 copies), which summons Stardust from the Extra Deck.</p>
+<h2 id="sec-4">How to play against it</h2>
+<ul>
+<li><b>Stop the battle.</b> <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button> banishes the attacker before damage calculation, so it never battles and never tags out.</li>
+<li><b>Stop the summon.</b> <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> and <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> stop Special Summons. Against Gladiator Beasts, that stops the whole engine.</li>
+<li><b>Set it face-down.</b> <button type="button" class="cref" data-rid="14087893">Book of Moon</button> makes a monster "forget" it was summoned by a Gladiator Beast. Darius also stops targeting its revived monster.</li>
+<li><b>Mind War Chariot.</b> While they control a Gladiator Beast, your monster effects can be negated. Spells and Traps get around it, but Heraklinos can negate those.</li>
+<li><b>A Normal Summon gets no bonus.</b> A Gladiator Beast that was Normal Summoned has no first effect. Hit it before it battles.</li>
+</ul>
+<div class="call mistake"><b class="tag">Common mistake</b><p>Attacking into a Gladiator Beast with a monster it can beat. Every battle it wins also gives it a tag out. Make it attack into your traps instead.</p></div>
+<div class="recap"><h2 id="sec-5">Recap</h2><ul><li>A Gladiator Beast that battled can shuffle itself back and summon another at the end of the Battle Phase.</li><li>The new one gets a bonus effect because a Gladiator Beast summoned it.</li><li>Test Tiger swaps without battle. Prisma helps make Gyzarus.</li><li>Stop it by stopping the battle or the Special Summon.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="78868776" aria-label="Gladiator Beast Laquari" style="background-image:url('img/78868776.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="41470137" aria-label="Gladiator Beast Bestiari" style="background-image:url('img/41470137.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="25924653" aria-label="Gladiator Beast Darius" style="background-image:url('img/25924653.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="92373006" aria-label="Test Tiger" style="background-image:url('img/92373006.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="48156348" aria-label="Gladiator Beast Gyzarus" style="background-image:url('img/48156348.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="27346636" aria-label="Gladiator Beast Heraklinos" style="background-image:url('img/27346636.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="96216229" aria-label="Gladiator Beast War Chariot" style="background-image:url('img/96216229.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="89312388" aria-label="Elemental HERO Prisma" style="background-image:url('img/89312388.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>How a Gladiator Beast "tags out" after battle</li><li>Why the Deck needs its monsters to battle and survive</li><li>The two Contact Fusions and how the deck reaches them</li><li>How to play against it</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">At a glance: Gladiator Beasts</button><button type="button">The idea: tag out after battle</button><button type="button">The core cards</button><button type="button">Swapping without battle, and Contact Fusion</button><button type="button">How to play against it</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">What does a Gladiator Beast need to tag out at the end of the Battle Phase?</span><span class="a">It must have battled (been in damage calculation), and there must be another Gladiator Beast in your Deck.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent Normal Summons Gladiator Beast Bestiari. Does it destroy a Spell or Trap?</span><span class="a">No. Its first effect only works when a Gladiator Beast effect Special Summons it.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How does Dimensional Prison stop a tag out?</span><span class="a">It banishes the attacker when the attack is declared, so the monster never battles.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Royal Oppression negates a tag out. What happens to the monster that tagged out?</span><span class="a">It stays in the Deck. It was shuffled in as a cost, and no new monster is summoned.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How does Elemental HERO Prisma help make Gladiator Beast Gyzarus?</span><span class="a">It reveals Gyzarus, sends Bestiari from the Deck to the GY, and takes Bestiari's name, so it can be one of the materials.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why does a Gladiator Beast deck with no Tuners run Stardust Dragon?</span><span class="a">Starlight Road summons Stardust Dragon from the Extra Deck.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/24-frog-monarchs/" data-k="lesson-24">← Lesson 24</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/26-machina-gadgets-zombies-and-dragons/" data-k="lesson-26">Lesson 26 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

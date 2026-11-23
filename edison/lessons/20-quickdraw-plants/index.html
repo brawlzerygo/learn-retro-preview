@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 20: Quickdraw Plants | Learn Retro</title>
+<meta name="description" content="Tokens, Plants and Synchron Tuners: a combo deck built on Dandylion.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/20-quickdraw-plants/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 20 (3 of 13)</div>
+      <h1>Quickdraw Plants</h1><p class="sub">Tokens, Plants and Synchron Tuners: a combo deck built on Dandylion. <span class="pill">5 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><section class="glance" data-deck="qd"><h2 id="sec-0">At a glance: Quickdraw Plants</h2>
+    <p class="gsub"><b>Combo</b> · Lists: <a href="/edison/decks/quickdraw-plant/" data-k="deck-Quickdraw%20Plant">Quickdraw Plant</a>, <a href="/edison/decks/quickdraw-volcanic/" data-k="deck-Quickdraw%20Volcanic">Quickdraw Volcanic</a> · <a href="/edison/lessons/20-quickdraw-plants/" data-k="lesson-20">Lesson 20</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p><button type="button" class="cref" data-rid="20932152">Quickdraw Synchron</button> Special Summoned by sending a monster from the hand, <button type="button" class="cref" data-rid="15341821">Dandylion</button> making two Fluff Tokens, and several Synchros in one turn.</p></div>
+      <div><h4>What it wants</h4><p>One big turn: Quickdraw, Dandylion and <button type="button" class="cref" data-rid="14943837">Debris Dragon</button> become two Synchros and a field of tokens from three cards.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>The biggest single turns in the format: two Synchros and three tokens from three cards.</li><li><button type="button" class="cref" data-rid="15341821">Dandylion</button> makes tokens however it reaches the GY, so destroying it helps them.</li><li><button type="button" class="cref" data-rid="11819616">Tytannial, Princess of Camellias</button> negates cards that target.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>Special Summons everywhere: <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> can negate Quickdraw, the tokens and the Synchro.</li><li><button type="button" class="cref" data-rid="14943837">Debris Dragon</button> needs a Normal Summon: <button type="button" class="cref" data-rid="34717238">Pulling the Rug</button> negates its revive.</li><li><button type="button" class="cref" data-rid="71564252">Thunder King Rai-Oh</button> and <button type="button" class="cref" data-rid="41420027">Solemn Judgment</button> stop a Synchro as it lands.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li><button type="button" class="cref" data-rid="3429238">Drill Warrior</button>, <button type="button" class="cref" data-rid="42810973">Junk Archer</button>, <button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button>, <button type="button" class="cref" data-rid="25862681">Ancient Fairy Dragon</button> and <button type="button" class="cref" data-rid="44508094">Stardust Dragon</button>.</li><li><button type="button" class="cref" data-rid="48686504">Lonefire Blossom</button> turning a Fluff Token into Tytannial from the Deck.</li><li><button type="button" class="cref" data-rid="67169062">Pot of Avarice</button> late in the game. The Volcanic version runs <button type="button" class="cref" data-rid="51452091">Royal Decree</button> and <button type="button" class="cref" data-rid="69537999">Blaze Accelerator</button>.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Stop the first step: a combo needs every link.</li><li>Against a Tytannial board, use cards that don't target, like <button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button> or <button type="button" class="cref" data-rid="19613556">Heavy Storm</button>.</li><li>Side <button type="button" class="cref" data-rid="93016201">Royal Oppression</button>, <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> or <button type="button" class="cref" data-rid="34717238">Pulling the Rug</button>.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Destroying Dandylion: it still makes tokens.</li><li>Ignoring Fluff Tokens: each one is a Level for the next Synchro.</li><li>Thinking Quickdraw can make Stardust Dragon. Only Debris or a generic Tuner can.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a></div><div><b>Even with:</b> <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div><div><b>Tough against:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/qd/" data-k="opponents-qd">the matchup chart</a>.</div></div>
+  </section>
+
+<h2 id="sec-1">The deck</h2>
+<p>You met this engine in Lesson 6. According to edisonformat.com, a Quickdraw deck called Quickdraw Dandywarrior won the April 2010 tournament in Edison that the format is named after. On this site the <a href="/edison/decks/quickdraw-plant/" data-k="deck-Quickdraw%20Plant">Quickdraw Plant list</a> is listed as a Rogue deck.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="20932152">Quickdraw Synchron</button></td><td class="nw">2</td><td>Level 5 Tuner. Special Summons itself by sending another monster from your hand to the GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="15341821">Dandylion</button></td><td class="nw">2</td><td>When sent to the GY from anywhere, makes 2 Level 1 Fluff Tokens.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="14943837">Debris Dragon</button></td><td class="nw">2</td><td>Level 4 Tuner. When Normal Summoned, revives a 500-or-less ATK monster from your GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="48686504">Lonefire Blossom</button></td><td class="nw">2</td><td>Tribute a face-up Plant to Special Summon a Plant from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="11819616">Tytannial, Princess of Camellias</button></td><td class="nw">1</td><td>Level 8 Plant. Tribute a face-up Plant to negate a card that targets.</td></tr>
+<tr><td class="nw">Ryko, Lightsworn Hunter</td><td class="nw">3</td><td>Flip: destroy a card, then send the top 3 of your Deck to the GY.</td></tr>
+<tr><td class="nw">Super-Nimble Mega Hamster</td><td class="nw">2</td><td>Flip: Special Summon a Level 3 or lower Beast, like Ryko, from the Deck face-down.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="67169062">Pot of Avarice</button></td><td class="nw">3</td><td>Shuffle 5 monsters from the GY into the Deck, then draw 2.</td></tr>
+<tr><td class="nw">Caius the Shadow Monarch</td><td class="nw">2</td><td>Tribute Summon to banish a card.</td></tr>
+</tbody></table></div>
+<p>It also runs Card Trooper, Light and Darkness Dragon, Night Assailant, Morphing Jar, Sangan, and a full Trap line.</p>
+<h2 id="sec-2">The rules of the two Tuners</h2>
+<p>Both Tuners come with limits written on the card. The whole deck is built around them.</p>
+<ul>
+<li><b><button type="button" class="cref" data-rid="20932152">Quickdraw</button></b> can only be Synchro Material for a monster that lists a "Synchron" Tuner. In this Extra Deck that means <button type="button" class="cref" data-rid="3429238">Drill Warrior</button>, Turbo Warrior, <button type="button" class="cref" data-rid="42810973">Junk Archer</button> and Nitro Warrior.</li>
+<li><b><button type="button" class="cref" data-rid="14943837">Debris</button></b> can only be material for a <b>Dragon</b> Synchro, and the other materials can't be Level 4. That means Black Rose Dragon, <button type="button" class="cref" data-rid="25862681">Ancient Fairy Dragon</button>, Iron Chain Dragon, Stardust Dragon and Red Dragon Archfiend.</li>
+</ul>
+<div class="tbl-wrap"><table><thead><tr><th>Materials</th><th class="nw">Level</th><th>Description</th></tr></thead><tbody>
+<tr><td>Quickdraw + 1 Fluff</td><td class="nw">6</td><td>Drill Warrior or Turbo Warrior</td></tr>
+<tr><td>Quickdraw + 2 Fluff or Ryko</td><td class="nw">7</td><td>Junk Archer or Nitro Warrior</td></tr>
+<tr><td>Debris + Ryko</td><td class="nw">6</td><td>Iron Chain Dragon</td></tr>
+<tr><td>Debris + Dandylion or Lonefire</td><td class="nw">7</td><td>Black Rose Dragon or Ancient Fairy Dragon</td></tr>
+<tr><td>Debris + Dandylion + Fluff</td><td class="nw">8</td><td>Stardust Dragon or Red Dragon Archfiend</td></tr>
+</tbody></table></div>
+<h2 id="sec-3">A sample turn</h2>
+<p>Your hand has Quickdraw Synchron, Dandylion and Debris Dragon.</p>
+<ol class="steps">
+<li><div>Use Quickdraw's effect: send Dandylion from your hand to the GY and Special Summon Quickdraw. Dandylion makes 2 Fluff Tokens.</div></li>
+<li><div>Synchro Summon Drill Warrior with Quickdraw (5) and 1 Fluff (1).</div></li>
+<li><div>Normal Summon Debris Dragon. Revive Dandylion (300 ATK) in Attack Position with its effects negated.</div></li>
+<li><div>Synchro Summon Ancient Fairy Dragon with Debris (4) and Dandylion (3). Dandylion is in the GY again, off the field, so it makes 2 more Fluff Tokens.</div></li>
+<li><div>You end with Drill Warrior, Ancient Fairy Dragon and 3 Fluff Tokens from three cards.</div></li>
+</ol>
+<div class="call rule"><b class="tag">Black Rose and Dandylion</b><p>If you Synchro Summon Black Rose Dragon using Dandylion, Black Rose's "destroy all cards" can only be Chain Link 2. Dandylion's tokens are summoned after everything is destroyed, so they survive.</p></div>
+<p><button type="button" class="cref" data-rid="48686504">Lonefire</button> adds more. Fluff Tokens are WIND Plants, so Lonefire can Tribute one to bring <button type="button" class="cref" data-rid="11819616">Tytannial</button> or another Dandylion from the Deck. Tytannial then guards the board by Tributing a Plant to negate targeting cards. Late in the game, <button type="button" class="cref" data-rid="67169062">Pot of Avarice</button> shuffles used monsters back so you can draw them again.</p>
+<h2 id="sec-4">The Volcanic version</h2>
+<p>The <a href="/edison/decks/quickdraw-volcanic/" data-k="deck-Quickdraw%20Volcanic">Quickdraw Volcanic list</a> (listed as a Contender deck) swaps the Plants for Pyros. Quickdraw sends <button type="button" class="cref" data-rid="33365932">Volcanic Shell</button> from the hand to the GY. Shell in the GY can pay 500 LP to add another Shell from the Deck. <button type="button" class="cref" data-rid="69537999">Blaze Accelerator</button> sends a Pyro with 500 or less ATK from your hand, like Shell, to destroy a monster. Volcanic Rocket adds Blaze Accelerator when it is Summoned. The list also runs 2 Royal Decree, which negates all other Trap effects on the field.</p>
+<h2 id="sec-5">Weaknesses and how to play against it</h2>
+<ul>
+<li><b>Special Summons everywhere.</b> <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> can negate Quickdraw's effect, the tokens and the Synchro. Fossil Dyna Pachycephalo and Vanity's Fiend stop Special Summons outright.</li>
+<li><b>Debris needs a Normal Summon.</b> Pulling the Rug negates its revive and destroys it.</li>
+<li><b>Synchros can be stopped as they land.</b> Thunder King Rai-Oh can negate a Synchro Summon. Solemn Judgment can too.</li>
+<li><b>Tytannial only stops cards that target.</b> Use cards that don't target, like Black Rose Dragon or Heavy Storm, against a Tytannial board.</li>
+</ul>
+<div class="call mistake"><b class="tag">Common mistakes against Quickdraw</b><ul><li>Destroying Dandylion. Destroyed or sent anywhere to the GY, it still makes tokens.</li><li>Thinking Quickdraw can make Stardust Dragon. It can't. Stardust needs a generic Tuner.</li><li>Ignoring the Fluff Tokens. Each one is a Level for the next Synchro.</li></ul></div>
+<p>E3 Yu-Gi-Oh has a full Quickdraw Dandywarrior guide in the <a href="/edison/library/" data-k="library">Library</a>.</p>
+<div class="recap"><h2 id="sec-6">Recap</h2><ul><li>Quickdraw makes only "Synchron" Synchros. Debris makes only Dragon Synchros.</li><li>Dandylion makes 2 tokens every time it reaches the GY, from anywhere.</li><li>Lonefire and Tytannial use Plants, and Fluff Tokens are Plants.</li><li>Special Summon locks, Pulling the Rug and summon negation beat it.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="20932152" aria-label="Quickdraw Synchron" style="background-image:url('img/20932152.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="15341821" aria-label="Dandylion" style="background-image:url('img/15341821.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="14943837" aria-label="Debris Dragon" style="background-image:url('img/14943837.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="48686504" aria-label="Lonefire Blossom" style="background-image:url('img/48686504.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="11819616" aria-label="Tytannial, Princess of Camellias" style="background-image:url('img/11819616.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="3429238" aria-label="Drill Warrior" style="background-image:url('img/3429238.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="42810973" aria-label="Junk Archer" style="background-image:url('img/42810973.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="25862681" aria-label="Ancient Fairy Dragon" style="background-image:url('img/25862681.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="67169062" aria-label="Pot of Avarice" style="background-image:url('img/67169062.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>How Quickdraw Synchron, Dandylion and Debris Dragon build Synchros</li><li>The Level math for the deck's main Synchros</li><li>The Volcanic version, and how to beat both</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">At a glance: Quickdraw Plants</button><button type="button">The deck</button><button type="button">The rules of the two Tuners</button><button type="button">A sample turn</button><button type="button">The Volcanic version</button><button type="button">Weaknesses and how to play against it</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">Quickdraw Synchron (Level 5) and a Fluff Token are on your field. What can you make?</span><span class="a">A Level 6 that lists a "Synchron" Tuner: Drill Warrior or Turbo Warrior.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Can Debris Dragon and a Level 4 monster make a Level 8 Dragon?</span><span class="a">No. Debris Dragon's other materials can't be Level 4.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Dandylion is used as Synchro Material. What happens?</span><span class="a">It goes to the GY and makes 2 Fluff Tokens.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why can Lonefire Blossom Tribute a Fluff Token?</span><span class="a">Fluff Tokens are Plants, and Lonefire Tributes a face-up Plant.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name a card that stops a Quickdraw turn before it starts.</span><span class="a">Royal Oppression, Fossil Dyna Pachycephalo or Vanity's Fiend, since the deck Special Summons a lot.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What does the Volcanic version use Quickdraw's cost on?</span><span class="a">Volcanic Shell, which can then search another Shell from the GY.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/19-blackwings/" data-k="lesson-19">← Lesson 19</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/21-lightsworn/" data-k="lesson-21">Lesson 21 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

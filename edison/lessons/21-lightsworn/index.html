@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 21: Lightsworn | Learn Retro</title>
+<meta name="description" content="A deck that throws its own cards into the Graveyard, on purpose.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/21-lightsworn/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 21 (4 of 13)</div>
+      <h1>Lightsworn</h1><p class="sub">A deck that throws its own cards into the Graveyard, on purpose. <span class="pill">4 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><section class="glance" data-deck="ls"><h2 id="sec-0">At a glance: Lightsworn</h2>
+    <p class="gsub"><b>Combo</b> · Lists: <a href="/edison/decks/lightsworn/" data-k="deck-Lightsworn">Lightsworn</a> · <a href="/edison/lessons/21-lightsworn/" data-k="lesson-21">Lesson 21</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p>LIGHT monsters that send cards from the top of their Deck to the GY at the End Phase. <button type="button" class="cref" data-rid="691925">Solar Recharge</button> and <button type="button" class="cref" data-rid="94886282">Charge of the Light Brigade</button> early.</p></div>
+      <div><h4>What it wants</h4><p>Four Lightsworn names in the GY, then <button type="button" class="cref" data-rid="57774843">Judgment Dragon</button>: pay 1000 LP, destroy every other card, attack for 3000.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>Judgment Dragon wipes your whole field from the hand.</li><li>The mill pays off: <button type="button" class="cref" data-rid="58996430">Wulf, Lightsworn Beast</button> summons itself and <button type="button" class="cref" data-rid="4906301">Necro Gardna</button> stops an attack from the GY.</li><li>2 <button type="button" class="cref" data-rid="51452091">Royal Decree</button> turn off every other Trap on the field, yours included.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li><button type="button" class="cref" data-rid="53341729">Light-Imprisoning Mirror</button> negates LIGHT effects on the field and in the GY: the mill, Wulf and Judgment Dragon.</li><li>Graveyard removal keeps the names under four.</li><li>Its own Deck: the mill can run it out of cards in a long game.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li><button type="button" class="cref" data-rid="21502796">Ryko, Lightsworn Hunter</button> flipping to destroy a card.</li><li><button type="button" class="cref" data-rid="94381039">Celestia, Lightsworn Angel</button> destroying 2 of your cards.</li><li><button type="button" class="cref" data-rid="4906301">Necro Gardna</button> negating one attack from the GY.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Count the different Lightsworn names in their GY: at three, one more mill brings Judgment Dragon.</li><li>Keep cards in your hand, not on the field.</li><li><button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button> hits Judgment Dragon, Celestia and Wulf; side <button type="button" class="cref" data-rid="53341729">Light-Imprisoning Mirror</button>, <button type="button" class="cref" data-rid="24508238">D.D. Crow</button> or <button type="button" class="cref" data-rid="5758500">Soul Release</button>.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Putting your whole hand on the field.</li><li>Forgetting Necro Gardna in their GY.</li><li>Relying on Traps when Royal Decree is face-up.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a></div><div><b>Even with:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div><div><b>Tough against:</b> <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/ls/" data-k="opponents-ls">the matchup chart</a>.</div></div>
+  </section>
+
+<h2 id="sec-1">The deck</h2>
+<p>Lightsworn monsters are LIGHT. Most of them send cards from the top of your Deck to the GY at the end of your turn. Players call that "milling." The <a href="/edison/decks/lightsworn/" data-k="deck-Lightsworn">Lightsworn list</a> is listed as a Competitive deck on this site.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>Most decks treat the Graveyard as a trash can. Lightsworn treats it as a second hand. Every card that falls in is a resource.</p></div>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">Ryko, Lightsworn Hunter</td><td class="nw">3</td><td>Flip: destroy a card, then mill 3.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="58996430">Wulf, Lightsworn Beast</button></td><td class="nw">3</td><td>2100 ATK. If it is sent from your Deck to the GY, it Special Summons itself.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="691925">Solar Recharge</button></td><td class="nw">3</td><td>Discard a Lightsworn monster: draw 2, then mill 2.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="57774843">Judgment Dragon</button></td><td class="nw">2</td><td>Summoned with 4+ Lightsworn of different names in the GY. Pay 1000 LP to destroy all other cards.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="94381039">Celestia, Lightsworn Angel</button></td><td class="nw">2</td><td>Tribute Summon it with a Lightsworn: mill 4, then destroy up to 2 of your opponent's cards.</td></tr>
+<tr><td class="nw">Jain, Lightsworn Paladin</td><td class="nw">2</td><td>1800 ATK beater, 2100 while attacking a monster. Mills 2.</td></tr>
+<tr><td class="nw">Monster Reincarnation</td><td class="nw">2</td><td>Discard 1 card to add a monster from your GY to your hand.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="22624373">Lyla, Lightsworn Sorceress</button></td><td class="nw">1</td><td>Switches to Defense to destroy a Spell or Trap. Mills 3.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="59019082">Garoth, Lightsworn Warrior</button></td><td class="nw">1</td><td>If another Lightsworn's effect mills you, mill 2 more and draw 1 per Lightsworn milled.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="95503687">Lumina, Lightsworn Summoner</button></td><td class="nw">1</td><td>Discard 1: revive a Level 4 or lower Lightsworn. Mills 3.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="94886282">Charge of the Light Brigade</button></td><td class="nw">1</td><td>Mill 3, then add a Level 4 or lower Lightsworn from the Deck.</td></tr>
+</tbody></table></div>
+<p>The list also has Aurkus, Ehren, Necro Gardna, Plaguespreader Zombie, Card Trooper, 2 Honest, 2 Royal Decree and Cold Wave.</p>
+<h2 id="sec-2">The engine: mill, then cash in</h2>
+<p>Here is how much each card sends from the Deck to the GY.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Cards milled</th><th>When</th></tr></thead><tbody>
+<tr><td class="nw">Lyla, Lumina, Ehren</td><td class="nw">3</td><td>Your End Phase, if face-up</td></tr>
+<tr><td class="nw">Jain, Aurkus</td><td class="nw">2</td><td>Your End Phase, if face-up</td></tr>
+<tr><td class="nw">Judgment Dragon</td><td class="nw">4</td><td>Your End Phase, if face-up</td></tr>
+<tr><td class="nw">Ryko</td><td class="nw">3</td><td>When flipped</td></tr>
+<tr><td class="nw">Celestia</td><td class="nw">4</td><td>As the cost of its effect</td></tr>
+<tr><td class="nw">Charge, Solar Recharge</td><td class="nw">3 or 2</td><td>When played</td></tr>
+</tbody></table></div>
+<p>Every mill can hit something good:</p>
+<ul>
+<li><b><button type="button" class="cref" data-rid="58996430">Wulf</button></b> lands on the field for free.</li>
+<li><b><button type="button" class="cref" data-rid="4906301">Necro Gardna</button></b> can be banished from the GY on your opponent's turn to negate an attack.</li>
+<li><b>Plaguespreader Zombie</b> revives itself if you put a card from your hand on top of the Deck. It is a Tuner, and Lyla and Lumina are Spellcasters, so it can make Tempest Magician (Level 6).</li>
+<li><b>Each Lightsworn with a new name</b> counts toward <button type="button" class="cref" data-rid="57774843">Judgment Dragon</button>.</li>
+</ul>
+<div class="call rule"><b class="tag">When Garoth draws</b><p><button type="button" class="cref" data-rid="59019082">Garoth</button> only triggers when cards are sent by the <b>effect</b> of another Lightsworn <b>monster</b>. Celestia mills as a cost, so Garoth does not trigger from it. Spells like Solar Recharge are not monsters, so they do not trigger it either.</p></div>
+<h2 id="sec-3">The plan</h2>
+<p>Lightsworn plays a steady game. Early on, it summons a Lightsworn, mills at the End Phase, and uses Solar Recharge and Charge to draw and dig. Wulf and Necro Gardna make the mill pay off. Once four different Lightsworn names are in the GY, Judgment Dragon can come out from the hand. It can pay 1000 LP to destroy every other card on the field, and then attack with 3000 ATK.</p>
+<div class="call key"><b class="tag">The cost of the mill</b><p>A 40-card Deck shrinks fast. Lyla and Judgment Dragon alone send 7 cards a turn. Long games can end with a Lightsworn player running out of cards, so they need to win before that.</p></div>
+<h2 id="sec-4">Weaknesses and how to play against it</h2>
+<ul>
+<li><b>Light-Imprisoning Mirror</b> negates LIGHT monster effects activated on the field or in the GY. That covers the End Phase mills, Wulf and Judgment Dragon's effect.</li>
+<li><b>Graveyard removal.</b> D.D. Crow and Soul Release banish cards from the GY. Fewer Lightsworn names there means no Judgment Dragon.</li>
+<li><b>Special Summon locks.</b> <button type="button" class="cref" data-rid="93016201">Royal Oppression</button>, Fossil Dyna Pachycephalo and Vanity's Fiend stop Wulf, Lumina's revive and Judgment Dragon.</li>
+<li><b>Big summons.</b> Bottomless Trap Hole hits Judgment Dragon, Celestia and Wulf.</li>
+</ul>
+<div class="call mistake"><b class="tag">Common mistakes against Lightsworn</b><ul><li>Putting your whole hand on the field. Judgment Dragon can clear it all. Keep cards back.</li><li>Forgetting Necro Gardna in their GY. Plan for one attack to be negated.</li><li>Counting their GY loosely. Count the different Lightsworn names. Three means one more mill could bring Judgment Dragon.</li></ul></div>
+<div class="recap"><h2 id="sec-5">Recap</h2><ul><li>Lightsworn mills itself at the End Phase and with Ryko, Celestia, Charge and Solar Recharge.</li><li>Wulf, Necro Gardna and Plaguespreader turn milled cards into value.</li><li>Four different Lightsworn names in the GY unlock Judgment Dragon.</li><li>Light-Imprisoning Mirror, GY removal and Special Summon locks hurt it most.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="22624373" aria-label="Lyla, Lightsworn Sorceress" style="background-image:url('img/22624373.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="58996430" aria-label="Wulf, Lightsworn Beast" style="background-image:url('img/58996430.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="57774843" aria-label="Judgment Dragon" style="background-image:url('img/57774843.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="59019082" aria-label="Garoth, Lightsworn Warrior" style="background-image:url('img/59019082.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="94381039" aria-label="Celestia, Lightsworn Angel" style="background-image:url('img/94381039.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="95503687" aria-label="Lumina, Lightsworn Summoner" style="background-image:url('img/95503687.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="691925" aria-label="Solar Recharge" style="background-image:url('img/691925.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="94886282" aria-label="Charge of the Light Brigade" style="background-image:url('img/94886282.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="4906301" aria-label="Necro Gardna" style="background-image:url('img/4906301.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>Why Lightsworn sends its own cards to the Graveyard</li><li>How Wulf, Garoth and Judgment Dragon reward the mill</li><li>The cards that beat Lightsworn</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">At a glance: Lightsworn</button><button type="button">The deck</button><button type="button">The engine: mill, then cash in</button><button type="button">The plan</button><button type="button">Weaknesses and how to play against it</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">Wulf is milled by Lyla's End Phase effect. What happens?</span><span class="a">Wulf Special Summons itself, because it was sent from the Deck to the GY.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What does Judgment Dragon need in the GY to be Special Summoned?</span><span class="a">4 or more Lightsworn monsters with different names.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Does Garoth draw when Celestia mills 4 cards?</span><span class="a">No. Celestia mills as a cost, and Garoth needs another Lightsworn's effect.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why is Light-Imprisoning Mirror strong against Lightsworn?</span><span class="a">It negates LIGHT monster effects activated on the field or in the GY, like the mills, Wulf and Judgment Dragon.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent has 3 different Lightsworn names in the GY. Why be careful?</span><span class="a">One more name lets them Special Summon Judgment Dragon and wipe the field.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What is the risk of milling so much?</span><span class="a">The Deck runs out fast, so long games can end with them unable to draw.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/20-quickdraw-plants/" data-k="lesson-20">← Lesson 20</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/22-vayu-turbo/" data-k="lesson-22">Lesson 22 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

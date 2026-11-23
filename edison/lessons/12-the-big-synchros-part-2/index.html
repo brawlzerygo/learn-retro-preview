@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 12: The Big Synchros, Part 2 | Learn Retro</title>
+<meta name="description" content="Levels 7 to 9: the Synchros that end turns and win games.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/12-the-big-synchros-part-2/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 201 / Lesson 12 (3 of 8)</div>
+      <h1>The Big Synchros, Part 2</h1><p class="sub">Levels 7 to 9: the Synchros that end turns and win games. <span class="pill">5 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">Level 7: Black Rose and Ancient Fairy</h2>
+<h3>Black Rose Dragon</h3>
+<p>You met <button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button> in Lesson 4. When it is Synchro Summoned, you can destroy <b>every card on the field</b>. Yours too. It is Limited, and it is in 89% of the decks here.</p>
+<p>The effect is optional. You use it when your opponent has more on the field than you do. If you are ahead, you can skip it and just keep a 2400 ATK monster.</p>
+<p>It has a second effect: banish a Plant from your Graveyard to turn one of your opponent's Defense Position monsters to Attack Position with 0 ATK until the End Phase. Plant decks use this. Most decks only care about the first effect.</p>
+<h3>Ancient Fairy Dragon</h3>
+<p><button type="button" class="cref" data-rid="25862681">Ancient Fairy Dragon</button> has 2100 ATK and 3000 DEF. Once per turn, it can Special Summon a Level 4 or lower monster from your hand. You cannot conduct your Battle Phase that turn.</p>
+<p>That extra monster can be Synchro Material. Its other effect destroys a Field Spell, gains you 1000 LP, and lets you add a Field Spell from your Deck. It is in 42% of the decks.</p>
+<h2 id="sec-1">Level 8: the big four</h2>
+<h3>Stardust Dragon</h3>
+<p><button type="button" class="cref" data-rid="44508094">Stardust Dragon</button> is in <b>every one</b> of the 55 decks on this site. It is a shield for your whole field.</p>
+<ol class="steps">
+<li><div>Your opponent activates a card or effect that would destroy a card on the field.</div></li>
+<li><div>You Tribute Stardust Dragon. That activation is negated and destroyed.</div></li>
+<li><div>In the End Phase, Stardust comes back from your Graveyard.</div></li>
+</ol>
+<p>It stops cards like Black Rose Dragon, Heavy Storm, Mirror Force, Bottomless Trap Hole and Dark Armed Dragon's effect. It only works on things that would surely destroy a card.</p>
+<div class="call key"><b class="tag">The big idea</b><p>Stardust Dragon does not stop removal that does not destroy. Bouncing, banishing without destroying, or sending to the Graveyard all get past it.</p></div>
+<h3>Thought Ruler Archfiend</h3>
+<p><button type="button" class="cref" data-rid="70780151">Thought Ruler Archfiend</button> has 2700 ATK. When it destroys a monster in battle and sends it to the Graveyard, you gain LP equal to that monster's original ATK.</p>
+<p>It also protects itself. It is a Psychic. When a Spell or Trap targets exactly one Psychic, you can pay 1000 LP to negate it. That covers cards like Book of Moon, Brain Control and Dimensional Prison aimed at it. It only negates cards, not monster effects.</p>
+<h3>Colossal Fighter</h3>
+<p><button type="button" class="cref" data-rid="23693634">Colossal Fighter</button> starts at 2800 ATK. It gains 100 ATK for each Warrior in <b>both</b> Graveyards. When it is destroyed in battle, you can Special Summon a Warrior from either Graveyard. It can even bring back itself.</p>
+<h3>Red Dragon Archfiend</h3>
+<p><button type="button" class="cref" data-rid="70902743">Red Dragon Archfiend</button> has 3000 ATK. When it attacks a Defense Position monster, after damage, all of your opponent's Defense Position monsters are destroyed.</p>
+<p>The cost: in your End Phase, your other monsters that did not attack this turn are destroyed. Plan around that before you summon it.</p>
+<h3>One more Level 8</h3>
+<p><button type="button" class="cref" data-rid="88643579">Dark End Dragon</button> is in 51% of the decks. It needs non-Tuner DARK monsters as material. Once per turn, it loses 500 ATK and DEF to send one of your opponent's monsters to the Graveyard. That is not destruction, so Stardust Dragon cannot stop it.</p>
+<h2 id="sec-2">Level 9: Mist Wurm</h2>
+<p><button type="button" class="cref" data-rid="27315304">Mist Wurm</button> needs a Tuner plus <b>two or more</b> non-Tuners. When it is Synchro Summoned, it returns 1 to 3 of your opponent's cards to the hand. This effect must be used, and it targets.</p>
+<p>Three cards at once can clear Set Traps right before you attack. Bounced Synchros go back to the Extra Deck.</p>
+<h2 id="sec-3">Picking the right one</h2>
+<p>Most Extra Decks hold several of these. Pick by the problem in front of you.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Problem</th><th class="nw">Card</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">They have more cards out</td><td class="nw"><button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button></td><td>Wipe the whole field, then rebuild first.</td></tr>
+<tr><td class="nw">You fear removal</td><td class="nw"><button type="button" class="cref" data-rid="44508094">Stardust Dragon</button></td><td>Stops one destroy effect, then returns.</td></tr>
+<tr><td class="nw">A wall of defenders</td><td class="nw"><button type="button" class="cref" data-rid="70902743">Red Dragon Archfiend</button></td><td>One attack on a defender clears all of them.</td></tr>
+<tr><td class="nw">Set cards in the way</td><td class="nw"><button type="button" class="cref" data-rid="27315304">Mist Wurm</button></td><td>Bounces up to three cards on summon.</td></tr>
+<tr><td class="nw">One strong monster</td><td class="nw"><button type="button" class="cref" data-rid="88643579">Dark End Dragon</button></td><td>Sends it to the Graveyard, past Stardust.</td></tr>
+<tr><td class="nw">You need a big attacker</td><td class="nw"><button type="button" class="cref" data-rid="23693634">Colossal Fighter</button></td><td>2800 or more, and it brings back a Warrior.</td></tr>
+</tbody></table></div>
+<div class="call mistake"><b class="tag">Common beginner mistakes</b><ul><li>Using Stardust against a bounce or a banish that does not destroy. It cannot.</li><li>Summoning Red Dragon Archfiend and forgetting your other monsters. Those that did not attack are destroyed.</li><li>Trying to make Mist Wurm with one non-Tuner. It needs two or more.</li></ul></div>
+<div class="recap"><h2 id="sec-4">Recap</h2><ul><li>Black Rose Dragon can wipe the field when Synchro Summoned.</li><li>Stardust Dragon stops one destroy effect and comes back in the End Phase. It is in every deck on this site.</li><li>Thought Ruler, Colossal Fighter and Red Dragon Archfiend are big attackers with extra jobs.</li><li>Dark End Dragon sends to the Graveyard, which Stardust cannot stop.</li><li>Mist Wurm bounces up to three cards and needs two non-Tuners.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="73580471" aria-label="Black Rose Dragon" style="background-image:url('img/73580471.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="25862681" aria-label="Ancient Fairy Dragon" style="background-image:url('img/25862681.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="44508094" aria-label="Stardust Dragon" style="background-image:url('img/44508094.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="70780151" aria-label="Thought Ruler Archfiend" style="background-image:url('img/70780151.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="23693634" aria-label="Colossal Fighter" style="background-image:url('img/23693634.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="70902743" aria-label="Red Dragon Archfiend" style="background-image:url('img/70902743.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="88643579" aria-label="Dark End Dragon" style="background-image:url('img/88643579.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="27315304" aria-label="Mist Wurm" style="background-image:url('img/27315304.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>What the Level 7, 8 and 9 Synchros do</li><li>Why Stardust Dragon is in every deck on this site</li><li>How to pick the right big Synchro for the moment</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Level 7: Black Rose and Ancient Fairy</button><button type="button">Level 8: the big four</button><button type="button">Level 9: Mist Wurm</button><button type="button">Picking the right one</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent activates Heavy Storm. You control Stardust Dragon. What can you do?</span><span class="a">Tribute Stardust to negate and destroy Heavy Storm. Stardust comes back from your Graveyard in the End Phase.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent uses Dark End Dragon on your Stardust Dragon. Can Stardust stop it?</span><span class="a">No. Dark End Dragon sends to the Graveyard. It does not destroy, so Stardust's effect does not apply.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You are ahead on the field. Do you have to use Black Rose Dragon's wipe?</span><span class="a">No. The effect is optional.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You summon Red Dragon Archfiend and attack with it only. What happens to your other monsters in the End Phase?</span><span class="a">They are destroyed, because they did not declare an attack.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What materials does Mist Wurm need?</span><span class="a">1 Tuner plus 2 or more non-Tuners, adding up to Level 9.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent targets Thought Ruler Archfiend with Book of Moon. What can you do?</span><span class="a">Pay 1000 LP to negate and destroy Book of Moon, because it targets exactly one Psychic.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/11-the-big-synchros-part-1/" data-k="lesson-11">← Lesson 11</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/13-common-tuners/" data-k="lesson-13">Lesson 13 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 26: Machina Gadgets, Zombies and Dragons | Learn Retro</title>
+<meta name="description" content="Three second-tier decks, each with its own engine.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/26-machina-gadgets-zombies-and-dragons/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 26 (9 of 13)</div>
+      <h1>Machina Gadgets, Zombies and Dragons</h1><p class="sub">Three second-tier decks, each with its own engine. <span class="pill">7 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">Machina Gadget: one Machine finds the next</h2><section class="glance" data-deck="gadget"><h2 id="sec-1">At a glance: Machina Gadget</h2>
+    <p class="gsub"><b>Aggro</b> · Lists: <a href="/edison/decks/machina-gadget/" data-k="deck-Machina%20Gadget">Machina Gadget</a>, <a href="/edison/decks/machina/" data-k="deck-Machina">Machina</a> · <a href="/edison/lessons/26-machina-gadgets-zombies-and-dragons/" data-k="lesson-26">Lesson 26</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p><button type="button" class="cref" data-rid="41172955">Green Gadget</button>, <button type="button" class="cref" data-rid="86445415">Red Gadget</button> or <button type="button" class="cref" data-rid="13839120">Yellow Gadget</button> searching the next Gadget when summoned. Only Machines on the field and in the GY.</p></div>
+      <div><h4>What it wants</h4><p>Never run out of monsters: each Gadget finds the next, two Gadgets in hand summon <button type="button" class="cref" data-rid="5556499">Machina Fortress</button>, and <button type="button" class="cref" data-rid="86780027">Solidarity</button> adds 800 ATK.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>A full hand all game: every summon replaces itself.</li><li><button type="button" class="cref" data-rid="5556499">Machina Fortress</button> comes back from the GY and destroys a card when it falls in battle.</li><li>Steady pressure that doesn't need a big turn.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>The searches are Normal Summon triggers: <button type="button" class="cref" data-rid="34717238">Pulling the Rug</button> negates them and destroys the Gadget.</li><li><button type="button" class="cref" data-rid="71564252">Thunder King Rai-Oh</button> stops adding cards from the Deck.</li><li>All Machines: <button type="button" class="cref" data-rid="79229522">Chimeratech Fortress Dragon</button> can fuse their Machines away with <button type="button" class="cref" data-rid="70095154">Cyber Dragon</button>.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li>Machina Fortress at 2500 ATK, more with Solidarity.</li><li><button type="button" class="cref" data-rid="97169186">Smashing Ground</button> on your highest-DEF monster.</li><li><button type="button" class="cref" data-rid="42940404">Machina Gearframe</button> and <button type="button" class="cref" data-rid="78349103">Machina Peacekeeper</button> as shields.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Stop the first search and the chain of Gadgets breaks.</li><li>Fuse their Machines with Chimeratech Fortress Dragon.</li><li>Side <button type="button" class="cref" data-rid="34717238">Pulling the Rug</button> and <button type="button" class="cref" data-rid="70095154">Cyber Dragon</button>.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Siding <button type="button" class="cref" data-rid="90846359">Rivalry of Warlords</button>: they only play Machines, so it barely hurts them.</li><li>Destroying Machina Fortress by battle without a plan for its effect.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> none</div><div><b>Even with:</b> <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div><div><b>Tough against:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/gadget/" data-k="opponents-gadget">the matchup chart</a>.</div></div>
+  </section>
+<p><a href="/edison/decks/machina-gadget/" data-k="deck-Machina%20Gadget">The Machina Gadget list</a> is a <b>Contender</b> in our data: seen as playable, with few big finishes so far. Every monster in it is a Machine. The data also has a separate <a href="/edison/decks/machina/" data-k="deck-Machina">Machina list</a> rated Competitive.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="41172955">Green Gadget</button></td><td class="nw">3</td><td>When Normal or Special Summoned: add Red Gadget from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="86445415">Red Gadget</button></td><td class="nw">3</td><td>When Normal or Special Summoned: add Yellow Gadget from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="13839120">Yellow Gadget</button></td><td class="nw">3</td><td>When Normal or Special Summoned: add Green Gadget from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="5556499">Machina Fortress</button></td><td class="nw">3</td><td>Discard Machines with Levels adding to 8 or more to summon it from hand or GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="42940404">Machina Gearframe</button></td><td class="nw">3</td><td>When Normal Summoned: add a Machina monster. Equips to a Machine as a shield.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="78349103">Machina Peacekeeper</button></td><td class="nw">2</td><td>A Union shield. When destroyed and sent to the GY: add a Union monster.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="86780027">Solidarity</button></td><td class="nw">2</td><td>If your GY has only one original monster Type, your monsters of that Type gain 800 ATK.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="97169186">Smashing Ground</button></td><td class="nw">3</td><td>Destroys your opponent's face-up monster with the highest DEF.</td></tr>
+</tbody></table></div>
+<p>The plan is steady pressure. Each Gadget you summon puts the next one in your hand, so you never run out of monsters. Two Gadgets in hand are Level 4 + 4 = 8, enough to discard for Machina Fortress (2500 ATK). Fortress can come back from the GY the same way. When it is destroyed by battle, it destroys a card your opponent controls. Because the GY holds only Machines, Solidarity keeps giving +800 ATK.</p>
+<p><b>Against it:</b> the Gadget searches are triggers on a Normal Summon, so <button type="button" class="cref" data-rid="34717238">Pulling the Rug</button> negates them and destroys the Gadget. <button type="button" class="cref" data-rid="71564252">Thunder King Rai-Oh</button> stops all adding from the Deck except by drawing. Also watch <button type="button" class="cref" data-rid="79229522">Chimeratech Fortress Dragon</button>: it can use Machines on <b>either</b> field. With <button type="button" class="cref" data-rid="70095154">Cyber Dragon</button>, you can fuse their Machines away.</p>
+<h2 id="sec-2">Diva Zombie: the Graveyard is a second hand</h2><section class="glance" data-deck="zombie"><h2 id="sec-3">At a glance: Diva Zombie</h2>
+    <p class="gsub"><b>Combo</b> · Lists: <a href="/edison/decks/diva-zombie/" data-k="deck-Diva%20Zombie">Diva Zombie</a>, <a href="/edison/decks/teledad/" data-k="deck-TeleDAD">TeleDAD</a> · <a href="/edison/lessons/26-machina-gadgets-zombies-and-dragons/" data-k="lesson-26">Lesson 26</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p>Zombies that keep coming back: <button type="button" class="cref" data-rid="63665875">Goblin Zombie</button> searching, <button type="button" class="cref" data-rid="17259470">Zombie Master</button> and <button type="button" class="cref" data-rid="92826944">Mezuki</button> reviving, <button type="button" class="cref" data-rid="33420078">Plaguespreader Zombie</button> returning to the field.</p></div>
+      <div><h4>What it wants</h4><p>The Graveyard as a second hand: revive Zombies over and over, make Level 6 Zombie Synchros, and Tribute for Caius.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>Hard to run out of monsters: they come back from the GY.</li><li><button type="button" class="cref" data-rid="2204140">Book of Life</button> revives a Zombie and banishes a monster from your GY.</li><li><button type="button" class="cref" data-rid="5309481">Revived King Ha Des</button> negates the effects of monsters it destroys, even in the GY.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>It needs the Graveyard: <button type="button" class="cref" data-rid="24508238">D.D. Crow</button> and <button type="button" class="cref" data-rid="5758500">Soul Release</button> take its plays away.</li><li><button type="button" class="cref" data-rid="99735427">Shadow-Imprisoning Mirror</button> negates DARK effects on the field and in the GY.</li><li><button type="button" class="cref" data-rid="29549364">Mask of Restrict</button> stops Caius.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li><button type="button" class="cref" data-rid="9748752">Caius the Shadow Monarch</button>, 3 copies, for 1000 damage if it banishes a DARK.</li><li><button type="button" class="cref" data-rid="6021033">Doomkaiser Dragon</button> taking a Zombie from your GY.</li><li><button type="button" class="cref" data-rid="65192027">Dark Armed Dragon</button> with exactly 3 DARKs in their GY.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Attack the Graveyard: banish Mezuki, Plaguespreader and Zombie Master targets.</li><li>Side <button type="button" class="cref" data-rid="5758500">Soul Release</button>, <button type="button" class="cref" data-rid="99735427">Shadow-Imprisoning Mirror</button> or <button type="button" class="cref" data-rid="29549364">Mask of Restrict</button>.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Leaving your own good monsters in the GY: Zombie Master and Doomkaiser can take them.</li><li>Thinking two Divas can Synchro together: both are Tuners.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a></div><div><b>Even with:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div><div><b>Tough against:</b> <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/zombie/" data-k="opponents-zombie">the matchup chart</a>.</div></div>
+  </section>
+<p><a href="/edison/decks/diva-zombie/" data-k="deck-Diva%20Zombie">The Diva Zombie list</a> is <b>Competitive</b>: strong enough to win big events, but seen less often. Its cousin, <a href="/edison/decks/teledad/" data-k="deck-TeleDAD">TeleDAD</a>, shares many of the Zombies.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="9748752">Caius the Shadow Monarch</button></td><td class="nw">3</td><td>Tribute Summoned: banish 1 card. 1000 damage if it was a DARK monster.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="78868119">Deep Sea Diva</button></td><td class="nw">2</td><td>Level 2 Tuner. When Normal Summoned: summon a Level 3 or lower Sea Serpent from the Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="63665875">Goblin Zombie</button></td><td class="nw">2</td><td>Sent from the field to the GY: add a Zombie with 1200 or less DEF from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="77044671">Pyramid Turtle</button></td><td class="nw">2</td><td>Destroyed by battle: summon a Zombie with 2000 or less DEF from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="2204140">Book of Life</button></td><td class="nw">2</td><td>Revive a Zombie from your GY and banish a monster from your opponent's GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="17259470">Zombie Master</button></td><td class="nw">1</td><td>Send a monster from hand to the GY: revive a Level 4 or lower Zombie from any GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="92826944">Mezuki</button></td><td class="nw">1</td><td>Banish it from your GY to revive a Zombie from your GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="33420078">Plaguespreader Zombie</button></td><td class="nw">1</td><td>Level 2 Tuner. Returns from the GY if you put a card from hand on top of your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="65192027">Dark Armed Dragon</button></td><td class="nw">1</td><td>Summoned from the hand by having exactly 3 DARKs in your GY. Banishes DARKs to destroy cards.</td></tr>
+</tbody></table></div>
+<p>Most of these monsters are DARK, which fills the GY for Dark Armed Dragon. The Zombies keep coming back: Goblin Zombie finds Mezuki, Zombie Master or Plaguespreader, and they revive each other. <button type="button" class="cref" data-rid="48976825">Burial from a Different Dimension</button> returns banished monsters, like a used Mezuki, to the GY.</p>
+<p>Two Synchros only take <button type="button" class="cref" data-rid="33420078">Plaguespreader Zombie</button> as the Tuner, plus non-Tuner Zombies. Plaguespreader (Level 2) and a Level 4 Zombie make Level 6:</p>
+<ul><li><button type="button" class="cref" data-rid="5309481">Revived King Ha Des</button>: monsters your Zombies destroy by battle have their effects negated, even in the GY.</li><li><button type="button" class="cref" data-rid="6021033">Doomkaiser Dragon</button>: when Special Summoned, takes a Zombie from your opponent's GY.</li></ul>
+<p>Deep Sea Diva gives a second body. In this list the only Sea Serpent it can summon is the other Diva. Two monsters from one Normal Summon can mean one Tribute for Caius and one Tuner left over.</p>
+<div class="call rule"><b class="tag">Remember the recipe</b><p>Two Divas are both Tuners. A Synchro needs exactly one Tuner, so two Divas alone can't Synchro Summon together.</p></div>
+<p><b>Against it:</b> attack the Graveyard. <button type="button" class="cref" data-rid="24508238">D.D. Crow</button> banishes a card from the GY at Quick speed. <button type="button" class="cref" data-rid="5758500">Soul Release</button> banishes up to 5. <button type="button" class="cref" data-rid="99735427">Shadow-Imprisoning Mirror</button> negates DARK monster effects on the field and in the GY. <button type="button" class="cref" data-rid="29549364">Mask of Restrict</button> stops Caius's Tribute Summon.</p>
+<h2 id="sec-4">Dragon Turbo: draw, discard, bring them back</h2><section class="glance" data-deck="dragon"><h2 id="sec-5">At a glance: Dragon Turbo</h2>
+    <p class="gsub"><b>Combo</b> · Lists: <a href="/edison/decks/dragon-turbo/" data-k="deck-Dragon%20Turbo">Dragon Turbo</a>, <a href="/edison/decks/dragon-aggro/" data-k="deck-Dragon%20Aggro">Dragon Aggro</a> · <a href="/edison/lessons/26-machina-gadgets-zombies-and-dragons/" data-k="lesson-26">Lesson 26</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p>Draw Spells that discard Dragons: <button type="button" class="cref" data-rid="39701395">Cards of Consonance</button>, <button type="button" class="cref" data-rid="38120068">Trade-In</button> and <button type="button" class="cref" data-rid="27770341">Super Rejuvenation</button>, then <button type="button" class="cref" data-rid="88264978">Red-Eyes Darkness Metal Dragon</button> reviving a <button type="button" class="cref" data-rid="89631139">Blue-Eyes White Dragon</button>.</p></div>
+      <div><h4>What it wants</h4><p>Draw hard, fill the GY with big Dragons, then bring them back with Red-Eyes Darkness Metal Dragon, several times in one turn.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>It draws two cards at a time, turn after turn: Trade-In, Cards of Consonance and Super Rejuvenation.</li><li>3000 ATK Blue-Eyes on the field fast.</li><li><button type="button" class="cref" data-rid="79814787">The White Stone of Legend</button> turns a discard into a Blue-Eyes search.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>Red-Eyes and Blue-Eyes Special Summon: <button type="button" class="cref" data-rid="93016201">Royal Oppression</button>, <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> and <button type="button" class="cref" data-rid="12435193">Koa'ki Meiru Drago</button> stop them.</li><li><button type="button" class="cref" data-rid="71564252">Thunder King Rai-Oh</button> stops White Stone's search.</li><li><button type="button" class="cref" data-rid="24508238">D.D. Crow</button> banishes a Blue-Eyes before Red-Eyes revives it.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li>Several Red-Eyes Darkness Metal Dragons in one turn.</li><li><button type="button" class="cref" data-rid="77565204">Future Fusion</button> sending five Dragons to the GY.</li><li><button type="button" class="cref" data-rid="14943837">Debris Dragon</button> reviving White Stone to give Red-Eyes a Dragon to banish.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Cut off the Special Summons and the draws do nothing.</li><li>Save D.D. Crow for the Blue-Eyes they mean to revive.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Letting a turn of draws go unanswered: the next turn is the big one.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a></div><div><b>Even with:</b> <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a></div><div><b>Tough against:</b> <a href="/edison/opponents/bw/" data-k="opponents-bw">Blackwings</a>, <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/dragon/" data-k="opponents-dragon">the matchup chart</a>.</div></div>
+  </section>
+<p><a href="/edison/decks/dragon-turbo/" data-k="deck-Dragon%20Turbo">The Dragon Turbo list</a> is <b>Competitive</b>. A related list, <a href="/edison/decks/dragon-aggro/" data-k="deck-Dragon%20Aggro">Dragon Aggro</a>, is Rogue.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="88264978">Red-Eyes Darkness Metal Dragon</button></td><td class="nw">3</td><td>Banish a face-up Dragon you control to summon it. Then revive a Dragon from hand or GY.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="89631139">Blue-Eyes White Dragon</button></td><td class="nw">3</td><td>Level 8, 3000 ATK. Discarded for Trade-In, then brought back.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="79814787">The White Stone of Legend</button></td><td class="nw">3</td><td>Level 1 Tuner. When sent to the GY: add Blue-Eyes White Dragon from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="14943837">Debris Dragon</button></td><td class="nw">3</td><td>Tuner. Normal Summoned: revive a monster with 500 or less ATK, effects negated.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="39701395">Cards of Consonance</button></td><td class="nw">3</td><td>Discard a Dragon Tuner with 1000 or less ATK: draw 2.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="38120068">Trade-In</button></td><td class="nw">3</td><td>Discard a Level 8 monster: draw 2.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="27770341">Super Rejuvenation</button></td><td class="nw">3</td><td>In the End Phase, draw 1 for each Dragon you discarded or Tributed this turn.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="70368879">Upstart Goblin</button></td><td class="nw">3</td><td>Draw 1. Your opponent gains 1000 LP.</td></tr>
+</tbody></table></div>
+<p>The draw spells turn into a full GY. Cards of Consonance discards White Stone, which then adds a Blue-Eyes. Trade-In discards that Blue-Eyes. Super Rejuvenation counts both discards. <button type="button" class="cref" data-rid="77565204">Future Fusion</button> (1) can reveal <button type="button" class="cref" data-rid="99267150">Five-Headed Dragon</button> and send five Dragons from the Deck to the GY.</p>
+<p>Then Red-Eyes Darkness Metal Dragon cashes in. You need a face-up Dragon to banish. Debris Dragon can be that Dragon, or it can revive White Stone (300 ATK) to be it. <button type="button" class="cref" data-rid="1845204">Instant Fusion</button> can also make one: <button type="button" class="cref" data-rid="17881964">Darkfire Dragon</button> is a Level 4 Dragon Fusion. Once Red-Eyes is out, it revives a Blue-Eyes from the GY. In Edison, you can use several Red-Eyes in one turn.</p>
+<p><b>Against it:</b> <button type="button" class="cref" data-rid="12435193">Koa'ki Meiru Drago</button> stops LIGHT and DARK Special Summons, which covers Red-Eyes and Blue-Eyes. <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> and <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> stop Special Summons too. <button type="button" class="cref" data-rid="71564252">Thunder King Rai-Oh</button> stops White Stone's search. <button type="button" class="cref" data-rid="24508238">D.D. Crow</button> can banish a Blue-Eyes before Red-Eyes revives it.</p>
+<h2 id="sec-6">The three side by side</h2>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Deck</th><th class="nw">Tier</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">Machina Gadget</td><td class="nw">Contender</td><td>Searches keep the hand full. Big Machines and Solidarity win fights.</td></tr>
+<tr><td class="nw">Diva Zombie</td><td class="nw">Competitive</td><td>Uses the GY as a second hand. Zombie Synchros and Caius do the damage.</td></tr>
+<tr><td class="nw">Dragon Turbo</td><td class="nw">Competitive</td><td>Draws hard, fills the GY with Dragons, then revives them.</td></tr>
+</tbody></table></div>
+<div class="call key"><b class="tag">The pattern</b><p>Find what each engine needs. Gadgets need summon triggers and searches. Zombies need the Graveyard. Dragons need Special Summons. Take that away and the deck slows down.</p></div>
+<div class="recap"><h2 id="sec-7">Recap</h2><ul><li>Each Gadget searches the next one. Two Gadgets in hand summon Machina Fortress.</li><li>Diva Zombie revives Zombies over and over and makes Plaguespreader Synchros.</li><li>Dragon Turbo draws by discarding Dragons, then Red-Eyes Darkness Metal Dragon brings them back.</li><li>Answer each deck by cutting off what its engine needs.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="41172955" aria-label="Green Gadget" style="background-image:url('img/41172955.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="5556499" aria-label="Machina Fortress" style="background-image:url('img/5556499.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="78868119" aria-label="Deep Sea Diva" style="background-image:url('img/78868119.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="63665875" aria-label="Goblin Zombie" style="background-image:url('img/63665875.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="5309481" aria-label="Revived King Ha Des" style="background-image:url('img/5309481.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="88264978" aria-label="Red-Eyes Darkness Metal Dragon" style="background-image:url('img/88264978.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="79814787" aria-label="The White Stone of Legend" style="background-image:url('img/79814787.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="14943837" aria-label="Debris Dragon" style="background-image:url('img/14943837.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>How Machina Gadget keeps its hand full of Machines</li><li>How Diva Zombie recycles its Graveyard</li><li>How Dragon Turbo draws cards and brings back big Dragons</li><li>Which cards hurt each deck</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Machina Gadget: one Machine finds the next</button><button type="button">At a glance: Machina Gadget</button><button type="button">Diva Zombie: the Graveyard is a second hand</button><button type="button">At a glance: Diva Zombie</button><button type="button">Dragon Turbo: draw, discard, bring them back</button><button type="button">At a glance: Dragon Turbo</button><button type="button">The three side by side</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">You Normal Summon Green Gadget. What does it add to your hand?</span><span class="a">Red Gadget. Red adds Yellow, and Yellow adds Green.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How do two Gadgets in hand help summon Machina Fortress?</span><span class="a">They are Level 4 + 4 = 8. Fortress is summoned by discarding Machines whose Levels add to 8 or more.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Which Tuner do Revived King Ha Des and Doomkaiser Dragon require?</span><span class="a">Plaguespreader Zombie, plus one or more non-Tuner Zombies.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why does Dragon Turbo run Cards of Consonance with The White Stone of Legend?</span><span class="a">Consonance discards White Stone to draw 2, and White Stone in the GY adds a Blue-Eyes White Dragon.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What does Red-Eyes Darkness Metal Dragon need to be Special Summoned from the hand?</span><span class="a">You banish 1 face-up Dragon you control.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name a side card that hurts Diva Zombie and say why.</span><span class="a">D.D. Crow or Soul Release, because the deck revives monsters from the Graveyard. Shadow-Imprisoning Mirror also works, since most of its monsters are DARK.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/25-gladiator-beasts/" data-k="lesson-25">← Lesson 25</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/27-key-interactions/" data-k="lesson-27">Lesson 27 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

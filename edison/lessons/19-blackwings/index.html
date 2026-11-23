@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 19: Blackwings | Learn Retro</title>
+<meta name="description" content="A flock of DARK birds that summon each other and win the battle.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/19-blackwings/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 19 (2 of 13)</div>
+      <h1>Blackwings</h1><p class="sub">A flock of DARK birds that summon each other and win the battle. <span class="pill">6 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><section class="glance" data-deck="bw"><h2 id="sec-0">At a glance: Blackwings</h2>
+    <p class="gsub"><b>Aggro</b> · Lists: <a href="/edison/decks/blackwing/" data-k="deck-Blackwing">Blackwing</a>, <a href="/edison/decks/hybrid/" data-k="deck-Hybrid">Hybrid</a> · <a href="/edison/lessons/19-blackwings/" data-k="lesson-19">Lesson 19</a></p>
+    <div class="ggrid">
+      <div><h4>How to spot it</h4><p>A Blackwing Normal Summoned with <button type="button" class="cref" data-rid="91351370">Black Whirlwind</button> face-up, or <button type="button" class="cref" data-rid="49003716">Blackwing - Bora the Spear</button> Special Summoning itself next to another bird. DARK Winged Beasts with 1700 to 2000 ATK and one or two Set cards.</p></div>
+      <div><h4>What it wants</h4><p>Two or three attackers in one turn, a won battle every turn, and spare birds turned into Level 6 to 8 Synchros.</p></div>
+      <div class="g-strong"><h4>Strengths</h4><ul><li>Fast pressure: Black Whirlwind turns every Normal Summon into a second bird.</li><li>Every battle is risky for you: <button type="button" class="cref" data-rid="85215458">Blackwing - Kalut the Moon Shadow</button> adds 1400 ATK from the hand in the Damage Step.</li><li>A full Trap line behind the birds: 13 Traps in the Blackwing list, including 3 <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button>.</li></ul></div>
+      <div class="g-weak"><h4>Weaknesses</h4><ul><li>Everything is DARK: <button type="button" class="cref" data-rid="2980764">Consecrated Light</button> stops DARKs from being summoned or attacking.</li><li>Bora, Gale and Vayu Special Summon: <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> and <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> shut them off.</li><li>It has to attack to win, so battle Traps hit it hard.</li></ul></div>
+      <div><h4>What to expect</h4><ul><li><button type="button" class="cref" data-rid="58820853">Blackwing - Shura the Blue Flame</button> pulls a new bird from the Deck when it wins a battle.</li><li><button type="button" class="cref" data-rid="53567095">Icarus Attack</button> destroys 2 of your cards at Trap speed.</li><li><button type="button" class="cref" data-rid="69031175">Blackwing Armor Master</button> and <button type="button" class="cref" data-rid="76913983">Blackwing Armed Wing</button> from the Extra Deck, and one <button type="button" class="cref" data-rid="65192027">Dark Armed Dragon</button>.</li><li>The Hybrid list adds <button type="button" class="cref" data-rid="14536035">Dark Grepher</button>, 2 <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> and 2 <button type="button" class="cref" data-rid="77538567">Dark Bribe</button>.</li></ul></div>
+      <div class="g-beat"><h4>How to beat it</h4><ul><li>Make them attack into <button type="button" class="cref" data-rid="70342110">Dimensional Prison</button> and <button type="button" class="cref" data-rid="44095762">Mirror Force</button>.</li><li>Destroy <button type="button" class="cref" data-rid="91351370">Black Whirlwind</button> with <button type="button" class="cref" data-rid="5318639">Mystical Space Typhoon</button> or <button type="button" class="cref" data-rid="60082869">Dust Tornado</button> to slow the searches.</li><li>Side <button type="button" class="cref" data-rid="93016201">Royal Oppression</button>, <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> or <button type="button" class="cref" data-rid="2980764">Consecrated Light</button>.</li></ul></div>
+      <div class="g-avoid"><h4>Don't</h4><ul><li>Setting a weak monster in front of Bora or Armed Wing: both pierce.</li><li>Trusting your ATK while they hold a card: Kalut is in the hand.</li><li>Counting only their field: Shura can bring a bird mid-battle.</li></ul></div>
+    </div>
+    <div class="gmatch"><div><b>Good against:</b> <a href="/edison/opponents/qd/" data-k="opponents-qd">Quickdraw Plants</a>, <a href="/edison/opponents/gb/" data-k="opponents-gb">Gladiator Beasts</a>, <a href="/edison/opponents/gadget/" data-k="opponents-gadget">Machina Gadget</a>, <a href="/edison/opponents/dragon/" data-k="opponents-dragon">Dragon Turbo</a></div><div><b>Even with:</b> <a href="/edison/opponents/vayu/" data-k="opponents-vayu">Vayu Turbo</a>, <a href="/edison/opponents/ls/" data-k="opponents-ls">Lightsworn</a>, <a href="/edison/opponents/frog/" data-k="opponents-frog">Frog Monarchs</a>, <a href="/edison/opponents/zombie/" data-k="opponents-zombie">Diva Zombie</a></div><div><b>Tough against:</b> <a href="/edison/opponents/hero/" data-k="opponents-hero">HEROs</a></div>
+      <div class="note">Why each one: <a href="/edison/opponents/bw/" data-k="opponents-bw">the matchup chart</a>.</div></div>
+  </section>
+
+<h2 id="sec-1">The deck</h2>
+<p>Blackwings are DARK Winged Beasts. They are listed in the Best tier on this site. Their plan is simple: put two or three attackers on the field in one turn, win every battle, and turn spare birds into Synchros. <a href="/edison/decks/blackwing/" data-k="deck-Blackwing">Open the Blackwing list</a> to follow along.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Copies</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="91351370">Black Whirlwind</button></td><td class="nw">2</td><td>When you Normal Summon a Blackwing, add a Blackwing with less ATK from your Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="58820853">Blackwing - Shura the Blue Flame</button></td><td class="nw">3</td><td>1800 ATK. When it destroys a monster in battle, Special Summon a 1500-or-less Blackwing from the Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="49003716">Blackwing - Bora the Spear</button></td><td class="nw">3</td><td>1700 ATK with piercing. Special Summons itself if you control another Blackwing.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="75498415">Blackwing - Sirocco the Dawn</button></td><td class="nw">3</td><td>Level 5, 2000 ATK. No Tribute needed if only your opponent controls a monster.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="22835145">Blackwing - Blizzard the Far North</button></td><td class="nw">3</td><td>Level 2 Tuner. When Normal Summoned, revives a Level 4 or lower Blackwing.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="85215458">Blackwing - Kalut the Moon Shadow</button></td><td class="nw">3</td><td>Discard it in the Damage Step: a battling Blackwing gains 1400 ATK.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="72714392">Blackwing - Vayu the Emblem of Honor</button></td><td class="nw">2</td><td>From the GY, banishes itself and a Blackwing to bring out a Blackwing Synchro.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="2009101">Blackwing - Gale the Whirlwind</button></td><td class="nw">1</td><td>Level 3 Tuner. Special Summons itself next to a Blackwing. Halves a monster's ATK and DEF.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="53567095">Icarus Attack</button></td><td class="nw">3</td><td>Trap. Tribute a Winged Beast to destroy 2 cards on the field.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="65192027">Dark Armed Dragon</button></td><td class="nw">1</td><td>Comes out with exactly 3 DARKs in the GY. Banishes DARKs to destroy cards.</td></tr>
+</tbody></table></div>
+<p>The rest is a strong Trap line: 3 Dimensional Prison, 2 Bottomless Trap Hole, Mirror Force, Solemn Judgment, Trap Dustshoot, and 2 Legacy of Yata-Garasu to draw.</p>
+<h2 id="sec-2">The engine</h2>
+<p>Blackwings find each other. The order of ATK values is the secret. <button type="button" class="cref" data-rid="91351370">Black Whirlwind</button> only finds a bird with <b>less</b> ATK than the one you just Normal Summoned.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">You Normal Summon</th><th class="nw">ATK</th><th>Black Whirlwind can add</th></tr></thead><tbody>
+<tr><td class="nw">Sirocco</td><td class="nw">2000</td><td>Shura, Bora, Kalut, Gale, Blizzard or Vayu</td></tr>
+<tr><td class="nw">Shura</td><td class="nw">1800</td><td>Bora, Kalut, Gale, Blizzard or Vayu</td></tr>
+<tr><td class="nw">Bora</td><td class="nw">1700</td><td>Kalut, Gale, Blizzard or Vayu</td></tr>
+<tr><td class="nw">Blizzard</td><td class="nw">1300</td><td>Vayu</td></tr>
+</tbody></table></div>
+<p>Here is a common turn. It uses only the cards' own text.</p>
+<ol class="steps">
+<li><div>With Black Whirlwind face-up, Normal Summon <button type="button" class="cref" data-rid="58820853">Shura</button>. Whirlwind adds Bora (1700 is less than 1800).</div></li>
+<li><div>You control a Blackwing, so Special Summon <button type="button" class="cref" data-rid="49003716">Bora</button> from your hand. It does not start a Chain.</div></li>
+<li><div>Attack. If Shura destroys a monster and sends it to the GY, Special Summon a Blackwing with 1500 or less ATK from your Deck, like Gale. Its effects are negated, but it can still be Synchro Material.</div></li>
+<li><div>In Main Phase 2, Synchro Summon with Gale (3) and Bora (4): a Level 7, like <button type="button" class="cref" data-rid="69031175">Blackwing Armor Master</button> or Black Rose Dragon.</div></li>
+</ol>
+<div class="call rule"><b class="tag">Ordering two triggers</b><p>A ruling for <button type="button" class="cref" data-rid="22835145">Blizzard</button>: when you Normal Summon it with Black Whirlwind face-up, both effects trigger. Put Blizzard as Chain Link 1 and Whirlwind as Chain Link 2. Now your opponent can only respond to Whirlwind, so cards like Pulling the Rug and Royal Oppression cannot be used on Blizzard's revive.</p></div>
+<h2 id="sec-3">The Synchros</h2>
+<p>The Extra Deck holds the usual toolbox plus five Blackwing Synchros. Those need a <b>Blackwing</b> Tuner (Blizzard or Gale).</p>
+<div class="tbl-wrap"><table><thead><tr><th>Synchro</th><th class="nw">Level</th><th>Description</th></tr></thead><tbody>
+<tr><td><button type="button" class="cref" data-rid="76913983">Blackwing Armed Wing</button> (2)</td><td class="nw">6</td><td>2300 ATK, gains 500 when attacking a Defense monster, and pierces.</td></tr>
+<tr><td><button type="button" class="cref" data-rid="69031175">Blackwing Armor Master</button> (2)</td><td class="nw">7</td><td>Can't be destroyed by battle, and you take no battle damage from its fights.</td></tr>
+<tr><td><button type="button" class="cref" data-rid="33236860">Silverwind the Ascendant</button> (1)</td><td class="nw">8</td><td>Needs 2+ non-Tuners. Destroys up to 2 monsters with DEF below its ATK.</td></tr>
+</tbody></table></div>
+<p><button type="button" class="cref" data-rid="72714392">Vayu</button> gives a second way in. It can't be Synchro Material. Instead, from the GY it banishes itself and a non-Tuner Blackwing, then Special Summons a Blackwing Synchro of their total Level. Vayu (1) plus Sirocco (5) makes Armed Wing (6). That Synchro has its effects negated, and it is not treated as Synchro Summoned, so it can't be revived later.</p>
+<div class="call key"><b class="tag">Why Kalut matters</b><p><button type="button" class="cref" data-rid="85215458">Kalut</button> works in the Damage Step, even during damage calculation. Any Blackwing in battle might really have 1400 more ATK. Your 2400 monster is not safe from a 1700 Bora if they hold a card.</p></div>
+<h2 id="sec-4">Hybrid: Blackwings with Dark Grepher</h2>
+<p>The <a href="/edison/decks/hybrid/" data-k="deck-Hybrid">Hybrid list</a>, also in the Best tier, is a Blackwing variant. It keeps the birds and Black Whirlwind, but adds 3 Dark Grepher, 3 Vayu, Burial from a Different Dimension, 2 Royal Oppression and 2 Dark Bribe. Dark Grepher can discard a DARK to send another DARK from the Deck to the GY, like Vayu or Sirocco. That sets up Vayu faster. Burial returns banished monsters to the GY so Vayu can be used again. Lesson 22 covers this idea in full.</p>
+<h2 id="sec-5">Weaknesses and how to play against it</h2>
+<p>These all follow from the cards' text:</p>
+<ul>
+<li><b>Everything is DARK.</b> Consecrated Light stops both players from summoning DARKs or attacking with them.</li>
+<li><b>Bora, Gale and Vayu Special Summon.</b> <button type="button" class="cref" data-rid="93016201">Royal Oppression</button>, <button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button> and Vanity's Fiend shut them off. Blizzard can't be Special Summoned at all.</li>
+<li><b>The engine starts with a Normal Summon.</b> Pulling the Rug negates Blizzard's revive.</li>
+<li><b>Vayu and Dark Armed Dragon banish from the GY.</b> Kycoo the Ghost Destroyer says your opponent can't banish cards from either GY.</li>
+<li><b>It must attack to win.</b> Dimensional Prison and Mirror Force hit it hard. Destroy Black Whirlwind with Mystical Space Typhoon or Dust Tornado to slow the searches.</li>
+</ul>
+<div class="call mistake"><b class="tag">Common mistakes against Blackwings</b><ul><li>Forgetting Kalut. Assume a battling Blackwing can gain 1400 ATK while they have cards in hand.</li><li>Setting a weak monster in front of Bora or Armed Wing. Both pierce.</li><li>Counting their field only. Shura can pull a new bird from the Deck mid-battle.</li></ul></div>
+<p>Want to see it played? The <a href="/edison/library/" data-k="library">Library</a> has Blackwing guides by E3 Yu-Gi-Oh and IMNerd (Frazier Smith).</p>
+<div class="recap"><h2 id="sec-6">Recap</h2><ul><li>Black Whirlwind turns each Normal Summon into a search for a lower-ATK bird.</li><li>Bora and Gale Special Summon themselves next to another Blackwing.</li><li>Blizzard and Gale are the Tuners for Armed Wing, Armor Master and Silverwind. Vayu gives a second route.</li><li>Fight them with DARK locks, Special Summon locks, Pulling the Rug and battle Traps.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="91351370" aria-label="Black Whirlwind" style="background-image:url('img/91351370.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="58820853" aria-label="Blackwing - Shura the Blue Flame" style="background-image:url('img/58820853.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="49003716" aria-label="Blackwing - Bora the Spear" style="background-image:url('img/49003716.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="22835145" aria-label="Blackwing - Blizzard the Far North" style="background-image:url('img/22835145.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="85215458" aria-label="Blackwing - Kalut the Moon Shadow" style="background-image:url('img/85215458.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="72714392" aria-label="Blackwing - Vayu the Emblem of Honor" style="background-image:url('img/72714392.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="53567095" aria-label="Icarus Attack" style="background-image:url('img/53567095.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="69031175" aria-label="Blackwing Armor Master" style="background-image:url('img/69031175.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="76913983" aria-label="Blackwing Armed Wing" style="background-image:url('img/76913983.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>How the Blackwing engine finds and summons its own cards</li><li>Which Synchros the deck makes, and how</li><li>What Blackwings are weak to, and how to play against them</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">At a glance: Blackwings</button><button type="button">The deck</button><button type="button">The engine</button><button type="button">The Synchros</button><button type="button">Hybrid: Blackwings with Dark Grepher</button><button type="button">Weaknesses and how to play against it</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">You Normal Summon Shura with Black Whirlwind face-up. Name a card Whirlwind can add.</span><span class="a">Bora, Kalut, Gale, Blizzard or Vayu. Each has less than 1800 ATK.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">When can Bora the Spear Special Summon itself?</span><span class="a">When you control another Blackwing monster.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Vayu and Sirocco are in your GY. What can Vayu bring out?</span><span class="a">A Level 6 Blackwing Synchro, Blackwing Armed Wing, with its effects negated.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Can a Synchro brought out by Vayu be revived later with Call of the Haunted?</span><span class="a">No. It was not Synchro Summoned.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why should you worry when a Blackwing attacks into your bigger monster?</span><span class="a">Kalut can be discarded in the Damage Step to give it 1400 more ATK.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name a card that stops Blackwings from even attacking.</span><span class="a">Consecrated Light. Neither player can summon or attack with DARK monsters.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/18-deck-styles/" data-k="lesson-18">← Lesson 18</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/20-quickdraw-plants/" data-k="lesson-20">Lesson 20 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

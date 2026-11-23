@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Step 0.3: Summoning Monsters | Learn Retro</title>
+<meta name="description" content="Normal Summon, Set, Tribute, Flip, and Special Summon.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/0-3-summoning-monsters/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Step 0: The Basics / Part 3 of 6</div>
+      <h1>Summoning Monsters</h1><p class="sub">Normal Summon, Set, Tribute, Flip, and Special Summon. <span class="pill">8 min · 7 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain"><div class="skipbar"><span>Already know how to play? This part is optional.</span><a class="btn small" href="/edison/lessons/1-welcome-to-2010/" data-k="lesson-1">Skip to Edison 101 →</a></div>
+
+<h2 id="sec-0">The Normal Summon</h2>
+<p>Once per turn, in your Main Phase, you can put one monster from your hand onto the field. That is your <b>Normal Summon</b>.</p>
+<p>You choose how it goes down:</p>
+<ul><li><b>Summon it</b> face-up in <b>Attack Position</b> (card upright). It can attack.</li><li><b>Set it</b> face-down in <b>Defense Position</b> (card sideways). Your opponent cannot see it. Setting a monster uses your Normal Summon too.</li></ul>
+<div class="call key"><b class="tag">The rule</b><p>One Normal Summon or Set per turn. That is it.</p></div>
+<h2 id="sec-1">Tribute Summons: bigger monsters cost more</h2>
+<p>A monster's Level decides what it costs to Normal Summon.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Level</th><th class="nw">Tributes needed</th><th>Example</th></tr></thead><tbody>
+<tr><td class="nw">1 to 4</td><td class="nw">None</td><td><button type="button" class="cref" data-card="warwolf">Gene-Warped Warwolf</button> (Level 4)</td></tr>
+<tr><td class="nw">5 or 6</td><td class="nw">1 monster</td><td><button type="button" class="cref" data-card="caius">Caius the Shadow Monarch</button> (Level 6)</td></tr>
+<tr><td class="nw">7 or higher</td><td class="nw">2 monsters</td><td><button type="button" class="cref" data-card="dmagician">Dark Magician</button> (Level 7)</td></tr>
+</tbody></table></div>
+<p>To <b>Tribute</b>, you send monsters you control to the Graveyard. A Tribute Summon <b>is</b> your Normal Summon for the turn.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>A big monster is an expensive purchase. You pay for it with the monsters you already have on the field.</p></div>
+<h2 id="sec-2">Positions</h2>
+<ul>
+<li><b>Attack Position</b>: face-up, upright. It can attack. If it is attacked, its ATK is used.</li>
+<li><b>Defense Position</b>: sideways. It cannot attack. If it is attacked, its DEF is used. It can be face-up or face-down.</li>
+</ul>
+<p>Once per turn, you can switch a monster's position. You cannot switch it the turn it was summoned, or after it attacked that turn.</p>
+<h2 id="sec-3">Flip Summons</h2>
+<p>A Set (face-down) monster can be turned face-up into Attack Position. That is a <b>Flip Summon</b>. You cannot do it the turn you Set the monster. It does not use your Normal Summon.</p>
+<p>Some monsters have <b>FLIP</b> effects, like <button type="button" class="cref" data-card="morphing">Morphing Jar</button>. They work when the monster is flipped face-up, either by a Flip Summon or by being attacked while face-down.</p>
+<h2 id="sec-4">Special Summons</h2>
+<p>A <b>Special Summon</b> is any summon that a card makes happen. There is <b>no limit</b> on how many you can do in a turn.</p>
+<ul><li>Some monsters summon themselves. <button type="button" class="cref" data-card="cyberdragon">Cyber Dragon</button> can be Special Summoned from your hand if your opponent controls a monster and you control none.</li><li>Some cards bring monsters back from the Graveyard, or pull them from the Deck.</li></ul>
+<p>Edison's big new summon, the Synchro Summon, is a Special Summon. That is why it does not use your Normal Summon. Lesson 4 shows how it works.</p>
+<div class="call mistake"><b class="tag">Common beginner mistakes</b><ul><li>Normal Summoning, then also Setting a monster. That is two. You only get one.</li><li>Trying to Tribute Summon a Level 7 with one Tribute. It needs two.</li><li>Flip Summoning the turn you Set the monster.</li></ul></div>
+<div class="recap"><h2 id="sec-5">Recap</h2><ul><li>One Normal Summon or Set per turn.</li><li>Level 5 and 6 need 1 Tribute. Level 7 and up need 2.</li><li>Attack Position uses ATK. Defense Position uses DEF and cannot attack.</li><li>Special Summons have no limit.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic " data-card="warwolf" aria-label="Gene-Warped Warwolf" style="background-image:url('img/69247929.webp?v=2')"></button><button type="button" class="ctile pic " data-card="caius" aria-label="Caius the Shadow Monarch" style="background-image:url('img/9748752.webp?v=2')"></button><button type="button" class="ctile pic " data-card="dmagician" aria-label="Dark Magician" style="background-image:url('img/46986414.webp?v=2')"></button><button type="button" class="ctile pic " data-card="morphing" aria-label="Morphing Jar" style="background-image:url('img/33508719.webp?v=2')"></button><button type="button" class="ctile pic " data-card="cyberdragon" aria-label="Cyber Dragon" style="background-image:url('img/70095154.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>The once-per-turn Normal Summon</li><li>Tributes for bigger monsters</li><li>Positions, Flip Summons, and Special Summons</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">The Normal Summon</button><button type="button">Tribute Summons: bigger monsters cost more</button><button type="button">Positions</button><button type="button">Flip Summons</button><button type="button">Special Summons</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">How many times per turn can you Normal Summon?</span><span class="a">Once. Setting a monster counts as your Normal Summon too.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many Tributes does a Level 6 monster need?</span><span class="a">1.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">How many Tributes does a Level 8 monster need?</span><span class="a">2.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Does a Special Summon use your Normal Summon?</span><span class="a">No. You can Special Summon as many times as your cards allow.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Can a monster in Defense Position attack?</span><span class="a">No.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You Set a monster this turn. Can you Flip Summon it now?</span><span class="a">No. Wait until a later turn.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">When does a FLIP effect work?</span><span class="a">When the monster is turned face-up: by a Flip Summon, by being attacked face-down, or by a card effect.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/0-2-the-field-and-the-turn/" data-k="lesson-0.2">← Step 0.2</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/0-4-battle-and-life-points/" data-k="lesson-0.4">Step 0.4 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

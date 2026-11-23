@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>The Damage Step: Edison Format Rules | Learn Retro</title>
+<meta name="description" content="The April 2010 Yu-Gi-Oh! rules in plain words: deck building, the turn, summoning, battle, the Damage Step and chains.">
+<link rel="canonical" href="https://learnretro.com/edison/rules/damagestep/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><div class="rules"><div class="pagehead"><div><h1>Rules</h1><p class="note" style="margin:4px 0 0;max-width:760px">How a duel works under the April 2010 rules, in plain words. Start with "Edison at a glance" if you learned the game recently. Card-by-card answers are on the <a href="/edison/rulings/" data-k="rulings">Rulings</a> page.</p></div></div>
+  <nav class="rtoc" aria-label="Sections"><a href="/edison/rules/glance/" data-rj="glance" data-k="rules-glance"><span>1</span>Edison at a glance</a><a href="/edison/rules/decks/" data-rj="decks" data-k="rules-decks"><span>2</span>Building a legal deck</a><a href="/edison/rules/start/" data-rj="start" data-k="rules-start"><span>3</span>Starting and winning a duel</a><a href="/edison/rules/field/" data-rj="field" data-k="rules-field"><span>4</span>The field</a><a href="/edison/rules/turn/" data-rj="turn" data-k="rules-turn"><span>5</span>The turn</a><a href="/edison/rules/summon/" data-rj="summon" data-k="rules-summon"><span>6</span>Summoning</a><a href="/edison/rules/positions/" data-rj="positions" data-k="rules-positions"><span>7</span>Changing battle positions</a><a href="/edison/rules/battle/" data-rj="battle" data-k="rules-battle"><span>8</span>Battle</a><a href="/edison/rules/damagestep/" data-rj="damagestep" data-k="rules-damagestep"><span>9</span>The Damage Step</a><a href="/edison/rules/cards/" data-rj="cards" data-k="rules-cards"><span>10</span>Card types</a><a href="/edison/rules/chains/" data-rj="chains" data-k="rules-chains"><span>11</span>Chains, Spell Speed and priority</a><a href="/edison/rules/other/" data-rj="other" data-k="rules-other"><span>12</span>More rules you will run into</a><a href="/edison/rules/terms/" data-rj="terms" data-k="rules-terms"><span>13</span>Words the rules use</a></nav>
+  <section class="rsec lesson" id="r-glance"><h2><span class="rn">1</span>Edison at a glance</h2>
+<p>Edison is played under the rules of April 2010: the TCG rules update of 2008, close to what was later called Master Rules 1. If you learned the game recently, these are the differences that matter most.</p>
+<table><tbody><tr><th class="nw">Rule</th><th>In Edison</th></tr>
+<tr><td class="nw">First turn draw</td><td>The player who goes first <b>does</b> draw in their first Draw Phase, so they start their turn with 6 cards.</td></tr>
+<tr><td class="nw">First turn battle</td><td>The player who goes first can't conduct a Battle Phase on their first turn.</td></tr>
+<tr><td class="nw">Extra Deck</td><td>Up to 15 cards, only Synchro and Fusion Monsters. Xyz, Pendulum and Link don't exist yet.</td></tr>
+<tr><td class="nw">Field Spells</td><td>Only one face-up Field Spell can be active on the whole field. A new one destroys the old one.</td></tr>
+<tr><td class="nw">Banish</td><td>Cards of the time say "remove from play". It means the same thing as banish.</td></tr>
+<tr><td class="nw">Quick Effects</td><td>Older cards and players call them "Multi-Trigger" effects.</td></tr>
+<tr><td class="nw">Card text</td><td>Many cards work differently from their current text. See <a href="/edison/errata/" data-k="errata">Errata</a> for the important ones.</td></tr>
+</tbody></table><p class="rsrc">Source: Time Wizard Rulings; Rulebook pages 24 to 31</p></section><section class="rsec lesson" id="r-decks"><h2><span class="rn">2</span>Building a legal deck</h2>
+<table><tbody><tr><th class="nw">Deck</th><th class="nw">Size</th><th>What goes in it</th></tr>
+<tr><td class="nw">Main Deck</td><td class="nw">40 to 60</td><td>Every monster, Spell and Trap you draw. Most players stay at 40 so they draw their best cards more often.</td></tr>
+<tr><td class="nw">Extra Deck</td><td class="nw">0 to 15</td><td>Synchro and Fusion Monsters only. It doesn't count toward the 40.</td></tr>
+<tr><td class="nw">Side Deck</td><td class="nw">0 to 15</td><td>Cards you swap in between duels of a match.</td></tr></tbody></table>
+<ul>
+<li>Up to 3 copies of a card across your Main, Extra and Side Deck combined. Cards with the same name count as the same card.</li>
+<li>The <a href="/edison/banlist/" data-k="banlist">banlist</a> lowers that: Forbidden is 0, Limited is 1, Semi-Limited is 2.</li>
+<li>A match is best 2 of 3 duels. Between duels you can swap any card from your Side Deck with one in your Main or Extra Deck, card for card, so your Side Deck stays the same size. Show your opponent the Side Deck count before the match and again after each swap.</li>
+</ul><p class="rsrc">Source: Rulebook pages 2 and 42</p></section><section class="rsec lesson" id="r-start"><h2><span class="rn">3</span>Starting and winning a duel</h2>
+<ol>
+<li>Shuffle your Deck. Your opponent may shuffle or cut it too.</li>
+<li>Put your Deck and Extra Deck face-down in their zones, and show each other your Side Deck count.</li>
+<li>Rock-paper-scissors or a coin flip: the winner picks whether to go first or second. In the next duel of a match, the loser of the last duel picks.</li>
+<li>Each player starts with 8000 Life Points and draws 5 cards.</li>
+</ol>
+<div class="call key"><b class="tag">You win when</b> your opponent's LP reach 0, your opponent has to draw with an empty Deck, or a card effect says you win. If both players hit 0 at the same time, the duel is a draw.</div><p class="rsrc">Source: Rulebook pages 24 and 25</p></section><section class="rsec lesson" id="r-field"><h2><span class="rn">4</span>The field</h2>
+<table><tbody><tr><th class="nw">Zone</th><th>What it holds</th></tr>
+<tr><td class="nw">Monster Zones (5)</td><td>Your monsters: face-up Attack Position (vertical), face-up Defense Position or face-down Defense Position (sideways).</td></tr>
+<tr><td class="nw">Spell &amp; Trap Zones (5)</td><td>Spells and Traps, face-up when active or face-down when Set. A Spell that resolves still sits here until it goes to the GY.</td></tr>
+<tr><td class="nw">Field Zone</td><td>Field Spells. It doesn't use one of the 5 Spell &amp; Trap Zones.</td></tr>
+<tr><td class="nw">Graveyard</td><td>Face-up and public. Either player can look through it, but keep its order.</td></tr>
+<tr><td class="nw">Deck Zone</td><td>Your Deck, face-down. Shuffle it after any effect that lets you search or look through it.</td></tr>
+<tr><td class="nw">Extra Deck Zone</td><td>Your Extra Deck, face-down. You can look at your own any time. Old card text calls it the Fusion Deck.</td></tr></tbody></table>
+<p>"Cards on the field" means everything in these zones except the Graveyard, the Deck and the Extra Deck.</p><p class="rsrc">Source: Rulebook pages 4 and 5</p></section><section class="rsec lesson" id="r-turn"><h2><span class="rn">5</span>The turn</h2>
+<table><tbody><tr><th class="nw">Phase</th><th>What happens</th></tr>
+<tr><td class="nw">Draw Phase</td><td>Draw 1 card (the first player too, in Edison). After the draw, either player can use Traps and Quick-Play Spells.</td></tr>
+<tr><td class="nw">Standby Phase</td><td>Cards that say "during the Standby Phase" happen here, like Treeborn Frog coming back from the GY.</td></tr>
+<tr><td class="nw">Main Phase 1</td><td>Summon, Set, change positions, activate cards and effects, Set Spells and Traps, in any order.</td></tr>
+<tr><td class="nw">Battle Phase</td><td>Optional. Attack with your monsters (see Battle). The first player skips it on turn 1.</td></tr>
+<tr><td class="nw">Main Phase 2</td><td>Only if you had a Battle Phase. The same actions as Main Phase 1, but anything you already used (like your Normal Summon) stays used.</td></tr>
+<tr><td class="nw">End Phase</td><td>"During the End Phase" effects happen, then if you hold more than 6 cards, discard down to 6.</td></tr></tbody></table>
+<div class="call rule"><b class="tag">Once per turn</b>One Normal Summon or Set (a Tribute Summon counts). Flip Summons and Special Summons have no limit.</div><p class="rsrc">Source: Rulebook pages 26 to 33; Time Wizard rule 1</p></section><section class="rsec lesson" id="r-summon"><h2><span class="rn">6</span>Summoning</h2>
+<h3>Normal Summon, Tribute Summon and Set</h3>
+<ul>
+<li>A Normal Summon puts a monster from your hand face-up in Attack Position.</li>
+<li>Level 5 or 6 needs 1 Tribute. Level 7 or higher needs 2. Tributes are monsters you control, face-up or face-down.</li>
+<li>A Set puts it face-down in Defense Position. It uses your Normal Summon for the turn and needs the same Tributes, but it is <b>not</b> a summon.</li>
+<li>You can't Normal Summon a monster face-up in Defense Position.</li>
+</ul>
+<h3>Flip Summon</h3>
+<p>Turn your face-down monster face-up into Attack Position, not on the turn you Set it. It doesn't cost your Normal Summon. A monster flipped by an attack or a card effect isn't Flip Summoned, but its FLIP effect still happens.</p>
+<h3>Special Summons</h3>
+<ul>
+<li>Synchro, Fusion and Ritual Summons, and summons by card effects, are Special Summons. You can do as many as you are able to.</li>
+<li>A monster with its own summoning condition (like Cyber Dragon or Dark Armed Dragon) is a Special Summon Monster. Unless the card says otherwise, it goes face-up in Attack or Defense Position.</li>
+<li>Monsters that must be Special Summoned a certain way (Synchro, Fusion, Ritual, Dark Armed Dragon) can't be brought back from the Graveyard by another card unless they were properly summoned first.</li>
+</ul>
+<h3>Synchro Summon</h3>
+<ol>
+<li>In your Main Phase, pick 1 face-up Tuner and any number of other face-up monsters you control whose Levels add up to exactly the Synchro Monster's Level.</li>
+<li>Send them to the Graveyard. Only 1 of them can be a Tuner.</li>
+<li>Put the Synchro Monster from your Extra Deck face-up in Attack or Defense Position.</li>
+</ol>
+<p>Some Synchros ask for more, for example a "Synchron" Tuner or 2 or more non-Tuners. The practice board checks these for you.</p>
+<h3>Fusion and Ritual Summon</h3>
+<p>Fusion: with the materials the Fusion Monster lists (in your hand or on your field), activate Polymerization, send the materials to the GY and put the Fusion Monster on the field. Ritual: activate the matching Ritual Spell, Tribute monsters from your hand or field whose Levels meet its requirement, then put the Ritual Monster from your hand on the field.</p><p class="rsrc">Source: Rulebook pages 12 to 17</p></section><section class="rsec lesson" id="r-positions"><h2><span class="rn">7</span>Changing battle positions</h2>
+<p>In either Main Phase you can switch a face-up monster between Attack and Defense Position, once per turn per monster. You can't switch it:</p>
+<ul><li>on the turn it came to the field,</li><li>after it attacked this turn,</li><li>if you already changed its position this turn (a Flip Summon counts as that change).</li></ul><p class="rsrc">Source: Rulebook page 29</p></section><section class="rsec lesson" id="r-battle"><h2><span class="rn">8</span>Battle</h2>
+<p>The Battle Phase runs in steps: the <b>Start Step</b>, then a <b>Battle Step</b> (pick an attacker and a target) and a <b>Damage Step</b> for each attack, then the <b>End Step</b>. Each face-up Attack Position monster can attack once per turn. You don't have to attack with any of them.</p>
+<h3>Damage</h3>
+<table><tbody><tr><th>You attack</th><th>Result</th></tr>
+<tr><td>Attack Position, your ATK higher</td><td>Their monster is destroyed. They take the difference.</td></tr>
+<tr><td>Attack Position, ATK equal</td><td>Both are destroyed. No damage.</td></tr>
+<tr><td>Attack Position, your ATK lower</td><td>Your monster is destroyed. You take the difference.</td></tr>
+<tr><td>Defense Position, ATK higher than DEF</td><td>Their monster is destroyed. No damage.</td></tr>
+<tr><td>Defense Position, ATK equal to DEF</td><td>Nothing is destroyed. No damage.</td></tr>
+<tr><td>Defense Position, ATK lower than DEF</td><td>Nothing is destroyed. You take the difference.</td></tr>
+<tr><td>No monsters on their side</td><td>A direct attack: they take your monster's full ATK.</td></tr></tbody></table>
+<div class="call rule"><b class="tag">0 ATK in Edison</b>Two 0 ATK monsters in Attack Position that battle destroy each other. A 0 ATK attacker can't destroy a 0 DEF monster in Defense Position. (Time Wizard rule 13)</div>
+<h3>Face-down targets</h3>
+<p>When you attack a face-down monster, it is flipped face-up in Defense Position during the Damage Step, then damage is calculated against its DEF. Its FLIP effect happens after damage calculation, and it can't target a monster that was destroyed in that battle.</p>
+<h3>Replays</h3>
+<p>If the number of monsters on your opponent's side changes after you declared an attack but before damage (a monster removed or a new one summoned), you get a replay: attack the same or a different monster, use a different attacker, or don't attack. The first monster still counts as having declared an attack, so if you switch attackers it can't attack again this turn.</p><p class="rsrc">Source: Rulebook pages 30 to 36</p></section><section class="rsec lesson" id="r-damagestep"><h2><span class="rn">9</span>The Damage Step</h2>
+<p>Few cards can be used during the Damage Step. Until damage is calculated, only Counter Traps and cards that directly change a monster's ATK or DEF can be activated (plus mandatory effects and monster effects that negate an activation). A Spell Speed 2 Spell or Trap that negates an activation can't be used here.</p>
+<p>The 2010 rules split the Damage Step into seven moments:</p>
+<ol>
+<li><b>Start:</b> "during the Damage Step" effects begin to apply. ATK/DEF changers can be used.</li>
+<li><b>Flip:</b> a face-down target turns face-up (its FLIP effect waits). ATK/DEF changers can be used.</li>
+<li><b>Before damage calculation:</b> effects that say so happen, like Injection Fairy Lily or Honest. ATK/DEF changers can still be used, and this is the last chance.</li>
+<li><b>Damage calculation:</b> effects that say "during damage calculation" apply. Only 1 Chain is allowed from here on.</li>
+<li><b>After damage calculation:</b> damage is dealt and it is decided which monsters are destroyed, but nothing has gone to the GY yet. "If this card inflicts battle damage" effects activate, and so do Gorz the Emissary of Darkness and Tragoedia.</li>
+<li><b>Resolve:</b> monsters destroyed by battle stop applying their continuous effects. "After damage calculation" effects and FLIP effects activate.</li>
+<li><b>End:</b> monsters destroyed by battle go to the GY, and effects like Sangan, Mystic Tomato and Giant Rat activate.</li>
+</ol>
+<p>Lesson 10 walks through this with examples, and the <a href="/edison/rulings/" data-k="rulings">Rulings</a> page links edisonformat.net's longer write-ups.</p><p class="rsrc">Source: Rulebook page 34; Time Wizard rule 8</p></section><section class="rsec lesson" id="r-cards"><h2><span class="rn">10</span>Card types</h2>
+<h3>Monster effects</h3>
+<table><tbody><tr><th class="nw">Type</th><th>How it works</th></tr>
+<tr><td class="nw">Flip</td><td>Starts with "FLIP:". Happens when the card is flipped face-up: by a Flip Summon, by being attacked while face-down, or by a card effect.</td></tr>
+<tr><td class="nw">Continuous</td><td>Always on while the monster is face-up on the field. Nothing is activated.</td></tr>
+<tr><td class="nw">Ignition</td><td>You choose to activate it in your Main Phase, often with a cost (discard, Tribute, pay LP).</td></tr>
+<tr><td class="nw">Trigger</td><td>Activates at a set moment: "during the Standby Phase", "when this card is destroyed".</td></tr>
+<tr><td class="nw">Quick</td><td>Can be activated on either player's turn, at Spell Speed 2. Older name: Multi-Trigger.</td></tr></tbody></table>
+<h3>Spells</h3>
+<p>Normally used in your own Main Phase. Normal and Ritual Spells go to the GY after they resolve. Continuous, Equip and Field Spells stay on the field. An Equip Spell goes to the GY if its monster leaves the field or is turned face-down. Quick-Play Spells can be used in any phase of your turn, or on your opponent's turn if you Set them first, but not on the turn you Set them. A Set Spell other than a Quick-Play can be activated the same turn you Set it, but still only in your Main Phase.</p>
+<h3>Traps</h3>
+<p>A Trap must be Set first and can be activated from the start of the next turn, on either player's turn. Normal Traps go to the GY after they resolve, Continuous Traps stay, and Counter Traps are made to answer other cards, usually with a cost (Solemn Judgment's half your LP).</p>
+<h3>Trap Monsters</h3>
+<p>A Trap that becomes a monster takes a Monster Zone and keeps its Spell &amp; Trap Zone. You can't activate it with no free Monster Zone. If Jinzo negates it, it goes back to being a Trap Card at once. When it leaves the field it counts as a Trap Card leaving. (Time Wizard rule 5)</p><p class="rsrc">Source: Rulebook pages 6 to 23</p></section><section class="rsec lesson" id="r-chains"><h2><span class="rn">11</span>Chains, Spell Speed and priority</h2>
+<p>When a card or effect is activated, the other player can respond with their own, making a Chain. Each new response is a Chain Link. When neither player adds anything, the Chain resolves backwards: the last card activated resolves first, Chain Link 1 resolves last.</p>
+<table><tbody><tr><th class="nw">Spell Speed</th><th>Cards</th><th>Can respond to</th></tr>
+<tr><td class="nw">1</td><td>Normal, Equip, Continuous, Field and Ritual Spells; Ignition, Trigger and Flip effects</td><td>Nothing: it can only start a Chain</td></tr>
+<tr><td class="nw">2</td><td>Normal and Continuous Traps, Quick-Play Spells, Quick Effects</td><td>Spell Speed 1 or 2</td></tr>
+<tr><td class="nw">3</td><td>Counter Traps</td><td>Anything. Only another Counter Trap can respond to it.</td></tr></tbody></table>
+<p><b>Example:</b> you activate Heavy Storm (Chain Link 1). They respond with a Set Trap (Chain Link 2). You could answer with Solemn Judgment (Chain Link 3). Solemn resolves first and negates their Trap, then Heavy Storm resolves.</p>
+<h3>Priority</h3>
+<p>The turn player always gets the first chance to act in each phase and step, and after their own card is activated. Moving to the next phase passes the chance to the opponent, who can still say "before you leave this phase, I activate this".</p>
+<div class="call rule"><b class="tag">Ignition priority (2010)</b>Right after a summon that didn't start a Chain, the turn player can activate an Ignition Effect as Chain Link 1 before the opponent responds. Summon Chaos Sorcerer and you can banish with it before Bottomless Trap Hole. If the summon started a Chain (Synchro Summoning with Sangan, whose effect triggers), you lose that window. (Time Wizard rule 6)</div>
+<h3>Effects that trigger together (SEGOC)</h3>
+<p>When several Trigger Effects activate at the same moment, they go on one Chain in this order: the turn player's mandatory ones, the opponent's mandatory ones, the turn player's optional ones, then the opponent's optional ones. Example: Tribute Sangan to summon Caius the Shadow Monarch. Sangan is Chain Link 1, Caius is Chain Link 2. (Time Wizard rule 7)</p>
+<h3>What isn't on a Chain</h3>
+<p>Summoning, Tributing, changing a position and paying a cost aren't activations, so nothing can be chained to them. Cards that negate a summon itself, like Solemn Judgment, are the special case.</p><p class="rsrc">Source: Rulebook pages 37 to 43; Time Wizard rules 6 and 7</p></section><section class="rsec lesson" id="r-other"><h2><span class="rn">12</span>More rules you will run into</h2>
+<ul>
+<li><b>The card wins.</b> When a card's text and the basic rules disagree, the card's text applies. For example, a monster attacks once per turn unless an effect lets it attack twice.</li>
+<li><b>Public knowledge.</b> Hand size, Deck size, the Graveyards and LP are public. Answer honestly when asked. Ask before you look through your opponent's Graveyard.</li>
+<li><b>Tokens</b> take a Monster Zone and must show their position clearly. They can't go anywhere but the field: if a Token would leave, it disappears.</li>
+<li><b>Paying LP.</b> You can't pay a cost that would bring your LP to 0. A card with a maintenance cost you can't pay is destroyed instead.</li>
+<li><b>Field Spells.</b> Only one face-up Field Spell on the field. Activating a new one destroys the old one when it resolves (Geartown can't use its effect then). Setting a Field Spell face-down destroys the old one by the rules, outside a Chain, so Geartown's effect does happen.</li>
+<li><b>Phase triggers.</b> A mandatory Trigger Effect that happens in a certain phase activates again if its activation is negated, until it resolves. If its effect is negated instead (Skill Drain), it doesn't come back.</li>
+<li><b>Union Monsters.</b> A monster can only have 1 Union equipped. Only a few Unions (like Armored Cybern, Machina Gearframe and Machina Peacekeeper) take the place of the monster when it would be destroyed.</li>
+<li><b>Trigger locations.</b> An effect can trigger even if the card moved away from where it triggered, even into the Deck.</li>
+<li><b>End of turn discard.</b> Nobody can respond to the discard down to 6.</li>
+<li><b>Loops.</b> Starting an endless loop on purpose isn't allowed. If one happens by accident, the card that causes it is destroyed.</li>
+<li><b>Both players choosing.</b> When an effect has both players choose something, the turn player chooses first.</li>
+</ul><p class="rsrc">Source: Rulebook pages 42 to 44; Time Wizard rules 2 to 5 and 9 to 12</p></section><section class="rsec lesson" id="r-terms"><h2><span class="rn">13</span>Words the rules use</h2>
+<table><tbody><tr><th class="nw">Term</th><th>Meaning</th></tr>
+<tr><td class="nw">Destroy</td><td>Sent to the GY by battle or by an effect that destroys. A card Tributed, discarded, sent as a cost or returned to the hand or Deck is <b>not</b> destroyed.</td></tr>
+<tr><td class="nw">Send to the GY</td><td>Any move to the GY: destroying, discarding and Tributing all count.</td></tr>
+<tr><td class="nw">Target</td><td>An effect targets when you pick the card as you activate it. "All cards", or a pick made while it resolves (like Smashing Ground), doesn't target.</td></tr>
+<tr><td class="nw">Cost</td><td>What you pay to activate (Tribute, discard, LP). It isn't part of the effect and isn't refunded if the card is negated.</td></tr>
+<tr><td class="nw">Control</td><td>A card on your side of the field is yours to use. A card taken by the opponent still returns to its owner's hand, Deck or GY.</td></tr>
+<tr><td class="nw">Remove from play</td><td>Banish. It stays out for the rest of the duel unless an effect brings it back.</td></tr>
+<tr><td class="nw">Original ATK/DEF</td><td>The number printed on the card. "?" counts as 0.</td></tr>
+<tr><td class="nw">Search your Deck</td><td>Look through it for a card an effect allows, then shuffle. You can't activate a search if no card in your Deck fits.</td></tr>
+<tr><td class="nw">Reveal</td><td>Show it to both players, then put it back. Revealing a face-down card doesn't activate it or its FLIP effect.</td></tr>
+<tr><td class="nw">Set</td><td>Placed face-down. Any face-down card on the field is a Set card.</td></tr>
+<tr><td class="nw">Effects that count</td><td>"Each time you draw" counts a draw of 2 cards as 1 time.</td></tr></tbody></table>
+<p>More terms are in the <a href="/edison/glossary/" data-k="glossary">Glossary</a>.</p><p class="rsrc">Source: Rulebook glossary, pages 45 to 49</p></section>
+  <p class="srcnote">Written in our own words from <a href="https://edisonformat.net/rules/rulebook" target="_blank" rel="noopener">Official Rulebook, version 7.0 (Konami, 2009)</a> (the rulebook in use for Edison, hosted on edisonformat.net) and <a href="https://timewizzardrulings.vercel.app/" target="_blank" rel="noopener">Time Wizard Rulings: Edison rules</a> (the 2008 rules details that differ from today). Read the full rulebook there if you want every detail. Card names are © Konami.</p></div></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

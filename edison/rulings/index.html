@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Edison Format Rulings | Learn Retro</title>
+<meta name="description" content="Edison rulings card by card: how each card works under the 2010 rules.">
+<link rel="canonical" href="https://learnretro.com/edison/rulings/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><div class="pagehead"><div><h1>Rulings</h1><p class="note" style="margin:4px 0 0">Edison rulings for 2,113 cards. Search by card name or by words in a ruling.</p></div>
+    <input type="search" id="rulq" placeholder="Search rulings" aria-label="Search rulings" value="" style="min-width:min(240px,100%)"></div>
+    <section class="sbox" style="margin-top:14px"><h4>Rules topics on edisonformat.net</h4><p class="note" style="margin:0">Longer write-ups on how the 2010 rules work. Lesson 10 covers the basics of priority, triggers and the Damage Step.</p>
+      <div class="topics"><a href="https://edisonformat.net/rules/compendium/Frequently-Asked-Questions" target="_blank" rel="noopener">Frequently Asked Questions ↗</a><a href="https://edisonformat.net/rules/compendium/Does-this-card-Target" target="_blank" rel="noopener">Does this card Target ↗</a><a href="https://edisonformat.net/rules/compendium/Substep-Triggers" target="_blank" rel="noopener">Substep Triggers ↗</a><a href="https://edisonformat.net/rules/compendium/Ryko" target="_blank" rel="noopener">Ryko ↗</a><a href="https://edisonformat.net/rules/compendium/Major-Rulings" target="_blank" rel="noopener">Major Rulings ↗</a><a href="https://edisonformat.net/rules/compendium/Battle-Phase" target="_blank" rel="noopener">Battle Phase ↗</a><a href="https://edisonformat.net/rules/compendium/Both-Those-Them" target="_blank" rel="noopener">Both Those Them ↗</a><a href="https://edisonformat.net/rules/compendium/Conjunctions" target="_blank" rel="noopener">Conjunctions ↗</a><a href="https://edisonformat.net/rules/compendium/Damage-Step" target="_blank" rel="noopener">Damage Step ↗</a><a href="https://edisonformat.net/rules/compendium/Damage-Substeps" target="_blank" rel="noopener">Damage Substeps ↗</a><a href="https://edisonformat.net/rules/compendium/First-Turn-Draw" target="_blank" rel="noopener">First Turn Draw ↗</a><a href="https://edisonformat.net/rules/compendium/Ignition-Priority" target="_blank" rel="noopener">Ignition Priority ↗</a><a href="https://edisonformat.net/rules/compendium/Missing-the-Timing" target="_blank" rel="noopener">Missing the Timing ↗</a><a href="https://edisonformat.net/rules/compendium/Priority" target="_blank" rel="noopener">Priority ↗</a><a href="https://edisonformat.net/rules/compendium/SEGOC-And-Early-Trigger" target="_blank" rel="noopener">SEGOC And Early Trigger ↗</a><a href="https://edisonformat.net/rules/compendium/Minor-Rulings" target="_blank" rel="noopener">Minor Rulings ↗</a><a href="https://edisonformat.net/rules/compendium/Changing-Control" target="_blank" rel="noopener">Changing Control ↗</a><a href="https://edisonformat.net/rules/compendium/End-of-Turn-Discard" target="_blank" rel="noopener">End of Turn Discard ↗</a><a href="https://edisonformat.net/rules/compendium/Paying-Life-Points" target="_blank" rel="noopener">Paying Life Points ↗</a><a href="https://edisonformat.net/rules/compendium/Phase-Triggers" target="_blank" rel="noopener">Phase Triggers ↗</a><a href="https://edisonformat.net/rules/compendium/Prohibition" target="_blank" rel="noopener">Prohibition ↗</a><a href="https://edisonformat.net/rules/compendium/Single-Field-Spell" target="_blank" rel="noopener">Single Field Spell ↗</a><a href="https://edisonformat.net/rules/compendium/Trigger-Locations" target="_blank" rel="noopener">Trigger Locations ↗</a><a href="https://edisonformat.net/rules/compendium/Union-Monsters" target="_blank" rel="noopener">Union Monsters ↗</a><a href="https://edisonformat.net/rules/compendium/Gemini-Monsters" target="_blank" rel="noopener">Gemini Monsters ↗</a><a href="https://edisonformat.net/rules/compendium/Zero-ATK-monsters" target="_blank" rel="noopener">Zero ATK monsters ↗</a></div></section>
+    <div class="rcount" id="rulc" style="margin-top:16px">2,113 cards</div><div class="rgrid" id="rulbody"><div class="rcard"><img loading="lazy" src="img/14261867.webp?v=2" alt="" data-rid="14261867"><div><h3><button type="button" data-rid="14261867">8-Claws Scorpion</button></h3><p class="rul">● This card's ① effect can only be used once per turn.
+(It "remembers" if it used this effect even after being Set).</p></div></div><div class="rcard"><img loading="lazy" src="img/24140059.webp?v=2" alt="" data-rid="24140059"><div><h3><button type="button" data-rid="24140059">A Cat of Ill Omen</button></h3><p class="rul">FLIP: Select 1 Trap Card from your Deck and place it on top of your Deck. If Necrovalley is on the field, you can add the selected Trap Card to your hand instead.
+●Show the card to your opponent.
+●If Imperial Order &amp; Necrovalley are both active, and A Cat of Ill Omen is flipped, you add the card to your hand because Necrovalley is face-up on the field, even though its effect is negated.
+●If Mystical Space Typhoon is chained to the effect to destroy Necrovalley, so that Necrovalley is not on the field when this effect resolves, you can't place the card in your hand.
+●You select the card for this effect when the effect resolves, not when it activates.</p></div></div><div class="rcard"><img loading="lazy" src="img/6850209.webp?v=2" alt="" data-rid="6850209"><div><h3><button type="button" data-rid="6850209">A Deal with Dark Ruler</button></h3><p class="rul">●This is not an 'Archfiend' card. 
+●The Level in A Deal with Dark Ruler is the original Level printed on the Monster Card.
+●If your opponent's Level 8 or higher monster than you control is sent to the GY, you can activate A Deal with Dark Ruler.
+●You can't activate A Deal with Dark Ruler during the Damage Step.
+●You can only Special Summon 1 monster with A Deal with Dark Ruler, but you can activate 2 copies of A Deal with Dark Ruler to Special Summon 1 Berserk Dragon for each, even if only 1 Level 8 or higher monster was sent to the GY.
+●You can activate A Deal with Dark Ruler if your Level 8 or higher monster that is an Equip Spell Card is sent from your side of the field to the GY (such as Koitsu or Dark Necrofear destroyed by Heavy Storm).</p></div></div><div class="rcard"><img loading="lazy" src="img/49140998.webp?v=2" alt="" data-rid="49140998"><div><h3><button type="button" data-rid="49140998">A Feather of the Phoenix</button></h3><p class="rul">Discard 1 card. Select 1 card from your GY and return it to the top of your Deck.
+●Discarding 1 card is a cost. Your opponent can chain D.D. Crow.
+●This is an effect that targets.
+●You can target a Fusion / Synchro Monster in the GY, but it is returned to the Extra Deck.
+●You can target the card you discarded for the cost of A Feather of the Phoenix to be the card returned to the top of your Deck. If you discarded Night Assailant or Makyura the Destructor, then their effects will activate.</p></div></div><div class="rcard"><img loading="lazy" src="img/68170903.webp?v=2" alt="" data-rid="68170903"><div><h3><button type="button" data-rid="68170903">A Feint Plan</button></h3><p class="rul">A player can't attack face-down monsters during this turn.
+●If A Feint Plan is activated and you control only face-down monsters, your opponent can't attack any of your monsters and they can't attack your Life Points directly either.
+●If you activate A Feint Plan after your opponent declares an attack against one of your face-down monsters, that attack resolves as normal, but they can't attack other face-down monsters for the remainder of the turn. (This is because A Feint Plan prevents declaring an attack against a face-down monster, and the attack has already been declared by the time A Feint Plan resolves during the Battle Step.)</p></div></div><div class="rcard"><img loading="lazy" src="img/21597117.webp?v=2" alt="" data-rid="21597117"><div><h3><button type="button" data-rid="21597117">A Hero Emerges</button></h3><p class="rul">You can only activate this card when your opponent declares an attack. Your opponent selects 1 random card from your hand. If it is a Monster Card, Special Summon it on your side of the field. If not, send it to the GY.
+●You can Special Summon a high-level monster, like Dark Magician, with A Hero Emerges. But if your opponent selects a Special Summon-only monster like Dark Necrofear, or a Spirit Monster, it is sent to the GY.
+●When Guardian Elma is selected for A Hero Emerges, and you have Butterfly Dagger - Elma on your side of the field, you can Special Summon her, but if you don't have it, then she is sent to the GY.
+●You can activate A Hero Emerges even if you have only 1 card in your hand.</p></div></div><div class="rcard"><img loading="lazy" src="img/51351302.webp?v=2" alt="" data-rid="51351302"><div><h3><button type="button" data-rid="51351302">A Man with Wdjat</button></h3><p class="rul">●The 
+●If you Set A Man with Wdjat, its effect is not activated.
+●Any effects of the card you look at are not activated when you look at them with A Man with Wdjat (such as a Flip Effect, or if it is a Trap Card, etc.).</p></div></div><div class="rcard"><img loading="lazy" src="img/5728014.webp?v=2" alt="" data-rid="5728014"><div><h3><button type="button" data-rid="5728014">A Rival Appears!</button></h3><p class="rul">Select 1 face-up monster your opponent controls. Special Summon 1 monster from your hand that has the same Level as the selected monster.
+●For the effect of “A Rival Appears!”, refer to the levels of the monster on the field and the monster in the hand at the time “A Rival Appears!” resolves (for purposes of “Cost Down”, “Level Conversion Lab”, “Mystical Space Typhoon” in a chain destroying “Demotion”, etc.)
+●If the opponent’s monster is face-down or not on the field when “A Rival Appears!” resolves, then its effect disappears.
+●If you don't have a monster of the same level as the target, you can't activate “A Rival Appears!”</p></div></div><div class="rcard"><img loading="lazy" src="img/13026402.webp?v=2" alt="" data-rid="13026402"><div><h3><button type="button" data-rid="13026402">A-Team: Trap Disposal Unit</button></h3><p class="rul">This is an optional Quick Effect.
+● It is not a mandatory effect.
+● It can chain to the activation of any type of Spell Card.
+
+This effect can be used in the Damage Step.
+● This effect can be used in the Damage Step even if The A-Team is attacking or being attacked. 
+● This effect can not be used in Substeps 5, 6, or 7, if The A-Team was destroyed in Battle.</p></div></div><div class="rcard"><img loading="lazy" src="img/89718302.webp?v=2" alt="" data-rid="89718302"><div><h3><button type="button" data-rid="89718302">Abare Ushioni</button></h3><p class="rul">●The 
+●If you call the coin toss wrong for “Abare Ushioni” you can still prevent the damage with “Pikeru’s Circle of Enchantment”, etc.
+●You can't chain “Barrel Behind the Door” to the effect of “Abare Ushioni” because you don’t know yet if you will take damage or not from the effect.</p></div></div><div class="rcard"><img loading="lazy" src="img/27744077.webp?v=2" alt="" data-rid="27744077"><div><h3><button type="button" data-rid="27744077">Absolute End</button></h3><p class="rul">Activate only during your opponent's turn. This turn, the attacks from your opponent's monsters become direct attacks.
+●When Absolute End is activated during an attack, that attack becomes a direct attack.
+●If Taunt and Absolute End are both active, the attack becomes a direct attack to your Life Points. This is because the attack target is the monster selected by Taunt, but then Absolute End turns it into a direct attack.</p></div></div><div class="rcard"><img loading="lazy" src="img/49771608.webp?v=2" alt="" data-rid="49771608"><div><h3><button type="button" data-rid="49771608">Absorbing Kid from the Sky</button></h3><p class="rul">●The 
+●This effect activates in Substep 7 - End of the Damage Step.
+●This card must be face-up on the field to activate this effect.
+●The Level is the original Level printed on the card.</p></div></div><div class="rcard"><img loading="lazy" src="img/89801755.webp?v=2" alt="" data-rid="89801755"><div><h3><button type="button" data-rid="89801755">Abyssal Designator</button></h3><p class="rul">Pay 1000 Life Points. Declare a Type and an Attribute. Your opponent must send 1 monster with both the declared Type and Attribute from their hand/Deck to the GY.
+●If your opponent sends a monster to the GY with the declared Type and Attribute, you can't see their hand and Deck. But if they claim to have no such card, you can check their hand and Deck to confirm.</p></div></div><div class="rcard"><img loading="lazy" src="img/98444741.webp?v=2" alt="" data-rid="98444741"><div><h3><button type="button" data-rid="98444741">Accumulated Fortune</button></h3><p class="rul">● You can activate 2 "Accumulated Fortune" in the same Chain, but not 3.
+The first time, there is no "Accumulated Fortune" in that Chain. 
+The second time, there is only 1 "Accumulated Fortune" in that Chain.
+The third time, there are multiple cards with the same name in the Chain.</p></div></div><div class="rcard"><img loading="lazy" src="img/41356845.webp?v=2" alt="" data-rid="41356845"><div><h3><button type="button" data-rid="41356845">Acid Trap Hole</button></h3><p class="rul">Select 1 face-down Defense Position monster. Flip it face-up, and if the DEF of the monster is 2000 points or less, destroy the monster. If the DEF is more than 2000 points, return the monster to face-down Defense Position.
+●A face-down Jinzo will be destroyed by this card.
+●If the monster flipped face-up has an effect that changes its DEF, such as Enraged Muka Muka, calculate the current DEF, then determine if it will be destroyed or flipped back face-down. So if you had 4 cards in your hand, Enraged Muka Muka would not be destroyed.
+●If the targeted monster has a Flip Effect, that Effect is activated whether the DEF is greater than 2000 or not. If the DEF of the selected monster is 2000 or less, such as a Hane-Hane, it can't select itself for its Flip Effect since it is destroyed.</p></div></div><div class="rcard"><img loading="lazy" src="img/62325062.webp?v=2" alt="" data-rid="62325062"><div><h3><button type="button" data-rid="62325062">Adhesion Trap Hole</button></h3><p class="rul">Activate only when your opponent Summons a monster
+●Adhesion Trap Hole works against a monster or monsters, so Adhesion Trap Hole does NOT target.
+●When Cyber Jar is activated, you may use Adhesion Trap Hole against all monsters your opponent Special Summons in Attack Position, but Adhesion Trap Hole has no effect on any monsters your opponent Special Summons face-down.
+●Adhesion Trap Hole can't affect monsters Special Summoned face-down with The Shallow Grave, Morphing Jar #2, etc.
+●If a monster affected by Adhesion Trap Hole is flipped face-down (with Book of Moon, etc.), Adhesion Trap Hole's effect disappears and the monster's ATK is back to normal.
+●Adhesion Trap Hole halves the original ATK, so if you activate another effect that alters ATK, halve the original ATK first and then resolve the other ATK-modifying effect.
+●If a monster affected by Adhesion Trap Hole is then equipped with Megamorph, only Megamorph's effect applies.</p></div></div><div class="rcard"><img loading="lazy" src="img/53828396.webp?v=2" alt="" data-rid="53828396"><div><h3><button type="button" data-rid="53828396">Adhesive Explosive</button></h3><p class="rul">●The 
+●This effect activates in Substep 3 - Before Damage Calculation.
+●If “Mystic Swordsman LV2” attacks, its effect won't activate.
+●If “Drillroid” attacks it, its effect will activate.
+●If this face-down card is attacked by “Horus the Black Flame Dragon LV6” or “Guardian Kay’est”, it will still be equipped to the attacker, but it won't destroy the equipped monster during the Standby Phase.
+●The Continuous Effect applies on the field.
+●This effect is treated as the effect of an Equip Spell Card.</p></div></div><div class="rcard"><img loading="lazy" src="img/51630558.webp?v=2" alt="" data-rid="51630558"><div><h3><button type="button" data-rid="51630558">Advance Draw</button></h3><p class="rul">Tribute 1 face-up Level 8 or higher monster you control. Draw 2 cards.
+●Tributing 1 face-up Level 8 or higher monster is a cost.</p></div></div><div class="rcard"><img loading="lazy" src="img/38589847.webp?v=2" alt="" data-rid="38589847"><div><h3><button type="button" data-rid="38589847">Advance Force</button></h3><p class="rul">●The 
+●You can still Tribute 2 monsters to Tribute Summon a Level 7 or higher monster if you want to.
+●Only the controller of “Advance Force” gets the effect.</p></div></div><div class="rcard"><img loading="lazy" src="img/7935043.webp?v=2" alt="" data-rid="7935043"><div><h3><button type="button" data-rid="7935043">Aegis of the Ocean Dragon Lord</button></h3><p class="rul">Until the End Phase of this turn, face-up Level 3 or lower WATER monsters you control can't be destroyed by battle or by card effects.
+●You can still activate this card even if you control no face-up Level 3 or lower WATER monsters at the time.
+●This effect is applied until you choose to end it during the End Phase.
+●This effect applies to all Level 3 or lower WATER monsters you control, even ones that you Summon after this card’s resolution.</p></div></div><div class="rcard"><img loading="lazy" src="img/25345186.webp?v=2" alt="" data-rid="25345186"><div><h3><button type="button" data-rid="25345186">After the Struggle</button></h3><p class="rul">This card can only be activated during Main Phase 1. All monsters on both sides of the field that have been involved in damage calculation are destroyed during the End Step of the turn.
+●This card's title has been changed to After the Struggle. If you have a card titled After Genocide its name is treated as After the Struggle.
+●Even if the Battle Damage is reduced to 0 by the effect of Waboku, Kuriboh, Sanga of the Thunder, etc., both the attacking and defending monster are still destroyed during the End Step by this card’s effect.
+●If you activate After the Struggle, even a monster that performs a direct attack will be destroyed by this card’s effect during the End Step.
+●Note that After the Struggle will destroy monsters during the End Step, not the End Phase.</p></div></div><div class="rcard"><img loading="lazy" src="img/64952266.webp?v=2" alt="" data-rid="64952266"><div><h3><button type="button" data-rid="64952266">Against the Wind</button></h3><p class="rul">Select 1 Blackwing monster in your GY. Take damage equal to the ATK of the selected monster, and add it to your hand.
+●“Against the Wind” targets 1 “Blackwing” monster in your GY.
+●If you control “Des Wombat,” you can activate “Against the Wind,” but since the damage you take becomes 0, you can't add a card to your hand.
+●If an effect is chained that removes the targeted monster from the GY, you take no damage and don't add it to your hand.
+●The effects of “Against the Wind” to inflict damage and add a card to your hand are considered to be simultaneous, although as a practical matter you take the damage first.
+●This means that you can activate effects like “Numinous Healer” without missing the timing.</p></div></div><div class="rcard"><img loading="lazy" src="img/16135253.webp?v=2" alt="" data-rid="16135253"><div><h3><button type="button" data-rid="16135253">Agido</button></h3><p class="rul">●The 
+●This effect activates in Substep 7 - End of the Damage Step.
+●Agido can Special Summon itself.
+●This effect does not target.</p></div></div><div class="rcard"><img loading="lazy" src="img/18036057.webp?v=2" alt="" data-rid="18036057"><div><h3><button type="button" data-rid="18036057">Airknight Parshath</button></h3><p class="rul">●The 
+●This effect won't apply if Total Defense Shogun attacks this card from Defense Position.
+●The mandatory Trigger Effect activates &amp; resolves on the field.
+●This effect activates in Substep 5 - After Damage Calculation.
+●Drawing a card is not optional. You must draw 1 card any time Airknight Parshath inflicts Battle Damage to the opponent’s Life Points. This includes direct attacks, and when it battles with a monster with a lower ATK or DEF.
+●If the opponent activates Waboku or Kuriboh to reduce the Battle Damage to 0, you don't draw.
+●When Airknight Parshath attacks a face-down monster with a Flip Effect and inflicts Battle Damage, you draw 1 card before the Flip Effect is activated (in Substep 6 - Resolve Effects).</p></div></div><div class="rcard"><img loading="lazy" src="img/65384019.webp?v=2" alt="" data-rid="65384019"><div><h3><button type="button" data-rid="65384019">Alchemy Cycle</button></h3><p class="rul">The original ATK of all face-up monsters you control becomes 0, until the End Phase. Each time a monster that had its original ATK reduced to 0 by this effect is destroyed by battle and sent to the GY, draw 1 card.
+●Monsters with an original ATK that is already 0 are not affected by Alchemy Cycle. You won't draw a card when they are destroyed by battle.
+●The effect to draw 1 card starts a Chain.
+●Monsters Summoned or flipped face-up after Alchemy Cycle resolves won't have their original ATK become 0.</p></div></div><div class="rcard"><img loading="lazy" src="img/652362.webp?v=2" alt="" data-rid="652362"><div><h3><button type="button" data-rid="652362">Alien Ammonite</button></h3><p class="rul">●No rulings currently avaiable.</p></div></div><div class="rcard"><img loading="lazy" src="img/17490535.webp?v=2" alt="" data-rid="17490535"><div><h3><button type="button" data-rid="17490535">Alien Brain</button></h3><p class="rul">Activate only when a Reptile-Type monster you control is destroyed by battle with an opponent's attacking monster and sent to the GY. Take control of the attacking monster, and treat it as a Reptile-Type monster.
+●This effect does not target.
+●The destroyed monster must be Reptile-Type while on the field AND in the GY.
+●Use this card in Substep 7 - End of the Damage Step after placing Trigger Effects on the Chain.
+●You take control of your opponent’s monster permanently.
+●If it is flipped face-down, you keep control but it is no longer treated as a Reptile-Type monster.
+●You can take control of Reptile-Type monsters with this card.
+●If you control your opponent’s Reptile-Type monster and it is destroyed and sent to their GY you can activate “Alien Brain.”</p></div></div><div class="rcard"><img loading="lazy" src="img/15475415.webp?v=2" alt="" data-rid="15475415"><div><h3><button type="button" data-rid="15475415">Alien Dog</button></h3><p class="rul">●The 
+●This effect activates in the Summon response timing (like Trap Hole).
+●If you wish to use this effect, you can't use Ignition Effect Priority in response to the Summon.
+●This effect can't activate if the Normal Summon happens as Chain Link 2(+) by Ultimate Offering.
+●Even if you have more than 1 “Alien Dog” in your hand, you can only activate the effect of 1.
+●The mandatory Trigger Effect activates &amp; resolves on the field.
+●This effect activates after the Chain in which the effect resolved.
+●You may place both A-Counters on a single monster, or one on each of two monsters.
+●The effects of “Alien Dog” don't target. You select the monster(s) when the effect resolves.</p></div></div><div class="rcard"><img loading="lazy" src="img/62437709.webp?v=2" alt="" data-rid="62437709"><div><h3><button type="button" data-rid="62437709">Alien Grey</button></h3><p class="rul">●While you control 2 copies of this card, a battling monster with 1 A-Counter will lose 600 ATK/DEF.</p></div></div><div class="rcard"><img loading="lazy" src="img/62315111.webp?v=2" alt="" data-rid="62315111"><div><h3><button type="button" data-rid="62315111">Alien Hunter</button></h3><p class="rul">●“It can attack again in a row” means that this card can keep attacking until its condition to attack again is no longer fulfilled. It can make a second, third, fourth, etc attack this way.</p></div></div><div class="rcard"><img loading="lazy" src="img/38468214.webp?v=2" alt="" data-rid="38468214"><div><h3><button type="button" data-rid="38468214">Alien Hypno</button></h3><p class="rul">These rulings apply to all Gemini Monsters: https://edisonformat.net/rules/compendium/gemini-monsters</p></div></div><div class="rcard"><img loading="lazy" src="img/76573247.webp?v=2" alt="" data-rid="76573247"><div><h3><button type="button" data-rid="76573247">Alien Infiltrator</button></h3><p class="rul">No rulings currently avaiable.</p></div></div><div class="rcard"><img loading="lazy" src="img/64160836.webp?v=2" alt="" data-rid="64160836"><div><h3><button type="button" data-rid="64160836">Alien Kid</button></h3><p class="rul">●While you control 2 copies of this card, a battling monster with 1 A-Counter will lose 600 ATK/DEF.</p></div></div><div class="rcard"><img loading="lazy" src="img/99532708.webp?v=2" alt="" data-rid="99532708"><div><h3><button type="button" data-rid="99532708">Alien Mars</button></h3><p class="rul">No rulings currently avaiable.</p></div></div><div class="rcard"><img loading="lazy" src="img/24104865.webp?v=2" alt="" data-rid="24104865"><div><h3><button type="button" data-rid="24104865">Alien Mother</button></h3><p class="rul">●This effect continuously targets that monster
+●If this card becomes set, it no longer targets those monsters.
+● If 'Skill Drain' is applying, those monsters aren't destroyed when it leaves the field.</p></div></div><div class="rcard"><img loading="lazy" src="img/63253763.webp?v=2" alt="" data-rid="63253763"><div><h3><button type="button" data-rid="63253763">Alien Overlord</button></h3><p class="rul">●While you control 2 different monsters with the same ② effect, a battling monster with 1 A-Counter will lose 600 ATK/DEF.</p></div></div><div class="rcard"><img loading="lazy" src="img/58012107.webp?v=2" alt="" data-rid="58012107"><div><h3><button type="button" data-rid="58012107">Alien Psychic</button></h3><p class="rul">No rulings currently avaiable.</p></div></div><div class="rcard"><img loading="lazy" src="img/25920413.webp?v=2" alt="" data-rid="25920413"><div><h3><button type="button" data-rid="25920413">Alien Skull</button></h3><p class="rul">● While you control 2 copies of this card, a battling monster with 1 A-Counter will lose 600 ATK/DEF.
+● All of the Ⓤ is one single unclassified effect. Tributing a monster is a cost for this effect. This effect does not start a chain.</p></div></div><div class="rcard"><img loading="lazy" src="img/91070115.webp?v=2" alt="" data-rid="91070115"><div><h3><button type="button" data-rid="91070115">Alien Telepath</button></h3><p class="rul">●While you control 2 copies of this card, a battling monster with 1 A-Counter will lose 600 ATK/DEF.</p></div></div><div class="rcard"><img loading="lazy" src="img/98719226.webp?v=2" alt="" data-rid="98719226"><div><h3><button type="button" data-rid="98719226">Alien Warrior</button></h3><p class="rul">●While you control 2 copies of this card, a battling monster with 1 A-Counter will lose 600 ATK/DEF.</p></div></div></div><div id="rulmore" style="text-align:center;margin-top:16px"><button class="btn">Show more (2,073 left)</button></div><p class="srcnote">Card data, Edison text, rulings, art and starter decks come from <a href="https://edisonformat.net" target="_blank" rel="noopener">edisonformat.net</a> and the <a href="https://github.com/MikaMikaDE/mikaRulings" target="_blank" rel="noopener">mikaRulings</a> project, copied 2026-11-17. Card text and images are © Konami.</p></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

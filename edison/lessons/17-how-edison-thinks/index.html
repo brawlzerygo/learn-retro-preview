@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 17: How Edison Thinks | Learn Retro</title>
+<meta name="description" content="Card advantage, tempo, which threat to answer, the order of your plays, and reading your opponent.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/17-how-edison-thinks/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 201 / Lesson 17 (8 of 8)</div>
+      <h1>How Edison Thinks</h1><p class="sub">Card advantage, tempo, which threat to answer, the order of your plays, and reading your opponent. <span class="pill">10 min · 10 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">Cards are your resource</h2>
+<p>Count the cards you have: your hand plus your field. Do the same for your opponent. The player with more cards usually has more options.</p>
+<p><b>Card advantage</b> means having more of those cards than your opponent. Every card you play is a trade. You give up a card to take something away, or to gain something.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>Think of cards as coins. A good trade is when you pay one coin and your opponent loses two. A bad trade is when you pay two coins to take one of theirs.</p></div>
+<h2 id="sec-1">One-for-one trades</h2>
+<p>Most removal is a fair trade. One of your cards for one of theirs.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">You spend</th><th class="nw">They lose</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="5318639">Mystical Space Typhoon</button></td><td class="nw">1</td><td class="nw">1</td><td>A clean one-for-one.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button></td><td class="nw">1</td><td class="nw">1 or more</td><td>Can hit more than one monster summoned at once.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="19613556">Heavy Storm</button></td><td class="nw">1</td><td class="nw">All Spells/Traps</td><td>Also hits yours. Count both sides first.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="44095762">Mirror Force</button></td><td class="nw">1</td><td class="nw">All attackers</td><td>Better the more Attack Position monsters they have.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button></td><td class="nw">2 materials</td><td class="nw">The whole field</td><td>Also wipes yours. Use it when you are behind.</td></tr>
+</tbody></table></div>
+<p>Edison is full of fair trades. That is why the games feel balanced. One card that trades for two is a big deal.</p>
+<h2 id="sec-2">Cards that give more</h2>
+<p>Some cards replace themselves or give you extra cards. Players call these "plus" cards.</p>
+<ul>
+<li><button type="button" class="cref" data-rid="26202165">Sangan</button> leaves the field and adds a monster to your hand. Used as Synchro Material, it gives you a Synchro and a new card.</li>
+<li><button type="button" class="cref" data-rid="85087012">Card Trooper</button> draws you a card when it is destroyed.</li>
+<li><button type="button" class="cref" data-rid="67169062">Pot of Avarice</button> is one card that draws two.</li>
+<li><button type="button" class="cref" data-rid="87910978">Brain Control</button> turns your opponent's monster into your material. They lose a card, and you pay only Brain Control and 800 LP.</li>
+</ul>
+<h3>Synchros and card count</h3>
+<p>A Synchro Summon uses two or more monsters to make one. On its own, that is two cards for one. The trick is to make the materials cheap:</p>
+<ul><li><button type="button" class="cref" data-rid="33420078">Plaguespreader Zombie</button> comes back from the Graveyard. You pay a card from your hand, but it goes to the top of your Deck, so you draw it again next turn.</li><li><button type="button" class="cref" data-rid="78868119">Deep Sea Diva</button>, <button type="button" class="cref" data-rid="63977008">Junk Synchron</button> and <button type="button" class="cref" data-rid="14943837">Debris Dragon</button> bring a second monster with them.</li><li><button type="button" class="cref" data-rid="70095154">Cyber Dragon</button> comes out free when you have no monsters.</li></ul>
+<p>When one card from your hand becomes a Synchro, you have made a good trade.</p>
+<h2 id="sec-3">LP is a resource too</h2>
+<p>Many staples cost LP: Solemn Judgment costs half, Royal Oppression and Brain Control cost 800, Thought Ruler Archfiend costs 1000. LP you never use does not win games. Spend it when it buys you a card or a turn.</p>
+<p>But watch how low you go. Gorz and Tragoedia punish an attack you cannot afford.</p>
+<h2 id="sec-4">Your Normal Summon and your Graveyard</h2>
+<p>Cards and LP are not your only resources. You get one Normal Summon a turn, and many engines start with it: <button type="button" class="cref" data-rid="91351370">Black Whirlwind</button>, <button type="button" class="cref" data-rid="78868119">Deep Sea Diva</button>, <button type="button" class="cref" data-rid="14943837">Debris Dragon</button>, <button type="button" class="cref" data-rid="63977008">Junk Synchron</button> and every Monarch. Spend it on the monster that does the most. A Normal Summon used on a plain beater can leave your Tuner stuck in your hand.</p>
+<p>Your Graveyard is a resource too. <button type="button" class="cref" data-rid="33420078">Plaguespreader Zombie</button>, <button type="button" class="cref" data-rid="72714392">Blackwing - Vayu the Emblem of Honor</button>, <button type="button" class="cref" data-rid="4906301">Necro Gardna</button> and <button type="button" class="cref" data-rid="45906428">Miracle Fusion</button> all use it, and <button type="button" class="cref" data-rid="67169062">Pot of Avarice</button> turns five used monsters into two new cards. Your opponent's Graveyard matters as well: <button type="button" class="cref" data-rid="24508238">D.D. Crow</button> is best saved for the card they plan to use from there.</p>
+<h2 id="sec-5">Tempo and card advantage</h2>
+<p>Card advantage is how many cards you have. <b>Tempo</b> is how much the board is doing for you right now: who is attacking, and who is answering. You can be ahead on cards and still be losing, if the cards you hold are stuck in your hand while your opponent attacks every turn.</p>
+<p>Aggro decks like Blackwings trade card advantage for tempo. They put cards on the field early and attack before you can set up. Control decks do the opposite. They trade one for one and win once the opponent runs out. Know which one you are doing each turn. Ahead on tempo, keep attacking. Ahead on cards, don't rush, and make your opponent come to you.</p>
+<h2 id="sec-6">Which threat to answer</h2>
+<p>You will rarely have an answer for everything. Before you spend removal, ask what the card will do to you if it stays.</p>
+<ul>
+<li><b>Engines first.</b> A card that makes more cards every turn, like <button type="button" class="cref" data-rid="91351370">Black Whirlwind</button> or a <button type="button" class="cref" data-rid="12538374">Treeborn Frog</button> in the Graveyard, does more over a game than one big monster.</li>
+<li><b>Locks next.</b> <button type="button" class="cref" data-rid="93016201">Royal Oppression</button> or <button type="button" class="cref" data-rid="82732705">Skill Drain</button> can stop your whole deck. Your <button type="button" class="cref" data-rid="5318639">Mystical Space Typhoon</button> belongs on the lock, not on a random Set card.</li>
+<li><b>Then the biggest attacker,</b> unless you can survive it for a turn and answer it better later.</li>
+<li><b>Save hard answers for hard threats.</b> <button type="button" class="cref" data-rid="29401950">Bottomless Trap Hole</button> on a 1600 ATK monster leaves you nothing for <button type="button" class="cref" data-rid="57774843">Judgment Dragon</button>.</li>
+</ul>
+<h2 id="sec-7">Sequencing: which card first</h2>
+<p>The same cards played in a different order can win or lose a turn.</p>
+<ol class="steps">
+<li><div><b>Removal before summons.</b> Destroy a Set card with Mystical Space Typhoon before you Normal Summon, so a Trap can't meet your monster.</div></li>
+<li><div><b>Search before you decide.</b> Use <button type="button" class="cref" data-rid="213326">E - Emergency Call</button>, <button type="button" class="cref" data-rid="94886282">Charge of the Light Brigade</button> or a Sangan search early. The card you find may change the best play.</div></li>
+<li><div><b>Bait with the smaller threat.</b> Summon the monster you can afford to lose first, and keep your best one for after their Trap is gone.</div></li>
+<li><div><b>Attack with your least important monster first.</b> Mirror Force and Dimensional Prison wait for an attack. Give them the worst target.</div></li>
+<li><div><b>Attack first, Synchro after.</b> In the Blackwing turn in Lesson 19, the Synchro comes in Main Phase 2, after the materials have done their damage.</div></li>
+</ol>
+<h2 id="sec-8">Don't overextend</h2>
+<p>Overextending means putting more on the field than you need. Edison punishes it. <button type="button" class="cref" data-rid="53582587">Torrential Tribute</button> destroys every monster, <button type="button" class="cref" data-rid="19613556">Heavy Storm</button> every Spell and Trap, and <button type="button" class="cref" data-rid="73580471">Black Rose Dragon</button> and Judgment Dragon every card. Against a full field, one of them is one card for five of yours.</p>
+<p>Put out enough to win, or enough to stay safe, and keep the rest in your hand. Two monsters that beat what your opponent has are usually better than four.</p>
+<h2 id="sec-9">Read your opponent</h2>
+<ul>
+<li><b>Hand size.</b> Many cards in hand means many options. One or two means they are close to out. Remember that <button type="button" class="cref" data-rid="85215458">Blackwing - Kalut the Moon Shadow</button>, <button type="button" class="cref" data-rid="37742478">Honest</button> and <button type="button" class="cref" data-rid="19665973">Battle Fader</button> work from the hand.</li>
+<li><b>Set cards.</b> Count them, and watch what they let through (Lesson 28).</li>
+<li><b>The banlist.</b> Mirror Force, Solemn Judgment, Torrential Tribute, Heavy Storm and Black Rose Dragon are Limited. Once one is in their Graveyard, there are no more.</li>
+<li><b>Their outs.</b> Ask which card would get them out of trouble, and play so that card does the least. If only Heavy Storm saves them, don't Set three Spells and Traps.</li>
+<li><b>Their deck.</b> Once you know what they play, you know what they need to happen. <a href="/edison/opponents/" data-k="opponents">Know your opponent</a> has every deck at a glance.</li>
+</ul>
+<h2 id="sec-10">When to make a big play</h2>
+<p>A big play is a turn where you commit many cards at once, like a Synchro Summon followed by attacks. If it works, you get far ahead. If your opponent stops it, you lose several cards at once.</p>
+<ol class="steps">
+<li><div><b>Count their Set cards.</b> Each one could be Bottomless Trap Hole, Solemn Judgment, Starlight Road or Mirror Force.</div></li>
+<li><div><b>Clear the way first.</b> Use Mystical Space Typhoon, Heavy Storm or Brionac before you commit.</div></li>
+<li><div><b>Start small.</b> Make your opponent use a Trap on a smaller threat before you summon your best one.</div></li>
+<li><div><b>Keep something back.</b> A card in hand for next turn means one stopped play does not end the game.</div></li>
+<li><div><b>Go all in when you can finish.</b> If the attack wins the game this turn, commit everything.</div></li>
+</ol>
+<div class="callgrid"><div class="call key"><b class="tag">The big idea</b><p>Ask two questions before every play. What do I spend? What does my opponent lose? If you spend more than they lose, you need a good reason.</p></div><div class="call mistake"><b class="tag">Common beginner mistakes</b><ul><li>Making a Synchro every turn just because you can. Every Synchro costs materials.</li><li>Playing Black Rose Dragon or Heavy Storm when they hurt you more than your opponent.</li><li>Committing your whole hand into four Set cards.</li></ul></div></div>
+
+<div class="recap"><h2 id="sec-11">Recap</h2><ul><li>Count hand plus field for both players.</li><li>Most removal is one card for one card. A card that takes two is a big deal.</li><li>Sangan, Card Trooper and Pot of Avarice give you more than they cost.</li><li>Synchros cost materials. Cheap Tuners make the trade good.</li><li>Before a big play, count Set cards and clear the way.</li><li>Tempo is what the board does for you now. Know whether you are racing or grinding.</li><li>Answer engines and locks before big monsters, and save hard answers for hard threats.</li><li>Removal before summons, small threats before big ones, and never more on the field than you need.</li><li>Count their hand, their Set cards and the Limited cards already used.</li></ul></div>
+<p class="soon">You finished Edison 201. Look up any card in the <a href="/edison/cards/" data-k="cards">card search</a>, or check the full <a href="/edison/staples/" data-k="staples">staples list</a>.</p></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="5318639" aria-label="Mystical Space Typhoon" style="background-image:url('img/5318639.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="19613556" aria-label="Heavy Storm" style="background-image:url('img/19613556.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="73580471" aria-label="Black Rose Dragon" style="background-image:url('img/73580471.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="26202165" aria-label="Sangan" style="background-image:url('img/26202165.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="87910978" aria-label="Brain Control" style="background-image:url('img/87910978.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="67169062" aria-label="Pot of Avarice" style="background-image:url('img/67169062.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="33420078" aria-label="Plaguespreader Zombie" style="background-image:url('img/33420078.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="58120309" aria-label="Starlight Road" style="background-image:url('img/58120309.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>What card advantage means</li><li>How to judge a trade, one card for one card</li><li>How to decide when to make a big play</li><li>How tempo differs from card advantage</li><li>Which threat to answer, and which card to play first</li><li>How to read your opponent and their outs</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">Cards are your resource</button><button type="button">One-for-one trades</button><button type="button">Cards that give more</button><button type="button">LP is a resource too</button><button type="button">Your Normal Summon and your Graveyard</button><button type="button">Tempo and card advantage</button><button type="button">Which threat to answer</button><button type="button">Sequencing: which card first</button><button type="button">Don't overextend</button><button type="button">Read your opponent</button><button type="button">When to make a big play</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">What is card advantage?</span><span class="a">Having more cards (hand plus field) than your opponent, which gives you more options.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">You use Mystical Space Typhoon on a Set card. How good is that trade?</span><span class="a">One-for-one. You spent one card and your opponent lost one.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why is Sangan a plus card?</span><span class="a">When it leaves the field, it adds a monster from your Deck to your hand, so it replaces itself.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">A Synchro Summon uses two monsters for one. How do players make that trade good?</span><span class="a">By using cheap materials, like Plaguespreader Zombie from the Graveyard or a Tuner that brings a second monster with it.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent has three Set cards. You hold a Tuner and MST. What should you do first?</span><span class="a">Use MST, or other removal, on a Set card before committing to the Synchro.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">When is Black Rose Dragon's field wipe a good trade?</span><span class="a">When your opponent has more cards on the field than you do.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">What is tempo?</span><span class="a">How much the board is doing for you right now: who is attacking, and who is answering.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Your opponent has Royal Oppression face-up and one Set card. You have one Mystical Space Typhoon. Which do you usually hit?</span><span class="a">Royal Oppression. A lock can stop your whole deck; a Set card might be a bluff.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why is overextending risky in Edison?</span><span class="a">Torrential Tribute, Heavy Storm, Black Rose Dragon and Judgment Dragon answer a whole field with one card.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Mirror Force is already in your opponent's Graveyard. Can they have another?</span><span class="a">No. It is Limited, so each deck has at most one.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/16-staple-traps/" data-k="lesson-16">← Lesson 16</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/18-deck-styles/" data-k="lesson-18">Lesson 18 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>

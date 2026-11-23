@@ -1,0 +1,88 @@
+/* ============ THEME 2: BOARD INDEX ============
+ The site as a modern forum index: warm off-white, one rust accent, section rows and thread rows with unread
+ dots, a sticky announcement, Atkinson Hyperlegible for reading and Verdana kept for small labels. */
+:root[data-theme=index]{
+  --bg:#fbfaf7; --surface:#ffffff; --ink:#1c2128; --muted:#6b665d; --line:#e3e0d8;
+  --accent:#c2410c; --accent-soft:#fff1e6; --on-accent:#fff;
+  --brand-2:#c2410c; --on-brand:#fff;
+  --sec:#f5f3ee; --label:Verdana, Tahoma, sans-serif;
+  --gold:#a16207; --good:#3f7d20; --bad:#b42318;
+  --display:"Atkinson Hyperlegible", Verdana, sans-serif; --body:"Atkinson Hyperlegible", Verdana, sans-serif; --mono:ui-monospace, "SF Mono", Menlo, monospace;
+  --mat:#2b2420; --mat-line:rgba(245,225,205,.24); --mat-ink:rgba(245,232,218,.55);
+  color-scheme:light;
+}
+[data-theme=index] body{font-size:16.5px;line-height:1.6}
+[data-theme=index] h1,[data-theme=index] h2,[data-theme=index] h3{font-weight:700;letter-spacing:-.005em}
+/* Header: white bar, underline tabs in Verdana */
+[data-theme=index] .top{background:var(--bg);border-bottom:1px solid var(--line);backdrop-filter:none}
+[data-theme=index] .top-in{padding:0 16px;align-items:stretch;min-height:56px;gap:20px}
+[data-theme=index] .brand{font-size:21px;font-weight:700;align-self:center;color:var(--ink)}
+[data-theme=index] .nav{gap:20px;align-items:stretch}
+[data-theme=index] .nav :is(a,.ndrop-btn){border-radius:0;padding:0;display:flex;align-items:center;font-family:var(--label);font-size:12.5px;font-weight:bold;color:#57534a}
+[data-theme=index] .nav :is(a,.ndrop-btn):hover{color:var(--ink)}
+[data-theme=index] .nav :is(a,.ndrop-btn).on{background:none;color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+[data-theme=index] .tpick{align-self:center;border-radius:7px;overflow:hidden}
+[data-theme=index] .tpick button{font-family:var(--label);text-transform:none;letter-spacing:0;font-size:11px;font-weight:bold;color:#57534a}
+[data-theme=index] .tpick button.on{background:var(--ink);color:#fff}
+@media(max-width:640px){[data-theme=index] .top-in{align-items:center;padding:8px 12px}[data-theme=index] .nav :is(a,.ndrop-btn){padding:10px 0}}
+[data-theme=index] .crumbs{font-family:var(--label);font-size:12px;font-weight:bold}
+[data-theme=index] .crumbs a{color:var(--accent)}
+[data-theme=index] :is(.pill,.note,.rcount,.goals h4,.call b.tag,.fc-face small,th,.lnum,.sitestats,.zonehead span,.cv h4,.chip,.pile,.level-tag){font-family:var(--label)}
+/* Home: one index; section rows above thread rows */
+[data-theme=index] .hero h1{font-size:clamp(30px,5vw,42px)}
+[data-theme=index] .level-block{margin-top:22px}
+[data-theme=index] .level-head{background:var(--sec);border:1px solid var(--line);border-radius:10px 10px 0 0;padding:8px 14px;margin:0;gap:2px 10px}
+[data-theme=index] .level-head h2{font-size:14px;color:#57534a}
+[data-theme=index] .level-head p{font-size:13px}
+[data-theme=index] .level-tag{background:var(--accent);color:#fff;border-radius:4px;font-size:10.5px;font-weight:bold;padding:1px 6px}
+[data-theme=index] .level-tag.zero{background:var(--ink)}
+[data-theme=index] .lessons{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;padding:12px;background:var(--surface);border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px}
+[data-theme=index] .lcard{border:1px solid #ebe8e1;border-radius:8px;padding:12px 14px;transition:border-color .15s}
+[data-theme=index] a.lcard:hover{border-color:#cfc9bc}
+[data-theme=index] a.lcard:hover{background:#fdfcf9}
+[data-theme=index] .lcard h3{font-size:16.5px;margin:0}
+[data-theme=index] .lcard p{font-size:14px}
+/* Unread dot: an open lesson shows a rust dot, a finished one a hollow ring */
+[data-theme=index] .lnum{width:auto;height:auto;min-width:46px;justify-content:flex-start;display:flex;align-items:center;gap:9px;margin-top:3px;background:none;color:#8a8577;font-size:12px;border-radius:0}
+[data-theme=index] .lnum::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none}
+[data-theme=index] .lcard.done .lnum{background:none;color:#8a8577}
+[data-theme=index] .lcard.done .lnum::before{background:transparent;border:2px solid #cfcabf;width:6px;height:6px}
+[data-theme=index] .lcard.locked .lnum::before{background:#e3e0d8}
+[data-theme=index] .pill{background:var(--sec);border-radius:4px;font-size:10.5px;color:#57534a}
+/* Sticky announcement */
+[data-theme=index] .skipbar{border:1px solid #f1d3b8;background:#fff6ec;border-radius:8px;color:#5b3a1a;border-style:solid}
+[data-theme=index] .skipbar span::before{content:"STICKY";font-family:var(--label);font-size:10.5px;font-weight:bold;background:var(--accent);color:#fff;border-radius:4px;padding:2px 6px;margin-right:10px}
+/* Panels and callouts */
+[data-theme=index] :is(.goals,.recap,.eq,.timeline,.term,.banl section,.board,.bpanel,.filters,.sheet,.fc-face,.deckcard,.synpanel,.call){border-radius:10px;border-color:var(--line)}
+[data-theme=index] .goals,[data-theme=index] .recap{background:var(--surface)}
+[data-theme=index] .goals h4{font-size:11px;color:#8a8577}
+[data-theme=index] .call{background:var(--surface);border:1px solid var(--line)}
+[data-theme=index] .call b.tag{font-size:11px;color:#8a8577}
+[data-theme=index] .call.analogy{background:#fff6ec;border-color:#f1d3b8}
+[data-theme=index] .call.analogy b.tag{color:var(--accent)}
+[data-theme=index] .call.rule,[data-theme=index] .call.mistake,[data-theme=index] .call.key{border-radius:0 10px 10px 0}
+[data-theme=index] .call.key{border-left-color:var(--accent)}
+/* Buttons and controls */
+[data-theme=index] .btn{border-radius:8px;border-color:#d6d2c8;font-size:15px;transition:background-color .15s,border-color .15s}
+[data-theme=index] .btn:hover{border-color:#a8a294;background:#fdfcf9}
+[data-theme=index] .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme=index] .btn.primary:hover{background:#a8370a}
+[data-theme=index] .btn.small{font-size:13.5px}
+[data-theme=index] :is(select,input[type=text],input[type=number],input[type=search],textarea){border-radius:8px;border-color:#d6d2c8;background:#fff}
+[data-theme=index] :is(select,input,textarea):focus{border-color:var(--accent);outline:2px solid var(--accent-soft)}
+[data-theme=index] .chip{border-radius:6px;font-size:12px}
+[data-theme=index] .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+[data-theme=index] .closex{background:var(--sec)}
+/* Tables: quiet header row in Verdana caps */
+[data-theme=index] table{border:1px solid var(--line);border-radius:10px}
+[data-theme=index] th{background:var(--sec);font-size:11px;font-weight:normal;text-transform:uppercase;letter-spacing:.06em;color:#8a8577}
+[data-theme=index] td{border-bottom-color:#efece5}
+[data-theme=index] .steps li::before{border-radius:50%;font-size:14px}
+[data-theme=index] .tl b{background:var(--sec);color:#57534a;font-family:var(--label);font-size:12px}
+[data-theme=index] .eq .math{color:var(--accent)}
+[data-theme=index] .cref{color:var(--ink);text-decoration-color:var(--accent);text-decoration-style:solid}
+[data-theme=index] .rank .pips i.on{background:var(--accent)}
+/* Cards, decks, tools */
+[data-theme=index] .brow{border-radius:8px;background:var(--surface)}
+[data-theme=index] .deckcard:hover{border-color:#a8a294}
+[data-theme=index] .ctext{background:#fdfcf9}

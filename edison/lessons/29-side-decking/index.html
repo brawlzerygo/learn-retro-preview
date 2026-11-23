@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/edison/">
+<title>Lesson 29: Side Decking | Learn Retro</title>
+<meta name="description" content="What to swap in between games, using the cards real lists side.">
+<link rel="canonical" href="https://learnretro.com/edison/lessons/29-side-decking/">
+<link rel="icon" href="img/icon-d2-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-d2-180.png">
+<!-- Public since 2026-11-22 (Zack: post episode 1 and open the site). The password screen and the noindex tag were removed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* Apply the saved theme before the page paints, so it never flashes the wrong look. */
+(function(){var t='index';try{var v=JSON.parse(localStorage.getItem('edison:theme'));if(['index'].indexOf(v)>-1)t=v}catch(e){}document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="themes/base.css?v=f2">
+<link rel="stylesheet" href="themes/index.css?v=f2">
+</head>
+<body>
+<a href="https://learnretro.com/" title="This is the preview site. Open the live site." style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#c2410c;color:#fff;font:700 12px/1 Verdana,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Preview</a>
+<header class="top"><div class="top-in">
+  <div class="brand"><a class="bhub" href="/" title="Learn Retro: every format"><img class="blogo" src="img/icon-t2-512.png" alt="" width="34" height="34">Learn<em>Retro</em></a><div class="fmtsw" data-fmt="edison"><button type="button" class="bfmt" id="fmtbtn" aria-haspopup="true" aria-expanded="false" aria-controls="fmtmenu" title="Switch format">Edison<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="fmtmenu" id="fmtmenu" role="menu" aria-label="Formats" hidden><a role="menuitem" data-fmt="goat" href="/goat/"><i class="fdot"></i><b>Goat</b><small>2005</small></a><a role="menuitem" data-fmt="edison" href="/edison/"><i class="fdot"></i><b>Edison</b><small>2010</small></a><hr><a role="menuitem" class="fplain" href="/">All formats</a><a role="menuitem" class="fplain" href="/blog/">Blog</a></div></div></div>
+  <button type="button" class="mburger" id="mburger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="ib" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg><svg class="ix" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="./" data-v="home">Home</a>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-learn" data-group="course lesson flashcards rules glossary library" aria-haspopup="true" aria-expanded="false">Learn ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-cards" data-group="cards staples banlist rulings errata" aria-haspopup="true" aria-expanded="false">Cards ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-decks" data-group="deck builder opponents" aria-haspopup="true" aria-expanded="false">Decks ▾</button></div>
+    <div class="ndrop"><button type="button" class="ndrop-btn" data-menu="m-play" data-group="duel simulator" aria-haspopup="true" aria-expanded="false">Play ▾</button></div>
+  </nav>
+  <div class="ndrop-menu" id="m-learn" role="menu" aria-label="Learn">
+    <a href="course/" role="menuitem">Course<small>Step 0 basics and Edison 101</small></a>
+    <a href="flashcards/" role="menuitem">Flashcards<small>Every quiz question, to drill</small></a>
+    <a href="rules/" role="menuitem">Rules<small>How a duel works, 2010 rules</small></a>
+    <a href="glossary/" role="menuitem">Glossary<small>Every term, in plain words</small></a>
+    <a href="library/" role="menuitem">Library<small>Videos and guides by other creators</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-cards" role="menu" aria-label="Cards">
+    <a href="cards/" role="menuitem">Card search<small>All 3,673 Edison-legal cards</small></a>
+    <a href="staples/" role="menuitem">Staples<small>Cards most decks play</small></a>
+    <a href="banlist/" role="menuitem">Banlist<small>March 2010 list</small></a>
+    <a href="rulings/" role="menuitem">Rulings<small>Edison rulings by card</small></a>
+    <a href="errata/" role="menuitem">Errata<small>Cards that work differently</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-decks" role="menu" aria-label="Decks">
+    <a href="decks/" role="menuitem">All Decks<small>55 deck lists, by tier</small></a>
+    <a href="builder/" role="menuitem">Deck builder<small>Build, check and export</small></a>
+    <a href="opponents/" role="menuitem">Know your opponent<small>Every deck at a glance, and matchups</small></a>
+  </div>
+  <div class="ndrop-menu" id="m-play" role="menu" aria-label="Play">
+    <a href="duel/" role="menuitem">Duel the computer<small>Coming soon</small></a>
+    <a href="simulator/" role="menuitem">Practice board<small>Set up any field, try Synchros</small></a>
+  </div>
+  <div class="ssearch" id="ssearch" role="search">
+    <input type="search" id="sq" placeholder="Search cards, lessons, decks..." aria-label="Search the site" autocomplete="off" aria-controls="sres" aria-expanded="false">
+    <div class="sres" id="sres" role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="hsoc" aria-label="Learn Retro on social media"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Site menu" hidden></nav></header>
+<main id="app"><article class="lesson wide">
+    <header class="lhead"><div class="crumbs"><a href="/edison/course/" data-k="course">Course</a> / Edison 301 / Lesson 29 (12 of 13)</div>
+      <h1>Side Decking</h1><p class="sub">What to swap in between games, using the cards real lists side. <span class="pill">4 min · 6 flashcards</span></p></header>
+    <div class="lgrid">
+      <div class="lmain">
+
+<h2 id="sec-0">What the Side Deck is for</h2>
+<p>A match is several games against the same opponent. After game 1, you know what deck they play. Your Side Deck holds up to 15 cards you can swap into your Main Deck between games. You take a card out for every card you put in.</p>
+<div class="call analogy"><b class="tag">Think of it like this</b><p>A football team watches the first half, then changes its plan at halftime. The players on the bench are your Side Deck.</p></div>
+<p>Your Main Deck is built to do well against everything. Your Side Deck holds cards that are great against one deck and weak against the rest.</p>
+<h2 id="sec-1">The most common side cards</h2>
+<p>We counted the Side Decks of all 55 lists in our data. These are the cards most of them run.</p>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Card</th><th class="nw">Lists</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw"><button type="button" class="cref" data-rid="24508238">D.D. Crow</button></td><td class="nw">34</td><td>Discard it to banish a card from your opponent's GY at Quick speed. Against GY decks.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="70095154">Cyber Dragon</button></td><td class="nw">34</td><td>Summons itself if only your opponent controls a monster. Also a Machine for Chimeratech.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="60082869">Dust Tornado</button></td><td class="nw">33</td><td>Destroys a Spell or Trap. Against decks with many Continuous cards and traps.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="34717238">Pulling the Rug</button></td><td class="nw">24</td><td>Negates an effect triggered by a Normal Summon and destroys the monster.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="42009836">Fossil Dyna Pachycephalo</button></td><td class="nw">20</td><td>Stops all Special Summons while face-up. Against Synchro and summon-heavy decks.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="93016201">Royal Oppression</button></td><td class="nw">14</td><td>Pay 800 LP to negate a Special Summon. Against Synchro and summon-heavy decks.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="71044499">Nobleman of Crossout</button></td><td class="nw">14</td><td>Destroys and banishes a Set monster. Hits Flip monsters and face-down walls.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="58120309">Starlight Road</button></td><td class="nw">14</td><td>Stops cards that destroy 2 or more of yours, like Heavy Storm or Black Rose.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="29549364">Mask of Restrict</button></td><td class="nw">14</td><td>No one can Tribute. Against Monarchs and Tribute Summons.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="69162969">Lightning Vortex</button></td><td class="nw">12</td><td>Discard 1 card to destroy all your opponent's face-up monsters. Against swarms.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="5758500">Soul Release</button></td><td class="nw">11</td><td>Banish up to 5 cards from any GY. Against GY decks.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="94192409">Compulsory Evacuation Device</button></td><td class="nw">10</td><td>Returns a monster to the hand. A Synchro goes back to the Extra Deck.</td></tr>
+<tr><td class="nw"><button type="button" class="cref" data-rid="15800838">Mind Crush</button></td><td class="nw">10</td><td>Name a card. If it's in their hand, they discard every copy. If not, you discard 1.</td></tr>
+</tbody></table></div>
+<p>A few more show up against one kind of deck: <button type="button" class="cref" data-rid="53341729">Light-Imprisoning Mirror</button> (8 lists) for LIGHT decks like Lightsworn, <button type="button" class="cref" data-rid="99735427">Shadow-Imprisoning Mirror</button> (7) for DARK decks, and <button type="button" class="cref" data-rid="59616123">Trap Stun</button> (7) against trap-heavy decks.</p>
+<div class="call rule"><b class="tag">Card text check</b><p><button type="button" class="cref" data-rid="94192409">Compulsory Evacuation Device</button> returns a monster to the hand. A Synchro or Fusion Monster can't go to the hand, so it goes back to the Extra Deck. That is why it is good against Synchro decks.</p></div>
+<h2 id="sec-2">Group them by the problem they solve</h2>
+<div class="tbl-wrap"><table><thead><tr><th class="nw">Problem</th><th>Description</th></tr></thead><tbody>
+<tr><td class="nw">Graveyard decks</td><td>D.D. Crow, Soul Release. For Zombies, Vayu Turbo and Lightsworn.</td></tr>
+<tr><td class="nw">Special Summons</td><td>Fossil Dyna, Royal Oppression. For Synchro swarms and Dragons.</td></tr>
+<tr><td class="nw">Summon triggers</td><td>Pulling the Rug. For Caius, Gadgets and other "when Normal Summoned" effects.</td></tr>
+<tr><td class="nw">Tributes</td><td>Mask of Restrict. For Monarch decks.</td></tr>
+<tr><td class="nw">Face-down monsters</td><td>Nobleman of Crossout. For Flip monsters and decks that Set walls.</td></tr>
+<tr><td class="nw">Spells and Traps</td><td>Dust Tornado, Trap Stun. For trap-heavy and Continuous card decks.</td></tr>
+</tbody></table></div>
+<h2 id="sec-3">How to side, step by step</h2>
+<ol class="steps">
+<li><div><b>Name their engine.</b> What does their deck need most? The Graveyard, Special Summons, Tributes or searches? Lesson 26 shows how to find it.</div></li>
+<li><div><b>Pick your side cards for it.</b> Use the table above. Bring in only cards that hit what their deck needs.</div></li>
+<li><div><b>Take out your weakest cards for this matchup.</b> A card that does nothing against them is the first to go. For example, Mask of Restrict is weak against a deck that never Tributes.</div></li>
+<li><div><b>Check your own deck still works.</b> Fossil Dyna and Royal Oppression stop your Synchros too. Don't side them in if your own plan needs Special Summons.</div></li>
+<li><div><b>Put it back after the match.</b> Return to your main 40 before you face the next opponent.</div></li>
+</ol>
+<div class="callgrid"><div class="call key"><b class="tag">A real example</b><p>The <a href="/edison/decks/machina-gadget/" data-k="deck-Machina%20Gadget">Machina Gadget</a> Side Deck has 2 <button type="button" class="cref" data-rid="90846359">Rivalry of Warlords</button>. It lets each player control only one Type of monster. Every monster in Machina Gadget is a Machine, so it barely hurts them. A deck that mixes Types loses monsters.</p></div><div class="call mistake"><b class="tag">Common mistake</b><p>Siding in too many cards. If you change half your deck, your engine stops working. A few strong swaps beat many small ones.</p></div></div>
+
+<p>Two creators made full guides on this. Watch E3 Yu-Gi-Oh's "How To Sideboard in Edison Format" and IMNerd (Frazier Smith)'s "Side Decking 101" in the <a href="/edison/library/" data-k="library">Library</a>.</p>
+<div class="recap"><h2 id="sec-4">Recap</h2><ul><li>Between games, swap Side Deck cards in, one out for each one in.</li><li>D.D. Crow, Cyber Dragon and Dust Tornado are the most common side cards in our lists.</li><li>Side for what their engine needs, and take out what does nothing against them.</li><li>Check that your side cards don't stop your own deck.</li></ul></div></div>
+      <aside class="lside" aria-label="Lesson overview">
+        <section class="sbox"><h4>Cards in this lesson</h4><div class="stiles"><button type="button" class="ctile pic" data-rid="24508238" aria-label="D.D. Crow" style="background-image:url('img/24508238.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="70095154" aria-label="Cyber Dragon" style="background-image:url('img/70095154.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="60082869" aria-label="Dust Tornado" style="background-image:url('img/60082869.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="34717238" aria-label="Pulling the Rug" style="background-image:url('img/34717238.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="42009836" aria-label="Fossil Dyna Pachycephalo" style="background-image:url('img/42009836.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="93016201" aria-label="Royal Oppression" style="background-image:url('img/93016201.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="71044499" aria-label="Nobleman of Crossout" style="background-image:url('img/71044499.webp?v=2')"></button><button type="button" class="ctile pic" data-rid="29549364" aria-label="Mask of Restrict" style="background-image:url('img/29549364.webp?v=2')"></button></div><p class="note" style="margin:6px 0 0">Tap a card for its text and rulings.</p></section>
+        <div class="goals sbox"><h4>What you will learn</h4><ul><li>What the Side Deck is for</li><li>The side cards our deck lists use most, and what each one answers</li><li>How to choose what goes in and what comes out</li></ul></div>
+        <section class="sbox stoc" id="ltoc"><h4>On this page</h4><button type="button">What the Side Deck is for</button><button type="button">The most common side cards</button><button type="button">Group them by the problem they solve</button><button type="button">How to side, step by step</button><button type="button">Recap</button></section>
+      </aside>
+    </div>
+    <section class="lesson-fc"><h2>Check yourself</h2><p class="note">Tap a question to see the answer. <a href="/edison/flashcards/" id="fclink" data-k="flashcards">Practice these in Flashcards</a></p><div class="qa-grid" id="lfc"><button type="button" class="qa" aria-expanded="false"><span class="q">What is the Side Deck for?</span><span class="a">Up to 15 cards you can swap into your Main Deck between games of a match, to answer the deck you are facing.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Which side card did the most lists in our data run, together with Cyber Dragon?</span><span class="a">D.D. Crow, in 34 of the 55 lists.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Name two side cards against Graveyard decks.</span><span class="a">D.D. Crow and Soul Release.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why be careful siding in Fossil Dyna Pachycephalo?</span><span class="a">While it is face-up, neither player can Special Summon, so it stops your own Synchros too.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why is Compulsory Evacuation Device good against Synchro decks?</span><span class="a">A Synchro returned to the hand goes back to the Extra Deck instead.</span><small>Tap to see the answer</small></button><button type="button" class="qa" aria-expanded="false"><span class="q">Why does Rivalry of Warlords barely hurt Machina Gadget?</span><span class="a">Every monster in the deck is a Machine, so they lose nothing when only one Type is allowed.</span><small>Tap to see the answer</small></button></div></section>
+    <div class="lesson-foot">
+      <a class="btn" href="/edison/lessons/28-playing-around-traps/" data-k="lesson-28">← Lesson 28</a>
+      <button class="btn primary" id="mark">Mark lesson done</button>
+      <a class="btn" href="/edison/lessons/30-choosing-your-deck/" data-k="lesson-30">Lesson 30 →</a>
+    </div></article></main>
+<footer class="sitefoot"><p class="socfoot"><a class="soc" href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener" aria-label="Learn Retro on YouTube" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path d="M10 8.8v6.4l5.6-3.2z" fill="var(--soc-bg,#fff)"/></svg><span>YouTube</span></a><a class="soc" href="https://www.instagram.com/learnretroygo/" target="_blank" rel="noopener" aria-label="Learn Retro on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></p><p>The literal and graphical information presented on this site about Yu-Gi-Oh!, including Card images, Attribute, Level, Rank, Type Symbols, is copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment (KDE), Inc.</p><p>This website is not produced by, endorsed by, supported by, or affiliated with 4k Media, Studio Dice, or KDE.</p></footer>
+<div id="modal"></div>
+
+<!-- Card data, rulings and starter decks from edisonformat.net and the mikaRulings repo, built by build/build_data.py -->
+<script src="data/cards.js"></script>
+<script src="data/decks.js"></script>
+<script src="data/localimg.js"></script>
+<script src="data/errata.js"></script>
+<script src="data/library.js"></script>
+<script src="data/lessons-201.js"></script>
+<script src="data/lessons-301.js"></script>
+<script src="data/lessons-301b.js"></script>
+<script src="data/rules.js"></script>
+<script src="data/opponents.js?v=3"></script><!-- bump ?v= on every change, so browsers never mix a new page with an old copy -->
+<script src="data/meta.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cards/batch-1.js"></script>
+<script src="js/cards/batch-2.js"></script>
+<script src="js/cards/batch-3.js"></script>
+<script src="js/cards/batch-4.js"></script>
+<script src="js/cards/batch-5.js"></script>
+<script src="js/cards/batch-6.js"></script>
+<script src="js/cards/batch-7.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js?v=f2"></script>
+</body>
+</html>
