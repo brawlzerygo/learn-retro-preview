@@ -43,3 +43,10 @@ header nav .soc{display:inline-flex;align-items:center;justify-content:center;mi
 /* Phones (2026-11-23): 44 px tap targets in the header, a little less top space. */
 @media(max-width:600px){header .wrap{padding-top:6px;padding-bottom:6px;gap:8px}.brand{font-size:20px}header nav{gap:2px}header nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 7px;font-size:15px}main{padding-top:24px}.crumbs a{display:inline-block;padding:8px 0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Tables in posts (2026-11-23, Goat vs Edison): scroll sideways inside their own box on phones, never the page. */
+.post .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line,rgba(246,238,230,.12));border-radius:10px}
+.post table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+.post th,.post td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line,rgba(246,238,230,.12))}
+.post th{background:rgba(255,255,255,.04);font-weight:700}
+.post tr:last-child td{border-bottom:0}
+.post td:first-child{color:var(--muted,#b9ab9c);white-space:nowrap}

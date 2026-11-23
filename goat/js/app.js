@@ -387,7 +387,7 @@ const PAGEMETA={home:['Learn Goat Format: Yu-Gi-Oh! as It Was in 2005','A free c
   cards:['Goat Format Card Search: All Legal Cards','Search every Goat-legal Yu-Gi-Oh! card with its text and banlist status.'],
   decks:['Goat Format Deck Lists','Goat format deck lists, from the top decks to the most played.'],
   builder:['Goat Format Deck Builder','Build a Goat deck, check it against the April 2005 banlist and export it.'],
-  opponents:['Know Your Opponent: Goat Format Matchups','Every Goat deck at a glance.'],
+  opponents:['Know Your Opponent: Goat Format Matchups','Every Goat deck at a glance: how to spot it, what it wants and how to beat it, plus the matchup chart.'],
   staples:['Goat Format Staples','The cards most Goat decks play.'],
   library:['Goat Format Video Library','Goat format guides and deck videos from other creators.'],
   banlist:['The Goat Format Banlist (April 2005)','Every Forbidden, Limited and Semi-Limited card on the April 2005 Yu-Gi-Oh! banlist used in Goat format.'],
@@ -512,7 +512,8 @@ function renderCourse(){
 
 /* ============ LESSON ============ */
 /* ============ KNOW YOUR OPPONENT ============
- data/opponents.js: one at-a-glance block per deck family from Edison 301, and a matchup chart (Zack, 2026-11-22:
+ data/opponents.js: one at-a-glance block per deck family from Goat 201 (lessons 10 to 13), and a matchup chart (Zack, 2026-11-22, for Edison;
+ Goat's added 2026-11-23, Zack: "and what about deck matchups for goat?"; in Edison's words
  "seeing what deck their opponent is playing, and instantly knowing what to do"). The blocks sit in each deck lesson
  and on #opponents with the chart. A chart cell is read from the cards, not from tournament results. */
 const OPP=window.GOAT_OPPONENTS||{decks:[],pairs:[]};
@@ -595,7 +596,8 @@ function renderOpponents(sel){
       <p class="note" style="max-width:780px">Read across a row. Green means the row's deck is favored against the column's deck, red means it's unfavored, grey is even. Click any square to see why.</p>
       ${chart}
       <div class="mlist"><label class="mlpick">Show matchups for <select id="mlsel">${OPP.decks.map(o=>`<option value="${o.id}" ${(d?o.id===d.id:o===OPP.decks[0])?'selected':''}>${esc(o.name)}</option>`).join('')}</select></label><div id="mlrows"></div></div></details>
-    <p class="note" style="margin-top:16px;max-width:780px">Matchups are read from the cards and the deck lists on this site (which deck's common cards hit the other deck's engine), not from tournament results. A good player on the weaker side still wins plenty of games. Styles and what beats each one: <a href="#lesson-18">Lesson 18</a>. What to side in: <a href="#lesson-29">Lesson 29</a>.</p>`;
+    <p class="note" style="margin-top:16px;max-width:780px">Where a goatformat.com or YGOPRODeck article gives a verdict, the chart follows it, tagged like [S1]. A matchup without a tag is our call from the cards and the deck lists on this site: which deck's common and side cards hit the other deck's engine. A good player on the weaker side still wins plenty of games. Card advantage: <a href="#lesson-9">Lesson 9</a>. What to side in: <a href="#lesson-14">Lesson 14</a>.</p>
+    ${(OPP.sources||[]).length?`<p class="srcnote" style="max-width:780px">Sources: ${OPP.sources.map(([k,t,u])=>`[${k}] <a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join('; ')}.</p>`:''}`;
   oppPopover();oppList();
   if(d)setTimeout(()=>{const p=document.getElementById('opanel');if(p)window.scrollTo({top:p.getBoundingClientRect().top+window.scrollY-72,behavior:'auto'})},30);
 }
