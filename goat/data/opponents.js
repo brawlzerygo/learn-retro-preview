@@ -6,7 +6,7 @@
  [[Card Name]] links a card by its exact name. */
 window.GOAT_OPPONENTS = {
 decks: [
-{id:'goat', art:'Scapegoat', name:'Goat Control', lesson:10, lists:['Goat Control'], style:'Control',
+{id:'goat', short:'Goat', art:'Scapegoat', name:'Goat Control', lesson:10, lists:['Goat Control'], style:'Control',
  spot:'[[Scapegoat]] tokens on the field, a token turned into [[Thousand-Eyes Restrict]] with [[Metamorphosis]], and face-down monsters flipped again with [[Book of Moon]] and [[Tsukuyomi]].',
  wants:'A long game: trade one for one, steal your best monster, reuse [[Magician of Faith]] and pull ahead a card at a time.',
  strong:['More quick-play protection than any other deck: Scapegoat, Book of Moon and a full Trap line.','It adapts to any opponent from the side deck.','The highest skill ceiling in the format: a good Goat player rarely throws a game away.'],
@@ -15,7 +15,7 @@ decks: [
  beat:['Keep the pressure on before it settles in.','Save monster removal for Thousand-Eyes Restrict.','Side [[Asura Priest]] or burn cards that punish tokens.'],
  avoid:['Attacking into a field with Scapegoat Set.','Leaving your best monster face-up for Creature Swap.','Counting only the field: Magician of Faith can bring back their best Spell.']},
 
-{id:'turbo', art:'Thunder Dragon', name:'Chaos Turbo', lesson:11, lists:['Chaos Turbo'], style:'Midrange',
+{id:'turbo', short:'Turbo', art:'Thunder Dragon', name:'Chaos Turbo', lesson:11, lists:['Chaos Turbo'], style:'Midrange',
  spot:'[[Thunder Dragon]] discarded to add more Thunder Dragons, then [[Chaos Sorcerer]] summoned early. Flip monsters like [[Dekoichi the Battlechanted Locomotive]], and no Scapegoat.',
  wants:'Steady card advantage from flips and discard Traps, then Chaos monsters out as fast as possible.',
  strong:['It snowballs: each card tends to replace itself or draw one.','It digs fast for its one-of power cards.','Its Traps are almost always ready to chain.'],
@@ -24,7 +24,7 @@ decks: [
  beat:['Play a third [[Scapegoat]] and stall the push.','[[D.D. Warrior Lady]] and [[Nobleman of Crossout]] answer its Chaos monsters and flips.','Side [[Mind Control]] or [[Creature Swap]] to turn its monsters on it.'],
  avoid:['Racing it early with weak monsters.','Leaving cards in the Graveyard it can count for Chaos.','Wasting removal on a flip monster when a Chaos monster is coming.']},
 
-{id:'chaos', art:'Chaos Sorcerer', name:'Chaos Control', lesson:11, lists:['Chaos Control','Thunder Dragon Chaos Control'], style:'Control',
+{id:'chaos', short:'Chaos Ctrl', art:'Chaos Sorcerer', name:'Chaos Control', lesson:11, lists:['Chaos Control','Thunder Dragon Chaos Control'], style:'Control',
  spot:'Goat Control\'s [[Scapegoat]] and [[Metamorphosis]] with [[Chaos Sorcerer]] and [[Black Luster Soldier - Envoy of the Beginning]], fed by [[Thunder Dragon]], [[Shining Angel]] or [[Skilled White Magician]].',
  wants:'Trade evenly early, then switch to offense once its Chaos monsters can take over.',
  strong:['Goat Control\'s toolbox plus more removal.','[[Thousand-Eyes Restrict]] blunts [[Airknight Parshath]].','Flexible: three different LIGHT engines.'],
@@ -33,7 +33,7 @@ decks: [
  beat:['Keep pressure on before its Chaos monsters arrive.','Side [[Kycoo the Ghost Destroyer]] or [[Necrovalley]] to shut off Graveyard plays.','Answer Airknight-style threats fast: it trades early, then wins late.'],
  avoid:['Leaving only one LIGHT or DARK in your Graveyard to remove: count yours as well.','Overextending into [[Torrential Tribute]].','Assuming it plays like Goat Control: it turns aggressive late.']},
 
-{id:'warrior', art:'D.D. Warrior Lady', name:'Warriors', lesson:12, lists:['Warrior','Chaos Warrior'], style:'Aggro',
+{id:'warrior', short:'Warriors', art:'D.D. Warrior Lady', name:'Warriors', lesson:12, lists:['Warrior','Chaos Warrior'], style:'Aggro',
  spot:'[[Reinforcement of the Army]] for [[D.D. Warrior Lady]], [[Blade Knight]] or [[Mystic Swordsman LV2]], summoned face-up and attacking every turn. No Set monsters and no Scapegoat.',
  wants:'A simple board: clear your monsters with Traps and Warriors and attack every turn.',
  strong:['Fast pressure that makes slow decks react.','A searchable toolbox with Reinforcement of the Army.','A heavy Trap line: [[Sakuretsu Armor]], [[Solemn Judgment]], [[Dust Tornado]].'],
@@ -42,7 +42,7 @@ decks: [
  beat:['Wall up: [[Gravekeeper\'s Spy]], [[Spirit Reaper]] and [[Legendary Jujitsu Master]] blunt its attacks.','Side [[Royal Decree]] against its Traps or [[Swords of Revealing Light]] to stall.','Play the long game: it can\'t keep up on cards.'],
  avoid:['Setting a monster in front of Mystic Swordsman LV2.','Using a Spell on a monster it can replace from the Deck.','Siding cards that only help in a long game you won\'t reach.']},
 
-{id:'recruiter', art:'Shining Angel', name:'Chaos Recruiter', lesson:12, lists:['Chaos Recruiter'], style:'Aggro',
+{id:'recruiter', short:'Recruiter', art:'Shining Angel', name:'Chaos Recruiter', lesson:12, lists:['Chaos Recruiter'], style:'Aggro',
  spot:'[[Shining Angel]], [[Mystic Tomato]] and [[Newdoria]] attacking into you, replacing themselves when they die, then [[Chaos Sorcerer]].',
  wants:'One-for-one fights where every dead monster brings the next one, then Chaos Sorcerer and Creature Swap for the lead.',
  strong:['Resilient: its monsters replace themselves.','[[Newdoria]] makes every attack on it risky.','Explosive against players who don\'t know it.'],
@@ -51,7 +51,7 @@ decks: [
  beat:['[[Thousand-Eyes Restrict]] and [[Legendary Jujitsu Master]] stop its attacks cold.','[[Kycoo the Ghost Destroyer]]: it has nothing to remove it.','Keep your monsters in Defense Position so its recruiters have nothing to hit.'],
  avoid:['Destroying a recruiter by battle when it wants to fetch the next one.','Attacking Newdoria with your best monster.','Losing count of the LIGHT and DARK monsters in its Graveyard: each pair is a Chaos Sorcerer.']},
 
-{id:'zombie', art:'Pyramid Turtle', name:'Zombies', lesson:12, lists:['Zombie'], style:'Aggro',
+{id:'zombie', short:'Zombies', art:'Pyramid Turtle', name:'Zombies', lesson:12, lists:['Zombie'], style:'Aggro',
  spot:'[[Pyramid Turtle]] in Attack Position, [[Vampire Lord]] and [[Ryu Kokki]] from the Deck, [[Book of Life]] bringing them back.',
  wants:'Recruit big Zombies every turn, push damage and banish your LIGHT and DARK monsters with Book of Life.',
  strong:['Consistent recruiters keep the attacks coming.','[[Kycoo the Ghost Destroyer]] keeps Chaos decks in check.','[[Royal Decree]] turns off Trap-heavy decks.'],
@@ -60,7 +60,7 @@ decks: [
  beat:['Destroy Pyramid Turtle with a card effect, not in battle.','Save [[Sakuretsu Armor]] for [[Vampire Lord]].','Side [[Mystic Swordsman LV2]] or [[Nobleman of Crossout]].'],
  avoid:['Battling a recruiter you can remove some other way.','Leaving Vampire Lord in their Graveyard as a free return.','Siding in Trap answers into a Royal Decree.']},
 
-{id:'burn', art:'Just Desserts', name:'Burn', lesson:13, lists:['Burn','Lockdown Burn'], style:'Alternate win',
+{id:'burn', short:'Burn', art:'Just Desserts', name:'Burn', lesson:13, lists:['Burn','Lockdown Burn'], style:'Alternate win',
  spot:'[[Just Desserts]], [[Secret Barrel]] and [[Ojama Trio]] chipping your Life Points, or [[Level Limit - Area B]], [[Gravity Bind]] and [[Messenger of Peace]] stopping every attack.',
  wants:'Your Life Points at 0 without ever winning a battle.',
  strong:['A lot of damage from cards that are hard to stop.','Lockdown builds shut off attacks completely.','Most decks can\'t side against every Burn version.'],
@@ -69,7 +69,7 @@ decks: [
  beat:['Side [[Royal Decree]], [[Jinzo]], [[Mobius the Frost Monarch]] and [[Dust Tornado]].','Take Scapegoat out: it feeds Just Desserts.','Destroy [[Wave-Motion Cannon]] early.'],
  avoid:['Filling your field with tokens against Just Desserts.','Holding removal while the locks pile up.','Wasting Life Points on costs you don\'t need.']},
 
-{id:'jar', art:'Morphing Jar', name:'Empty Jar', lesson:13, lists:['Empty Jar'], style:'Alternate win',
+{id:'jar', short:'Empty Jar', art:'Morphing Jar', name:'Empty Jar', lesson:13, lists:['Empty Jar'], style:'Alternate win',
  spot:'[[Morphing Jar]] and [[Cyber Jar]] flipped again and again with [[Book of Taiyou]] and [[The Shallow Grave]], and no Traps at all.',
  wants:'Fill your hand, thin your Deck, then [[Card Destruction]] to make you draw from an empty Deck.',
  strong:['Plays a patient game better than other alternate-win decks.','Can win on its first turn with the right hand.','Most players don\'t know how to play against it.'],
@@ -78,7 +78,7 @@ decks: [
  beat:['Attack every turn: it has no Traps.','Side [[Spell Canceller]], [[Dark Balter the Terrible]] or [[Cursed Seal of the Forbidden Spell]] to stop its Spells.','Keep a goat lock (a monster plus four tokens) to block The Shallow Grave.'],
  avoid:['Letting it get to a long, quiet game.','Drawing extra cards for no reason: your Deck is its target.','Siding Trap removal: it plays no Traps.']},
 
-{id:'gate', art:'Reasoning', name:'Reasoning Gate', lesson:13, lists:['Reasoning Gate'], style:'Combo',
+{id:'gate', short:'Gate', art:'Reasoning', name:'Reasoning Gate', lesson:13, lists:['Reasoning Gate'], style:'Combo',
  spot:'[[Reasoning]] or [[Monster Gate]] milling the Deck into [[Dark Magician of Chaos]] or [[Sacred Crane]], then a huge one-turn attack after [[Giant Trunade]] or [[Heavy Storm]].',
  wants:'One turn: clear your backrow and attack for 8000.',
  strong:['Can win from nothing in one turn.','Draws and digs for its combo pieces.','Plays Goat Control\'s Scapegoat and Metamorphosis too.'],

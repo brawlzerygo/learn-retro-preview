@@ -4,26 +4,26 @@ date: 2026-11-23
 description: The Goat format decks ranked from tier A to E, what the top decks do, and where to find full lists, based on goatformat.com's tier list.
 draft: true
 ---
-Goat format has had the same card pool since 2005, but players keep finding better decks. The best-known ranking is goatformat.com's tier list from June 2020, built from what was winning at the time. Here it is, with what the top decks do and links to full lists.
+Goat format has had the same card pool since 2005, but which decks are on top has still changed over the years. goatformat.com published a tier list in June 2020 that ranks the format's decks from A to E. Here it is, with what the top decks do and links to full lists.
 
 ## Tier A
 
-- [Chaos Turbo](/goat/decks/chaos-turbo/) (Thunder Dragon Chaos): Thunder Dragon, flip monsters and discard Traps build a lead, then Chaos Sorcerer and Black Luster Soldier take over. In October 2026 goatformat.com named it the most played deck.
+- [Chaos Turbo](/goat/decks/chaos-turbo/) (Thunder Dragon Chaos): Thunder Dragon, flip monsters and discard Traps build a lead, then Chaos Sorcerer and Black Luster Soldier take over. goatformat.com named it the most played deck in October 2026, and Format Library describes today's Goat metagame as centered on it.
 - [Chaos Control](/goat/decks/chaos-control/): Goat Control's Scapegoat and Metamorphosis shell with Chaos monsters on top. Angel Chaos Control, fed by Shining Angel, is ranked here too. See also [Thunder Dragon Chaos Control](/goat/decks/thunder-dragon-chaos-control/).
 - [Goat Control](/goat/decks/goat-control/): the deck the format is named after. Scapegoat tokens, Thousand-Eyes Restrict and a long, careful game.
 - Dimension Fusion Turbo and Flip Control round out tier A.
 
 ## Tier B
 
-[Reasoning Gate](/goat/decks/reasoning-gate/), Library FTK, [Empty Jar](/goat/decks/empty-jar/), Beatdown, PACMAN and [Burn](/goat/decks/burn/). Most of these win in unusual ways: a one-turn kill, decking you out, or burning your Life Points to 0.
+[Reasoning Gate](/goat/decks/reasoning-gate/), Library FTK, [Empty Jar](/goat/decks/empty-jar/), Beatdown, PACMAN and [Burn](/goat/decks/burn/). Four of them win in unusual ways: Reasoning Gate and Library FTK with one big turn, Empty Jar by decking you out, and Burn with effect damage.
 
 ## Tier C
 
-Soul Control, Heavy Slump Chaos, [Chaos Recruiter](/goat/decks/chaos-recruiter/), Spell Canceller Warrior, Spirits and Gravekeeper's. The site's [Warrior](/goat/decks/warrior/) and [Chaos Warrior](/goat/decks/chaos-warrior/) lists sit here.
+Soul Control, Heavy Slump Chaos, [Chaos Recruiter](/goat/decks/chaos-recruiter/), Spell Canceller Warrior, Spirits and Gravekeeper's. On this site, the [Warrior](/goat/decks/warrior/) and [Chaos Warrior](/goat/decks/chaos-warrior/) lists are rated C, next to Spell Canceller Warrior.
 
 ## Tier D and E
 
-Tier D is [Zombies](/goat/decks/zombie/), Skill Drain Burn and Beastdown. Tier E is Rescue Cat, Ben Kei, Cyber-Stein and Exodia: fun, but rarely seen at the top tables.
+Tier D is [Zombies](/goat/decks/zombie/), Skill Drain Burn and Beastdown. Tier E is Rescue Cat, Ben Kei, Cyber-Stein and Exodia.
 
 ## What the tiers don't tell you
 
@@ -35,4 +35,5 @@ New to Goat? Start with [What Is Goat Format?](/blog/what-is-goat-format/) and t
 
 - goatformat.com, [Goat Format tier list](https://www.goatformat.com/home/goat-format-tier-list) (June 2020): the tiers.
 - goatformat.com, [home page news](https://www.goatformat.com/) (October 2026): Chaos Turbo as the most played deck.
+- Format Library, [formats data](https://formatlibrary.com/api/formats): today's Goat metagame centered on Chaos Turbo.
 - goatformat.com deck guides, for what each deck does and the lists on this site.

@@ -556,7 +556,8 @@ function addGlances(main,n){
  its matchups in three plain columns (favored, even, unfavored), each with the reason. The full chart sits below,
  folded, for comparing every deck at once. Zack, 2026-11-22: "more visually sensible with card/deck arts... the
  matchup chart... can be easier to read". */
-const OPPSHORT={bw:'Blackwings',vayu:'Vayu',qd:'Quickdraw',ls:'Lightsworn',hero:'HEROs',frog:'Frogs',gb:'Gladiators',gadget:'Gadget',zombie:'Zombies',dragon:'Dragons'};
+/* chart column headers: each deck's short name from data/opponents.js (`short`), else its full name */
+const OPPSHORT=Object.fromEntries(OPP.decks.map(d=>[d.id,d.short||d.name]));
 const MATCHWORD={1:'Favored','0':'Even','-1':'Unfavored'};
 /* the artwork window of a full card image, as a CSS background (cards here are whole-card images) */
 const oppArt=d=>{const r=BYNAME.get(d.art);return r?`style="background-image:url('${artURL(r)}')"`:''};

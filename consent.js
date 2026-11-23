@@ -26,15 +26,19 @@
     document.head.appendChild(s);
   }
 
-  var css = '#lr-consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:10000;max-width:560px;margin:0 auto;' +
-    'background:#211914;color:#f6eee6;border:1px solid rgba(246,238,230,.18);border-radius:10px;padding:14px 16px;' +
-    'box-shadow:0 6px 24px rgba(0,0,0,.35);font:14px/1.5 "Atkinson Hyperlegible",Verdana,sans-serif}' +
-    '#lr-consent p{margin:0 0 10px}#lr-consent a{color:#f59e0b}' +
-    '#lr-consent .b{display:flex;gap:10px;flex-wrap:wrap}' +
-    '#lr-consent button{font:700 14px/1 Verdana,sans-serif;min-height:44px;padding:0 18px;border-radius:8px;cursor:pointer;' +
+  // A slim bar along the bottom (Zack, 2026-11-23: "wider and smaller so its less intrusive"): one line of text with
+  // the buttons beside it on wide screens; on phones the text wraps and the buttons sit under it, still compact.
+  var css = '#lr-consent{position:fixed;left:8px;right:8px;bottom:8px;z-index:10000;max-width:1100px;margin:0 auto;' +
+    'display:flex;align-items:center;gap:12px;background:rgba(33,25,20,.96);color:#f6eee6;' +
+    'border:1px solid rgba(246,238,230,.16);border-radius:8px;padding:6px 8px 6px 14px;' +
+    'box-shadow:0 4px 16px rgba(0,0,0,.3);font:13px/1.4 "Atkinson Hyperlegible",Verdana,sans-serif}' +
+    '#lr-consent p{margin:0;flex:1;min-width:0}#lr-consent a{color:#f59e0b}' +
+    '#lr-consent .b{display:flex;gap:6px;flex:none}' +
+    '#lr-consent button{font:700 13px/1 Verdana,sans-serif;min-height:36px;padding:0 14px;border-radius:6px;cursor:pointer;' +
     'border:1px solid rgba(246,238,230,.3);background:transparent;color:#f6eee6}' +
     '#lr-consent button.y{background:#e2602a;border-color:#e2602a;color:#fff}' +
-    '#lr-consent button:focus-visible{outline:2px solid #f59e0b;outline-offset:2px}';
+    '#lr-consent button:focus-visible{outline:2px solid #f59e0b;outline-offset:2px}' +
+    '@media (max-width:560px){#lr-consent{flex-wrap:wrap;gap:6px;padding:8px 10px}#lr-consent .b{width:100%}#lr-consent button{flex:1}}';
 
   function close() { var b = document.getElementById('lr-consent'); if (b) b.remove(); }
   function open() {
@@ -44,8 +48,7 @@
     }
     var d = document.createElement('div');
     d.id = 'lr-consent'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Cookie choice');
-    d.innerHTML = '<p>Can we count your visit? We use Google Analytics cookies to see which lessons people use, ' +
-      'so we know what to build next. No ads. <a href="/privacy/">Privacy</a></p>' +
+    d.innerHTML = '<p>We use Google Analytics cookies to see which lessons people use. No ads. <a href="/privacy/">Privacy</a></p>' +
       '<div class="b"><button class="y" type="button">Accept</button><button class="n" type="button">Decline</button></div>';
     d.querySelector('.y').onclick = function () { set('yes'); close(); loadGA(); };
     d.querySelector('.n').onclick = function () {
