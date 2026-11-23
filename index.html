@@ -84,8 +84,8 @@ a.fmt:hover::after{opacity:1}
 .fan.ready .card{animation:none;opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r))}
 a.fmt:hover .fan.ready .card,a.fmt:focus-visible .fan.ready .card{transform:translate(var(--x2),calc(var(--y) - 14px)) rotate(var(--r2))}
 a.fmt:hover .fan.ready .card:nth-child(3){transform:translateY(-22px) scale(1.06)}
-/* foil sheen on the Edison cards */
-.edison .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+/* foil sheen on the Edison and Goat cards (Goat added 2026-11-23: Zack, "same card shimmer thats on the edison cards") */
+.edison .card::after,.goat .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
   background:linear-gradient(115deg,transparent 30%,rgba(255,240,210,.55) 45%,rgba(140,200,255,.35) 52%,transparent 66%);
   background-size:300% 100%;background-position:120% 0;animation:sheen 5.5s ease-in-out infinite;animation-delay:calc(1.6s + var(--i) * .18s)}
 /* Goat: open since 2026-11-23 (Zack: "remove coming soon from goat so it looks active"), in its green accent */
