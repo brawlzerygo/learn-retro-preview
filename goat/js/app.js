@@ -928,7 +928,7 @@ function drawRes(scroll){
 
 /* ============ STARTER DECKS ============ */
 const DECKS=window.GOAT_DECKS||[];
-const TIERS=[['A','Tier A','The strongest decks on goatformat.com\u2019s 2020 tier list.'],['B','Tier B','Strong decks from the same list, most of them combo or burn.'],['C','Tier C','Playable decks from the same list, and Warriors, a long-time favorite with its own guide.'],['D','Tier D','Lower on the 2020 list, but they still win events.']];
+const TIERS=[['A','Tier A','The strongest decks on goatformat.com\u2019s 2020 tier list.'],['B','Tier B','Strong decks from the same list, most of them combo or burn.'],['C','Tier C','Playable decks from the same list, and Warriors, a long-time favorite with its own guide.'],['D','Tier D','Lower on the 2020 list, but they still win events.'],['T','More tournament decks','Other decks that have placed at Goat events, most played first. Each is the best-placing list of its deck on Format Library, a site that archives tournament decklists. They aren\u2019t on the 2020 tier list.']];
 function coverCard(d){
   const n=new Map;for(const id of d.main){const r=BYID.get(id);if(r&&isMonR(r))n.set(id,(n.get(id)||0)+1)}
   let best=null,bn=0;for(const [id,c] of n)if(c>bn){best=id;bn=c}
@@ -961,7 +961,7 @@ function renderDeck(name){
     <h3>Monsters (${cnt(mons)})</h3>${grid(mons)}<h3>Spells (${cnt(sp)})</h3>${grid(sp)}<h3>Traps (${cnt(tr)})</h3>${grid(tr)}</section>
   ${d.extra.length?`<section class="dsec"><h2>Fusion Deck (${d.extra.length})</h2>${grid(grouped(d.extra))}</section>`:''}
   ${d.side.length?`<section class="dsec"><h2>Side Deck (${d.side.length})</h2>${grid(grouped(d.side))}</section>`:''}
-  <p class="srcnote">List: ${esc(d.by||'')}. From <a href="${esc(d.src||'')}" target="_blank" rel="noopener">${esc((d.src||'').replace('https://www.',''))}</a>.${d.note?' '+esc(d.note):''} Tiers follow goatformat.com\u2019s 2020 tier list.</p>
+  <p class="srcnote">List: ${esc(d.by||'')}. From <a href="${esc(d.src||'')}" target="_blank" rel="noopener">${esc((d.src||'').replace(/^https:\/\/(www\.)?/,''))}</a>.${d.note?' '+esc(d.note):''}${d.tier==='T'?'':' Tiers follow goatformat.com\u2019s 2020 tier list.'}</p>
   ${srcNote()}`;
   document.getElementById('dopen').onclick=()=>{loadIntoBuilder({name:d.name,main:[...d.main],extra:[...d.extra],side:[...d.side]});go('builder')};
   document.getElementById('dhand').onclick=()=>testHand(d.main);
@@ -1058,7 +1058,7 @@ function siteIndex(){
   const rules=((window.GOAT_RULES||{}).sections||[]).map(x=>{const body=strip(x.html);return{t:x.title,s:'Rules',href:'#rules-'+x.id,body,low:body.toLowerCase()}});
   const LIB=window.GOAT_LIBRARY;const vids=[];
   if(LIB)(LIB.sections||[]).forEach(sec=>(sec.videos||[]).forEach(v=>{if(!vids.some(x=>x.id===v.id))vids.push({id:v.id,t:v.t,s:`${LIB.channels[v.ch]?.name||''} · ${v.len}`,href:'https://www.youtube.com/watch?v='+v.id,ext:1})}));
-  const decks=DECKS.map(d=>({t:d.name,s:`${d.tier} deck · ${d.main.length} cards`,href:'#deck-'+encodeURIComponent(d.name)}));
+  const decks=DECKS.map(d=>({t:d.name,s:`${d.tier==="T"?"Tournament":"Tier "+d.tier} deck · ${d.main.length} cards`,href:'#deck-'+encodeURIComponent(d.name)}));
   return SIDX={pages,lessons,rules,terms,vids,decks};
 }
 function sCardLine(r){const ban={F:'Forbidden',L:'Limited',S:'Semi-Limited'}[r.b];const cap=w=>w?w[0].toUpperCase()+w.slice(1):'';

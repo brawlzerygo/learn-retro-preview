@@ -161,7 +161,7 @@ ${src([GF('cardpool.html', 'goatformat.com, Card Pool and Banlist'), YPD])}`,
 <div class="goals"><h4>What you will learn</h4><ul><li>What a staple is, and why Goat has so many</li><li>The staple Spells, Traps and monsters, one by one</li><li>Why each one earns its slot</li></ul></div>
 <h2>What makes a card a staple</h2>
 <p>A staple is a card that shows up in most decks no matter what those decks are trying to do. Goat has a lot of them because so many of the best cards are generic: they draw cards, remove anything, or steal monsters, so every deck wants them.</p>
-<p>The counts below come from the 12 deck lists on this site, which are taken from goatformat.com's deck guides. A card counts once per deck that runs it.</p>
+<p>The counts below come from the 12 deck lists in tiers A to D on this site, which are taken from goatformat.com's deck guides. A card counts once per deck that runs it.</p>
 <h2>Spells</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>Decks</th><th>Description</th></tr></thead><tbody>
 <tr><td>${cn('Pot of Greed')}</td><td>12 of 12</td><td>Draw 2. One card turns into two, for free.</td></tr>
@@ -198,7 +198,7 @@ ${call('mistake', 'Common mistakes', `<ul><li>Using Heavy Storm while your own S
 <div class="recap"><h2>Recap</h2><ul><li>A staple is a generic card that most decks play.</li><li>Pot of Greed and Graceful Charity are in all 12 site decks.</li><li>Most staples are Limited, so each deck plays one copy.</li><li>Ring of Destruction and Sinister Serpent work the 2005 way: no once-a-turn limits.</li></ul></div>
 ${src([GF('home/transition-sidedecking-for-goat-format', 'goatformat.com, Transition Sidedecking'), GF('home/introduction-to-goat-format-power-cards-part-2', 'goatformat.com, Power Cards Part 2'), GF('decks.html', 'goatformat.com, deck guides')])}`,
     flash: [
-      ['Which two staples are in all 12 deck lists on this site?', 'Pot of Greed and Graceful Charity.'],
+      ['Which two staples are in all 12 goatformat.com guide lists on this site?', 'Pot of Greed and Graceful Charity.'],
       ['What does Book of Moon do to your own Flip monster?', 'Turns it face-down again, so it can be flipped and used again.'],
       ['Who takes damage from Ring of Destruction?', 'Both players, equal to the destroyed monster’s ATK.'],
       ['When can Trap Dustshoot be used?', 'Only when your opponent holds 4 or more cards.'],
