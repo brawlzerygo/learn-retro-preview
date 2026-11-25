@@ -18,7 +18,13 @@
 'use strict';
 const E = {};
 let DATA = new Map(), BYNAME = new Map();
-E.init = cards => {
+/* Formats (2026-11-24, for Learn Retro Play): the same core plays Edison and Goat. E.init(cards, {format}) picks the card pool's
+ format; E.addScripts(obj, 'goat') adds scripts that only Goat uses (a card whose 2005 behavior differs, or a card Edison never needed),
+ and they win over the shared SCRIPTS while that format is loaded. Edison (the default) is unchanged. */
+let FMT = 'edison'; const FSCRIPTS = {};
+let CARDLIST = [];
+E.init = (cards, opts = {}) => {
+  FMT = opts.format || 'edison'; CARDLIST = cards;
   DATA = new Map(); BYNAME = new Map();
   for (const c of cards) { DATA.set(c.id, c); BYNAME.set(c.n, c); }
   for (const t of TOKENS) { DATA.set(t.id, t); BYNAME.set(t.n, t); }
@@ -39,7 +45,7 @@ const isSpell = c => D(c).k === 'spell', isTrap = c => D(c).k === 'trap', isST =
 const isMon = c => isMonD(D(c));
 const onField = c => c.zone === 'm' || c.zone === 'st' || c.zone === 'fz';
 const faceUp = c => onField(c) && c.pos !== 'set';
-const SC = c => SCRIPTS[D(c).n] || null;
+const SC = c => (FMT !== 'edison' && FSCRIPTS[FMT] && FSCRIPTS[FMT][D(c).n]) || SCRIPTS[D(c).n] || null;
 function name(c) { const d = D(c); if (onField(c) && faceUp(c)) { if (d.n === 'Dupe Frog' && !c.flags.negated) return 'Des Frog'; } return d.n; }
 const isBW = c => /^Blackwing/.test(name(c));
 const isFrog = c => /Frog/.test(name(c));
@@ -139,7 +145,13 @@ function move(g, c, to, o = {}) {
   }
   if (to === 'm' || to === 'st' || to === 'fz') {
     const P = g.p[o.ctrl != null ? o.ctrl : c.owner]; c.ctrl = o.ctrl != null ? o.ctrl : c.owner;
-    if (to === 'fz') P.fz = c; else { const i = o.zi != null && !P[to][o.zi] ? o.zi : P[to].findIndex(z => !z); P[to][i] = c; }
+    if (to === 'fz') P.fz = c; else {
+      // zone: an effect's own pick, else the zone the player chose in the client (E.act's hint), else the first free one
+      let i = o.zi != null && !P[to][o.zi] ? o.zi : -1;
+      if (i < 0 && g.pz && g.pz.u === c.u && g.pz.to === to && g.pz.zi >= 0 && g.pz.zi < 5 && !P[to][g.pz.zi]) { i = g.pz.zi; g.pz = null; }
+      if (i < 0) i = P[to].findIndex(z => !z);
+      P[to][i] = c;
+    }
     c.pos = o.pos || (to === 'm' ? 'atk' : 'up'); c.zone = to; c.turnIn = g.turnNo; c.posChanged = false;
   } else {
     c.ctrl = c.owner; c.pos = null; c.zone = to === 'deckTop' ? 'deck' : to;
@@ -166,6 +178,7 @@ function emit(g, ev, group) {
   ev.group = group != null ? group : g.group; ev.seq = ++g.seq; ev.turn = g.turnNo; ev.phase = g.phase;
   if (ev.type === 'summon') g.summoned[ev.p] = true;
   g.events.push(ev); if (g.events.length > 120) g.events.splice(0, 40);
+  if (g.hooks) g.hooks.ev(g, ev); // a client watching the live duel (Learn Retro Play); clones and tests have none
   // collect triggers from every card that can see it
   for (const P of g.p) for (const z of ['m', 'st', 'fz', 'hand', 'gy', 'ban', 'deck', 'extra']) {
     const arr = z === 'fz' ? (P.fz ? [P.fz] : []) : P[z]; if (!arr) continue;
@@ -409,6 +422,7 @@ function* activate(g, p, c, eff, ei) {
   if (eff.cost) yield* eff.cost(g, c, p, L);
   if (eff.target) yield* eff.target(g, c, p, L);
   g.chain.push(L);
+  if (g.hooks) g.hooks.note(g, { type: 'chain', L });
   if (eff.after) eff.after(g, c, p, L);
   return L;
 }
@@ -427,6 +441,7 @@ function* respondLoop(g, p, mode) { // players respond to the chain until both p
 function* resolveChain(g) {
   while (g.chain.length) {
     const L = g.chain.pop(); beginOp(g);
+    if (g.hooks) g.hooks.note(g, { type: 'resolve', L });
     if (!L.negated) {
       const d = D(L.c);
       const stillThere = L.eff.type !== 'act' || onField(L.c) || !['Continuous', 'Equip', 'Field'].includes(d.sub);
@@ -544,19 +559,19 @@ function step(g, input) {
   try { const r = g.gen.next(input); g.prompt = r.done ? null : r.value; }
   catch (e) { if (e instanceof Over || (e && e.over)) { g.prompt = null; } else throw e; }
 }
-E.act = function (g, keys) {
+E.act = function (g, keys, pz) { // pz: optional zone hint {u, to: 'm'|'st', zi} for where the player put the card
   const pr = g.prompt; if (!pr) throw new Error('No prompt');
   if (!Array.isArray(keys)) keys = [keys];
   const valid = new Set(pr.opts.map(o => o.key));
   if (keys.length < pr.min || keys.length > pr.max || keys.some(k => !valid.has(k)) || new Set(keys).size !== keys.length) throw new Error('Bad answer ' + JSON.stringify(keys) + ' to ' + pr.type + ': ' + pr.text);
-  g.history.push(keys); step(g, keys);
+  g.history.push(keys); (g.pzs || (g.pzs = []))[g.history.length - 1] = pz || null; if (pz) g.pz = pz; step(g, keys);
 };
 E.clone = function (g, quiet = true) {
   const h = E.newDuel({ ...g.cfg, quiet });
-  for (const k of g.history) E.act(h, k);
+  g.history.forEach((k, i) => E.act(h, k, g.pzs && g.pzs[i]));
   return h;
 };
-E.scripted = n => { if (SCRIPTS[n]) return true; const d = BYNAME.get(n); return !!d && (d.k === 'normal' || d.k === 'token'); };
+E.scripted = n => { if (SCRIPTS[n] || (FMT !== 'edison' && FSCRIPTS[FMT] && FSCRIPTS[FMT][n])) return true; const d = BYNAME.get(n); return !!d && (d.k === 'normal' || d.k === 'token'); };
 E.hasScript = n => !!SCRIPTS[n];
 
 /* A preset position (tutorials, tests): cfg.board = [side0, side1], each {hand, m, st, gy, ban, extra, lp, turn}
@@ -694,8 +709,12 @@ function* doIdle(g, k) {
 }
 
 /* ---------- battle ---------- */
+/* Goat hook (2026-11-24): a script's self.maxAttacks(g, c) sets how many attacks it has this turn, and self.attackOk(g, c, t)
+ filters its attack targets (Asura Priest: each opponent's monster once). No Edison script uses either key. */
+const selfFn = (g, c, k) => { const sc = SC(c); return sc && sc.self && typeof sc.self[k] === 'function' && faceUp(c) && !negd(g, c) ? sc.self[k] : null; };
 function canAttack(g, c) {
-  if (c.ctrl !== g.tp || c.pos !== 'atk' || c.attacks >= (c.flags.maxAttacks && c.flags.maxAttacksTurn === g.turnNo ? c.flags.maxAttacks : c.flags.extraAttack && c.flags.extraAttack === g.turnNo ? 2 : 1)) return false;
+  const mx = selfFn(g, c, 'maxAttacks');
+  if (c.ctrl !== g.tp || c.pos !== 'atk' || c.attacks >= (mx ? mx(g, c) : c.flags.maxAttacks && c.flags.maxAttacksTurn === g.turnNo ? c.flags.maxAttacks : c.flags.extraAttack && c.flags.extraAttack === g.turnNo ? 2 : 1)) return false;
   if (has(g, c, 'cantAttack') || forbid(g, { type: 'attack', c })) return false;
   if (g.onlyAttacker[g.tp] && g.onlyAttacker[g.tp] !== c.u) return false;
   return true;
@@ -703,7 +722,8 @@ function canAttack(g, c) {
 function attackTargets(g, c) {
   const opp = monsOf(g, 1 - g.tp);
   const dupe = opp.filter(x => faceUp(x) && D(x).n === 'Dupe Frog' && !x.flags.negated);
-  const targetable = opp.filter(t => !(faceUp(t) && has(g, t, 'noAttackTarget')));
+  const aok = selfFn(g, c, 'attackOk');
+  const targetable = opp.filter(t => !(faceUp(t) && has(g, t, 'noAttackTarget')) && (!aok || aok(g, c, t)));
   const out = (dupe.length ? dupe : targetable).map(t => t.u);
   if (!opp.length || (D(c).n === 'Unifrog' && !negd(g, c)) || has(g, c, 'directAttack') || (!targetable.length && !dupe.length)) out.push('d');
   return out;
@@ -1195,7 +1215,9 @@ E.lib = {
   isBW, isFrog, isHERO, isEHERO, isGemini, evSummoned, fromFieldToGY, battleKill, oppFaceUp, stOnField, spellTrapAct, live, opp, tributeCands, synCombos,
 };
 E.lib.tgt = tgt;
-E.addScripts = obj => { for (const k in obj) SCRIPTS[k] = obj[k]; };
+E.addScripts = (obj, format) => { const into = format && format !== 'edison' ? (FSCRIPTS[format] || (FSCRIPTS[format] = {})) : SCRIPTS; for (const k in obj) into[k] = obj[k]; };
+E.format = () => FMT;
+E.cards = () => CARDLIST;   // the card list E.init loaded (the computer re-inits with it plus its stand-ins)
 E.SCRIPTS = SCRIPTS;
 root.EdisonEngine = E;
 E._internal = { stat, synCombos, activatable, fieldMons, monsOf, stOf, faceUp, isMon, isST, D };

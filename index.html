@@ -115,6 +115,15 @@ a.fmt:hover .btn span{transform:translateX(4px)}
 .goat .btn span{transition:transform .25s}
 
 /* Timeline strip */
+.playbar{display:flex;align-items:center;gap:26px;margin:0 auto 40px;padding:18px 28px;border-radius:20px;text-decoration:none;color:var(--ink);background:linear-gradient(100deg,rgba(226,96,42,.22),var(--bg-2) 55%);border:1px solid var(--line);transition:transform .2s,border-color .2s}
+.playbar:hover{transform:translateY(-3px);border-color:rgba(226,96,42,.6)}
+.playbar .pfan{position:relative;width:120px;height:110px;flex:none}
+.playbar .pfan img{position:absolute;top:0;width:72px;height:auto;border-radius:5px;box-shadow:0 10px 24px rgba(0,0,0,.6)}
+.playbar .pfan img:first-child{left:8px;transform:rotate(-9deg)}.playbar .pfan img:last-child{left:44px;transform:rotate(7deg)}
+.playbar h2{font-size:26px;margin:4px 0 2px}.playbar p{color:var(--muted);margin:0}
+.playbar .ptxt{flex:1}
+.playbar .btn{background:linear-gradient(180deg,#ea6a30,var(--rust));color:#fff;box-shadow:0 8px 20px -8px rgba(226,96,42,.8);flex:none}
+@media (max-width:700px){.playbar{flex-wrap:wrap;gap:14px}.playbar .pfan{display:none}}
 .eras{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 48px;max-width:640px;font-family:var(--label);font-size:12px;font-weight:bold;color:var(--muted)}
 .eras span{white-space:nowrap}
 .eras b{color:var(--ink)}
@@ -211,6 +220,12 @@ header .wrap{position:relative}
       <div class="go"><span class="btn">Start learning <span>&rarr;</span></span></div>
     </a>
   </section>
+
+  <a class="playbar" href="https://play.learnretro.com/">
+    <div class="pfan"><img src="img/73580471.webp" alt="Black Rose Dragon" width="421" height="614"><img src="img/72989439.webp" alt="Black Luster Soldier - Envoy of the Beginning" width="421" height="614"></div>
+    <div class="ptxt"><span class="chip live">New</span><h2>Duel the computer</h2><p>Learn Retro Play: Edison and Goat, four computer levels, free in your browser.</p></div>
+    <span class="btn">Play now <span>&rarr;</span></span>
+  </a>
 
   <div class="eras" aria-hidden="true"><span><b>2005</b> Goat</span><span class="line"></span><span><b>2010</b> Edison</span><span class="line"></span><span>More formats later</span></div>
 </main>

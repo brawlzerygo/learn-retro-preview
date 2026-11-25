@@ -2728,9 +2728,10 @@ function hintPanelE(){
  make DUEL_READY return true. */
 const DUEL_READY=()=>{try{return localStorage.getItem('edison:duelpreview')==='1'}catch(e){return false}};
 function renderDuelSoon(){
+  /* since 2026-11-24 the duel game is its own site, play.learnretro.com (Zack: "set up play.learnretro.com for launch") */
   app.innerHTML=`<div class="read" style="max-width:720px"><h1 style="font-size:32px;margin-bottom:6px">Duel the computer</h1>
-    <p class="soon" style="font-size:17px">Coming soon. We're still finishing the computer opponent, so it isn't open yet.</p>
-    <p>In the meantime, set up any field on the <a href="#simulator">practice board</a> and try Synchro Summons, or pick a deck from <a href="#decks">All Decks</a> and open it in the <a href="#builder">deck builder</a>.</p></div>`;
+    <p style="font-size:17px">Duel the computer in Edison and Goat format at <b>Learn Retro Play</b>, our free duel game. It runs in your browser: pick a deck, pick one of four computer levels, and play with the real rules.</p>
+    <p><a class="btn" href="https://play.learnretro.com/" style="display:inline-block;margin-top:10px">Play now &rarr;</a></p></div>`;
 }
 function renderDuel(){if(!DB.length){app.innerHTML=noData();return}if(!window.EdisonEngine){app.innerHTML='<p class="note">Loading the duel…</p>';return}engineReady();if(!G){renderDuelSetup();return}renderDuelGame()}
 function renderDuelSetup(){
