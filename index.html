@@ -55,7 +55,16 @@ h1 .glow{background:linear-gradient(100deg,#ffd7a8 0%,var(--accent) 45%,#ffb36b 
 .lead{color:var(--muted);font-size:17px;line-height:1.5;max-width:640px;margin:0 auto}
 
 /* Format panels */
-.formats{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:14px 0 36px}
+.formats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:14px 0 36px}
+.fmt.play{animation-delay:.4s}
+a.fmt.play:hover,a.fmt.play:focus-visible{border-color:rgba(245,158,11,.7);box-shadow:0 24px 60px -20px rgba(245,158,11,.45),0 0 0 1px rgba(245,158,11,.25) inset}
+.fmt.play::after{background:radial-gradient(600px 300px at var(--mx,50%) var(--my,0%),rgba(245,158,11,.18),transparent 60%)}
+.play .chip.live{color:#ffe6b3;border-color:rgba(245,158,11,.55);background:rgba(245,158,11,.14)}
+.play li::before{background:#f59e0b}
+.play .btn{background:linear-gradient(180deg,#f7b02e,#d97706);color:#1c1208;box-shadow:0 8px 20px -8px rgba(245,158,11,.8)}
+.play .btn span{transition:transform .25s}
+@media (max-width:1100px) and (min-width:821px){.formats{grid-template-columns:1fr 1fr}.fmt.play{grid-column:1/-1}}
+@media (min-width:1101px){.formats .card:nth-child(1){--x:-56px;--x2:-74px}.formats .card:nth-child(2){--x:-28px;--x2:-38px}.formats .card:nth-child(4){--x:28px;--x2:38px}.formats .card:nth-child(5){--x:56px;--x2:74px}.formats .fan{transform:scale(.9);transform-origin:50% 70%}}
 .fmt{position:relative;display:flex;flex-direction:column;border-radius:20px;padding:6px 28px 22px;overflow:hidden;text-decoration:none;isolation:isolate;
   background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);
   transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease,border-color .25s,box-shadow .25s;
@@ -85,7 +94,7 @@ a.fmt:hover::after{opacity:1}
 a.fmt:hover .fan.ready .card,a.fmt:focus-visible .fan.ready .card{transform:translate(var(--x2),calc(var(--y) - 14px)) rotate(var(--r2))}
 a.fmt:hover .fan.ready .card:nth-child(3){transform:translateY(-22px) scale(1.06)}
 /* foil sheen on the Edison and Goat cards (Goat added 2026-11-23: Zack, "same card shimmer thats on the edison cards") */
-.edison .card::after,.goat .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+.edison .card::after,.goat .card::after,.play .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
   background:linear-gradient(115deg,transparent 30%,rgba(255,240,210,.55) 45%,rgba(140,200,255,.35) 52%,transparent 66%);
   background-size:300% 100%;background-position:120% 0;animation:sheen 7s ease-in-out infinite both;animation-delay:calc(1.6s + var(--i) * .18s)}
 /* Goat: open since 2026-11-23 (Zack: "remove coming soon from goat so it looks active"), in its green accent */
@@ -115,15 +124,6 @@ a.fmt:hover .btn span{transform:translateX(4px)}
 .goat .btn span{transition:transform .25s}
 
 /* Timeline strip */
-.playbar{display:flex;align-items:center;gap:26px;margin:0 auto 40px;padding:18px 28px;border-radius:20px;text-decoration:none;color:var(--ink);background:linear-gradient(100deg,rgba(226,96,42,.22),var(--bg-2) 55%);border:1px solid var(--line);transition:transform .2s,border-color .2s}
-.playbar:hover{transform:translateY(-3px);border-color:rgba(226,96,42,.6)}
-.playbar .pfan{position:relative;width:120px;height:110px;flex:none}
-.playbar .pfan img{position:absolute;top:0;width:72px;height:auto;border-radius:5px;box-shadow:0 10px 24px rgba(0,0,0,.6)}
-.playbar .pfan img:first-child{left:8px;transform:rotate(-9deg)}.playbar .pfan img:last-child{left:44px;transform:rotate(7deg)}
-.playbar h2{font-size:26px;margin:4px 0 2px}.playbar p{color:var(--muted);margin:0}
-.playbar .ptxt{flex:1}
-.playbar .btn{background:linear-gradient(180deg,#ea6a30,var(--rust));color:#fff;box-shadow:0 8px 20px -8px rgba(226,96,42,.8);flex:none}
-@media (max-width:700px){.playbar{flex-wrap:wrap;gap:14px}.playbar .pfan{display:none}}
 .eras{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 48px;max-width:640px;font-family:var(--label);font-size:12px;font-weight:bold;color:var(--muted)}
 .eras span{white-space:nowrap}
 .eras b{color:var(--ink)}
@@ -185,12 +185,6 @@ header .wrap{position:relative}
     <p class="lead">Free courses for retro Yu-Gi-Oh! formats: the rules, the cards, the decks and how to think, from your first duel to a tournament deck. Pick a format to start.</p>
   </section>
 
-  <a class="playbar" href="https://play.learnretro.com/">
-    <div class="pfan"><img src="img/73580471.webp" alt="Black Rose Dragon" width="421" height="614"><img src="img/72989439.webp" alt="Black Luster Soldier - Envoy of the Beginning" width="421" height="614"></div>
-    <div class="ptxt"><span class="chip live">New</span><h2>Duel the computer</h2><p>Learn Retro Play: Edison and Goat, four computer levels, free in your browser.</p></div>
-    <span class="btn">Play now <span>&rarr;</span></span>
-  </a>
-
   <section class="formats" aria-label="Formats">
     <a class="fmt goat" href="/goat/">
       <div class="fan">
@@ -224,6 +218,23 @@ header .wrap{position:relative}
         <li>Every card, ruling and deck in one place</li>
       </ul>
       <div class="go"><span class="btn">Start learning <span>&rarr;</span></span></div>
+    </a>
+
+    <a class="fmt play" href="https://play.learnretro.com/">
+      <div class="fan">
+        <div class="card"><img src="img/63519819.webp" alt="Thousand-Eyes Restrict" width="421" height="614"></div>
+        <div class="card"><img src="img/73580471.webp" alt="Black Rose Dragon" width="421" height="614"></div>
+        <div class="card"><img src="img/72989439.webp" alt="Black Luster Soldier - Envoy of the Beginning" width="421" height="614"></div>
+        <div class="card"><img src="img/44508094.webp" alt="Stardust Dragon" width="421" height="614"></div>
+        <div class="card"><img src="img/9596126.webp" alt="Chaos Sorcerer" width="421" height="614"></div>
+      </div>
+      <div class="meta"><h2>Play</h2><span class="chip">Goat &amp; Edison</span><span class="chip live">New</span></div>
+      <p>Duel the computer, free in your browser.</p>
+      <ul>
+        <li>Every Goat and Edison deck, or build your own</li>
+        <li>Four computer levels, hints and a review after each duel</li>
+      </ul>
+      <div class="go"><span class="btn">Play now <span>&rarr;</span></span></div>
     </a>
   </section>
 
