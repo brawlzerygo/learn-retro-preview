@@ -26,7 +26,7 @@
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
     var d = document.createElement('div');
     d.id = 'lr-announce'; d.setAttribute('role', 'region'); d.setAttribute('aria-label', 'Announcement');
-    d.innerHTML = '<p><strong>New:</strong> <span class="l">the Learn Retro </span>duel simulator is live<span class="l">. Play Edison or Goat against the computer</span>.</p>' +
+    d.innerHTML = '<p><strong>New:</strong> <span class="l">the Learn Retro </span>duel simulator is live!<span class="l"> Play Edison or Goat against the computer.</span></p>' +
       '<a class="go" href="https://play.learnretro.com/" target="_blank" rel="noopener">Play now</a>' +
       '<button type="button" aria-label="Hide this message">×</button>';
     d.querySelector('button').onclick = function () {
