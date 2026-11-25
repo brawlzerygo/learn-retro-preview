@@ -2016,7 +2016,7 @@ function renderDuelSoon(){
   /* since 2026-11-24 the duel game is its own site, play.learnretro.com (Zack: "set up play.learnretro.com for launch") */
   app.innerHTML=`<div class="read" style="max-width:720px"><h1 style="font-size:32px;margin-bottom:6px">Duel the computer</h1>
     <p style="font-size:17px">Duel the computer in Goat and Goat format at <b>Learn Retro Play</b>, our free duel game. It runs in your browser: pick a deck, pick one of four computer levels, and play with the real rules.</p>
-    <p><a class="btn" href="https://play.learnretro.com/" style="display:inline-block;margin-top:10px">Play now &rarr;</a></p></div>`;
+    <p><a class="btn" href="https://play.learnretro.com/" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px">Play now &rarr;</a></p></div>`;
 }
 function renderDuel(){if(!DB.length){app.innerHTML=noData();return}if(!window.EdisonEngine){app.innerHTML='<p class="note">Loading the duel…</p>';return}engineReady();if(!G){renderDuelSetup();return}renderDuelGame()}
 function renderDuelSetup(){
