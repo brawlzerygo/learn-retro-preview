@@ -1106,7 +1106,7 @@ const PAGEMETA={home:['Learn Edison Format: Yu-Gi-Oh! as It Was in April 2010','
   builder:['Edison Format Deck Builder','Build an Edison deck, check it against the March 2010 banlist and export it.'],
   opponents:['Know Your Opponent: Edison Format Matchups','Every Edison deck at a glance: how to spot it, what it wants and how to beat it, plus the matchup chart.'],
   staples:['Edison Format Staples','The cards most Edison decks play, counted from 55 deck lists.'],
-  library:['Edison Format Video Library','The best Edison format guides, tier lists and deck videos from other creators.'],
+  library:['Edison Format Video Course','The Learn Retro Edison course as videos: the basics, then Edison 101, step by step.'],
   banlist:['The Edison Format Banlist (March 2010)','Every Forbidden, Limited and Semi-Limited card on the March 2010 Yu-Gi-Oh! banlist used in Edison format.'],
   rulings:['Edison Format Rulings','Edison rulings card by card: how each card works under the 2010 rules.'],
   errata:['Edison Format Errata: Cards That Work Differently','Cards whose 2010 text works differently from today, and how they work in Edison.'],
@@ -1189,7 +1189,7 @@ function renderHome(){
   </div>
   <h2 class="hh">Everything on the site</h2>
   <div class="hgrid">
-    ${sec('Learn','Short lessons in plain language, a quiz after each one, flashcards to drill, a glossary, and a library of guides by Edison creators.','Stardust Dragon',[['course','Course'],['flashcards','Flashcards'],['glossary','Glossary'],['library','Library']])}
+    ${sec('Learn','Short lessons in plain language, a quiz after each one, flashcards to drill, a glossary, and the course as videos in the Library.','Stardust Dragon',[['course','Course'],['flashcards','Flashcards'],['glossary','Glossary'],['library','Library']])}
     ${sec('Cards and rules','Every Edison-legal card with its 2010 text, Edison rulings, the March 2010 banlist and the cards that work differently today.','Brionac, Dragon of the Ice Barrier',[['cards','Card search'],['staples','Staples'],['banlist','Banlist'],['rulings','Rulings'],['errata','Errata']])}
     ${sec('Decks','Deck lists for 55 strategies from top tier to casual, and a builder that checks your deck is legal.','Blackwing - Gale the Whirlwind',[['decks','All Decks'],['builder','Deck builder']])}
     ${sec('Play','Set up any field on the practice board and try Synchro Summons. Dueling the computer is coming soon.','Black Rose Dragon',[['simulator','Practice board']])}
@@ -1200,6 +1200,10 @@ function renderHome(){
 }
 
 /* ============ COURSE ============ */
+/* The course videos (Zack, 2026-11-25: "bolted into the actual course page"): the Library's videos that cover a course
+   step, as a row under the course hero and a "Watch" link in that step's heading. */
+function courseVideos(){const LIB=window.EDISON_LIBRARY;return LIB?(LIB.sections||[]).flatMap(s=>s.videos||[]).filter(v=>v.step):[]}
+function courseWatch(step){const v=courseVideos().find(x=>x.step===step);return v?` <a class="cwatch" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">▶ Watch the ${esc(step)} video (${esc(v.len)})</a>`:''}
 function renderCourse(){
   const d=done();const d101=L.filter(l=>d.includes(l.n)).length;const pct=Math.round(d101/L.length*100);
   const started=ALL.some(l=>d.includes(l.n));
@@ -1217,9 +1221,11 @@ function renderCourse(){
     ${progressHTML(d101,L.length)}
     <div class="hero-btns">${heroBtns}</div>
   </section>
-  <section class="level-block"><div class="level-head"><span class="level-tag zero">Step 0</span><h2>The basics</h2><p>Never played, or forgot how? Start here: the goal, the turn, summoning, battle, Spells and Traps, and Chains. Already know them? <a href="#lesson-1">Skip to Edison 101</a>.</p></div>
+  ${courseVideos().length?`<section class="level-block cvids"><div class="level-head"><span class="level-tag">▶</span><h2>Watch the course</h2><p>Prefer video? Each step is on the <a href="https://www.youtube.com/@LearnRetro" target="_blank" rel="noopener">Learn Retro YouTube channel</a>. Watch it, then do the lessons and quizzes below. All videos are in the <a href="#library">Library</a>.</p></div>
+  <div class="vgrid">${courseVideos().map(v=>`<a class="vcard" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><span class="vthumb"><img loading="lazy" src="img/lib/${v.id}.jpg" alt=""><span class="vlen">${v.len}</span></span><b>${esc(v.step)}: ${esc(v.t)}</b><small>${esc(v.about||"")}</small></a>`).join('')}</div></section>`:''}
+  <section class="level-block"><div class="level-head"><span class="level-tag zero">Step 0</span><h2>The basics</h2><p>Never played, or forgot how? Start here: the goal, the turn, summoning, battle, Spells and Traps, and Chains. Already know them? <a href="#lesson-1">Skip to Edison 101</a>.${courseWatch('Step 0')}</p></div>
   <div class="lessons">${B.map(lcard).join('')}</div></section>
-  <section class="level-block"><div class="level-head"><span class="level-tag">101</span><h2>How do I play?</h2><p>Edison as your first format, explained slowly: how a match works, reading card text, Synchros, the Extra Deck, tokens, the staples, and the banlist.</p></div>
+  <section class="level-block"><div class="level-head"><span class="level-tag">101</span><h2>How do I play?</h2><p>Edison as your first format, explained slowly: how a match works, reading card text, Synchros, the Extra Deck, tokens, the staples, and the banlist.${courseWatch('101')}</p></div>
   <div class="lessons">${L.map(lcard).join('')}</div></section>
   <section class="level-block"><div class="level-head"><span class="level-tag">201</span><h2>What do these cards do?</h2><p>The cards you will see in almost every game, a few at a time.</p></div>
   <div class="lessons">${[...L2.map(lcard),...LOCKED.filter(x=>x[1]==='201'&&!L2.some(l=>l.n===x[0])).map(lock)].join('')}</div></section>
@@ -1852,18 +1858,19 @@ function renderStaples(){
   app.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>{STAPLE_SCOPE=b.dataset.scope;renderStaples()});
 }
 
-/* Library: other creators' videos (data/library.js, hand-picked). Each links to YouTube and credits its channel. */
+/* Library: the Learn Retro course videos (data/library.js; other creators' picks were taken down 2026-11-25). Each links to
+   YouTube; a video with a course step also links to that step's first lesson, and shows on the course page (courseVideos). */
 function renderLibrary(){
   const LIB=window.EDISON_LIBRARY;if(!LIB){app.innerHTML=noData();return}
   const fmt=n=>n>=1e6?(n/1e6).toFixed(1).replace('.0','')+'M':n>=1e3?Math.round(n/1e3)+'K':String(n);
   const vid=v=>{const c=LIB.channels[v.ch];return `<a class="vcard" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
     <span class="vthumb"><img loading="lazy" src="img/lib/${v.id}.jpg" alt=""><span class="vlen">${v.len}</span></span>
-    <b>${esc(v.t)}</b><small>${esc(c.name)} · ${fmt(v.views)} views · ${esc(v.year)}</small></a>`};
-  app.innerHTML=`<div class="pagehead"><div><h1>Library</h1><p class="note" style="margin:4px 0 0;max-width:760px">Videos made by Edison creators, picked from their most viewed and most helpful guides. Every video plays on YouTube on the creator's own channel. If one helps you, give it a like and subscribe.</p></div></div>
+    <b>${esc(v.t)}</b><small>${v.step?`${esc(v.step)} · `:""}${esc(c.name)}${v.views?` · ${fmt(v.views)} views`:""}${v.year?` · ${esc(v.year)}`:""}</small></a>`};
+  app.innerHTML=`<div class="pagehead"><div><h1>Library</h1><p class="note" style="margin:4px 0 0;max-width:760px">The Edison course as videos, on the Learn Retro YouTube channel. Each one follows the same lessons as this site, so you can watch first and then do the lessons and quizzes here. If one helps you, give it a like and subscribe.</p></div></div>
   <div class="chgrid">${Object.values(LIB.channels).map(c=>`<a class="chcard" href="${c.url}" target="_blank" rel="noopener"><b>${esc(c.name)}</b><small>${esc(c.handle)} on YouTube ↗</small><span>${esc(c.about)}</span></a>`).join('')}</div>
   ${LIB.sections.map(sec=>`<section class="bsec"><h2>${esc(sec.title)}</h2><p class="note" style="margin:-4px 0 12px">${esc(sec.blurb)}</p><div class="vgrid">${sec.videos.map(vid).join('')}</div></section>`).join('')}
-  <section class="bsec"><h2>Series to follow</h2><div class="chgrid">${LIB.series.map(x=>`<a class="chcard" href="${x.url}" target="_blank" rel="noopener"><b>${esc(x.name)}</b><small>${esc(LIB.channels[x.ch].name)} ↗</small><span>${esc(x.about)}</span></a>`).join('')}</div></section>
-  <p class="srcnote">Videos, titles and thumbnails belong to their creators and are shown here to point you to them. View counts as of ${LIB.checked}.</p>`;
+  ${(LIB.series||[]).length?`<section class="bsec"><h2>Series to follow</h2><div class="chgrid">${LIB.series.map(x=>`<a class="chcard" href="${x.url}" target="_blank" rel="noopener"><b>${esc(x.name)}</b><small>${esc(LIB.channels[x.ch].name)} ↗</small><span>${esc(x.about)}</span></a>`).join('')}</div></section>`:''}
+  <p class="srcnote">More videos are on the way as the course goes up on YouTube.</p>`;
 }
 
 /* Rules (#rules, #rules-<section>): how Edison is played, from data/rules.js (our own words; sources credited). */

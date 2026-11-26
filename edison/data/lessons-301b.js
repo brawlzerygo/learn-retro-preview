@@ -291,7 +291,6 @@ ${call('rule','Card text check',`<p>${cn('Compulsory Evacuation Device')} return
 </ol>
 ${call('key','A real example',`<p>The <a href="#deck-Machina%20Gadget">Machina Gadget</a> Side Deck has 2 ${cn('Rivalry of Warlords')}. It lets each player control only one Type of monster. Every monster in Machina Gadget is a Machine, so it barely hurts them. A deck that mixes Types loses monsters.</p>`)}
 ${call('mistake','Common mistake',`<p>Siding in too many cards. If you change half your deck, your engine stops working. A few strong swaps beat many small ones.</p>`)}
-<p>Two creators made full guides on this. Watch E3 Yu-Gi-Oh's "How To Sideboard in Edison Format" and IMNerd (Frazier Smith)'s "Side Decking 101" in the <a href="#library">Library</a>.</p>
 <div class="recap"><h2>Recap</h2><ul><li>Between games, swap Side Deck cards in, one out for each one in.</li><li>D.D. Crow, Cyber Dragon and Dust Tornado are the most common side cards in our lists.</li><li>Side for what their engine needs, and take out what does nothing against them.</li><li>Check that your side cards don't stop your own deck.</li></ul></div>`,
 flash:[
 ["What is the Side Deck for?","Up to 15 cards you can swap into your Main Deck between games of a match, to answer the deck you are facing."],
@@ -346,7 +345,6 @@ ${call('key','Tier is not everything',`<p>A Best deck you don't understand loses
 <li><div><b>Copy it to the builder.</b> Press "Open in Deck Builder" to make your own copy in the <a href="#builder">Deck Builder</a>. Change it only after you know why each card is there.</div></li>
 <li><div><b>Practice the combos.</b> Load the deck on the <a href="#simulator">practice board</a> and play out your best turns by hand.</div></li>
 <li><div><b>Play games.</b> Play people as much as you can: friends, online, or at locals.</div></li>
-<li><div><b>Watch the experts.</b> The <a href="#library">Library</a> has deck guides for Blackwings, Quickdraw, Dragons, Diva Hero, Hero Beat, Vayu Turbo and Frogs.</div></li>
 <li><div><b>Learn your side.</b> Know which Side Deck cards come in against each top deck (Lesson 29).</div></li>
 </ol>
 ${call('mistake','Common mistake',`<p>Switching decks after every loss. Each switch starts your learning over. Stay with one deck long enough to know why you lost.</p>`)}

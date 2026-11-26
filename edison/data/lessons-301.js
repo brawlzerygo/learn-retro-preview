@@ -45,7 +45,7 @@ ${call('analogy','Think of it like this',`<p>Aggro is a sprinter. Control is a m
 ${call('key','The big idea',`<p>Ask two questions every game: "What does my opponent need to happen?" and "Which of my cards stops that?" Save that card for the right moment.</p>`)}
 <h2>The Side Deck follows the styles</h2>
 <p>Side Decks are built to fight styles. Look at the <a href="#deck-Blackwing">Blackwing list</a>. Its Side Deck holds 2 Royal Oppression, 2 Fossil Dyna Pachycephalo and 2 Pulling the Rug. All of them hurt combo decks that Special Summon a lot or use Normal Summon effects.</p>
-<p>The next six lessons look at real decks one by one. For each, you will learn its engine, its plan, and how to beat it. The <a href="#library">Library</a> has side decking guides by E3 Yu-Gi-Oh and IMNerd (Frazier Smith) if you want more.</p>
+<p>The next six lessons look at real decks one by one. For each, you will learn its engine, its plan, and how to beat it.</p>
 ${call('mistake','Common mistakes',`<ul><li>Siding cards that beat a style your opponent is not playing.</li><li>Playing the same way against every deck. Your plan changes with theirs.</li><li>Guessing a style from one card. Wait for two or three clues.</li></ul>`)}
 <div class="recap"><h2>Recap</h2><ul><li>Aggro hits early, control wins late, combo builds a big turn, stun locks the game.</li><li>Most decks mix two styles.</li><li>Watch the first two turns: set cards, Special Summons, lock cards and the Graveyard.</li><li>Pick your answers by what the opponent needs to happen.</li></ul></div>`,
 flash:[
@@ -114,7 +114,6 @@ ${call('key','Why Kalut matters',`<p>${cn('Blackwing - Kalut the Moon Shadow','K
 <li><b>It must attack to win.</b> Dimensional Prison and Mirror Force hit it hard. Destroy Black Whirlwind with Mystical Space Typhoon or Dust Tornado to slow the searches.</li>
 </ul>
 ${call('mistake','Common mistakes against Blackwings',`<ul><li>Forgetting Kalut. Assume a battling Blackwing can gain 1400 ATK while they have cards in hand.</li><li>Setting a weak monster in front of Bora or Armed Wing. Both pierce.</li><li>Counting their field only. Shura can pull a new bird from the Deck mid-battle.</li></ul>`)}
-<p>Want to see it played? The <a href="#library">Library</a> has Blackwing guides by E3 Yu-Gi-Oh and IMNerd (Frazier Smith).</p>
 <div class="recap"><h2>Recap</h2><ul><li>Black Whirlwind turns each Normal Summon into a search for a lower-ATK bird.</li><li>Bora and Gale Special Summon themselves next to another Blackwing.</li><li>Blizzard and Gale are the Tuners for Armed Wing, Armor Master and Silverwind. Vayu gives a second route.</li><li>Fight them with DARK locks, Special Summon locks, Pulling the Rug and battle Traps.</li></ul></div>`,
 flash:[
 ['You Normal Summon Shura with Black Whirlwind face-up. Name a card Whirlwind can add.','Bora, Kalut, Gale, Blizzard or Vayu. Each has less than 1800 ATK.'],
@@ -178,7 +177,6 @@ ${call('rule','Black Rose and Dandylion',`<p>If you Synchro Summon Black Rose Dr
 <li><b>Tytannial only stops cards that target.</b> Use cards that don't target, like Black Rose Dragon or Heavy Storm, against a Tytannial board.</li>
 </ul>
 ${call('mistake','Common mistakes against Quickdraw',`<ul><li>Destroying Dandylion. Destroyed or sent anywhere to the GY, it still makes tokens.</li><li>Thinking Quickdraw can make Stardust Dragon. It can't. Stardust needs a generic Tuner.</li><li>Ignoring the Fluff Tokens. Each one is a Level for the next Synchro.</li></ul>`)}
-<p>E3 Yu-Gi-Oh has a full Quickdraw Dandywarrior guide in the <a href="#library">Library</a>.</p>
 <div class="recap"><h2>Recap</h2><ul><li>Quickdraw makes only "Synchron" Synchros. Debris makes only Dragon Synchros.</li><li>Dandylion makes 2 tokens every time it reaches the GY, from anywhere.</li><li>Lonefire and Tytannial use Plants, and Fluff Tokens are Plants.</li><li>Special Summon locks, Pulling the Rug and summon negation beat it.</li></ul></div>`,
 flash:[
 ['Quickdraw Synchron (Level 5) and a Fluff Token are on your field. What can you make?','A Level 6 that lists a "Synchron" Tuner: Drill Warrior or Turbo Warrior.'],
@@ -303,7 +301,6 @@ ${call('key','Exactly 3 DARKs',`<p>${cn('Dark Armed Dragon')} needs <b>exactly</
 <li><b>Normal Summon triggers.</b> Pulling the Rug negates Armageddon Knight's effect when it is Normal Summoned.</li>
 </ul>
 ${call('mistake','Common mistakes against Vayu Turbo',`<ul><li>Watching only the field. Count Vayus and Siroccos in their GY every turn.</li><li>Using D.D. Crow on a random card. Save it for Vayu or Sirocco.</li><li>Forgetting Burial. Banished Vayus can come back to the GY at Quick-Play speed.</li></ul>`)}
-<p>IMNerd (Frazier Smith) has a full Vayu Turbo episode of "Teach Me How to Cook" in the <a href="#library">Library</a>.</p>
 <div class="recap"><h2>Recap</h2><ul><li>Vayu Turbo sends Vayu and Sirocco to the GY with Armageddon Knight, Dark Grepher and mills.</li><li>Vayu + Sirocco makes a Level 6 Armed Wing with its effects negated.</li><li>Armed Wing then helps make Level 7 and 8 Synchros, or feeds Caius.</li><li>GY removal, Special Summon locks and Consecrated Light slow it down.</li></ul></div>`,
 flash:[
 ['What two cards does Vayu need in the GY to make Blackwing Armed Wing?','Vayu itself and a Level 5 non-Tuner Blackwing, Sirocco the Dawn.'],
@@ -364,7 +361,6 @@ ${call('key','Absolute Zero is a trap for removal',`<p>${cn('Elemental HERO Abso
 <li><b>Hero Beat locks you.</b> Save Mystical Space Typhoon or Dust Tornado for Skill Drain or Royal Oppression.</li>
 </ul>
 ${call('mistake','Common mistakes against HEROs',`<ul><li>Destroying a face-up Absolute Zero while you have monsters out. Flip it face-down first, or clear your own board.</li><li>Ignoring their GY. Miracle Fusion can use it at any time.</li><li>Attacking a LIGHT monster when they hold a card. Honest can match your ATK.</li></ul>`)}
-<p>E3 Yu-Gi-Oh has a Diva Hero guide and a Hero Beat guide in the <a href="#library">Library</a>.</p>
 <div class="recap"><h2>Recap</h2><ul><li>All HERO decks share E - Emergency Call, Stratos, Miracle Fusion and Absolute Zero.</li><li>Diva Hero uses Diva and Malicious for quick Level 5 and Level 8 Synchros.</li><li>Hero Beat uses Gemini beaters behind Skill Drain and Royal Oppression.</li><li>Flip Absolute Zero face-down before you remove it.</li></ul></div>`,
 flash:[
 ['What does Miracle Fusion use as Fusion Material?','Monsters on your field or in your GY, which it banishes.'],
@@ -426,7 +422,6 @@ ${call('key','The Monarch loop',`<ol class="steps"><li><div>Standby Phase: Treeb
 <li><b>The battle wall.</b> Remove Substitoad or Dupe Frog with an effect before you attack.</li>
 </ul>
 ${call('mistake','Common mistakes against Frogs',`<ul><li>Attacking into Dupe Frog with Substitoad on the field. Frogs can't be destroyed by battle.</li><li>Leaving Treeborn in the GY when you hold D.D. Crow. Banish it before their Standby Phase.</li><li>Attacking directly into an empty field with no plan for Battle Fader or Tragoedia.</li></ul>`)}
-<p>IMNerd (Frazier Smith) teaches this deck in his "Frog School" series in the <a href="#library">Library</a>.</p>
 <div class="recap"><h2>Recap</h2><ul><li>Treeborn Frog returns each Standby Phase if you control no Spells or Traps, giving free Tributes.</li><li>Caius, Raiza and Mobius each remove a card when Tribute Summoned.</li><li>Swap Frog, Substitoad, Dupe Frog and Junk Synchron set up the GY and make Synchros.</li><li>Banish Treeborn, lock Special Summons and use Pulling the Rug to beat it.</li></ul></div>`,
 flash:[
 ['When can Treeborn Frog Special Summon itself?','During your Standby Phase, from the GY, if you control no Spells or Traps and no other Treeborn Frog.'],

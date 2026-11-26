@@ -799,3 +799,5 @@ html.mnav-open{overflow:hidden}
 .mnav .mfmt a small{margin-left:auto}
 .mnav .mfmt a[aria-current]{background:var(--accent-soft);color:var(--accent)}
 @media(max-width:640px){.brand .fmtsw{margin-left:8px;padding-left:8px}.brand .bfmt{min-height:44px;padding:0 12px}.fmtmenu a{min-height:44px}}
+.cwatch{display:inline-block;margin-left:4px;font-weight:700;white-space:nowrap}
+.cvids .vgrid{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));margin-top:4px}
