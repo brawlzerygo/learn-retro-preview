@@ -88,7 +88,7 @@ html:`
 <p>Most of these monsters are DARK, which fills the GY for Dark Armed Dragon. The Zombies keep coming back: Goblin Zombie finds Mezuki, Zombie Master or Plaguespreader, and they revive each other. ${cn('Burial from a Different Dimension')} returns banished monsters, like a used Mezuki, to the GY.</p>
 <p>Two Synchros only take ${cn('Plaguespreader Zombie')} as the Tuner, plus non-Tuner Zombies. Plaguespreader (Level 2) and a Level 4 Zombie make Level 6:</p>
 <ul><li>${cn('Revived King Ha Des')}: monsters your Zombies destroy by battle have their effects negated, even in the GY.</li><li>${cn('Doomkaiser Dragon')}: when Special Summoned, takes a Zombie from your opponent's GY.</li></ul>
-<p>Deep Sea Diva gives a second body. In this list the only Sea Serpent it can summon is the other Diva. Two monsters from one Normal Summon can mean one Tribute for Caius and one Tuner left over.</p>
+<p>Deep Sea Diva gives a second body. In this list the only Sea Serpent it can summon is the other Diva. Two monsters from one Normal Summon give you a Tuner now. Next turn, one of them can be the Tribute for Caius.</p>
 ${call('rule','Remember the recipe',`<p>Two Divas are both Tuners. A Synchro needs exactly one Tuner, so two Divas alone can't Synchro Summon together.</p>`)}
 <p><b>Against it:</b> attack the Graveyard. ${cn('D.D. Crow')} banishes a card from the GY at Quick speed. ${cn('Soul Release')} banishes up to 5. ${cn('Shadow-Imprisoning Mirror')} negates DARK monster effects on the field and in the GY. ${cn('Mask of Restrict')} stops Caius's Tribute Summon.</p>
 <h2>Dragon Turbo: draw, discard, bring them back</h2>

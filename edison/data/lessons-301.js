@@ -223,7 +223,7 @@ ${call('analogy','Think of it like this',`<p>Most decks treat the Graveyard as a
 <ul>
 <li><b>${cn('Wulf, Lightsworn Beast','Wulf')}</b> lands on the field for free.</li>
 <li><b>${cn('Necro Gardna')}</b> can be banished from the GY on your opponent's turn to negate an attack.</li>
-<li><b>Plaguespreader Zombie</b> revives itself if you put a card from your hand on top of the Deck. It is a Tuner, and Lyla and Lumina are Spellcasters, so it can make Tempest Magician (Level 6).</li>
+<li><b>Plaguespreader Zombie</b> revives itself if you put a card from your hand on top of the Deck. It is a Tuner, and Lyla is a Level 4 Spellcaster, so Plaguespreader (2) and Lyla (4) can make Tempest Magician (Level 6).</li>
 <li><b>Each Lightsworn with a new name</b> counts toward ${cn('Judgment Dragon')}.</li>
 </ul>
 ${call('rule','When Garoth draws',`<p>${cn('Garoth, Lightsworn Warrior','Garoth')} only triggers when cards are sent by the <b>effect</b> of another Lightsworn <b>monster</b>. Celestia mills as a cost, so Garoth does not trigger from it. Spells like Solar Recharge are not monsters, so they do not trigger it either.</p>`)}
