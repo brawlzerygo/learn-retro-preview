@@ -113,8 +113,8 @@ window.EDISON_RULES = {
 <ol>
 <li><b>Start:</b> "during the Damage Step" effects begin to apply. ATK/DEF changers can be used.</li>
 <li><b>Flip:</b> a face-down target turns face-up (its FLIP effect waits). ATK/DEF changers can be used.</li>
-<li><b>Before damage calculation:</b> effects that say so happen, like Injection Fairy Lily or Honest. ATK/DEF changers can still be used, and this is the last chance.</li>
-<li><b>Damage calculation:</b> effects that say "during damage calculation" apply. Only 1 Chain is allowed from here on.</li>
+<li><b>Before damage calculation:</b> effects that say so happen. ATK/DEF changers like Honest can still be used, and this is the last chance.</li>
+<li><b>Damage calculation:</b> effects that say "during damage calculation" apply, like Injection Fairy Lily. Only 1 Chain is allowed from here on.</li>
 <li><b>After damage calculation:</b> damage is dealt and it is decided which monsters are destroyed, but nothing has gone to the GY yet. "If this card inflicts battle damage" effects activate, and so do Gorz the Emissary of Darkness and Tragoedia.</li>
 <li><b>Resolve:</b> monsters destroyed by battle stop applying their continuous effects. "After damage calculation" effects and FLIP effects activate.</li>
 <li><b>End:</b> monsters destroyed by battle go to the GY, and effects like Sangan, Mystic Tomato and Giant Rat activate.</li>

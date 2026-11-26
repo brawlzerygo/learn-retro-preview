@@ -30,7 +30,7 @@ ${call('mistake', 'A common slip', `<p>Waiting to see whether the attacker flips
 <h2>Smaller rules</h2>
 <ul>
 <li>Two 0 ATK monsters that battle in Attack Position are both destroyed.</li>
-<li>A Life Point cost bigger than what you have left can't be paid.</li>
+<li>You can't pay a Life Point cost that would take you to 0 or below. Chain Energy is the only exception.</li>
 <li>Only one face-up Field Spell exists for the whole table.</li>
 </ul>
 <div class="recap"><h2>Recap</h2><ul><li>After a summon or a Chain, the turn player acts first.</li><li>Effects that trigger together go on the Chain in the order they happened.</li><li>In the Damage Step only monster effects that negate an activation can be used.</li><li>A replay is a new attack declaration.</li><li>Being turned face-down by a card doesn't use up a monster's position change.</li></ul></div>
@@ -104,7 +104,7 @@ ${src([YPD, GF('home/introduction-to-goat-format-power-cards-part-2', 'goatforma
 <h2>Key cards in the list</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>Copies</th><th>Description</th></tr></thead><tbody>
 <tr><td>${cn('Metamorphosis')}</td><td>3</td><td>Turns a Level 1 into Restrict.</td></tr>
-<tr><td>${cn('Scapegoat')}</td><td>2</td><td>Shields, Tributes and Metamorphosis fuel.</td></tr>
+<tr><td>${cn('Scapegoat')}</td><td>2</td><td>Shields your Life Points and feeds Metamorphosis. The tokens can't be Tributed for a Tribute Summon.</td></tr>
 <tr><td>Book of Moon</td><td>3</td><td>Stops attacks and resets Flip monsters.</td></tr>
 <tr><td>${cn('Asura Priest')}</td><td>3</td><td>Attacks every monster your opponent controls once each, which clears tokens.</td></tr>
 <tr><td>${cn('Tsukuyomi')}</td><td>2</td><td>Turns a face-up monster face-down, then returns to your hand at the end of the turn.</td></tr>
@@ -133,7 +133,7 @@ ${src([GF('goat-control.html', 'goatformat.com, Goat Control guide'), YPD])}`,
       ['What does Asura Priest do?', 'It can attack each monster your opponent controls once, which clears tokens.'],
       ['What happens to a Spirit monster at the end of the turn it was Normal Summoned?', 'It returns to your hand.'],
       ['When should Goat Control use Scapegoat?', 'On the opponent’s turn, ideally in their End Phase.'],
-      ['Name two ways to remove Thousand-Eyes Restrict without battle.', 'Book of Moon and Ring of Destruction (Snatch Steal works too).']
+      ['Name two ways to answer Thousand-Eyes Restrict without battle.', 'Ring of Destruction destroys it. Book of Moon flips it face-down, and Snatch Steal takes it.']
     ]
   },
   {
@@ -192,7 +192,7 @@ ${src([GF('chaos-turbo.html', 'goatformat.com, Chaos Turbo guide'), GF('chaos-co
 </ul>
 <p>goatformat.com's guide notes the weak spot: Warriors gain few cards on their own, so they rely on winning battles.</p>
 <h2>Chaos Recruiter</h2>
-<p>See the list: ${deck('Chaos Recruiter')}. ${cn('Shining Angel')} and Mystic Tomato summon a new monster from the Deck when destroyed in battle, so every trade fills the Graveyard with LIGHT and DARK monsters for three Chaos Sorcerers and Black Luster Soldier. Asura Priest clears tokens, and because it goes back to the hand each turn, it dodges Mirror Force.</p>
+<p>See the list: ${deck('Chaos Recruiter')}. ${cn('Shining Angel')} and Mystic Tomato summon a new monster from the Deck when destroyed in battle, so every trade fills the Graveyard with LIGHT and DARK monsters for three Chaos Sorcerers and Black Luster Soldier. Asura Priest clears tokens, and because it goes back to the hand each turn, a board wipe on your opponent's turn has fewer monsters to hit.</p>
 <h2>Zombie</h2>
 <p>See the list: ${deck('Zombie')}, Delinkquent's winning list from Format Library Championship 17. ${cn('Pyramid Turtle')} and Giant Rat summon a new monster from the Deck when destroyed in battle, Pyramid Turtle reaching big Zombies like ${cn('Ryu Kokki')}, Book of Life revives them, and three ${cn('Royal Decree')} turn off the Traps that would stop the attacks.</p>
 <h2>Beating aggro</h2>

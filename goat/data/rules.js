@@ -17,7 +17,7 @@ window.GOAT_RULES = {
 <tr><td>Field Spells</td><td>One face-up Field Spell for the whole table. Playing another destroys the one already there.</td></tr>
 <tr><td>Priority</td><td>After a summon or a Chain resolves, the turn player may act first.</td></tr>
 <tr><td>Damage Step</td><td>Six steps, one Chain each, and only monster effects that negate an activation can be used.</td></tr>
-<tr><td>Matches</td><td>Best of three, played to two wins. No match draws.</td></tr>
+<tr><td>Matches</td><td>Best of three. No match draws.</td></tr>
 </table>` },
     { id: 'decks', title: 'Building a deck', src: 'goatformat.com, Goat Format Rules and Card Pool', html: `
 <table><tr><th>Deck</th><th>Size</th><th>Description</th></tr>
@@ -29,7 +29,7 @@ window.GOAT_RULES = {
     { id: 'chains', title: 'Priority and triggers', src: 'goatformat.com, Goat Format Rules (rules 4, 9 and 12)', html: `
 <p><b>Priority:</b> once a summon or a Chain finishes, the turn player gets the first chance to act: they may use a fast effect or a monster's Ignition effect before the opponent can answer.</p>
 <p><b>Triggers at the same time:</b> when several effects trigger together, they go on the Chain in the order the events happened, earlier ones first.</p>
-<p><b>Replays:</b> when the monster being attacked leaves the field, the attacker may choose a new target or stop. A new target counts as a fresh attack declaration.</p>` },
+<p><b>Replays:</b> if the number of monsters your opponent controls changes after you declare an attack, you may choose a new target or stop. A new target counts as a fresh attack declaration.</p>` },
     { id: 'damage', title: 'The Damage Step', src: 'goatformat.com, Goat Format Rules (rule 10)', html: `
 <p>The Damage Step in 2005 has six steps, one more than today, and only one Chain can happen in each. During it, the only cards that can be used are monster effects that negate an activation. Quick-Play Spells, Normal Traps and Continuous Trap effects all have to wait.</p>` },
     { id: 'positions', title: 'The June 2005 position rule', src: 'YGOPRODeck, An Introduction to Goat Format', html: `

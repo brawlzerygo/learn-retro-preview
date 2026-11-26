@@ -202,7 +202,7 @@ ${call('mistake', 'Common mistakes', `<ul><li>Normal Summoning in face-up Defens
 <tr><td>Attack Position</td><td>Higher ATK wins</td><td>The weaker one is destroyed, and its owner loses LP equal to the gap. A tie destroys both, and no one loses LP.</td></tr>
 <tr><td>Defense Position</td><td>ATK against DEF</td><td>If ATK is higher, the defender is destroyed but its owner loses no LP. If DEF is higher, the attacker's owner loses the gap. A tie changes nothing.</td></tr>
 </tbody></table></div>
-${call('key', 'Worked example', `<p>${cn('Summoned Skull')}, 2500 ATK, attacks ${cn('Sangan')} in Attack Position, 1000 ATK. Sangan is destroyed and its owner loses 1500 LP.</p><p>Now Summoned Skull attacks ${cn('Big Shield Gardna')} in Defense Position, 2600 DEF. Nothing is destroyed, and the attacker's owner loses 100 LP.</p>`)}
+${call('key', 'Worked example', `<p>${cn('Summoned Skull')}, 2500 ATK, attacks ${cn('Sangan')} in Attack Position, 1000 ATK. Sangan is destroyed and its owner loses 1500 LP.</p><p>Now Summoned Skull attacks ${cn('Big Shield Gardna')} in Defense Position, 2600 DEF. Nothing is destroyed, and the attacker's owner loses 100 LP. Big Shield Gardna's own effect then turns it to Attack Position.</p>`)}
 <h2>Attacking a face-down monster</h2>
 <p>If you attack a Set monster, it is turned face-up first and then the battle is worked out with its DEF. Any Flip effect on it triggers, which is the risk of attacking blind.</p>
 <h2>Direct attacks</h2>
@@ -286,7 +286,7 @@ ${call('analogy', 'What Ben could have done', `<p>Ben knew a face-down card coul
       ['Ana Sets Man-Eater Bug. Has she used her Normal Summon?', 'Yes. Setting a monster counts as the Normal Summon.'],
       ['Could Ana activate her Sakuretsu Armor on her own first turn?', 'No. A Trap waits a turn after being Set.'],
       ['Why didn\u2019t Ana attack on turn 1?', 'The player going first can\u2019t attack on the first turn of the Duel.'],
-      ['After turn 2, who is ahead and why?', 'Ana. She traded one card for Ben’s monster and still has more cards on the field and in hand.'],
+      ['After turn 2, who is ahead and why?', 'Ana. She traded one card for Ben’s monster and has more cards in all: 6 to his 5.'],
       ['Ben has used his Normal Summon. Can he still Set Spells and Traps?', 'Yes. Setting Spells and Traps has no once-a-turn limit.']
     ]
   }

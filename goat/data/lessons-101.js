@@ -50,7 +50,7 @@ ${src([GF('whatisgoat.html', 'goatformat.com, What is Goat Format?'), GF('whygoa
     html: `
 <div class="goals"><h4>What you will learn</h4><ul><li>How a match is played and won</li><li>What changes between games of a match</li><li>The 2005 rules a modern player gets wrong</li></ul></div>
 <h2>A match is best of three</h2>
-<p>At a tournament you don't play one Duel against an opponent, you play a <b>match</b>. Whoever takes two Duels first takes the match. Goat events don't use match draws: matches are played out to two wins.</p>
+<p>At a tournament you don't play one Duel against an opponent, you play a <b>match</b>. Whoever takes two Duels first takes the match. Goat events don't use match draws.</p>
 <h2>Between games: the Side Deck</h2>
 <p>After the first Duel you may swap cards between your Side Deck and your Main or Fusion Deck, one for one, so your counts stay the same. This lets you bring in answers to what your opponent showed you. In 2005 rules the Side Deck is either empty or exactly 15 cards, though few events check that today.</p>
 <h2>Deck sizes in 2005</h2>
@@ -173,7 +173,7 @@ ${src([GF('cardpool.html', 'goatformat.com, Card Pool and Banlist'), YPD])}`,
 <tr><td>${cn('Delinquent Duo')}</td><td>7 of 12</td><td>Pay 1000 LP: your opponent discards one card at random and one of their choice.</td></tr>
 <tr><td>${cn('Mystical Space Typhoon')}</td><td>7 of 12</td><td>Destroys one Spell or Trap, on either player's turn once Set.</td></tr>
 </tbody></table></div>
-${call('rule', 'All on the banlist', `<p>Pot of Greed, Graceful Charity, Heavy Storm, Snatch Steal, Delinquent Duo and Mystical Space Typhoon are Limited, so a deck runs one of each. Nobleman of Crossout is Semi-Limited. Book of Moon isn't on the list, so decks often play all three.</p>`)}
+${call('rule', 'Banlist status', `<p>Pot of Greed, Graceful Charity, Heavy Storm, Snatch Steal, Delinquent Duo and Mystical Space Typhoon are Limited, so a deck runs one of each. Nobleman of Crossout is Semi-Limited. Book of Moon isn't on the list, so decks often play all three.</p>`)}
 <h2>Traps</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>Decks</th><th>Description</th></tr></thead><tbody>
 <tr><td>${cn('Ring of Destruction')}</td><td>10 of 12</td><td>Destroys a face-up monster and deals damage equal to its ATK to both players.</td></tr>
@@ -187,7 +187,7 @@ ${call('key', 'Ring of Destruction in 2005', `<p>Today's text only works on your
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>Decks</th><th>Description</th></tr></thead><tbody>
 <tr><td>${cn('Black Luster Soldier - Envoy of the Beginning')}</td><td>8 of 12</td><td>The strongest monster in the format. Lesson 6.</td></tr>
 <tr><td>${cn('Breaker the Magical Warrior')}</td><td>8 of 12</td><td>Destroys a Spell or Trap and stays behind as a 1600 ATK body. Lesson 6.</td></tr>
-<tr><td>${cn('Sangan')}</td><td>8 of 12</td><td>Leaves the field, and you search your Deck for a monster with 1500 or less ATK.</td></tr>
+<tr><td>${cn('Sangan')}</td><td>8 of 12</td><td>Sent from the field to the Graveyard, and you search your Deck for a monster with 1500 or less ATK.</td></tr>
 <tr><td>${cn('Chaos Sorcerer')}</td><td>7 of 12</td><td>Comes out free from the hand and removes a face-up monster from play. Lesson 6.</td></tr>
 <tr><td>${cn('Sinister Serpent')}</td><td>5 of 12</td><td>A Level 1 monster that keeps coming back to your hand from the Graveyard.</td></tr>
 </tbody></table></div>
@@ -231,7 +231,9 @@ ${call('analogy', 'Think of it like this', `<p>Restrict is a wall that also stea
 </tbody></table></div>
 <h2>Answering them</h2>
 <ul>
-<li>Answers outside of battle: Ring of Destruction, Snatch Steal and Book of Moon. Sakuretsu Armor only works when a monster declares an attack.</li>
+<li>Destroy them: Ring of Destruction, or a battle trap like Sakuretsu Armor or Mirror Force when they attack. All three are Traps, so none of them work while Jinzo is face-up.</li>
+<li>Take them: Snatch Steal puts one on your side of the field.</li>
+<li>Stall them: Book of Moon flips one face-down for a turn.</li>
 <li>Book of Moon on Restrict turns it face-down, which ends the lock and drops the stolen monster to the Graveyard.</li>
 <li>Black Luster Soldier and Chaos Sorcerer need a LIGHT and a DARK in the Graveyard. Cards that remove monsters from the Graveyard, like ${cn('Kycoo the Ghost Destroyer')}, slow them down.</li>
 </ul>

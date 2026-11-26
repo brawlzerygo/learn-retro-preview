@@ -14,12 +14,12 @@ html:`
 <div class="tl"><b>You</b><span>Use priority. Activate Chaos Sorcerer's effect and banish their monster.</span></div>
 <div class="tl"><b>Opponent</b><span>Now they can respond, for example with ${cn('Bottomless Trap Hole')}. Your effect is already on the Chain.</span></div>
 </div>
-<p>This also works with Synchros. Synchro Summon ${cn('Brionac, Dragon of the Ice Barrier')}, then use its effect right away with priority, before your opponent can Bottomless it.</p>
+<p>This also works with Synchros. Synchro Summon ${cn('Brionac, Dragon of the Ice Barrier')}, then use its effect right away with priority. Your opponent can still chain Bottomless, but Brionac's effect is already on the Chain and still resolves.</p>
 ${call('rule','When you lose priority',`<p>If the summon starts a Chain, you lose priority. Example: you use ${cn('Sangan')} as material for Brionac. Sangan's effect triggers and starts a Chain. Now you cannot use Brionac's Ignition Effect first.</p>`)}
 <h2>2. Two things trigger at once</h2>
 <p>Sometimes two effects trigger at the same time. They go on the Chain in this order:</p>
 <ol><li>Turn player's mandatory effects</li><li>Opponent's mandatory effects</li><li>Turn player's optional effects</li><li>Opponent's optional effects</li></ol>
-<p>Example: you Tribute ${cn('Sangan')} to summon ${cn('Caius the Shadow Monarch')}. Sangan's effect is mandatory, so it is Chain Link 1. Caius is Chain Link 2.</p>
+<p>Example: you Tribute ${cn('Sangan')} to summon ${cn('Caius the Shadow Monarch')}. Both effects are mandatory and both are yours, so you choose which one is Chain Link 1.</p>
 <h2>3. Missing the timing</h2>
 <p>An optional effect that says "<b>When</b> ... you can" misses its timing if something else happened last. Effects that say "<b>If</b>" never miss the timing. Read the wording on each card.</p>
 <h2>4. The Damage Step is a narrow window</h2>
@@ -268,7 +268,7 @@ ${call('rule','Two rulings',`<ul><li>You can only activate one of these hand eff
 <h3>Ryko, Lightsworn Hunter</h3>
 <p>${cn('Ryko, Lightsworn Hunter')} (35%) is a Flip monster. When flipped, you can destroy one card on the field. Then you always send the top 3 cards of your Deck to the Graveyard. Destroying is optional; the 3 cards always go.</p>
 <h3>Caius the Shadow Monarch</h3>
-<p>${cn('Caius the Shadow Monarch')} (40%) is a Level 6, so it needs one Tribute. When Tribute Summoned, it banishes one card on the field. If that card was a DARK monster, its controller also takes 1000 damage. Banishing gets past Stardust Dragon, which only stops destruction.</p>
+<p>${cn('Caius the Shadow Monarch')} (40%) is a Level 6, so it needs one Tribute. When Tribute Summoned, it banishes one card on the field. If that card was a DARK monster, your opponent also takes 1000 damage, even when the banished DARK monster was yours. Banishing gets past Stardust Dragon, which only stops destruction.</p>
 <p>Cards that stop Tributes, like Mask of Restrict, stop Caius. So does Pulling the Rug (<a href="#lesson-16">Lesson 16</a>).</p>
 <h2>Monsters that stop plays</h2>
 <h3>D.D. Crow</h3>
@@ -354,7 +354,7 @@ html:`
 <tr><td>${cn('Mirror Force')}</td><td>78%</td><td>Destroy all of the attacker's Attack Position monsters. Limited.</td></tr>
 <tr><td>${cn('Dimensional Prison')}</td><td>56%</td><td>Banish the attacking monster. Unlimited.</td></tr>
 </tbody></table></div>
-<p>${cn('Dimensional Prison')} banishes, so a Synchro hit by it does not go back to the Extra Deck. If the attack is negated or the attacker changes position first, it is no longer attacking and Prison does nothing.</p>
+<p>${cn('Dimensional Prison')} banishes, so a Synchro hit by it can't be revived from the Graveyard later. If the attack is negated or the attacker changes position first, it is no longer attacking and Prison does nothing.</p>
 <h2>Traps that stop summons</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>In decks</th><th>Description</th></tr></thead><tbody>
 <tr><td>${cn('Solemn Judgment')}</td><td>73%</td><td>Pay half your LP to negate a summon or a Spell/Trap. Counter Trap.</td></tr>
@@ -391,7 +391,7 @@ flash:[
 ["Can Solemn Judgment stop Gorz the Emissary of Darkness?","No. Gorz summons itself with an effect that starts a Chain, and Solemn cannot negate that."],
 ["Your opponent Tribute Summons Caius. Which Counter Trap stops its effect?","Pulling the Rug. Caius's effect activates because it was Normal Summoned."],
 ["Mask of Restrict is face-up. Can you Synchro Summon? Can Stardust Dragon use its effect?","You can Synchro Summon, because material is not a Tribute. Stardust cannot use its effect, because it must Tribute itself."],
-["Why is Dimensional Prison good against Synchros?","It banishes the attacker, so the Synchro does not go back to the Extra Deck."]
+["Why is Dimensional Prison good against Synchros?","It banishes the attacker, so the Synchro can't be revived from the Graveyard later."]
 ]},
 
 {n:17,title:'How Edison Thinks',sub:'Card advantage, tempo, which threat to answer, the order of your plays, and reading your opponent.',min:10,
@@ -422,7 +422,7 @@ ${call('analogy','Think of it like this','<p>Think of cards as coins. A good tra
 </ul>
 <h3>Synchros and card count</h3>
 <p>A Synchro Summon uses two or more monsters to make one. On its own, that is two cards for one. The trick is to make the materials cheap:</p>
-<ul><li>${cn('Plaguespreader Zombie')} comes back from the Graveyard. You pay a card from your hand, but it goes to the top of your Deck, so you draw it again next turn.</li><li>${cn('Deep Sea Diva')}, ${cn('Junk Synchron')} and ${cn('Debris Dragon')} bring a second monster with them.</li><li>${cn('Cyber Dragon')} comes out free when you have no monsters.</li></ul>
+<ul><li>${cn('Plaguespreader Zombie')} comes back from the Graveyard. You pay a card from your hand, but it goes to the top of your Deck, so you draw it again next turn.</li><li>${cn('Deep Sea Diva')}, ${cn('Junk Synchron')} and ${cn('Debris Dragon')} bring a second monster with them.</li><li>${cn('Cyber Dragon')} comes out free when your opponent controls a monster and you control none.</li></ul>
 <p>When one card from your hand becomes a Synchro, you have made a good trade.</p>
 <h2>LP is a resource too</h2>
 <p>Many staples cost LP: Solemn Judgment costs half, Royal Oppression and Brain Control cost 800, Thought Ruler Archfiend costs 1000. LP you never use does not win games. Spend it when it buys you a card or a turn.</p>

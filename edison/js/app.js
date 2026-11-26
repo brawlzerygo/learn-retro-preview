@@ -46,7 +46,7 @@ M('quickdraw','Quickdraw Synchron','effect','WIND',5,'Machine',700,1400,'Tuner. 
 M('debris','Debris Dragon','effect','WIND',4,'Dragon',1000,2000,'Tuner. When Normal Summoned, Special Summon 1 monster with 500 or less ATK from your GY in Attack Position, effects negated. It can only be material for a Dragon Synchro, and the other materials cannot be Level 4.',{tuner:true,debris:true});
 M('gale','Blackwing - Gale the Whirlwind','effect','DARK',3,'Winged Beast',1300,400,'Tuner. Special Summon it from your hand if you control another "Blackwing". Once per turn, halve the ATK and DEF of 1 face-up opponent\'s monster.',{tuner:true,blackwing:true});
 M('blizzard','Blackwing - Blizzard the Far North','effect','DARK',2,'Winged Beast',1300,0,'Tuner. When Normal Summoned, Special Summon 1 Level 4 or lower "Blackwing" from your GY.',{tuner:true,blackwing:true});
-M('vayu','Blackwing - Vayu the Emblem of Honor','effect','DARK',1,'Winged Beast',800,0,'Tuner. From your GY, banish it plus non-Tuners in your GY to Special Summon a DARK Synchro whose Level equals their total. That Synchro\'s effects are negated. It cannot be Synchro Material any other way.',{tuner:true,blackwing:true,gyOnly:true});
+M('vayu','Blackwing - Vayu the Emblem of Honor','effect','DARK',1,'Winged Beast',800,0,'Tuner. From your GY, banish it and 1 non-Tuner Blackwing in your GY to Special Summon a Blackwing Synchro whose Level equals their total. That Synchro\'s effects are negated. It cannot be Synchro Material any other way.',{tuner:true,blackwing:true,gyOnly:true});
 M('diva','Deep Sea Diva','effect','WATER',2,'Sea Serpent',200,400,'Tuner. When Normal Summoned, Special Summon 1 Level 3 or lower Sea Serpent from your Deck.',{tuner:true});
 M('krebons','Krebons','effect','DARK',2,'Psychic',1200,400,'Tuner. When it is targeted for an attack, you can pay 800 LP to negate that attack.',{tuner:true});
 M('resonator','Dark Resonator','effect','DARK',3,'Fiend',1300,300,'Tuner. Once per turn, it cannot be destroyed by battle.',{tuner:true});
@@ -439,7 +439,7 @@ ${call('rule','Bringing a Synchro back from the Graveyard','<p>Cards like '+c('c
 <h2>The toolbox</h2>
 <p>Most Edison decks run almost the same Extra Deck: one copy of each strong, generic Synchro. Each one solves a different problem. You pick the one the moment calls for.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Level</th><th>Card</th><th>Description</th></tr></thead><tbody>
-<tr><td>4</td><td>${c('armory')}</td><td>Equips to your monster for +1000 ATK. When that monster wins a battle, your opponent also takes damage equal to the loser's ATK.</td></tr>
+<tr><td>4</td><td>${c('armory')}</td><td>Equips to a monster on the field for +1000 ATK. When that monster destroys a monster in battle and sends it to the Graveyard, your opponent takes damage equal to the destroyed monster's ATK.</td></tr>
 <tr><td>5</td><td>${c('catastor')}</td><td>Destroys any non-DARK monster it battles before damage, so it beats much bigger monsters. Not a face-down one.</td></tr>
 <tr><td>5</td><td>${c('android')}</td><td>A small effect, but 2400 ATK at Level 5 beats most monsters.</td></tr>
 <tr><td>6</td><td>${c('goyo')}</td><td>2800 ATK. A monster it destroys in battle comes to your side of the field.</td></tr>
@@ -531,8 +531,8 @@ ${call('analogy','Think of it like this','<p>Staples are the salt and pepper of 
 <tr><td>${c('mirror')}</td><td>78%</td><td>1</td><td>When an opponent's monster declares an attack, destroy all their Attack Position monsters.</td></tr>
 <tr><td>${c('prison')}</td><td>56%</td><td>3</td><td>When an opponent's monster declares an attack, banish that monster.</td></tr>
 </tbody></table></div>
-<h2>3. Traps that stop summons</h2>
-<p>These hit a monster as it arrives. They hurt most against a Synchro Summon. If one of them stops your Synchro, you lose the Synchro <b>and</b> the monsters you used to make it. That is two or more cards gone for one Trap.</p>
+<h2>3. Traps that punish summons</h2>
+<p>These hit a monster as it arrives. They hurt most against a Synchro Summon. Solemn Judgment stops the summon. Bottomless Trap Hole and Torrential Tribute let it happen, then destroy the monster. Either way, you lose the Synchro <b>and</b> the monsters you used to make it. That is two or more cards gone for one Trap.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Card</th><th>In decks</th><th>Banlist</th><th>Description</th></tr></thead><tbody>
 <tr><td>${c('judgment')}</td><td>73%</td><td>1</td><td>Pay half your LP to stop a summon, or a Spell or Trap, and destroy it.</td></tr>
 <tr><td>${c('bottomless')}</td><td>65%</td><td>2</td><td>When your opponent summons a monster with 1500 or more ATK, destroy it and banish it.</td></tr>
@@ -564,7 +564,7 @@ ${call('key','Set cards are a warning','<p>Every face-down Spell or Trap could b
 </ol>
 ${call('mistake','Common beginner mistakes','<ul><li>Making your best Synchro into 3 Set cards when you have Heavy Storm in hand.</li><li>Attacking with every monster into a Set card when one of them could run into Mirror Force.</li><li>Forgetting that Heavy Storm destroys your own Set cards too.</li></ul>')}
 <p>Edison 201 goes deeper on every one of these cards: <a href="#lesson-14">Lesson 14</a> covers the staple monsters, <a href="#lesson-15">Lesson 15</a> the Spells and <a href="#lesson-16">Lesson 16</a> the Traps.</p>
-<div class="recap"><h2>Recap</h2><ul><li>A staple is a card in deck after deck.</li><li>Spell and Trap removal: Mystical Space Typhoon, Heavy Storm, Dust Tornado.</li><li>Traps that stop attacks: Mirror Force, Dimensional Prison.</li><li>Traps that stop summons: Solemn Judgment, Bottomless Trap Hole, Torrential Tribute.</li><li>Answers to a big monster: Brain Control, Book of Moon.</li><li>Staple monsters: Cyber Dragon, D.D. Crow, Gorz, Sangan.</li><li>Before a big Synchro: count Set cards, clear them, bait them, and know the limits.</li></ul></div>`,
+<div class="recap"><h2>Recap</h2><ul><li>A staple is a card in deck after deck.</li><li>Spell and Trap removal: Mystical Space Typhoon, Heavy Storm, Dust Tornado.</li><li>Traps that stop attacks: Mirror Force, Dimensional Prison.</li><li>Traps that punish summons: Solemn Judgment, Bottomless Trap Hole, Torrential Tribute.</li><li>Answers to a big monster: Brain Control, Book of Moon.</li><li>Staple monsters: Cyber Dragon, D.D. Crow, Gorz, Sangan.</li><li>Before a big Synchro: count Set cards, clear them, bait them, and know the limits.</li></ul></div>`,
 flash:[
 ['What makes a card a staple?','It shows up in deck after deck, whatever the deck. On this site, a staple is in 25% or more of the 55 decks.'],
 ['Which card is in 98% of the decks on this site?','Mystical Space Typhoon.'],
@@ -590,7 +590,7 @@ html:`
 <p>The count covers your Main, Extra, and Side Deck together. Every other card in the pool is allowed at 3.</p>
 <h2>Famous cards that are gone</h2>
 <p>Many of the most famous cards in the game are Forbidden here. They were too strong, so you can't play them at all:</p>
-<ul><li><b>Draw and search:</b> Pot of Greed, Graceful Charity, Painful Choice, Delinquent Duo</li><li><b>Removal:</b> Raigeki, Dark Hole, Harpie's Feather Duster, Ring of Destruction</li><li><b>Steal and revive:</b> Snatch Steal, Change of Heart, Monster Reborn, Premature Burial, Confiscation</li><li><b>Monsters:</b> Black Luster Soldier, Chaos Emperor Dragon, Dark Magician of Chaos, Witch of the Black Forest, Magician of Faith, Tsukuyomi, Sinister Serpent, Yata-Garasu</li><li><b>Traps:</b> Imperial Order, Crush Card Virus</li></ul>
+<ul><li><b>Draw and search:</b> Pot of Greed, Graceful Charity, Painful Choice, Delinquent Duo</li><li><b>Removal:</b> Raigeki, Dark Hole, Harpie's Feather Duster, Ring of Destruction</li><li><b>Steal and revive:</b> Snatch Steal, Change of Heart, Monster Reborn, Premature Burial, Confiscation</li><li><b>Monsters:</b> Black Luster Soldier - Envoy of the Beginning, Chaos Emperor Dragon - Envoy of the End, Dark Magician of Chaos, Witch of the Black Forest, Magician of Faith, Tsukuyomi, Sinister Serpent, Yata-Garasu</li><li><b>Traps:</b> Imperial Order, Crush Card Virus</li></ul>
 <h2>Older cards you can still play</h2>
 <p>Plenty of well-known older cards are still legal, often at 1 copy: ${c('sangan')} (1), ${c('morphing')} (1), ${c('scapegoat')} (1), ${c('storm')} (1), ${c('mst')} (1), ${c('brain')} (1), ${c('mirror')} (1), ${c('torrential')} (1), ${c('call')} (1), ${c('judgment')} (1), ${c('oppression')} (2), ${c('breaker')} (3), ${c('moon')} (3), ${c('smashing')} (3), and ${c('nobleman')} (3).</p>
 <h2>Newer cards to watch</h2>
@@ -641,7 +641,7 @@ ${call('analogy','Think of it like this','<p>Each Gadget hands you the next one,
 <li><div><b>Turn 6, them.</b> ${c('lonefire')} Tributes a Fluff Token to summon their second Dandylion in Defense. With no Tuner, no Synchro. They set a card.</div></li>
 <li><div><b>Turn 7, you.</b> One set card and nothing to remove it, so bait. ${c('junk')} revives Plaguespreader. Junk Synchron + Red Gadget = 7, Black Rose Dragon. They answer with ${c('judgment')} and pay half their LP: 3500. Goyo attacks Lonefire (500 ATK): 2300 damage, 1200 LP, and Goyo takes Lonefire.</div></li>
 <li><div><b>Turn 8, them.</b> They set a monster and pass.</div></li>
-<li><div><b>Turn 9, you.</b> No set cards, so commit. Normal Summon Yellow Gadget (it adds Green Gadget). Plaguespreader + Yellow Gadget = 6, ${c('brionac')}. Use its effect right away: discard 2 cards and return both of their monsters to the hand. Dandylion goes to the hand, not the Graveyard, so no tokens. Goyo attacks directly for 2800. Game.</div></li>
+<li><div><b>Turn 9, you.</b> No set cards, so commit. Normal Summon Yellow Gadget (it adds Green Gadget). Plaguespreader + Yellow Gadget = 6, ${c('brionac')}. Use its effect right away: discard 3 cards and return all three of their monsters to the hand. Dandylion goes to the hand, not the Graveyard, so no tokens, and the Fluff Token just vanishes. Goyo attacks directly for 2800. Game.</div></li>
 </ol>
 ${call('key','How you won','<p>Mirror Force punished overextending. You cleared Bottomless before your big summon. Book of Moon stopped a Synchro. A bait Synchro drew out Solemn Judgment, and its cost put them in range. Brionac cleared the way for the final attack.</p>')}
 <h2>Practice without an opponent</h2>
@@ -680,7 +680,7 @@ html:`${skip}
 <h2>The three kinds of cards</h2>
 <p>You can tell them apart by the color of the frame.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Card type</th><th>Frame color</th><th>Description</th><th>Example</th></tr></thead><tbody>
-<tr><td>Monster</td><td>Yellow or orange</td><td>Attacks and defends on the field. Orange ones have an effect.</td><td>${c('sangan')}</td></tr>
+<tr><td>Monster</td><td>Yellow, orange, blue, purple or white</td><td>Attacks and defends on the field. Yellow is a Normal Monster, orange has an effect, blue is Ritual, purple is Fusion and white is Synchro.</td><td>${c('sangan')}</td></tr>
 <tr><td>Spell</td><td>Green</td><td>A one-time trick or a lasting bonus. Usually played on your own turn.</td><td>${c('mst')}</td></tr>
 <tr><td>Trap</td><td>Pink</td><td>A surprise. Set it face-down first, then spring it later, often on your opponent's turn.</td><td>${c('mirror')}</td></tr>
 </tbody></table></div>
@@ -702,7 +702,7 @@ flash:[
 ['Name the three ways to win.','Bring your opponent\'s LP to 0, they must draw from an empty Deck, or a card says you win (like Exodia).'],
 ['How big is a Main Deck?','40 to 60 cards. Most players use exactly 40.'],
 ['How many cards do you draw to start?','5.'],
-['What color frame does a Trap Card have?','Pink. Spells are green, and monsters are yellow or orange.'],
+['What color frame does a Trap Card have?','Pink. Spells are green, and monsters are yellow, orange, blue, purple or white.'],
 ['What does "remove from play" mean?','The same as "banish." The card goes to a separate pile, not the Graveyard.']
 ]});
 
@@ -750,7 +750,7 @@ flash:[
 ['Can the first player attack on turn 1?','No. They skip the Battle Phase on their first turn.'],
 ['What is the hand size limit?','6 cards. Discard down to 6 in your End Phase.'],
 ['Who can look at your Graveyard?','Both players. It is public.'],
-['In which phases can you summon monsters?','Main Phase 1 and Main Phase 2.']
+['In which phases can you Normal Summon or Flip Summon?','Main Phase 1 and Main Phase 2. Card effects can Special Summon in other phases too.']
 ]});
 
 B.push({n:'0.3',title:'Summoning Monsters',sub:'Normal Summon, Set, Tribute, Flip, and Special Summon.',min:8,
@@ -779,7 +779,7 @@ ${call('analogy','Think of it like this','<p>A big monster is an expensive purch
 <p>Once per turn, you can switch a monster's position. You cannot switch it the turn it was summoned, or after it attacked that turn.</p>
 <h2>Flip Summons</h2>
 <p>A Set (face-down) monster can be turned face-up into Attack Position. That is a <b>Flip Summon</b>. You cannot do it the turn you Set the monster. It does not use your Normal Summon.</p>
-<p>Some monsters have <b>FLIP</b> effects, like ${c('morphing')}. They work when the monster is flipped face-up, either by a Flip Summon or by being attacked while face-down.</p>
+<p>Some monsters have <b>FLIP</b> effects, like ${c('morphing')}. They work when the monster is flipped face-up, by a Flip Summon, by being attacked while face-down, or by a card effect.</p>
 <h2>Special Summons</h2>
 <p>A <b>Special Summon</b> is any summon that a card makes happen. There is <b>no limit</b> on how many you can do in a turn.</p>
 <ul><li>Some monsters summon themselves. ${c('cyberdragon')} can be Special Summoned from your hand if your opponent controls a monster and you control none.</li><li>Some cards bring monsters back from the Graveyard, or pull them from the Deck.</li></ul>
@@ -844,7 +844,7 @@ html:`${skip}
 <p>You can play a Spell from your hand in your Main Phase. You can also Set it face-down to use later. The small icon on the card tells you its kind.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Spell type</th><th>Description</th><th>Example</th></tr></thead><tbody>
 <tr><td>Normal</td><td>Does its thing once, then goes to the Graveyard.</td><td>${c('avarice')}</td></tr>
-<tr><td>Equip</td><td>Attaches to a monster and stays as long as that monster does.</td><td>${c('axe')}</td></tr>
+<tr><td>Equip</td><td>Attaches to a monster. It stays while that monster stays face-up on the field.</td><td>${c('axe')}</td></tr>
 <tr><td>Continuous</td><td>Stays on the field and keeps working.</td><td>${c('whirlwind')}</td></tr>
 <tr><td>Field</td><td>Goes in the Field Zone and changes the whole field.</td><td></td></tr>
 <tr><td>Ritual</td><td>Used to summon a Ritual Monster. Rare in Edison.</td><td></td></tr>
@@ -863,7 +863,7 @@ ${call('analogy','Think of it like this','<p>A Spell is a move you make. A Trap 
 <div class="tbl-wrap"><table><thead><tr><th>Effect type</th><th>When it works</th><th>Example</th></tr></thead><tbody>
 <tr><td>Continuous</td><td>Always on while the monster is face-up. Nothing to activate.</td><td>${c('marshmallon')} cannot be destroyed in battle</td></tr>
 <tr><td>Ignition</td><td>You choose to use it in your Main Phase.</td><td>${c('sorcerer')}</td></tr>
-<tr><td>Trigger</td><td>Happens when something specific happens.</td><td>${c('sangan')}, when it goes to the Graveyard</td></tr>
+<tr><td>Trigger</td><td>Happens when something specific happens.</td><td>${c('sangan')}, when it is sent from the field to the Graveyard</td></tr>
 <tr><td>Flip</td><td>Happens when the monster is flipped face-up.</td><td>${c('morphing')}</td></tr>
 <tr><td>Quick</td><td>Can be used on either player's turn, like a Trap.</td><td>${c('ddcrow')}</td></tr>
 </tbody></table></div>
@@ -877,7 +877,7 @@ flash:[
 ['Which kind of Spell can you use on your opponent\'s turn?','A Quick-Play Spell that you Set on an earlier turn.'],
 ['What happens to a Normal Spell after it resolves?','It goes to the Graveyard.'],
 ['What is the fastest kind of card?','Counter Traps.'],
-['Sangan\'s effect works when it goes to the Graveyard. What kind of effect is that?','A Trigger Effect.'],
+['Sangan\'s effect works when it is sent from the field to the Graveyard. What kind of effect is that?','A Trigger Effect.'],
 ['Your card is negated. Do you get its cost back?','No. The cost was paid when you activated it.']
 ]});
 
@@ -908,7 +908,7 @@ ${call('rule','Destroying a card does not stop it','<p>Once a Normal Spell or Tr
 <p>Example: your opponent activates ${c('storm')} (Speed 1). You can chain a set ${c('judgment')} (Speed 3) to negate it. Or you can chain a set Trap like ${c('call')} (Speed 2) to use it before Heavy Storm destroys it. You cannot chain Mirror Force, because nothing is attacking.</p>
 <h2>Priority: who acts first</h2>
 <p>The <b>turn player</b>, the one whose turn it is, always gets the first chance to act in each phase. After they do something, the opponent gets a chance to respond. Then it goes back and forth.</p>
-<p>In Edison there is one important extra: after you summon a monster, you can use its Ignition Effect before your opponent responds to the summon. Lesson 10 covers this in detail, along with "missing the timing" and the Damage Step.</p>
+<p>In Edison there is one important extra: once your monster is summoned, you can use its Ignition Effect before your opponent can respond. A card that negates the summon itself, like Solemn Judgment, still comes first. Lesson 10 covers this in detail, along with "missing the timing" and the Damage Step.</p>
 ${call('mistake','Common beginner mistakes','<ul><li>Resolving a Chain from the first link. Always start from the last one.</li><li>Trying to respond with a Normal Spell. Speed 1 cards cannot respond.</li><li>Answering a Counter Trap with a normal Trap. Only a Counter Trap can respond to a Counter Trap.</li></ul>')}
 <div class="recap"><h2>Recap</h2><ul><li>Responses stack up into a Chain.</li><li>A Chain resolves backwards: last in, first out.</li><li>Speed 1 starts Chains. Speed 2 and 3 can respond. Counter Traps are Speed 3.</li><li>The turn player acts first. You are ready for Edison 101.</li></ul></div>
 <p class="soon">You finished Step 0. Next: <a href="#lesson-1">Edison 101, Lesson 1</a>, where the 2010 format begins.</p>`,
@@ -979,7 +979,7 @@ const TERMS=[
 ['Synchro Material','The monsters you send to the Graveyard to Synchro Summon.'],
 ['Extra Deck','A separate pile of up to 15 Synchro and Fusion Monsters. You never draw from it.'],
 ['Token','A monster made by a card effect, with no real card. It vanishes when it leaves the field.'],
-['Properly summoned','A monster that was summoned the way its card requires. Only properly summoned Synchros can be revived from the Graveyard.'],
+['Properly summoned','A monster that was summoned the way its card requires. Synchro, Fusion and Ritual Monsters, and monsters like Dark Armed Dragon, can only be revived from the Graveyard if they were properly summoned first.'],
 ['Priority','After a summon that starts no Chain, the turn player can use an Ignition Effect before the opponent responds.'],
 ['SEGOC','Short for "Simultaneous Effects Go On Chain." The order used when several effects trigger at once.'],
 ['Missing the timing','An optional "When ... you can" effect that cannot activate because something else happened last.'],

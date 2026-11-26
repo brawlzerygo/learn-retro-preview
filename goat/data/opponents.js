@@ -74,7 +74,7 @@ decks: [
  wants:'Fill your hand, thin your Deck, then [[Card Destruction]] to make you draw from an empty Deck.',
  strong:['Plays a patient game better than other alternate-win decks.','Can win on its first turn with the right hand.','Most players don\'t know how to play against it.'],
  weak:['The combo is hard to put together.','A steady attacker puts it on a clock it can\'t stop.','No Traps to defend itself.'],
- expect:['[[Serial Spell]] copying [[Card Destruction]].','[[Reload]] and [[Spell Reproduction]] to find pieces.','[[Mind Control]] or [[Prohibition]] after game one.'],
+ expect:['[[Serial Spell]] copying [[Card Destruction]].','[[Reload]] and [[Spell Reproduction]] to find pieces.','[[Mind Control]] from game one, and [[Prohibition]] after it.'],
  beat:['Attack every turn: it has no Traps.','Side [[Spell Canceller]], [[Dark Balter the Terrible]] or [[Cursed Seal of the Forbidden Spell]] to stop its Spells.','Keep a goat lock (a monster plus four tokens) to block The Shallow Grave.'],
  avoid:['Letting it get to a long, quiet game.','Drawing extra cards for no reason: your Deck is its target.','Siding Trap removal: it plays no Traps.']},
 
