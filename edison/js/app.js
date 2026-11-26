@@ -1622,7 +1622,7 @@ function bindFilters(root,s,cb){
   root.querySelector('[data-reset]').onclick=()=>{Object.assign(s,blankFilter());root.querySelectorAll('[data-f]').forEach(el=>{el.value=s[el.dataset.f]});cb()};
 }
 const noData=()=>`<div class="read"><h1 style="font-size:30px">Card data did not load</h1><p>The card list lives in <code>data/cards.js</code>. Run <code>python3 build/build_data.py</code> to build it, then reload this page.</p></div>`;
-const srcNote=()=>`<p class="srcnote">Original data sourced from <a href="https://edisonformat.net" target="_blank" rel="noopener">edisonformat.net</a> and the <a href="https://github.com/MikaMikaDE/mikaRulings" target="_blank" rel="noopener">mikaRulings</a> project. Card text and images are © Konami.</p>`;
+const srcNote=()=>`<p class="srcnote">Original data sourced from <a href="https://edisonformat.net" target="_blank" rel="noopener">edisonformat.net</a>, the <a href="https://github.com/MikaMikaDE/mikaRulings" target="_blank" rel="noopener">mikaRulings</a> project, <a href="https://ygoprodeck.com" target="_blank" rel="noopener">YGOPRODeck</a>, <a href="https://yugipedia.com" target="_blank" rel="noopener">Yugipedia</a>, <a href="https://timewizzardrulings.vercel.app" target="_blank" rel="noopener">Time Wizard Rulings</a>, the Official Rulebook (version 7.0) and <a href="https://www.db.yugioh-card.com/" target="_blank" rel="noopener">Konami's official card database</a>. Card text and images are © Konami.</p>`;
 let SS=Object.assign(blankFilter(),store.get('search',{}));
 let PAGE=1,PER=[25,50,100].includes(store.get('searchper',25))?store.get('searchper',25):25;
 function renderSearch(){
