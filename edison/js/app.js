@@ -1737,7 +1737,7 @@ window.addEventListener('scroll',closeMenus,{passive:true});
 (function(){
   const btn=document.getElementById('mburger'),nav=document.getElementById('mnav');if(!btn||!nav)return;
   nav.innerHTML=`<a class="mhome" href="./">Home</a>`+[...document.querySelectorAll('.ndrop-btn')].map(b=>{const m=document.getElementById(b.dataset.menu);
-    return `<section><h5>${b.textContent.replace('▾','').trim()}</h5>${[...m.querySelectorAll('a')].map(a=>`<a href="${a.getAttribute('href')}">${a.firstChild.textContent.trim()}<small>${a.querySelector('small')?.textContent||''}</small></a>`).join('')}</section>`}).join('')+`<section class="msoc"><h5>Follow Learn Retro</h5>${document.querySelector('.hsoc').innerHTML.replace(/aria-label="Learn Retro on (\w+)"([^>]*)>([\s\S]*?)<\/a>/g,'aria-label="Learn Retro on $1"$2>$3<span>$1</span></a>')}</section>`;
+    return `<section><h5>${b.textContent.replace('▾','').trim()}</h5>${[...m.querySelectorAll('a')].map(a=>`<a href="${a.getAttribute('href')}">${a.firstChild.textContent.trim()}</a>`).join('')}</section>`}).join('')+`<section class="msoc"><h5>Follow Learn Retro</h5>${document.querySelector('.hsoc').innerHTML.replace(/aria-label="Learn Retro on (\w+)"([^>]*)>([\s\S]*?)<\/a>/g,'aria-label="Learn Retro on $1"$2>$3<span>$1</span></a>')}</section>`;
   const top=document.querySelector('header.top');
   const set=o=>{if(o)nav.style.setProperty('--mtop',Math.max(0,top.getBoundingClientRect().bottom)+'px');document.documentElement.classList.toggle('mnav-open',o);nav.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'Close menu':'Open menu');btn.classList.toggle('open',o)};
   btn.onclick=e=>{e.stopPropagation();set(nav.hidden)};

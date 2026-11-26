@@ -130,6 +130,7 @@ function detach(g, c) {
 function snap(g, c) { return { name: name(c), atk: onField(c) ? stat(g, c, 'atk') : baseAtk(c), def: onField(c) ? stat(g, c, 'def') : num(D(c).def), attr: attr(c), lv: lv(c), race: race(c), pos: c.pos, ctrl: c.ctrl, faceUp: faceUp(c), mon: isMon(c), flags: c.flags }; }
 /* Move a card. to: hand, deck (shuffled in), deckTop, gy, ban, extra, m, st, fz. o: {reason, by (player), destroyed, battle, killer, ctrl, pos, zi, group, faceDown} */
 function move(g, c, to, o = {}) {
+  if (to === 'hand' && !o._hw) { const r = move(g, c, to, { ...o, _hw: true }); handWin(g, c.owner); return r; }
   const from = c.zone, wasField = onField(c), s = wasField ? snap(g, c) : null, prevCtrl = c.ctrl;
   if (from === 'gone') return null;
   if (wasField && c.flags.banishOnLeave && to !== 'ban' && to !== 'm') to = 'ban';
@@ -229,6 +230,13 @@ function damage(g, p, n, o = {}) {
   emit(g, { type: 'damage', p, n, battle: !!o.battle, src: o.src, srcP: o.srcP, direct: !!o.direct });
   checkLP(g); return n;
 }
+// a card that wins the duel (Exodia, Destiny Board): p wins, why says how (Classic cards, 2026-11-25)
+// "you win when you have all of these in your hand": a script's self.handWin(g, c, p) on any card in that hand
+function handWin(g, p) { if (g.p[p].lp <= 0) return; for (const x of g.p[p].hand) { const sc = SC(x); if (sc && sc.self && sc.self.handWin && sc.self.handWin(g, x, p)) winDuel(g, p, `${PN(g, p)} won with ${D(x).n}`); } }
+function winDuel(g, p, why) { g.winner = p; g.why = why; log(g, why + '.'); throw new Over(); }
+// coin tosses and dice rolls, from the duel's own seeded random (replays and the computer's copies stay the same)
+function coin(g, p) { const h = g.rnd() < 0.5; log(g, `${PN(g, p)} tossed a coin: ${h ? 'Heads' : 'Tails'}.`); return h; }
+function dice(g, p) { const n = 1 + Math.floor(g.rnd() * 6); log(g, `${PN(g, p)} rolled a ${n}.`); return n; }
 function gain(g, p, n) { if (n <= 0) return; g.p[p].lp += n; log(g, `${PN(g, p)} gained ${n} LP.`); }
 function pay(g, p, n) { g.p[p].lp -= n; log(g, `${PN(g, p)} paid ${n} LP.`); }
 function draw(g, p, n = 1) {
@@ -343,7 +351,8 @@ function canNormal(c) { const d = D(c); if (!isMonD(d) || isExtraD(d) || d.k ===
 function tribNeed(g, p, c) { // [standard, alternatives...]
   const L = lv(c), need = L >= 7 ? 2 : L >= 5 ? 1 : 0, n = D(c).n, oppHas = monsOf(g, 1 - p).length > 0;
   const alts = [need];
-  const sc0 = SC(c); if (sc0 && sc0.self && sc0.self.tributes) for (const n2 of [].concat(sc0.self.tributes(g, c, p) || [])) alts.push(n2);
+  const sc0 = SC(c); if (sc0 && sc0.self && sc0.self.tribExact) return [sc0.self.tribExact];
+  if (sc0 && sc0.self && sc0.self.tributes) for (const n2 of [].concat(sc0.self.tributes(g, c, p) || [])) alts.push(n2);
   for (const [s, ct] of statics(g)) if (ct.tributes) { const n2 = ct.tributes(g, s, c, p, need); if (n2 != null) alts.push(n2); }
   if (n === 'Blackwing - Sirocco the Dawn' && !monsOf(g, p).length && oppHas) alts.push(0);
   if (n === 'Evil HERO Malicious Edge' && oppHas) alts.push(1);
@@ -716,6 +725,7 @@ function canAttack(g, c) {
   const mx = selfFn(g, c, 'maxAttacks');
   if (c.ctrl !== g.tp || c.pos !== 'atk' || c.attacks >= (mx ? mx(g, c) : c.flags.maxAttacks && c.flags.maxAttacksTurn === g.turnNo ? c.flags.maxAttacks : c.flags.extraAttack && c.flags.extraAttack === g.turnNo ? 2 : 1)) return false;
   if (has(g, c, 'cantAttack') || forbid(g, { type: 'attack', c })) return false;
+  { const ac = selfFn(g, c, 'attackCost'); if (ac && g.p[c.ctrl].lp <= ac(g, c)) return false; }
   if (g.onlyAttacker[g.tp] && g.onlyAttacker[g.tp] !== c.u) return false;
   return true;
 }
@@ -755,6 +765,7 @@ function* battlePhase(g) {
 function* attack(g, a, t) {
   const tp = g.tp, op = 1 - tp;
   for (let replay = 0; replay < 4; replay++) {
+    if (!replay) { const ac = selfFn(g, a, 'attackCost'); if (ac) pay(g, tp, ac(g, a)); }
     a.attacks++; a.declared = true;
     log(g, `${name(a)} attacks ${t ? (t.pos === 'set' ? 'a face-down monster' : name(t)) : 'directly'}.`);
     const before = monsOf(g, op).length; beginOp(g);
@@ -1212,7 +1223,7 @@ E.lib = {
   equip, equippedTo, link, addCtr, ctr, negateAttack, endBattle, addRule, token, tokens, fusionSummon, canFusion, fusionRecipe, ritualSummon, canRitual,
   stat, atk: (g, c) => stat(g, c, 'atk'), def: (g, c) => stat(g, c, 'def'), name, D, isMon, isMonD, isST, isSpell, isTrap, isExtraD, onField, faceUp, attr, race, lv, baseAtk,
   monsOf, stOf, fieldOf, allField, fieldMons, freeM, freeST, nFreeM, allCards, shuffleDeck, log, PN, has, forbid, negd, num, shown, emit, beginOp,
-  isBW, isFrog, isHERO, isEHERO, isGemini, evSummoned, fromFieldToGY, battleKill, oppFaceUp, stOnField, spellTrapAct, live, opp, tributeCands, synCombos,
+  winDuel, coin, dice, isBW, isFrog, isHERO, isEHERO, isGemini, evSummoned, fromFieldToGY, battleKill, oppFaceUp, stOnField, spellTrapAct, live, opp, tributeCands, synCombos,
 };
 E.lib.tgt = tgt;
 E.addScripts = (obj, format) => { const into = format && format !== 'edison' ? (FSCRIPTS[format] || (FSCRIPTS[format] = {})) : SCRIPTS; for (const k in obj) into[k] = obj[k]; };
