@@ -231,7 +231,7 @@ ${call('analogy', 'Think of it like this', `<p>Restrict is a wall that also stea
 </tbody></table></div>
 <h2>Answering them</h2>
 <ul>
-<li>Removal that doesn't use battle: Ring of Destruction, Sakuretsu Armor, Snatch Steal, Book of Moon.</li>
+<li>Answers outside of battle: Ring of Destruction, Snatch Steal and Book of Moon. Sakuretsu Armor only works when a monster declares an attack.</li>
 <li>Book of Moon on Restrict turns it face-down, which ends the lock and drops the stolen monster to the Graveyard.</li>
 <li>Black Luster Soldier and Chaos Sorcerer need a LIGHT and a DARK in the Graveyard. Cards that remove monsters from the Graveyard, like ${cn('Kycoo the Ghost Destroyer')}, slow them down.</li>
 </ul>

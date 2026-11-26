@@ -133,7 +133,7 @@ ${src([GF('goat-control.html', 'goatformat.com, Goat Control guide'), YPD])}`,
       ['What does Asura Priest do?', 'It can attack each monster your opponent controls once, which clears tokens.'],
       ['What happens to a Spirit monster at the end of the turn it was Normal Summoned?', 'It returns to your hand.'],
       ['When should Goat Control use Scapegoat?', 'On the opponent’s turn, ideally in their End Phase.'],
-      ['Name two ways to remove Thousand-Eyes Restrict without battle.', 'Book of Moon and Ring of Destruction (also Snatch Steal or Sakuretsu Armor when it attacks).']
+      ['Name two ways to remove Thousand-Eyes Restrict without battle.', 'Book of Moon and Ring of Destruction (Snatch Steal works too).']
     ]
   },
   {
