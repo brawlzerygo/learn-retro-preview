@@ -1622,7 +1622,7 @@ function bindFilters(root,s,cb){
   root.querySelector('[data-reset]').onclick=()=>{Object.assign(s,blankFilter());root.querySelectorAll('[data-f]').forEach(el=>{el.value=s[el.dataset.f]});cb()};
 }
 const noData=()=>`<div class="read"><h1 style="font-size:30px">Card data did not load</h1><p>The card list lives in <code>data/cards.js</code>. Run <code>python3 build/build_data.py</code> to build it, then reload this page.</p></div>`;
-const srcNote=()=>`<p class="srcnote">Card data, Edison text, rulings, art and starter decks come from <a href="https://edisonformat.net" target="_blank" rel="noopener">edisonformat.net</a> and the <a href="https://github.com/MikaMikaDE/mikaRulings" target="_blank" rel="noopener">mikaRulings</a> project${window.EDISON_META?`, copied ${window.EDISON_META.built}`:''}. Card text and images are © Konami.</p>`;
+const srcNote=()=>`<p class="srcnote">Original data sourced from <a href="https://edisonformat.net" target="_blank" rel="noopener">edisonformat.net</a> and the <a href="https://github.com/MikaMikaDE/mikaRulings" target="_blank" rel="noopener">mikaRulings</a> project. Card text and images are © Konami.</p>`;
 let SS=Object.assign(blankFilter(),store.get('search',{}));
 let PAGE=1,PER=[25,50,100].includes(store.get('searchper',25))?store.get('searchper',25):25;
 function renderSearch(){
@@ -1900,7 +1900,7 @@ function renderBanlist(){
 
 // The rules articles on edisonformat.net, linked rather than copied.
 const RULE_TOPICS=['Frequently-Asked-Questions','Does-this-card-Target','Substep-Triggers','Ryko','Major-Rulings','Battle-Phase','Both-Those-Them','Conjunctions','Damage-Step','Damage-Substeps','First-Turn-Draw','Ignition-Priority','Missing-the-Timing','Priority','SEGOC-And-Early-Trigger','Minor-Rulings','Changing-Control','End-of-Turn-Discard','Paying-Life-Points','Phase-Triggers','Prohibition','Single-Field-Spell','Trigger-Locations','Union-Monsters','Gemini-Monsters','Zero-ATK-monsters'];
-let RULQ='',rulShown=40;
+let RULQ='',RPAGE=1;
 function renderRulings(){
   if(!DB.length){app.innerHTML=noData();return}
   const withR=DB.filter(r=>r.ru);
@@ -1908,14 +1908,21 @@ function renderRulings(){
     <input type="search" id="rulq" placeholder="Search rulings" aria-label="Search rulings" value="${esc(RULQ)}" style="min-width:min(240px,100%)"></div>
     <section class="sbox" style="margin-top:14px"><h4>Rules topics on edisonformat.net</h4><p class="note" style="margin:0">Longer write-ups on how the 2010 rules work. Lesson 10 covers the basics of priority, triggers and the Damage Step.</p>
       <div class="topics">${RULE_TOPICS.map(t=>`<a href="https://edisonformat.net/rules/compendium/${t}" target="_blank" rel="noopener">${t.replace(/-/g,' ')} ↗</a>`).join('')}</div></section>
-    <div class="rcount" id="rulc" style="margin-top:16px"></div><div class="rgrid" id="rulbody"></div><div id="rulmore" style="text-align:center;margin-top:16px"></div>${srcNote()}`;
-  const draw=()=>{const q=RULQ.toLowerCase();
+    <div class="pager" id="rpgtop" style="margin-top:16px"></div><div class="rgrid" id="rulbody"></div><div class="pager" id="rpgbot"></div>${srcNote()}`;
+  // Pages like Card search (2026-11-26): 25, 50 or 100 at a time, the same per-page choice, pager above and below.
+  const draw=scroll=>{const q=RULQ.toLowerCase();
     const list=withR.filter(r=>!q||r.n.toLowerCase().includes(q)||r.ru.toLowerCase().includes(q)).sort((a,b)=>{const an=a.n.toLowerCase().includes(q),bn=b.n.toLowerCase().includes(q);return (bn-an)||a.n.localeCompare(b.n)});
-    document.getElementById('rulc').textContent=`${list.length.toLocaleString()} card${list.length===1?'':'s'}`;
-    document.getElementById('rulbody').innerHTML=list.slice(0,rulShown).map(r=>`<div class="rcard"><img loading="lazy" src="${artURL(r)}" alt="" data-rid="${r.id}"><div><h3><button type="button" data-rid="${r.id}">${esc(r.n)}</button>${r.b?` <span class="badge b-${r.b}">${r.b}</span>`:''}</h3><p class="rul">${esc(r.ru)}</p></div></div>`).join('')||'<p class="note">No rulings match.</p>';
-    const more=document.getElementById('rulmore');more.innerHTML=list.length>rulShown?`<button class="btn">Show more (${(list.length-rulShown).toLocaleString()} left)</button>`:'';
-    if(more.firstChild)more.firstChild.onclick=()=>{rulShown+=40;draw()}};
-  document.getElementById('rulq').oninput=e=>{RULQ=e.target.value;rulShown=40;draw()};draw();
+    const pages=Math.max(1,Math.ceil(list.length/PER));RPAGE=Math.min(Math.max(1,RPAGE),pages);const from=(RPAGE-1)*PER;
+    document.getElementById('rulbody').innerHTML=list.slice(from,from+PER).map(r=>`<div class="rcard"><img loading="lazy" src="${artURL(r)}" alt="" data-rid="${r.id}"><div><h3><button type="button" data-rid="${r.id}">${esc(r.n)}</button>${r.b?` <span class="badge b-${r.b}">${r.b}</span>`:''}</h3><p class="rul">${esc(r.ru)}</p></div></div>`).join('')||'<p class="note">No rulings match.</p>';
+    const nums=[];for(let p=1;p<=pages;p++){if(p===1||p===pages||Math.abs(p-RPAGE)<=2)nums.push(p);else if(nums[nums.length-1]!=='…')nums.push('…')}
+    const pager=`<span class="rcount">${list.length?`${(from+1).toLocaleString()}–${Math.min(from+PER,list.length).toLocaleString()} of ${list.length.toLocaleString()} cards`:'0 cards'}</span>
+    <span class="pgnums">${pages>1?`<button class="btn small" data-pg="${RPAGE-1}" ${RPAGE===1?'disabled':''} aria-label="Previous page">‹ Prev</button>${nums.map(p=>p==='…'?'<span class="pgdots">…</span>':`<button class="btn small ${p===RPAGE?'primary':''}" data-pg="${p}" ${p===RPAGE?'aria-current="page"':''}>${p}</button>`).join('')}<button class="btn small" data-pg="${RPAGE+1}" ${RPAGE===pages?'disabled':''} aria-label="Next page">Next ›</button>`:''}</span>
+    <label class="pgper">Show <select data-per aria-label="Cards per page">${[25,50,100].map(n=>`<option ${n===PER?'selected':''}>${n}</option>`).join('')}</select></label>`;
+    ['rpgtop','rpgbot'].forEach(id=>{const el=document.getElementById(id);el.innerHTML=pager;
+      el.querySelectorAll('[data-pg]').forEach(b=>b.onclick=()=>{RPAGE=+b.dataset.pg;draw(id==='rpgbot')});
+      el.querySelector('[data-per]').onchange=e=>{PER=+e.target.value;store.set('searchper',PER);RPAGE=1;draw()}});
+    if(scroll)document.getElementById('rpgtop').scrollIntoView({block:'start'})};
+  document.getElementById('rulq').oninput=e=>{RULQ=e.target.value;RPAGE=1;draw()};draw();
 }
 
 function renderErrata(){
