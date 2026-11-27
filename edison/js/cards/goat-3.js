@@ -88,7 +88,8 @@ E.addScripts({
   'Berserk Gorilla': { effs: [{ type: 'trig', mand: true, label: 'Destroy itself (face-up Defense Position)',
     on: (g, ev, c) => faceUp(c) && c.pos === 'def',
     res: function* (g, c, p) { if (onField(c) && faceUp(c) && c.pos === 'def') destroy(g, [c], { by: p, src: c }); } }] },
-  'Ryu Kokki': { effs: [{ type: 'trig', mand: true, tags: { destroy: 1 }, label: 'Destroy the Warrior or Spellcaster',
+  // loc 'any': it still destroys the monster it battled when Kokki itself was destroyed in that battle (2026-11-26 review)
+  'Ryu Kokki': { effs: [{ type: 'trig', loc: 'any', mand: true, tags: { destroy: 1 }, label: 'Destroy the Warrior or Spellcaster',
     on: (g, ev, c) => ev.type === 'dsEnd' && (ev.a === c || ev.t === c) && (() => { const o = ev.a === c ? ev.t : ev.a; return !!o && onField(o) && ['Warrior', 'Spellcaster'].includes(race(o)); })(),
     res: function* (g, c, p, L2) { killFoe(g, c, p, L2.ev.a === c ? L2.ev.t : L2.ev.a); } }] },
   // PARTIAL: the engine has no window during damage calculation, so Lily is used in the Damage Step windows of its battle

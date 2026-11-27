@@ -26,7 +26,9 @@ let CARDLIST = [];
 E.init = (cards, opts = {}) => {
   FMT = opts.format || 'edison'; CARDLIST = cards;
   DATA = new Map(); BYNAME = new Map();
-  for (const c of cards) { DATA.set(c.id, c); BYNAME.set(c.n, c); }
+  // edisonformat.net puts a placeholder ("No Edison-Accurate PSCT available...", "No rulings...") in ps for most cards: drop it, so every
+  // reader (Fusion and Synchro materials, summon rules, card scripts) falls back to the real text in tx (2026-11-26)
+  for (const c of cards) { if (c.ps && /^No (Edison-Accurate|rulings)/.test(c.ps)) delete c.ps; DATA.set(c.id, c); BYNAME.set(c.n, c); }
   for (const t of TOKENS) { DATA.set(t.id, t); BYNAME.set(t.n, t); }
 };
 const TOKENS = [
@@ -46,6 +48,12 @@ const isMon = c => isMonD(D(c));
 const onField = c => c.zone === 'm' || c.zone === 'st' || c.zone === 'fz';
 const faceUp = c => onField(c) && c.pos !== 'set';
 const SC = c => (FMT !== 'edison' && FSCRIPTS[FMT] && FSCRIPTS[FMT][D(c).n]) || SCRIPTS[D(c).n] || null;
+const scByName = n => (FMT !== 'edison' && FSCRIPTS[FMT] && FSCRIPTS[FMT][n]) || SCRIPTS[n] || null;
+/* a card's effects: its own, plus the monster effects it copied (c.flags.copyEffs = a card name: Phantom of Chaos and the like,
+   2026-11-26: a launch report found Phantom of Chaos couldn't use Sky Scourge Norleras's effect). Copied effects work from the
+   field only and keep their own conditions; summon rules and continuous effects aren't copied. */
+const effsOf = c => { const sc = SC(c), own = (sc && sc.effs) || []; const n = c && c.flags && c.flags.copyEffs; if (!n) return own;
+  const cs = scByName(n); const cp = ((cs && cs.effs) || []).filter(e => e.type !== 'act' && (e.loc || 'm') === 'm'); return cp.length ? own.concat(cp) : own; };
 function name(c) { const d = D(c); if (onField(c) && faceUp(c)) { if (d.n === 'Dupe Frog' && !c.flags.negated) return 'Des Frog'; } return d.n; }
 const isBW = c => /^Blackwing/.test(name(c));
 const isFrog = c => /Frog/.test(name(c));
@@ -69,7 +77,11 @@ function statics(g) {
   for (const c of allField(g)) { if (!faceUp(c)) continue; const sc = SC(c); if (sc && sc.cont && !sc.cont.loc && !(isMon(c) && c.flags.negated)) out.push([c, sc.cont]); }
   for (const P of g.p) for (const z of ['gy', 'hand']) for (const c of P[z]) { const sc = SC(c); if (sc && sc.cont && sc.cont.loc === z) out.push([c, sc.cont]); }
   g._st = { seq: g.seq, turn: g.turnNo, list: out };
-  return out;
+  // a face-up Spell/Trap whose effects are negated (Jinzo on Traps, flags.negated) stops applying its lasting effect too
+  // (2026-11-26: Gravity Bind still stopped attacks under Jinzo). The unfiltered list is cached first, so negates() can read it.
+  const live = out.filter(([c]) => !(onField(c) && (c.flags.negated || out.some(([s2, ct]) => s2 !== c && ct.negates && ct.negates(g, s2, c)))));   // monsters too (Gora Turtle under Gorgon's Eye)
+  g._st.list = live;
+  return live;
 }
 let NEGDEPTH = 0;
 function negd(g, c) { // is this card's effect negated right now?
@@ -184,8 +196,8 @@ function emit(g, ev, group) {
   for (const P of g.p) for (const z of ['m', 'st', 'fz', 'hand', 'gy', 'ban', 'deck', 'extra']) {
     const arr = z === 'fz' ? (P.fz ? [P.fz] : []) : P[z]; if (!arr) continue;
     for (const c of arr) {
-      if (!c) continue; const sc = SC(c); if (!sc || !sc.effs) continue;
-      sc.effs.forEach((eff, ei) => {
+      if (!c) continue; const es = effsOf(c); if (!es.length) continue;
+      es.forEach((eff, ei) => {
         if (eff.type !== 'trig') return;
         const loc = eff.loc || 'm';
         if (loc === 'any' ? false : loc === 'm' ? c.zone !== 'm' || !faceUp(c) && !eff.faceDownOk : loc !== c.zone || ((loc === 'st' || loc === 'fz') && !faceUp(c))) return;
@@ -263,10 +275,15 @@ function destroy(g, cards, o = {}) {
     if (o.battle && cantBattleDestroy(g, c)) continue;
     if (!o.battle && !o.rule && faceUp(c) && has(g, c, 'noEffectDestroy')) continue;
     if (replaced(g, c, o)) continue;
-    if (!o.battle && o.src && faceUp(c) && isST(o.src) && has(g, c, isSpell(o.src) ? 'unaffectedSpells' : 'unaffectedTraps')) continue;
-    move(g, c, o.banish ? 'ban' : 'gy', { reason: o.battle ? 'battle' : 'effect', destroyed: true, battle: !!o.battle, killer: o.killer, by: o.by, group, noLater: true });
+    // the card doing the destroying: the script's src, else the chain link resolving now (2026-11-26: Mirror Force passed no src,
+    // so "unaffected by Traps" monsters like Wildheart were still destroyed)
+    const src = o.src || (!o.battle && !o.rule && g.resolvingL ? g.resolvingL.c : null);
+    if (!o.battle && src && faceUp(c) && isST(src) && has(g, c, isSpell(src) ? 'unaffectedSpells' : 'unaffectedTraps')) continue;
     out.push(c);
   }
+  // cards destroyed together leave together: every protection is checked first, while all of them are still on the field
+  // (2026-11-26: a Dark Hole that removed The Lady in Wight or Orichalcos Shunoros first also destroyed what they protect)
+  for (const c of out) move(g, c, o.banish ? 'ban' : 'gy', { reason: o.battle ? 'battle' : 'effect', destroyed: true, battle: !!o.battle, killer: o.killer, by: o.by, group, noLater: true });
   flushLater(g, group);
   if (out.length && !o.quietLog) log(g, `${out.map(x => x.snapName || name(x)).join(', ')} ${out.length > 1 ? 'were' : 'was'} destroyed${o.banish ? ' and banished' : ''}.`);
   return out;
@@ -285,6 +302,18 @@ function cantBattleDestroy(g, c) {
   if (isBW(c) && g.tp !== c.ctrl && !g.silverwindUsed[c.ctrl] && monsOf(g, c.ctrl).some(x => faceUp(x) && D(x).n === 'Blackwing - Silverwind the Ascendant' && !x.flags.negated)) { g.silverwindUsed[c.ctrl] = true; return true; }
   return false;
 }
+/* Position choice (2026-11-27, a player report: "you can't choose the position of the monster you are Special Summoning"): with cfg.askPos
+ (the play client), a monster Special Summoned by an effect whose text names no position asks its controller Attack or Defense once the
+ effect has resolved (askPositions), and inherent Special Summons (contact Fusion, a summon from the hand) ask before they happen, like
+ Synchro Summons always have. Off by default, so tests and the Edison site's duel play as before. */
+const POS_RE = /Attack Position|Defense Position|face-down|face-up Defense|in Defense|in Attack/i;
+function askPosFor(g) { const L = g.resolvingL; if (!g.cfg.askPos || !L) return false; const d = D(L.c); return !POS_RE.test(d.ps || d.tx || ''); }
+function* askPositions(g) {
+  const q = g.posAsk; g.posAsk = null; if (!q) return;
+  for (const { c, p } of q) { if (c.zone !== 'm' || c.pos !== 'atk' || c.ctrl !== p) continue;
+    const i = yield* choose(g, p, `${name(c)}: which position?`, ['Attack Position', 'Defense Position']);
+    if (i) { c.pos = 'def'; log(g, `${PN(g, p)} put ${name(c)} in Defense Position.`); } }
+}
 function ss(g, p, c, pos = 'atk', o = {}) { // Special Summon by an effect (no negation window of its own)
   const zi = freeM(g, p); if (zi < 0) return false;
   if (forbid(g, { type: 'ss', c, p, how: o.how || 'special' })) { log(g, `${name(c)} can\u2019t be Special Summoned right now.`); return false; }
@@ -292,6 +321,7 @@ function ss(g, p, c, pos = 'atk', o = {}) { // Special Summon by an effect (no n
   c.summonType = o.how || 'special'; c.attacks = 0;
   if (o.negate) c.flags.negated = true;
   if (o.banishOnLeave) c.flags.banishOnLeave = true;
+  if (pos === 'atk' && askPosFor(g)) (g.posAsk = g.posAsk || []).push({ c, p });
   log(g, `${PN(g, p)} Special Summoned ${pos === 'set' ? 'a monster face-down' : name(c)}${pos === 'def' ? ' in Defense Position' : ''}.`);
   const ev = emit(g, { type: 'summon', cs: [c], how: o.how || 'special', p, byEffect: true }, o.group);
   g.sw = { cs: [c], p, how: o.how || 'special', group: ev.group };
@@ -347,7 +377,15 @@ function cfCombos(g, p, fx) { // contact fusions: Chimeratech Fortress Dragon, S
   }
   return [];
 }
-function canNormal(c) { const d = D(c); if (!isMonD(d) || isExtraD(d) || d.k === 'token' || d.k === 'ritual') return false; const t = d.ps || d.tx || ''; if (/Cannot be Normal Summoned/i.test(t)) return false; return true; }
+/* Can it be Normal Summoned (kind 'ns') or Set ('set') from the hand? (2026-11-26: "Cannot be Normal Summoned" was read as a full ban,
+   so Cave Dragon could never be summoned and Mystic Swordsman LV4/LV6 couldn't be Set.) */
+function canNormal(c, kind, g, p) { const d = D(c); if (!isMonD(d) || isExtraD(d) || d.k === 'token' || d.k === 'ritual') return false; const t = d.ps || d.tx || '';
+  if (!/Cannot be Normal Summoned/i.test(t)) return true;
+  if (/Cannot be Normal Summoned\s*\(but can be Normal Set\)/i.test(t)) return kind === 'set';
+  if (/Cannot be Normal Summoned while you control a monster/i.test(t)) return kind === 'set' || !g || !monsOf(g, p).length;   // Cave Dragon: the ruling allows the Set
+  // Terrorking Archfiend: "unless you have an Archfiend Monster Card on your side of the field" (a Set is allowed either way)
+  if (/Cannot be Normal Summoned or Flip Summoned unless you have an Archfiend/i.test(t)) return kind === 'set' || !g || monsOf(g, p).some(x => faceUp(x) && /Archfiend/.test(name(x)));
+  return false; }
 function tribNeed(g, p, c) { // [standard, alternatives...]
   const L = lv(c), need = L >= 7 ? 2 : L >= 5 ? 1 : 0, n = D(c).n, oppHas = monsOf(g, 1 - p).length > 0;
   const alts = [need];
@@ -377,6 +415,8 @@ function usable(g, p, c, eff, ei, mode) {
   const d = D(c), top = g.chain[g.chain.length - 1], sp = speedOf(c, eff);
   const holder = onField(c) ? c.ctrl : c.owner;
   if (!eff.anyPlayer && holder !== p) return false;
+  // the same effect of the same card can't be activated twice in one chain (2026-11-26: Toon Defense and Winged Kuriboh LV9 could chain to themselves)
+  if (g.chain.some(L => L.c === c && L.eff === eff)) return false;
   if (eff.anyPlayer && !(onField(c) && faceUp(c))) return false;
   if (eff.opt && c.used[ei] === g.turnNo) return false;
   if (top) { if (sp < 2 || sp < top.speed) return false; }
@@ -410,10 +450,10 @@ function usable(g, p, c, eff, ei, mode) {
 function activatable(g, p, mode) {
   const out = [];
   const seen = new Set();
-  const consider = (c) => { if (!c || seen.has(c.u)) return; seen.add(c.u); const sc = SC(c); if (!sc || !sc.effs) return; sc.effs.forEach((eff, ei) => { if (usable(g, p, c, eff, ei, mode)) out.push({ c, eff, ei }); }); };
+  const consider = (c) => { if (!c || seen.has(c.u)) return; seen.add(c.u); const es = effsOf(c); if (!es.length) return; es.forEach((eff, ei) => { if (usable(g, p, c, eff, ei, mode)) out.push({ c, eff, ei }); }); };
   const P = g.p[p];
   P.hand.forEach(consider); P.st.forEach(consider); P.m.forEach(consider); P.gy.forEach(consider); if (P.fz) consider(P.fz); P.ban.forEach(consider);
-  for (const x of [...g.p[1 - p].st, ...g.p[p].st, g.p[1 - p].fz, g.p[p].fz]) if (x && faceUp(x) && SC(x) && SC(x).effs && SC(x).effs.some(e => e.anyPlayer)) { seen.delete(x.u); consider(x); }
+  for (const x of [...g.p[1 - p].st, ...g.p[p].st, g.p[1 - p].fz, g.p[p].fz]) if (x && faceUp(x) && effsOf(x).some(e => e.anyPlayer)) { seen.delete(x.u); consider(x); }
   return out;
 }
 function actLabel(g, a) { const sc = SC(a.c); const lab = a.eff.label || (a.eff.type === 'act' ? (a.c.zone === 'hand' || a.c.pos === 'set' ? 'Activate' : 'Activate') : 'Use effect'); return `${lab}: ${name(a.c)}`; }
@@ -423,7 +463,7 @@ function* activate(g, p, c, eff, ei) {
   const d = D(c);
   const L = { c, eff, ei, p, speed: speedOf(c, eff), t: [], data: {}, negated: false, cardAct: eff.type === 'act', tags: eff.tags || {}, link: g.chain.length + 1 };
   if (eff.type === 'act') {
-    if (c.zone === 'hand') { if (d.sub === 'Field') { if (g.p[p].fz) move(g, g.p[p].fz, 'gy', { reason: 'rule' }); move(g, c, 'fz', { ctrl: p, pos: 'up', reason: 'activate' }); } else move(g, c, 'st', { ctrl: p, pos: 'up', reason: 'activate' }); }
+    if (c.zone === 'hand') { if (d.sub === 'Field') { if (g.p[p].fz) { destroy(g, [g.p[p].fz], { rule: true, by: p }); const sw = g.sw; beginOp(g); g.sw = sw; } move(g, c, 'fz', { ctrl: p, pos: 'up', reason: 'activate' }); } else move(g, c, 'st', { ctrl: p, pos: 'up', reason: 'activate' }); }
     else { c.pos = 'up'; g.seq++; }
   }
   c.used[ei] = g.turnNo;
@@ -455,7 +495,7 @@ function* resolveChain(g) {
       const d = D(L.c);
       const stillThere = L.eff.type !== 'act' || onField(L.c) || !['Continuous', 'Equip', 'Field'].includes(d.sub);
       const monGone = isMonD(d) && L.eff.type !== 'trig' && L.eff.needsSelf && !onField(L.c);
-      if (stillThere && !monGone && !(isMonD(d) && onField(L.c) && negd(g, L.c) && L.eff.loc !== 'gy' && L.eff.loc !== 'hand')) yield* L.eff.res(g, L.c, L.p, L);
+      if (stillThere && !monGone && !(isMonD(d) && onField(L.c) && negd(g, L.c) && L.eff.loc !== 'gy' && L.eff.loc !== 'hand')) { const prevR = g.resolvingL; g.resolvingL = L; yield* L.eff.res(g, L.c, L.p, L); g.resolvingL = prevR; yield* askPositions(g); }
     }
     if (L.eff.type === 'act' && onField(L.c) && L.c.zone === 'st' && !['Continuous', 'Equip', 'Field'].includes(D(L.c).sub) && !L.keep) move(g, L.c, 'gy', { reason: 'rule' });
     if (L.eff.type === 'act' && onField(L.c) && D(L.c).sub === 'Equip' && !L.c.equipTo && !L.c.linkTo) move(g, L.c, 'gy', { reason: 'rule' });
@@ -639,11 +679,12 @@ function idleOpts(g) {
   const nsLeft = g.ns[p] < 1 || g.frogNS[p];
   if (!g.noSummon[p]) for (const c of P.hand) {
     if (!isMon(c)) continue;
-    if (canNormal(c) && (g.ns[p] < 1 || (g.frogNS[p] && isFrog(c) && !['Swap Frog', 'Frog the Jam'].includes(D(c).n)))) {
+    const nsOk = canNormal(c, 'ns', g, p), setOk = canNormal(c, 'set', g, p);
+    if ((nsOk || setOk) && (g.ns[p] < 1 || (g.frogNS[p] && isFrog(c) && !['Swap Frog', 'Frog the Jam'].includes(D(c).n)))) {
       const alts = tribNeed(g, p, c), cands = tributeCands(g, p);
       if (alts.some(n => cands.length >= n && (n > 0 || freeM(g, p) >= 0))) {
-        if (!forbid(g, { type: 'ns', c, p })) out.push({ key: 'ns:' + c.u, u: c.u, kind: 'ns', label: Math.min(...alts.filter(n => cands.length >= n)) ? 'Tribute Summon' : 'Normal Summon' });
-        if (!forbid(g, { type: 'set', c, p })) out.push({ key: 'set:' + c.u, u: c.u, kind: 'set', label: 'Set face-down' });
+        if (nsOk && !forbid(g, { type: 'ns', c, p })) out.push({ key: 'ns:' + c.u, u: c.u, kind: 'ns', label: Math.min(...alts.filter(n => cands.length >= n)) ? 'Tribute Summon' : 'Normal Summon' });
+        if (setOk && !forbid(g, { type: 'set', c, p })) out.push({ key: 'set:' + c.u, u: c.u, kind: 'set', label: 'Set face-down' });
       }
     }
     const sc = SC(c);
@@ -686,7 +727,7 @@ function* doIdle(g, k) {
   const find = u => [...P.hand, ...P.extra, ...monsOf(g, p), ...stOf(g, p), ...P.gy, ...P.ban, ...fieldOf(g, 1 - p)].find(c => c.u === u);
   const c = find(u);
   if (kind === 'ns' || kind === 'set') return yield* normalSummon(g, p, c, kind === 'set');
-  if (kind === 'sp') { const pr = SC(c).proc; return yield* specialProc(g, p, c, pr.how || 'special', pr.cost ? (grp) => pr.cost(g, c, p, grp) : null, pr.pos || 'atk'); }
+  if (kind === 'sp') { const pr = SC(c).proc; let pos = pr.pos || 'atk'; if (!pr.pos && g.cfg.askPos) pos = (yield* choose(g, p, `${name(c)}: which position?`, ['Attack Position', 'Defense Position'])) ? 'def' : 'atk'; return yield* specialProc(g, p, c, pr.how || 'special', pr.cost ? (grp) => pr.cost(g, c, p, grp) : null, pos); }
   if (kind === 'syn') {
     const cs = synCombos(g, p, c); let mats = cs[0];
     if (cs.length > 1) { const i = yield* choose(g, p, `Synchro Summon ${name(c)} with which monsters?`, cs.map(m => m.map(name).join(' + '))); mats = cs[i]; }
@@ -695,7 +736,8 @@ function* doIdle(g, k) {
   }
   if (kind === 'cf') {
     const mats = cfCombos(g, p, c)[0];
-    return yield* specialProc(g, p, c, 'fusion', function* (grp) { for (const m of mats) move(g, m, 'gy', { reason: 'fusion', by: p, group: grp }); if (D(c).n === 'Chimeratech Fortress Dragon') c.flags.baseAtk = 1000 * mats.length; });
+    const pos = g.cfg.askPos && (yield* choose(g, p, `${name(c)}: which position?`, ['Attack Position', 'Defense Position'])) ? 'def' : 'atk';
+    return yield* specialProc(g, p, c, 'fusion', function* (grp) { for (const m of mats) move(g, m, 'gy', { reason: 'fusion', by: p, group: grp }); if (D(c).n === 'Chimeratech Fortress Dragon') c.flags.baseAtk = 1000 * mats.length; }, pos);
   }
   if (kind === 'flip') {
     const group = g.group; c.pos = 'atk'; c.posChanged = true; log(g, `${PN(g, p)} Flip Summoned ${name(c)}.`);
@@ -710,9 +752,10 @@ function* doIdle(g, k) {
     g.sw = { cs: [c], p, how: 'gemini', group: ev.group }; return yield* afterAction(g);
   }
   if (kind === 'pos') { c.pos = c.pos === 'atk' ? 'def' : 'atk'; c.posChanged = true; log(g, `${PN(g, p)} changed ${name(c)} to ${c.pos === 'atk' ? 'Attack' : 'Defense'} Position.`); emit(g, { type: 'pos', c, p }); yield* processTriggers(g); return; }
-  if (kind === 'setst') { if (D(c).sub === 'Field') { if (P.fz) move(g, P.fz, 'gy', { reason: 'rule' }); move(g, c, 'fz', { ctrl: p, pos: 'set', reason: 'set' }); log(g, `${PN(g, p)} Set a Field Spell.`); return; } move(g, c, 'st', { ctrl: p, pos: 'set', reason: 'set' }); log(g, `${PN(g, p)} Set a card.`); return; }
+  if (kind === 'setst') { if (D(c).sub === 'Field') { if (P.fz) destroy(g, [P.fz], { rule: true, by: p }); // replacing your Field Spell destroys it (Geartown rulings: its effect can activate when you Set over it, misses the timing when you activate over it)
+ move(g, c, 'fz', { ctrl: p, pos: 'set', reason: 'set' }); log(g, `${PN(g, p)} Set a Field Spell.`); yield* processTriggers(g); return; } move(g, c, 'st', { ctrl: p, pos: 'set', reason: 'set' }); log(g, `${PN(g, p)} Set a card.`); return; }
   if (kind === 'a') {
-    const ei = +b; const eff = SC(c).effs[ei];
+    const ei = +b; const eff = effsOf(c)[ei];
     yield* activate(g, p, c, eff, ei); yield* respondLoop(g, 1 - p); yield* resolveChain(g); yield* afterAction(g);
   }
 }
@@ -756,7 +799,7 @@ function* battlePhase(g) {
     const k = (yield* ask(g, g.tp, 'idle', 'Battle Phase', battleOpts(g)))[0];
     if (k === 'endbp') break;
     { const sw = g.sw; beginOp(g); if (k.startsWith('a:')) g.sw = sw; }
-    if (k.startsWith('a:')) { const [, u, ei] = k.split(':'); const c = [...g.p[g.tp].hand, ...allField(g), ...g.p[g.tp].gy, ...g.p[g.tp].ban].find(x => x.u === +u); yield* activate(g, g.tp, c, SC(c).effs[+ei], +ei); yield* respondLoop(g, 1 - g.tp); yield* resolveChain(g); yield* processTriggers(g); continue; }
+    if (k.startsWith('a:')) { const [, u, ei] = k.split(':'); const c = [...g.p[g.tp].hand, ...allField(g), ...g.p[g.tp].gy, ...g.p[g.tp].ban].find(x => x.u === +u); yield* activate(g, g.tp, c, effsOf(c)[+ei], +ei); yield* respondLoop(g, 1 - g.tp); yield* resolveChain(g); yield* processTriggers(g); continue; }
     const [, au, tu] = k.split(':'); const a = fieldMons(g).find(x => x.u === +au); const t = tu === 'd' ? null : fieldMons(g).find(x => x.u === +tu);
     yield* attack(g, a, t);
   }
@@ -807,9 +850,8 @@ function* damageStep(g, a, t) {
   let killA = false, killT = false, dmgTo = null, dmg = 0;
   const tDef = t && t.pos !== 'atk';
   if (!t) { dmgTo = op; dmg = A; }
-  else if (t.pos === 'atk') { const T = stat(g, t, 'atk'); if (A > T) { killT = true; dmgTo = op; dmg = A - T; } else if (A < T) { killA = true; dmgTo = tp; dmg = T - A; } else if (A > 0 || T === 0) { killA = killT = A > 0 || true; if (A === 0 && T === 0) killA = killT = true; } }
+  else if (t.pos === 'atk') { const T = stat(g, t, 'atk'); if (A > T) { killT = true; dmgTo = op; dmg = A - T; } else if (A < T) { killA = true; dmgTo = tp; dmg = T - A; } else if (A > 0) { killA = killT = true; } }   // equal ATK: both destroyed, but two 0 ATK monsters both survive (2026-11-26)
   else { const Dv = stat(g, t, 'def'); if (A > Dv) { killT = true; if (pierce(a)) { dmgTo = op; dmg = A - Dv; } } else if (A < Dv) { dmgTo = tp; dmg = Dv - A; } }
-  if (t && t.pos === 'atk' && A === stat(g, t, 'atk') && A === 0) { killA = killT = true; }
   if (dmgTo != null && noDmg(dmgTo, a, t)) dmg = 0;
   if (dmg > 0) damage(g, dmgTo, dmg, { battle: true, src: dmgTo === op ? a : t, srcP: 1 - dmgTo, direct: !t });
   const victims = [];
@@ -1140,9 +1182,9 @@ SCRIPTS['Cyber Dragon'] = { proc: { cond: (g, c, p) => monsOf(g, p).length === 0
 SCRIPTS['Blackwing - Bora the Spear'].effs = SCRIPTS['Blackwing - Bora the Spear'].effs || [];
 
 /* ---------- helpers for card scripts (also used by js/cards/*.js) ---------- */
-function equip(g, eq, target) { if (!onField(eq) || !onField(target)) return false; eq.equipTo = target.u; log(g, `${name(eq)} was equipped to ${name(target)}.`); return true; }
+function equip(g, eq, target) { if (!onField(eq) || !onField(target)) return false; eq.equipTo = target.u; emit(g, { type: 'equip', c: eq, t: target }); /* an event: refreshes the cached lasting effects and lets equip triggers (Gearfried) fire at once (2026-11-26) */ log(g, `${name(eq)} was equipped to ${name(target)}.`); return true; }
 const equippedTo = (g, eq) => eq.equipTo ? fieldMons(g).find(x => x.u === eq.equipTo) || null : null;
-function link(g, st, m) { st.linkTo = m.u; }
+function link(g, st, m) { st.linkTo = m.u; g.seq++; }
 function addCtr(g, c, kind, n = 1) { c.ctr = c.ctr || {}; c.ctr[kind] = Math.max(0, (c.ctr[kind] || 0) + n); }
 const ctr = (c, kind) => (c.ctr && c.ctr[kind]) || 0;
 function negateAttack(g) { g.attackNegated = true; }
@@ -1226,6 +1268,7 @@ E.lib = {
   winDuel, coin, dice, isBW, isFrog, isHERO, isEHERO, isGemini, evSummoned, fromFieldToGY, battleKill, oppFaceUp, stOnField, spellTrapAct, live, opp, tributeCands, synCombos,
 };
 E.lib.tgt = tgt;
+E.lib.effsOf = effsOf;   // a card's effects, copied ones included (set c.flags.copyEffs = name to copy a monster's effects)
 E.addScripts = (obj, format) => { const into = format && format !== 'edison' ? (FSCRIPTS[format] || (FSCRIPTS[format] = {})) : SCRIPTS; for (const k in obj) into[k] = obj[k]; };
 E.format = () => FMT;
 E.cards = () => CARDLIST;   // the card list E.init loaded (the computer re-inits with it plus its stand-ins)

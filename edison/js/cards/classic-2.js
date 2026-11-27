@@ -185,10 +185,10 @@ E.addScripts({
   'Wall Shadow': { cont: nomiLock, effs: [nomiMark] },
   'White Magical Hat': { effs: [{ type: 'trig', mand: true, label: 'Random discard', on: (g, ev, c) => ev.type === 'damage' && ev.battle && ev.src === c && ev.p !== c.ctrl,
     res: function* (g, c, p) { const h = g.p[opp(p)].hand; if (!h.length) return; const x = h[Math.floor(g.rnd() * h.length)]; move(g, x, 'gy', { reason: 'discard', by: p }); log(g, `${PN(g, opp(p))} discarded ${name(x)} at random.`); } }] },
-  'Witch of the Black Forest': { effs: [{ type: 'trig', opt: true, mand: true, label: 'Add a monster with 1500 or less DEF', on: (g, ev, c) => ev.type === 'move' && ev.c === c && ev.wasField && ev.to === 'gy',
+  // Original 2005 text: no once-per-turn and no lock on the added card's name (both added by later errata).
+  'Witch of the Black Forest': { effs: [{ type: 'trig', mand: true, label: 'Add a monster with 1500 or less DEF', on: (g, ev, c) => ev.type === 'move' && ev.c === c && ev.wasField && ev.to === 'gy',
     loc: 'gy', cond: (g, c, p) => !forbid(g, { type: 'search', p }),
-    res: function* (g, c, p) { const x = yield* search(g, p, m => isMon(m) && num(D(m).def) <= 1500 && D(m).def !== '?', 'Add which monster with 1500 or less DEF?');
-      if (x) { const n = D(x).n; addRule(g, (g2, a) => a.type === 'activate' && a.p === p && D(a.c).n === n, { end: g.turnNo }); } } }] },
+    res: function* (g, c, p) { yield* search(g, p, m => isMon(m) && num(D(m).def) <= 1500 && D(m).def !== '?', 'Add which monster with 1500 or less DEF?'); } }] },
   'Berfomet': { effs: [{ type: 'trig', when: true, label: 'Add Gazelle', on: (g, ev, c) => ev.type === 'summon' && ev.cs.includes(c) && ['normal', 'tribute', 'flip'].includes(ev.how),
     cond: (g, c, p) => g.p[p].deck.some(x => named(x, 'Gazelle the King of Mythical Beasts')),
     res: function* (g, c, p) { yield* search(g, p, x => named(x, 'Gazelle the King of Mythical Beasts'), 'Add Gazelle the King of Mythical Beasts'); } }] },

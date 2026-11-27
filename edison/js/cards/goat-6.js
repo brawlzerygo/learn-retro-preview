@@ -88,8 +88,9 @@ E.addScripts({
     res: function* () {} }] },
 
   /* ----- Warrior Control ----- */
-  // 2005: "If this face-up card is removed from play, Special Summon it during the End Phase of this turn." Once per turn.
-  'D.D. Survivor': { effs: [{ type: 'trig', loc: 'ban', mand: true, opt: true, tags: { ss: 1 }, label: 'Return from banishment',
+  // 2005: "If this face-up card is removed from play, Special Summon it during the End Phase of this turn."
+  // Original 2005 text: no once-per-turn (the Edison PSCT's "once per End Phase" stays in full-04.js).
+  'D.D. Survivor': { effs: [{ type: 'trig', loc: 'ban', mand: true, tags: { ss: 1 }, label: 'Return from banishment',
     on: (g, ev, c) => {
       if (ev.type === 'move' && ev.c === c && ev.to === 'ban' && ev.wasField && ev.snap && ev.snap.faceUp && ev.prevCtrl === c.owner) c.flags.ddsurv = g.turnNo;
       return ev.type === 'phase' && ev.ph === 'end' && c.flags.ddsurv === g.turnNo;

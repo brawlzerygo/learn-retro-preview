@@ -17,6 +17,7 @@ const umiUp = g => allField(g).some(x => faceUp(x) && UMIS.includes(D(x).n));
 const toDef = (g, c) => { if (!onField(c) || c.zone !== 'm' || c.pos !== 'atk') return; c.pos = 'def'; g.seq++; log(g, `${name(c)} was changed to Defense Position.`); };
 const toAtk = (g, c) => { if (!onField(c) || c.zone !== 'm' || c.pos === 'atk') return; c.pos = 'atk'; g.seq++; log(g, `${name(c)} was changed to Attack Position.`); };
 const mainPhase = g => g.phase === 'main1' || g.phase === 'main2';
+const spellImmune = (g, c) => { const sc = (E.format() !== 'edison' && E.SCRIPTS[D(c).n]) || E.SCRIPTS[D(c).n]; const f = sc && sc.self && sc.self.unaffectedSpells; try { return !!(typeof f === 'function' ? f(g, c) : f); } catch (e) { return false; } };
 const burnText = c => { const t = tx(c).replace(/[^.]*battle damage[^.]*\.?/gi, ''); return /inflict[^.]*damage|damage to (both|each|your)|takes? [^.]*damage/i.test(t); };
 
 /* A Trap that answers a moment with no response window in the engine (a battle destruction, a Set):
@@ -158,23 +159,30 @@ E.addScripts({
   'Collected Power': { effs: [{ type: 'act', cond: g => fieldMons(g).some(faceUp) && allField(g).some(x => x.zone === 'st' && x.equipTo),
     target: function* (g, c, p, L2) { yield* tgt(g, p, L2, 'Equip all Equip Cards to which face-up monster?', fieldMons(g).filter(faceUp), 1, 1, 'good'); },
     res: function* (g, c, p, L2) { const t = live(L2)[0]; if (!t || !faceUp(t)) return; const eqs = allField(g).filter(x => x.zone === 'st' && x.equipTo && x.equipTo !== t.u); for (const x of eqs) x.equipTo = t.u; g.seq++; if (eqs.length) log(g, `${eqs.map(name).join(', ')} ${eqs.length > 1 ? 'were' : 'was'} equipped to ${name(t)}.`); } }] },
-  // "No damage until the end of the next turn" is kept on the game and read from this card in the GY.
-  // PARTIAL: it ends early if this card leaves the GY.
-  'Crush Card Virus': { cont: { loc: 'gy', dmg: (g, src, p, n) => g.ccv && g.ccv.p === p && g.turnNo <= g.ccv.until ? 0 : n },
-    effs: [{ type: 'act', tags: { destroy: 1 },
+  // Original 2005 text: "Tribute 1 DARK monster with an ATK of 1000 or less. Check your opponent's monsters on the field and
+  // the cards in their hand, and destroy all monsters with 1500 or more ATK. Your opponent checks all cards they draw for
+  // 3 turns (your opponent's turns), and destroys any monster with 1500 or more ATK." The modern rewrite (no damage until
+  // the next turn, destroy up to 3 from the Deck) came later. If it is activated in the opponent's turn, that turn counts.
+  // PARTIAL: the draw check runs as the card is drawn, without a chain link.
+  'Crush Card Virus': { effs: [{ type: 'act', tags: { destroy: 1 },
       cond: (g, c, p) => monsOf(g, p).some(m => attr(m) === 'DARK' && stat(g, m, 'atk') <= 1000),
       cost: function* (g, c, p) { const [m] = yield* pick(g, p, 'Tribute a DARK monster with 1000 or less ATK', monsOf(g, p).filter(m => attr(m) === 'DARK' && stat(g, m, 'atk') <= 1000), 1, 1, 'cost'); if (m) { move(g, m, 'gy', { reason: 'cost', by: p }); log(g, `${PN(g, p)} Tributed ${D(m).n}.`); } },
       res: function* (g, c, p) {
-        const o = opp(p); g.ccv = { p: o, until: g.turnNo + 1 }; log(g, `${PN(g, o)} takes no damage until the end of the next turn.`);
+        const o = opp(p);
         const h = g.p[o].hand; log(g, `${PN(g, p)} looked at ${PN(g, o)}'s hand: ${h.length ? h.map(x => D(x).n).join(', ') : 'empty'}.`);
         destroy(g, monsOf(g, o).filter(m => stat(g, m, 'atk') >= 1500), { by: p, src: c });
         const hx = h.filter(x => isMon(x) && baseAtk(x) >= 1500);
         for (const x of hx) move(g, x, 'gy', { reason: 'effect', destroyed: true, by: p });
         if (hx.length) log(g, `${hx.map(x => D(x).n).join(', ')} ${hx.length > 1 ? 'were' : 'was'} destroyed in the hand.`);
-        const dk = g.p[o].deck.filter(x => isMon(x) && baseAtk(x) >= 1500);
-        if (dk.length) { const xs = yield* pick(g, o, 'Destroy up to 3 monsters with 1500 or more ATK in your Deck?', dk, 0, 3, 'cost');
-          for (const x of xs) move(g, x, 'gy', { reason: 'effect', destroyed: true, by: o });
-          if (xs.length) log(g, `${PN(g, o)} destroyed ${xs.map(x => D(x).n).join(', ')} in the Deck.`); shuffleDeck(g, o); } } }] },
+        (g.ccvDraw || (g.ccvDraw = [])).push({ src: c.u, p: o, by: p, until: g.turnNo + (g.tp === o ? 4 : 5) });
+        log(g, `${PN(g, o)}'s draws are checked for the next 3 of their turns.`); } },
+    { type: 'trig', loc: 'any', res: function* () {}, on: (g, ev, c) => {
+      if (ev.type !== 'move' || ev.reason !== 'draw' || ev.to !== 'hand' || ev.ccvSeen || !g.ccvDraw) return false;
+      const e = g.ccvDraw.find(x => x.src === c.u && x.p === ev.c.owner && g.tp === x.p && g.turnNo <= x.until);
+      if (!e || ev.c.zone !== 'hand') return false; ev.ccvSeen = true; const x = ev.c;
+      if (isMon(x) && baseAtk(x) >= 1500) { move(g, x, 'gy', { reason: 'effect', destroyed: true, by: e.by }); log(g, `${PN(g, e.p)} drew ${D(x).n}, and Crush Card Virus destroyed it.`); }
+      else log(g, `${PN(g, e.p)} drew ${D(x).n} and showed it to Crush Card Virus.`);
+      return false; } }] },
   'Dark Renewal': { effs: [{ type: 'act', tags: { ss: 1 },
     cond: (g, c, p) => !!(g.sw && g.sw.p !== p && g.sw.how !== 'flip' && g.sw.cs.some(x => onField(x) && x.ctrl !== p)) && monsOf(g, p).some(m => faceUp(m) && race(m) === 'Spellcaster'),
     target: function* (g, c, p, L2) {
@@ -205,8 +213,9 @@ E.addScripts({
     target: function* (g, c, p, L2) { yield* tgt(g, p, L2, 'Target which of your face-up monsters?', monsOf(g, p).filter(faceUp), 1, 1, 'good'); },
     res: function* (g, c, p, L2) { const t = live(L2)[0]; if (!t || !faceUp(t)) return; const n = 200 * g.p[opp(p)].hand.length; if (!n) return; addMod(g, t, { atk: n, def: n, end: true }); log(g, `${name(t)} gained ${n} ATK and DEF.`); } }] },
   'Exchange of the Spirit': { effs: [{ type: 'act',
-    cond: (g, c, p) => !(g.exSpirit && g.exSpirit[p]) && g.p[0].gy.length >= 15 && g.p[1].gy.length >= 15 && g.p[p].lp > 1000,
-    cost: function* (g, c, p) { pay(g, p, 1000); (g.exSpirit || (g.exSpirit = [false, false]))[p] = true; },
+    // Original 2005 text: no once-per-Duel limit (added by later errata).
+    cond: (g, c, p) => g.p[0].gy.length >= 15 && g.p[1].gy.length >= 15 && g.p[p].lp > 1000,
+    cost: function* (g, c, p) { pay(g, p, 1000); },
     res: function* (g) {
       for (const q of [0, 1]) { const P = g.p[q]; const d = P.deck, gy = P.gy; P.deck = gy; P.gy = d; for (const x of P.deck) x.zone = 'deck'; for (const x of P.gy) x.zone = 'gy'; shuffleDeck(g, q); }
       g.seq++; log(g, 'Both players swapped their Graveyard and Deck.'); } }] },
@@ -324,7 +333,8 @@ E.addScripts({
   'Vengeful Bog Spirit': { effs: [{ type: 'act', res: function* () {} }],
     cont: { forbid: (g, src, a) => a.type === 'attack' && a.c && (a.c.turnIn === g.turnNo && a.c.summonType || g.events.some(e => e.type === 'summon' && e.turn === g.turnNo && e.cs.includes(a.c))) } },
   'Umi': { effs: [{ type: 'act', res: function* () {} }],
-    cont: { atk: (g, src, c) => umiMod(c), def: (g, src, c) => umiMod(c) } },
+    // a monster unaffected by Spells (Torpedo Fish under Umi) gets no Umi bonus; reads its own flag only, so stats can't loop
+    cont: { atk: (g, src, c) => spellImmune(g, c) ? 0 : umiMod(c), def: (g, src, c) => spellImmune(g, c) ? 0 : umiMod(c) } },
   'Thousand Knives': { effs: [{ type: 'act', tags: { destroy: 1 },
     cond: (g, c, p) => monsOf(g, p).some(m => faceUp(m) && named(m, 'Dark Magician')) && monsOf(g, opp(p)).length > 0,
     target: function* (g, c, p, L2) { yield* tgt(g, p, L2, 'Destroy which monster?', monsOf(g, opp(p)), 1, 1, 'bad'); },

@@ -85,8 +85,22 @@ function evaluate(g, me) {
   // board pressure: their strongest face-up attacker against my best
   const best = p => Math.max(0, ...g.p[p].m.filter(c => c && c.pos === 'atk').map(c => E().atk(g, c)));
   s += (best(me) - best(1 - me)) * 0.2;
+  s -= exposure(g, me);
   if (goat()) s += goatTerms(g, me);
   return s;
+}
+/* Exposure (2026-11-27): the lookahead never plays their turn, so an open field cost nothing and the computer kept
+ Magician of Faith or a Thunder Dragon in hand with Breaker staring at an empty board (a monster is worth less on the
+ field than in the hand, so Setting one only ever looked like a loss). This is the damage their face-up attackers can
+ deal me next turn past my blockers (each of my monsters stops one attack, their strongest get through), with an extra
+ cost when it is lethal. Only my own exposure counts: theirs is what my Battle Phase is for. */
+let EXPOSE = 0;
+function exposure(g, me) {
+  if (!EXPOSE || g.winner != null) return 0;
+  const their = g.p[1 - me].m.filter(c => c && c.pos === 'atk').map(c => E().atk(g, c)).filter(a => a > 0).sort((a, b) => b - a);
+  const free = their.length - g.p[me].m.filter(Boolean).length; if (free <= 0) return 0;
+  const lp = g.p[me].lp; let dmg = 0; for (let i = 0; i < free; i++) dmg += their[i];
+  return EXPOSE * (Math.min(dmg, lp) * 0.3 + (dmg >= lp ? 1500 : 0));
 }
 /* Goat extras (2026-11-24), each a lesson from the site's Goat course:
  - Chaos fuel: with Black Luster Soldier or Chaos Sorcerer still to come, a LIGHT and a DARK monster in the Graveyard
@@ -139,28 +153,82 @@ function hide(h, me) {
 function play(g, me, seq) { const h = E().clone(g); hide(h, me); for (const k of seq) E().act(h, k); return h; }
 let DREW = false; // set when a line drew or searched from my Deck (only then do more guesses at my Deck order matter)
 let DEADLINE = Infinity; // past it, lines are no longer looked at deeper (a time limit per decision)
+/* My own response windows inside a line (2026-11-27). Until then a line stopped at my first response window and was
+ scored there, so an attack was scored before its damage whenever I held a quick effect or a Trap I could chain (Kalut
+ in hand, a Set Solemn Judgment), and the computer skipped direct attacks, even lethal ones. Now a line passes in my
+ windows and plays on to the next free action. (Trying each of my responses there as well was tested: it found little
+ the real decision at that window doesn't, and it doubled the thinking time.) */
+let QUIESCE = false; // score every line at the end of the turn (finishTurn; Advanced and Tournament)
 function sim(g, me, keys, depth, pre = [], width = 14, width2 = width) {
   let h; if (TRAPPLAN) TRAPPLAN.sprung = false;
-  try { h = play(g, me, [...pre, keys]); rollout(h, me); } catch (e) { return -1e6; }
+  try { h = play(g, me, [...pre, keys]); trapGone(h, me); rollout(h, me, true); trapGone(h, me); } catch (e) { return -1e6; }
+  const mine = h.prompt && h.prompt.p === me && h.prompt.type === 'idle' && h.tp === me && h.turnNo === g.turnNo;
+  const line = mine ? h.history.slice(g.history.length) : null, opts = mine && depth > 0 ? candidates(h, h.prompt).filter(k => k[0] !== 'end').slice(0, width) : [];
+  let v;
+  if (QUIESCE && mine) v = finishTurn(h, me); // h is used up here
+  else {
+    v = evaluate(h, me);
+    // a line that ends my turn is scored after their draw, the others before it; give that draw back so ending the
+    // turn is compared fairly with doing something (otherwise it Sets or summons anything rather than pass the turn).
+    // Goat since 2026-11-24, Edison too since 2026-11-27.
+    if (h.turnNo > g.turnNo && h.tp !== me && g.tp === me) v += 750;
+  }
   if (h.p[me].deck.length !== g.p[me].deck.length) DREW = true;
-  let v = evaluate(h, me);
-  // Goat: a line that ends my turn is scored after their draw, the others before it; give that draw back so ending the
-  // turn is compared fairly with doing something (otherwise it Sets or summons anything rather than pass the turn)
-  if (goat() && h.turnNo > g.turnNo && h.tp !== me && g.tp === me) v += 750;
-  if (depth > 0 && Date.now() < DEADLINE && h.prompt && h.prompt.p === me && h.prompt.type === 'idle' && h.turnNo === g.turnNo) {
-    const line = h.history.slice(g.history.length);
+  if (TRAPPLAN && !TRAPPLAN.sprung) v -= trapLive(h, me);
+  if (depth > 0 && Date.now() < DEADLINE && mine) {
     // follow-ups: every action except ending the turn (stopping here is already the value v)
-    const opts = candidates(h, h.prompt).filter(k => k[0] !== 'end').slice(0, width); let best = -Infinity;
+    let best = -Infinity;
     for (const k of opts) best = Math.max(best, sim(g, me, k, depth - 1, line, width2, width2));
     if (best > v) v = best;
   }
   return v;
 }
-function rollout(h, me) { // play forward until the next free action or a real choice for `me`
+/* Finishing the turn (2026-11-27, Advanced and Tournament). A line used to be scored wherever the lookahead stopped:
+ a summon in Main Phase 1 counted as a body on the field and never as the damage it deals this turn, and only the
+ lines that ended the turn saw End Phase effects (Judgment Dragon's mill, Return from the Different Dimension's
+ monsters leaving, a stolen monster going back, the hand limit). So the computer skipped attacks into an open field,
+ and its choices swung on luck in the End Phase. Now every line is scored at the same point: from where it stops, the
+ rest of the Battle Phase is played the plain way (greedyBattle), the turn is ended, and the position is scored once
+ the opponent reaches their Main Phase, as a line that ends the turn always was. */
+function finishTurn(h, me) {
+  try {
+    greedyBattle(h, me);
+    if (h.prompt && h.prompt.p === me && h.prompt.type === 'idle' && h.tp === me && (h.phase === 'main1' || h.phase === 'main2')) { E().act(h, ['end']); rollout(h, me, true); trapGone(h, me); }
+    return evaluate(h, me) + (h.tp !== me ? 750 : 0);
+  } catch (e) { return -1e6; }
+}
+/* The rest of my Battle Phase, played the plain way on the line's own copy: direct attacks first, then attacks that
+ win their battle (the most valuable target first), a face-down monster only with 1800 or more ATK. */
+// whether the guessed Trap has left its zone (sprung earlier in the line, which a replay doesn't flag)
+function trapGone(h, me) { if (!TRAPPLAN || TRAPPLAN.sprung) return; const c = h.p[1 - me].st[TRAPPLAN.zone]; if (!(c && c.u === TRAPPLAN.u && c.pos === 'set')) TRAPPLAN.sprung = true; }
+function greedyBattle(h, me) {
+  try {
+    for (let n = 0; n < 12 && h.prompt && h.prompt.p === me && h.prompt.type === 'idle' && h.tp === me; n++) {
+      const pr = h.prompt;
+      if (h.phase === 'main1') { if (!pr.opts.some(o => o.key === 'bp')) break; E().act(h, ['bp']); rollout(h, me, true); continue; }
+      if (h.phase !== 'battle') break;
+      let best = null, bv = -Infinity;
+      for (const o of pr.opts) {
+        if (o.kind !== 'atk') continue;
+        const a = findCard(h, o.u); if (!a) continue; const A = E().atk(h, a);
+        let s;
+        if (o.t == null) s = 1e5 + A;
+        else { const t = findCard(h, o.t); if (!t) continue;
+          if (t.pos === 'set') { if (A < 1800) continue; s = A - 1200; }
+          else { const T = t.pos === 'atk' ? E().atk(h, t) : E().def(h, t); if (A <= T) continue; s = 5e4 + cardValue(h, t, true); } }
+        if (s > bv) { bv = s; best = o.key; }
+      }
+      E().act(h, [best || 'endbp']); rollout(h, me, true);
+      if (!best) break;
+    }
+    return evaluate(h, me);
+  } catch (e) { return -Infinity; }
+}
+function rollout(h, me, autoPass) { // play forward until the next free action or a real choice for `me`
   for (let n = 0; n < 60 && h.prompt; n++) {
     const pr = h.prompt;
     if (pr.type === 'idle') return;
-    if (pr.p === me && pr.type === 'respond' && !(TRAPPLAN && TRAPPLAN.sprung)) return;
+    if (!autoPass && pr.p === me && pr.type === 'respond' && !(TRAPPLAN && TRAPPLAN.sprung)) return;
     E().act(h, TRAPPLAN && pr.type === 'respond' && pr.p !== me ? trapAnswer(h, pr, me) : defaultAnswer(h, pr));
   }
 }
@@ -171,11 +239,21 @@ function rollout(h, me) { // play forward until the next free action or a real c
  from the format's card pool, never from the real cards. */
 const TRAP_GUESS = { goat: { q: 0.3, cards: [['Mirror Force', 0.35], ['Sakuretsu Armor', 0.35], ['Torrential Tribute', 0.3]] } }; // Goat only (an Edison list tested no better)
 let TRAPPLAN = null; const TRAP_IDS = {};
+/* A guessed Trap that a line didn't spring is still there for my next attack: it costs about half of the monster it would
+ take (my best face-up one). At 300 flat the computer stopped attacking directly with Chaos Sorcerer into two Set cards. */
+function trapLive(h, me) { let top = 0; for (const c of h.p[me].m) if (c && c.pos !== 'set') top = Math.max(top, cardValue(h, c, true)); return 150 + top * 0.5; }
 function trapId(n) { const k = (E().format ? E().format() : 'edison') + ':' + n; if (!(k in TRAP_IDS)) { const c = (E().cards ? E().cards() : []).find(x => x.n === n); TRAP_IDS[k] = c ? c.id : null; } return TRAP_IDS[k]; }
 function trapAnswer(h, pr, me) {
   for (const o of pr.opts) {
     if (!o.u || !TRAPPLAN || o.u !== TRAPPLAN.u) continue;
     if (TRAPPLAN.n === 'Torrential Tribute') { const mine = h.p[me].m.filter(Boolean).length, theirs = h.p[1 - me].m.filter(Boolean).length; if (mine < Math.max(1, theirs)) continue; }
+    // an attack Trap only on an attack that hurts them: direct, one that wins its battle, or by a monster worth the Trap
+    // (2026-11-27: springing it on anything made a 300-ATK Sinister Serpent attack into a bigger Defense monster look good, as bait)
+    if (TRAPPLAN.n !== 'Torrential Tribute' && h.aw && h.aw.a) {
+      const a = h.aw.a, t = h.aw.t, A = E().atk(h, a);
+      const wins = !t || (t.pos === 'set' ? A > 1200 : A > (t.pos === 'atk' ? E().atk(h, t) : E().def(h, t)));
+      if (!wins && cardValue(h, a, true) < 1800) continue;
+    }
     TRAPPLAN.sprung = true; return [o.key]; // from here on the line plays itself out (I don't answer their Trap)
   }
   return defaultAnswer(h, pr);
@@ -215,15 +293,18 @@ function candidates(g, pr) {
  its best few plays one move deeper (width2 follow-ups each); know: how much of the card-value table it knows (lower levels
  lean on plain ATK and DEF, so they trade a Mirror Force like any card); trapRisk: how much it discounts a board it commits
  into their Set Spells and Traps (Goat); trapSamples/trapTop: checks its best few plays against guesses at their Set cards
- (TRAP_GUESS); budget: a soft time limit in ms (the extra checks are skipped when there is no room, so a decision stays
- well under 4 s). The old names still work: easy = Beginner, normal = Intermediate, hard = Advanced, experienced = Tournament.
+ (TRAP_GUESS; trapSamples only switches the check on since 2026-11-27, when every guess is checked once); budget: a soft
+ time limit in ms (the extra checks are skipped when there is no room, so a decision stays well under 4 s). Added
+ 2026-11-27 for Advanced and Tournament after an audit of Tournament play (build/ai_audit.js): quiesce scores every line at
+ the end of the turn (finishTurn), expose counts the damage an open field lets through next turn (exposure), sanity
+ swings when the direct attacks on board are lethal. The old names still work: easy = Beginner, normal = Intermediate, hard = Advanced, experienced = Tournament.
  Goat, tier A decks, each level against the one below (2026-11-24, build/test_levels.js): Intermediate won 77% of 60 games,
  Advanced 65% of 60, Tournament 60% of 80 (and 62 to 64% in earlier runs of 60). */
 const LEVELS = {
   beginner:     { slip: 0.5, missResponse: 0.65, noise: 1000, depth: 0, width: 14, careful: 0, samples: 1, beam: 0, know: 0.3, trapRisk: 0 },
   intermediate: { slip: 0.16, missResponse: 0.35, noise: 350, depth: 0, width: 14, careful: 0.4, samples: 1, beam: 0, know: 0.65, trapRisk: 0.4 },
-  advanced:     { slip: 0.05, missResponse: 0.1, noise: 120, depth: 0, width: 6, width2: 6, careful: 1, samples: 1, beam: 3, know: 1, trapRisk: 1, budget: 600 },
-  tournament:   { slip: 0, missResponse: 0, noise: 12, depth: 1, width: 14, width2: 10, careful: 1, samples: 3, beam: 6, know: 1, trapRisk: 1, trapSamples: 2, trapTop: 4, budget: 1200 },
+  advanced:     { slip: 0.05, missResponse: 0.1, noise: 120, depth: 0, width: 6, width2: 6, careful: 1, samples: 1, beam: 3, know: 1, trapRisk: 1, budget: 600, quiesce: 1, expose: 1, sanity: 1 },
+  tournament:   { slip: 0, missResponse: 0, noise: 12, depth: 1, width: 14, width2: 10, careful: 1, samples: 3, beam: 6, know: 1, trapRisk: 1, trapSamples: 2, trapTop: 4, budget: 1200, quiesce: 1, expose: 1, sanity: 1 },
 };
 // four levels since 2026-11-24 (Zack cut Experienced); old names still work
 const ALIAS = { easy: 'beginner', normal: 'intermediate', hard: 'advanced', experienced: 'tournament' };
@@ -231,26 +312,28 @@ AI.LEVELS = Object.keys(LEVELS);
 AI._levels = LEVELS; // the level settings, for the strength tests in build/
 /* Per-format changes to a level. Edison's Advanced keeps its first settings (a full move of lookahead), which already sat
  well between Intermediate and Tournament there; Goat's Advanced looks deeper only on its best few plays. */
-const FORMAT_LEVELS = { edison: { advanced: { slip: 0.05, missResponse: 0.12, noise: 110, depth: 1, width: 10, beam: 0 } } };
+/* Edison's Tournament re-checks its best 3 plays one move deeper, not 6 (2026-11-27): scoring every line at the end of
+ the turn made each line dearer, and 3 kept the thinking time within about 1.5x of before while it still won more. */
+const FORMAT_LEVELS = { edison: { advanced: { slip: 0.05, missResponse: 0.12, noise: 110, depth: 1, width: 10, beam: 0 }, tournament: { beam: 3 } } };
 const levelOf = name => {
   const key = LEVELS[ALIAS[name] || name] ? ALIAS[name] || name : 'intermediate';
   const f = FORMAT_LEVELS[E().format ? E().format() : 'edison'], o = f && f[key];
   return o ? { ...LEVELS[key], ...o } : LEVELS[key];
 };
 /* Attack order: with their Set cards in play, attack with the weakest monster that still wins first. */
-function attackBias(g, me, keys, careful) {
+function attackBias(g, me, keys, careful, trapModel) {
   const k = keys[0]; if (!k.startsWith('atk:')) return 0;
   const [, au, tu] = k.split(':'); const a = findCard(g, +au); if (!a) return 0;
   const sets = g.p[1 - me].st.filter(c => c && c.pos === 'set').length;
   let b = 0;
-  if (sets) b -= E().atk(g, a) * 0.04 * sets * careful;
+  if (sets && !trapModel) b -= E().atk(g, a) * 0.04 * sets * careful; // not when the guesses at their Set cards already price it in (2026-11-27)
   if (tu !== 'd') { const t = findCard(g, +tu); if (t && t.pos === 'set') b -= 60 + 90 * careful; }
   return b;
 }
 /* Score every candidate the way level L sees it (no slips, no noise). Guesses at hidden cards: the first guess always;
  more guesses (samples) only for a line that drew or searched, the only lines where my Deck order changes the result. */
 function scoreAll(g, me, L, cands) {
-  KNOW = L.know != null ? L.know : 1; TRAPRISK = L.trapRisk != null ? L.trapRisk : 1;
+  KNOW = L.know != null ? L.know : 1; TRAPRISK = L.trapRisk != null ? L.trapRisk : 1; QUIESCE = !!L.quiesce; EXPOSE = L.expose || 0;
   const pr = g.prompt; const depth = pr.type === 'idle' ? L.depth : 0; const w2 = L.width2 || L.width;
   const score = (k, d) => {
     const seed0 = HIDE_SEED; DREW = false;
@@ -258,10 +341,11 @@ function scoreAll(g, me, L, cands) {
     if (DREW) for (let i = 1; i < L.samples; i++) { HIDE_SEED = (seed0 + i * 7919) >>> 0; v += sim(g, me, k, d, [], L.width, w2); n++; }
     HIDE_SEED = seed0; return v / n;
   };
+  const TGm = TRAP_GUESS[E().format ? E().format() : 'edison'], TM = !!(L.trapSamples && TGm && g.p[1 - me].st.some(c => c && c.pos === 'set'));
   const t0 = Date.now(), budget = L.budget || Infinity; DEADLINE = t0 + budget * 2;
   const room = cost => Date.now() - t0 + cost <= budget; // time left for an extra check of the best few
   const scored = cands.map(k => {
-    let v = score(k, depth) + attackBias(g, me, k, L.careful);
+    let v = score(k, depth) + attackBias(g, me, k, L.careful, TM);
     if (k[0] === 'pass') v += 5; // break ties toward keeping cards
     if (k[0] === 'end' || k[0] === 'endbp') v += 2;
     return { k, v };
@@ -270,25 +354,26 @@ function scoreAll(g, me, L, cands) {
   const per = (Date.now() - t0) / Math.max(1, cands.length);
   if (L.beam && pr.type === 'idle' && scored.length > 1 && room(per * L.beam * 4)) {
     scored.sort((a, b) => b.v - a.v);
-    for (const s of scored.slice(0, L.beam)) if (s.k[0] !== 'end') s.v = Math.max(s.v, score(s.k, depth + 1) + attackBias(g, me, s.k, L.careful) + (s.k[0] === 'endbp' ? 2 : 0));
+    for (const s of scored.slice(0, L.beam)) if (s.k[0] !== 'end') s.v = Math.max(s.v, score(s.k, depth + 1) + attackBias(g, me, s.k, L.careful, TM) + (s.k[0] === 'endbp' ? 2 : 0));
   }
   // the best few, checked again against a guess at their Set cards (TRAP_GUESS)
   const TG = TRAP_GUESS[E().format ? E().format() : 'edison'];
   const sets = []; g.p[1 - me].st.forEach((c, i) => { if (c && c.pos === 'set') sets.push({ zone: i, u: c.u }); });
-  if (L.trapSamples && TG && sets.length && pr.type === 'idle' && scored.length > 1 && room(per * (L.trapTop || 3) * L.trapSamples)) {
+  /* 2026-11-27: every guess in TRAP_GUESS is checked once, weighted by its share (it used to draw 2 guesses at random, so
+   the same attack was taken in one decision and skipped in the next: a Chaos Sorcerer stopped attacking directly into
+   two Set cards whenever both draws came up Mirror Force or Sakuretsu). In the guess where their Trap is real but a
+   line doesn't spring it, the Trap is still waiting for a later attack, so that line keeps part of its cost (trapLive). */
+  if (L.trapSamples && TG && sets.length && pr.type === 'idle' && scored.length > 1 && room(per * (L.trapTop || 3) * TG.cards.length)) {
     const w0 = Math.pow(1 - TG.q, sets.length);
     let a = (HIDE_SEED ^ 0x5bd1e995) >>> 0; const r = () => { a = (a * 1664525 + 1013904223) >>> 0; return a / 4294967296; };
     const plans = [];
-    for (let j = 0; j < L.trapSamples; j++) {
-      const st = sets[Math.floor(r() * sets.length)]; let x = r(), n = TG.cards[TG.cards.length - 1][0];
-      for (const [cn, wt] of TG.cards) { if (x < wt) { n = cn; break; } x -= wt; }
-      const id = trapId(n); if (id != null) plans.push({ ...st, n, id });
-    }
+    for (const [n, wt] of TG.cards) { const st = sets[Math.floor(r() * sets.length)]; const id = trapId(n); if (id != null) plans.push({ ...st, n, id, wt }); }
+    const wsum = plans.reduce((x, p) => x + p.wt, 0);
     if (plans.length) {
       scored.sort((a, b) => b.v - a.v);
       for (const s of scored.slice(0, L.trapTop || 3)) {
-        let t = 0; for (const pl of plans) { TRAPPLAN = { ...pl, sprung: false }; try { t += score(s.k, depth); } finally { TRAPPLAN = null; } }
-        s.v = w0 * s.v + (1 - w0) * (t / plans.length + attackBias(g, me, s.k, L.careful) + (s.k[0] === 'pass' ? 5 : 0) + (s.k[0] === 'end' || s.k[0] === 'endbp' ? 2 : 0));
+        let t = 0; for (const pl of plans) { TRAPPLAN = { ...pl, sprung: false }; try { t += pl.wt * score(s.k, depth); } finally { TRAPPLAN = null; } }
+        s.v = w0 * s.v + (1 - w0) * (t / wsum + attackBias(g, me, s.k, L.careful, TM) + (s.k[0] === 'pass' ? 5 : 0) + (s.k[0] === 'end' || s.k[0] === 'endbp' ? 2 : 0));
       }
     }
   }
@@ -311,9 +396,19 @@ AI.decide = function (g, me, level = 'intermediate') {
   if (pr.type === 'pick' && pr.opts.some(o => { const c = findCard(g, o.u); return c && c.zone === 'deck' && c.owner !== me; })) return defaultAnswer(g, pr);
   const scored = scoreAll(g, me, L, cands);
   let best = null, bestV = -Infinity;
-  for (const s of scored) { const v = s.v + (Math.random() - 0.5) * L.noise; if (v > bestV) { bestV = v; best = s.k; } }
+  for (const s of scored) { const v = s.v + (s.v > 5e6 ? 0 : (Math.random() - 0.5) * L.noise); if (v > bestV) { bestV = v; best = s.k; } } // no wobble between won lines (it chained Solemn to its own Brain Control on the way to a win)
+  if (L.sanity) best = sanity(g, me, best);
   return best || defaultAnswer(g, pr);
 };
+/* A last check on the pick (2026-11-27, Advanced and Tournament): with lethal on board in the Battle Phase (direct
+ attacks whose ATK adds up to their LP), it swings, biggest first, whatever the lookahead made of it. */
+function sanity(g, me, pick) {
+  const pr = g.prompt; if (!pick || pr.type !== 'idle' || g.tp !== me || g.phase !== 'battle' || pick[0].startsWith('atk:')) return pick;
+  const direct = pr.opts.filter(o => o.kind === 'atk' && o.t == null).map(o => ({ o, a: E().atk(g, findCard(g, o.u)) })).filter(x => x.a > 0);
+  const seen = new Set(); let dmg = 0; for (const x of direct) if (!seen.has(x.o.u)) { seen.add(x.o.u); dmg += x.a; }
+  if (!direct.length || dmg < g.p[1 - me].lp) return pick;
+  direct.sort((x, y) => y.a - x.a); return [direct[0].o.key];
+}
 /* For the game's post-match review (Learn Retro Play): every legal answer to the current prompt scored the way the
  given level scores them (no slips, no noise), and the position a line leads to, for explaining the difference.
  Keep these two signatures: play/js/worker.js uses them. */
@@ -323,6 +418,6 @@ AI.scoreMoves = function (g, me, level = 'tournament') {
   return cands.map(k => sc.find(s => s.k === k)).map(s => ({ k: s.k, v: s.v }));
 };
 AI.lineState = function (g, me, keys) { setupUnknown(); try { const h = play(g, me, [keys]); rollout(h, me); return h; } catch (e) { return null; } };
-AI.evaluate = (g, me) => { const k = KNOW, t = TRAPRISK; KNOW = 1; TRAPRISK = 1; try { return evaluate(g, me); } finally { KNOW = k; TRAPRISK = t; } };
+AI.evaluate = (g, me) => { const k = KNOW, t = TRAPRISK, x = EXPOSE; KNOW = 1; TRAPRISK = 1; EXPOSE = 1; try { return evaluate(g, me); } finally { KNOW = k; TRAPRISK = t; EXPOSE = x; } };
 root.EdisonAI = AI;
 })(typeof window !== 'undefined' ? window : globalThis);

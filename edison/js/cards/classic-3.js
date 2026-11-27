@@ -30,7 +30,7 @@ const bounceAttacker = { type: 'trig', loc: 'any', mand: true, label: 'Return th
   on: (g, ev, c) => ev.type === 'dsEnd' && ev.t === c && ev.a && ev.a.ctrl !== (onField(c) ? c.ctrl : c.owner),
   res: function* (g, c, p, L2) { const a = L2.ev.a; if (a && onField(a) && a.zone === 'm') { const n = name(a); move(g, a, 'hand', { reason: 'effect', by: p }); log(g, `${n} returned to the hand.`); } } };
 const umiOn = g => [g.p[0].fz, g.p[1].fz].some(f => f && faceUp(f) && (named(f, 'Umi') || named(f, 'A Legendary Ocean')));
-const MAGNETS = ['Alpha The Magnet Warrior', 'Beta The Magnet Warrior', 'Gamma The Magnet Warrior'];
+const MAGNETS = ['Alpha The Magnet Warrior', 'Beta The Magnet Warrior', 'Gamma the Magnet Warrior'];
 
 E.addScripts({
   'Dark Magician Girl': { self: { atk: (g, c) => 300 * [...g.p[0].gy, ...g.p[1].gy].filter(x => named(x, 'Dark Magician') || named(x, 'Magician of Black Chaos')).length } },
@@ -166,7 +166,7 @@ E.addScripts({
     { type: 'trig', mand: true, faceDownOk: true, label: 'Become an Equip Card',
       on: (g, ev, c) => ev.type === 'attack' && ev.t === c && c.pos === 'set' && ev.a.ctrl !== c.ctrl,
       res: function* (g, c, p, L2) { const a = L2.ev.a; if (c.zone !== 'm' || c.pos !== 'set' || !onField(a) || freeST(g, p) < 0) return;
-        move(g, c, 'st', { ctrl: p, pos: 'up', reason: 'equip', by: p }); c.equipTo = a.u; c.flags.negated = true;
+        move(g, c, 'st', { ctrl: p, pos: 'up', reason: 'equip', by: p }); c.equipTo = a.u; /* not flagged negated: that stopped its Standby LP gain (2026-11-26 review) */
         log(g, `Kiseitai became an Equip Card equipped to ${name(a)}.`); L.negateAttack(g); } },
     { type: 'trig', loc: 'st', mand: true, label: 'Gain half its ATK',
       on: (g, ev, c) => ev.type === 'phase' && ev.ph === 'standby' && ev.tp !== c.ctrl && !!c.equipTo && fieldMons(g).some(x => x.u === c.equipTo),
@@ -209,11 +209,15 @@ E.addScripts({
   'Maha Vailo': { self: { atk: (g, c) => 500 * allField(g).filter(x => x.zone === 'st' && x.equipTo === c.u).length } },
 
   // ENGINE: a Trap can't be activated from the hand. PARTIAL: the effect Sets 1 Trap from your hand, and it can be activated this turn.
-  'Makyura the Destructor': { effs: [{ type: 'trig', loc: 'gy', opt: true, label: 'Ready a Trap from the hand',
-    on: (g, ev, c) => fromFieldToGY(ev, c) && ev.from === 'm',
+  // Original 2005 text: "When this card is destroyed and sent to the Graveyard, you can activate Trap Cards from your hand
+  // during the turn it was destroyed." So: only when destroyed, any number of Traps, no once-per-turn (all later errata).
+  'Makyura the Destructor': { effs: [{ type: 'trig', loc: 'gy', label: 'Ready Traps from the hand',
+    on: (g, ev, c) => fromFieldToGY(ev, c) && ev.from === 'm' && !!ev.destroyed,
     cond: (g, c, p) => freeST(g, p) >= 0 && g.p[p].hand.some(isTrap),
-    res: function* (g, c, p) { if (freeST(g, p) < 0) return; const [x] = yield* pick(g, p, 'Which Trap do you want to be able to activate this turn?', g.p[p].hand.filter(isTrap), 1, 1, 'good');
-      if (!x) return; move(g, x, 'st', { ctrl: p, pos: 'set', reason: 'set' }); x.turnIn = g.turnNo - 1; log(g, `${PN(g, p)} Set a Trap from the hand. It can be activated this turn.`); } }] },
+    res: function* (g, c, p) { const n = 5 - g.p[p].st.filter(Boolean).length; if (n <= 0) return;
+      const xs = yield* pick(g, p, 'Which Traps do you want to be able to activate this turn?', g.p[p].hand.filter(isTrap), 1, Math.min(n, g.p[p].hand.filter(isTrap).length), 'good');
+      let k = 0; for (const x of xs) { if (freeST(g, p) < 0) break; move(g, x, 'st', { ctrl: p, pos: 'set', reason: 'set' }); x.turnIn = g.turnNo - 1; k++; }
+      if (k) log(g, `${PN(g, p)} Set ${k === 1 ? 'a Trap' : k + ' Traps'} from the hand. They can be activated this turn.`); } }] },
 
   'Mudora': { self: { atk: (g, c) => 200 * g.p[c.ctrl].gy.filter(x => isMon(x) && race(x) === 'Fairy').length } },
 

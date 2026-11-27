@@ -308,8 +308,8 @@ E.addScripts({
       cond: (g, c, p) => g.p[p].gy.some(x => D(x).k === 'effect' && !isGemini(x)),
       target: function* (g, c, p, L) { yield* tgt(g, p, L, 'Banish which Effect Monster to copy?', g.p[p].gy.filter(x => D(x).k === 'effect' && !isGemini(x)), 1, 1, 'good'); },
       res: function* (g, c, p, L) { const t = L.t[0]; if (!t || t.zone !== 'gy' || !onField(c) || !faceUp(c)) return; move(g, t, 'ban', { reason: 'effect' });
-        c.flags.baseAtk = baseAtk(t); c.flags.poc = g.turnNo; c.flags.pocName = nm(t); log(g, `Phantom of Chaos copied ${nm(t)} (${baseAtk(t)} ATK) until the End Phase.`); } },
-    { type: 'trig', on: (g, ev, c) => { if (ev.type === 'phase' && ev.ph === 'end' && c.flags.poc) { delete c.flags.baseAtk; delete c.flags.poc; delete c.flags.pocName; } return false; }, res: function* () {} }] },
+        c.flags.baseAtk = baseAtk(t); c.flags.poc = g.turnNo; c.flags.pocName = nm(t); c.flags.copyEffs = D(t).n; /* its effects too (E.lib.effsOf) */ log(g, `Phantom of Chaos copied ${nm(t)} (${baseAtk(t)} ATK) until the End Phase.`); } },
+    { type: 'trig', on: (g, ev, c) => { if (ev.type === 'phase' && ev.ph === 'end' && c.flags.poc) { delete c.flags.baseAtk; delete c.flags.poc; delete c.flags.pocName; delete c.flags.copyEffs; } return false; }, res: function* () {} }] },
 
   /* ===== Quickdraw Plant ===== */
   'Night Assailant': { effs: [
